@@ -66,7 +66,9 @@ export default function Home() {
 
             /* * grid * */
             "grid",
-            "grid-rows-[2fr_3fr_auto]",
+            // "grid-cols-subgrid",
+            // "grid-rows-subgrid",
+            // "grid-rows-[2fr_3fr_auto]",
 
             "",
             "",
@@ -80,7 +82,7 @@ export default function Home() {
             /* * grid placement * */
             "col-start-2",
             "col-span-1",
-            "row-start-",
+            "row-start-1",
             "row-span-1",
             "",
             "",
