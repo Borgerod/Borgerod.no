@@ -3,6 +3,7 @@ import { ComponentBaseProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Card } from "@heroui/react";
 import { ReactNode } from "react";
+import StylizedCircle from "../design.components/StylizedCircle";
 
 interface GlassParentCardProps extends ComponentBaseProps {
   children: ReactNode;
@@ -27,16 +28,16 @@ export default function GlassParentCardCard({
     <Card
       id={id}
       className={cn(
-        "col-start-1",
-        "col-span-1",
-        "min-h-100",
-        "min-h-130",
-
         "h-full",
         "w-full",
         "overflow-visible",
         "bg-transparent",
 
+        /* * grid placement* */
+        "col-start-1",
+        "col-span-1",
+        "min-h-100",
+        "min-h-130",
         className,
         "",
         "",
@@ -52,15 +53,46 @@ export default function GlassParentCardCard({
         className={cn(
           "bg-white/20",
           "glass",
+          "-m-4",
+
+          /* * grid placement * */
           "col-start-1",
           "col-span-2",
           "row-start-1",
           "row-span-full",
-          "-m-4",
+
+          /* * grid  * */
+          "grid",
+          "grid-rows-subgrid",
+          "grid-cols-subgrid",
+          "grid-cols-2",
+          "grid-rows-3",
+
           "",
           "",
         )}
-      ></Card>
+      >
+        <StylizedCircle
+          className={cn(
+            /* * grid placement * */
+            // "col-start-1",
+            // "col-span-2",
+
+            // "row-start-2",
+            // "row-span-1",
+
+            "col-start-1",
+            "col-span-full",
+
+            "row-start-2",
+            "row-start-1",
+            "row-span-full",
+
+            "",
+            "",
+          )}
+        />
+      </Card>
       {children}
     </Card>
   );

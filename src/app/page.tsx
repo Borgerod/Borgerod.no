@@ -8,6 +8,7 @@ import SocialLinksCard from "./components/content.components/SocialLinksCard";
 import ToolCard from "./components/content.components/ListCard.tools";
 import SkillCard from "./components/content.components/ListCard.skills";
 import GlassParentCard from "./components/content.components/GlassParentCard.container";
+import StylizedCircle from "./components/design.components/StylizedCircle";
 
 export default function Home() {
   return (
@@ -23,7 +24,6 @@ export default function Home() {
         "w-full",
         "h-full",
         "gap-5",
-
         /* * grid * */
         "grid",
         "grid-cols-5",
@@ -45,7 +45,7 @@ export default function Home() {
           "grid",
           "grid-cols-2",
           "grid-rows-3",
-          "",
+
           "",
         )}
       >
@@ -64,7 +64,6 @@ export default function Home() {
 
         <StatCard
           className={cn(
-            "bg-green-100",
             /* * grid placement * */
             "col-start-2",
             "col-span-1",
@@ -74,6 +73,7 @@ export default function Home() {
             "",
           )}
         />
+
         <WorkHistoryCard
           className={cn(
             /* * grid placement * */

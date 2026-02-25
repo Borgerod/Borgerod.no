@@ -42,16 +42,88 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "col-span-1",
             "row-start-1",
             "row-span-1",
+            // "bg-amber-200",
+
+            // "rounded-full",
+
+            "w-[calc(100%-2.5rem)]",
+            "w-[calc(100%-2rem)]",
+            "w-[calc(100%-2rem)]",
+
+            "",
             "",
             "",
           )}
         >
+          {" "}
           <Image
             src="/assets/images/profilePictureSquare.png"
             alt="profile picture avatar"
             width={200}
             height={200}
-            className={cn("h-full", "w-full", "", "")}
+            className={cn(
+              // "relatve",
+              // "z-1",
+              "h-full",
+              "w-full",
+              "col-start-1",
+              "col-span-1",
+              "row-start-1",
+              "row-span-1",
+              // "bg-amber-200",
+              // "bg-transparent",
+              // "translate-y-[1rem]",
+              "justify-self-center",
+              // "w-[calc(100%-2rem)]",
+              // "w-[calc(100%-1rem)]",
+              // "-translate-y-1",
+              // "w-fit",
+              "aspect-square",
+              // "size-[calc(99%)]",
+              "rounded-b-full",
+              // "overflow-visible",
+              // "bg-amber-50/50",
+              "",
+              "",
+            )}
+          />
+          <div
+            className={cn(
+              "aspect-square",
+              "w-full",
+              "max-w-xs",
+              "overflow-hidden",
+              "rounded-b-full",
+              "overflow-hidden",
+              "rounded-full",
+              "bg-neutral-300",
+              "relative",
+              "absolute",
+              // "-10",
+              // "top-10",
+              "top-0",
+              // "bottom-3rem",
+              "translate-y-8",
+              // "translate-y-[33px]",
+              "translate-y-6",
+              "left-5rem",
+              "justify-self-center",
+              "w-[calc(100%-5rem)]",
+              "w-[calc(100%-4.5rem)]",
+              "w-[calc(100%-70px)]",
+              "h-[calc(fit-content-70px)]",
+
+              "-z-1",
+              //* * grid placement *
+              "col-start-1",
+              "col-span-1",
+              "row-start-1",
+              "row-span-1",
+              // "mask-[url(/assets/images/profilePictureSquare.png)]",
+              "",
+              "",
+              "",
+            )}
           />
         </div>
         <div

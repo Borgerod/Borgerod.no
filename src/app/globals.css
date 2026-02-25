@@ -16,6 +16,12 @@
   --text-primary: var(--foreground);
   --color-outline: var(--outline);
   --color-border: var(--border);
+
+  --color-green-base: #474e44;
+  --color-green-light: #b6c8ad;
+  --color-green-dark: #292d27;
+  --color-green-dark-2: #596255;
+  --color-green-light-2: #b6c8ad;
 }
 
 /* @media (prefers-color-scheme: dark) { */
