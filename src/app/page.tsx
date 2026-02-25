@@ -7,6 +7,7 @@ import ProjectDisplayCard from "./components/content.components/ProjectDisplayCa
 import SocialLinksCard from "./components/content.components/SocialLinksCard";
 import ToolCard from "./components/content.components/ListCard.tools";
 import SkillCard from "./components/content.components/ListCard.skills";
+import GlassParentCard from "./components/content.components/GlassParentCard.container";
 
 export default function Home() {
   return (
@@ -31,19 +32,11 @@ export default function Home() {
         "",
       )}
     >
-      <Card
-        id="left-side"
-        className={cn(
-          "col-start-1",
-          "col-span-1",
-          "min-h-100",
-          "min-h-130",
-          "h-full",
-          "w-full",
-          "overflow-visible",
+      <GlassParentCard
+        /* NOTE: this is a special contaier that contains a glass-effect-overlay, read more in the component */
 
-          // "glass",
-          "bg-white/20",
+        id="left-side container"
+        className={cn(
           /* * grid placement * */
           "col-start-1",
           "col-span-3",
@@ -64,12 +57,6 @@ export default function Home() {
             "row-start-",
             "row-span-full",
 
-            /* * grid * */
-            "grid",
-            // "grid-cols-subgrid",
-            // "grid-rows-subgrid",
-            // "grid-rows-[2fr_3fr_auto]",
-
             "",
             "",
           )}
@@ -78,7 +65,6 @@ export default function Home() {
         <StatCard
           className={cn(
             "bg-green-100",
-
             /* * grid placement * */
             "col-start-2",
             "col-span-1",
@@ -99,7 +85,8 @@ export default function Home() {
             "",
           )}
         />
-      </Card>
+        {/* </Card> */}
+      </GlassParentCard>
       <div
         id="right-side"
         className={cn(

@@ -10,20 +10,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
   return (
     <>
       <Card
-        // IDEA have a parent, this will just overlap parent completly.
-        className={cn(
-          "glass",
-          "col-start-1",
-          "col-span-2",
-          "row-start-1",
-          "row-span-full",
-          "-m-4",
-          "",
-          "",
-        )}
-      ></Card>
-
-      <Card
         id="profile-card"
         className={cn(
           // "bg-amber-200",
