@@ -9,12 +9,7 @@ export default function StatCard({ className }: ComponentBaseProps) {
       className={cn(
         "bg-green-100",
 
-        /* * grid placement * */
-        "col-start-2",
-        "col-span-1",
-        "row-start-",
-        "row-span-1",
-        "",
+        className,
       )}
     ></Card>
   );
