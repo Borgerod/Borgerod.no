@@ -31,7 +31,8 @@
   --gray-dark: oklch(30.221% 0.00143 15.911 / 0.8);
   --gray-dark: oklch(30.221% 0.00143 15.911 / 0.75);
   /* --gray-dark: oklch(30.221% 0.00143 15.911 / 0.5); */
-  --black: oklch(16.842% 0.00002 271.152);
+  /* --black: oklch(16.842% 0.00002 271.152); */
+  --black: oklch(30.221% 0.00143 15.911 / 0.75);
 
   --green-base: #474e44;
   --green-light: #b6c8ad;
@@ -208,6 +209,8 @@ body {
   }
   .glass.glass-black {
     @apply bg-glass-black;
+    /* @apply outline-glass-light-gray;
+    @apply border-glass-gray; */
   }
   .glass.glass-green {
     @apply bg-glass-green-base;

@@ -7,7 +7,8 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
     <Card
       id="social-links"
       className={cn(
-        "bg-gray-500",
+        "bg-glass-black",
+        "glass",
 
         className,
 
