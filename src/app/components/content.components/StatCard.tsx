@@ -73,7 +73,7 @@ function getContent(): ReactNode {
         className={cn(
           //Style
           "text-xs",
-          "",
+          "font-normal",
 
           //* Grid placement
           "col-start-1",
@@ -84,14 +84,14 @@ function getContent(): ReactNode {
       </h3>
 
       <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl sm:leading-0 leading-none text-nowrap self-baseline">
+        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
           944
         </span>
         <span className="text-xs leading-none">GitHub contributions</span>
         {/* <span className="text-xs leading-3">GitHub contributions</span> */}
       </div>
       <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl sm:leading-0 leading-none text-nowrap self-baseline">
+        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
           39
         </span>
         <span className="text-xs leading-none">Repositories</span>
@@ -99,21 +99,21 @@ function getContent(): ReactNode {
       </div>
 
       <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl sm:leading-0 leading-none text-nowrap self-baseline">
+        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
           5+
         </span>
         <span className="text-xs leading-none">Years experience</span>
         {/* <span className="text-xs leading-3">Years experience</span> */}
       </div>
       <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl sm:leading-0 leading-none text-nowrap self-baseline">
+        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
           3+
         </span>
         <span className="text-xs leading-none">Years as professional</span>
         {/* <span className="text-xs leading-3">Years as professional</span> */}
       </div>
       <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl sm:leading-0 leading-none text-nowrap self-baseline">
+        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
           50
         </span>
         <span className="text-xs leading-none">Leetcode submissions</span>
@@ -121,7 +121,7 @@ function getContent(): ReactNode {
       </div>
 
       <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl sm:leading-0 leading-none text-nowrap self-baseline">
+        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
           Beats 61.7%
         </span>
         <span className="text-xs leading-none">of other participants</span>
@@ -186,8 +186,11 @@ export default function StatCard({ className }: ComponentBaseProps) {
         // "p-2",
         "bg-white/50",
         "bg-transparent",
-        "text-black/50",
-        "text-default-100!", //todo: should not be like this
+        // "text-black/50",
+        // "text-default-100!", //todo: should not be like this
+        // "text-eclipse",
+        // "text-defult-100",
+        "text-secondary",
         "font-light",
         className,
       )}

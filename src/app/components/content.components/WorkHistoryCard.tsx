@@ -11,15 +11,19 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
         "bg-green-base/80",
         "h-45",
         "w-full",
-        // "bg-linear-to-r",
         "bg-radial",
-        // "from-green-light/50",
-        // "to-green-dark/50",
-        "to-green-light/50",
-        "from-green-dark/50",
-        // "bg-radial-[at_15%_15%] from-green-light/50 to-green-dark/50 to-75%",
+        // "to-green-light/50",
+        // "from-green-dark/50",
+        "bg-green-base/20",
         "bg-radial-[at_30%_10%] from-green-light-2/50 to-green-dark-2/50 to-75%",
 
+        // "bg-glass-green-base/10",
+        // "bg-radial-[at_30%_10%] from-glass-green-light-2/80 to-glass-green-dark-2/80 to-75%",
+
+        "bg-glass-green-base",
+        "bg-radial-[at_30%_10%] from-glass-green-light-2 to-glass-green-dark-2 to-75%",
+
+        "backdrop-saturate-80!",
         className,
       )}
     ></Card>

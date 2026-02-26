@@ -8,6 +8,7 @@ export default function StylizedCircle({ className }: ComponentBaseProps) {
       className={cn(
         // "absolute",
         // "relative",
+
         "aspect-square",
         "w-full",
         "h-full",
@@ -25,11 +26,16 @@ export default function StylizedCircle({ className }: ComponentBaseProps) {
         "rounded-full",
         "justify-self-center",
         "self-center",
-        "bg-linear-to-r",
+        // "bg-linear-to-r",
+        // "bg-linear-to-br",
+        "bg-linear-to-b",
         "from-green-light",
         "to-green-dark",
+
+        "from-glass-green-light",
+        "to-glass-green-dark",
         className,
-        "",
+
         "",
       )}
     />

@@ -51,8 +51,11 @@ export default function GlassParentCardCard({
           purpose: prevents backdrop-blur issue where glass-children of glass-parents loose their glass-effects () 
         */
         className={cn(
-          "bg-white/20",
+          // "bg-white/20",
+          // "bg-transparent",
           "glass",
+          "glass-white",
+
           "-m-4",
 
           /* * grid placement * */

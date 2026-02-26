@@ -28,6 +28,7 @@ export default function Home() {
         "grid",
         "grid-cols-5",
         // "grid-rows-5",
+
         "",
         "",
       )}
@@ -45,6 +46,10 @@ export default function Home() {
           "grid",
           "grid-cols-2",
           "grid-rows-3",
+          // "bg-background/50",
+          // "bg-glass-white",
+          // "bg-glass-black",
+          // "bg-glass-white",
 
           "",
         )}

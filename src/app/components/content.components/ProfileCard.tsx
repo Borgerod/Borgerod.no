@@ -18,6 +18,10 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         id="profile-card"
         className={cn(
           "glass",
+          "glass-pure-white",
+          "glass-upper",
+          // "bg-glass-black",
+          // "glass-green",
           "gap-5",
           ////* Placement
           "-left-10",
@@ -70,7 +74,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
               cx={rectangleWidth / 2}
               cy={rectangleWidth - circleRadius}
               r={circleRadius}
-              className="fill-default"
+              className="fill-glass-gray-undertone"
             />
 
             <image
@@ -92,20 +96,34 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           )}
         >
           <h1 className="text-lg">ALEKSANDER BORGERØD</h1>
-          <h2 className="text-lg font-light">Fullstackutvikler og økonom</h2>
-          <p className="text-sm">
-            With a broad knowledge within development and business, that
+          <h2 className="text-md font-light text-green-dark">
+            Fullstackutvikler og økonom
+          </h2>
+          <br />
+          <p className="text-sm font-light">
+            With a broad knowledge within
+            <span className="font-medium text-green-dark">
+              {" "}
+              development
+            </span>{" "}
+            and
+            <span className="font-medium text-green-dark"> business</span>, that
             stretches over statistics, marketing and design; makes me the
             perfect fit for your company.
             <br />
+            <br />A{" "}
+            <span className="font-medium text-green-dark">diligent</span> worker
+            that strives for flourishing profit margins,
+            <span className="font-medium text-green-dark"> ambitious </span>
+            to climb your corporate ladder. As an aspiring family man i seek the
+            stability of a long term employment. I seek the stability of a long
+            term employment.
             <br />
-            A diligent worker that strives for flourishing profit margins,
-            ambitious to climb your corporate ladder. As an aspiring family man
-            i seek the stability of a long term employment. I seek the stability
-            of a long term employment.
             <br />
-            So, with my vigor and good solutions, I am confident that I am the
-            one you are looking for.
+            <p className="italic font-light tracking-wide text-green-dark">
+              So, with my vigor and good solutions, I am confident that I am the
+              one you are looking for.
+            </p>
           </p>
         </div>
         <div
@@ -124,14 +142,25 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "h-auto",
           )}
         >
-          <Button variant="tertiary" className="bg-foreground/50  text-white">
+          <Button
+            // size="sm"
+            // size="md"
+            size="lg"
+            // fullWidth
+            className={cn(
+              "bg-glass-gray-dark text-white text-sm font-light",
+              "px-8",
+              "",
+            )}
+          >
             Send me an Email{" "}
           </Button>
 
           <Button
+            size="lg"
             isIconOnly
             variant="tertiary"
-            className="bg-foreground/50  text-white"
+            className="aspect-square bg-glass-gray-dark text-white text-sm font-thin"
           >
             <Handset
               className="scale-x-[-1]" //scale-x-[-1] to mirror icon

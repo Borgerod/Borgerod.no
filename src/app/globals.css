@@ -6,9 +6,60 @@
   --foreground: #171717;
   --outline: #dcdcdc;
   --border: #ffffff;
+
+  --white: #f5f5f5b3;
+  --offwhite: #dddbd4cc;
+  --light-gray: #78787833; /*could maybe remove this, its very similar to gray-undertone*/
+  --gray-undertone: #61616159;
+  --gray: #2f2e2ecc;
+  --gray-dark: #2f2e2ecc;
+  --black: #0f0f0f;
+
+  --pure-white: oklch(100% 0.00011 271.152 / 0.3);
+  --white: oklch(97.015% 0.00011 271.152 / 0.702);
+  --white: oklch(97.015% 0.00011 271.152 / 0.6);
+  --white: oklch(97.015% 0.00011 271.152 / 0.55);
+  /* --offwhite: oklch(89.104% 0.00961 93.611 / 0.8); */
+  /* --offwhite: oklch(89.104% 0.00961 93.611 / 0.5); */
+  --offwhite: oklch(89.104% 0.00961 93.611 / 0.3);
+  --light-gray: oklch(57.268% 0.00007 271.152 / 0.2);
+  /*could maybe remove this, its very similar to gray-undertone */
+  --gray-undertone: oklch(49.261% 0.00006 271.152 / 0.349);
+  /* --gray: oklch(30.221% 0.00143 15.911 / 0.8); */
+  /* --gray: oklch(30.221% 0.00143 15.911 / 0.5); */
+  --gray: oklch(30.221% 0.00143 15.911 / 0.3);
+  --gray-dark: oklch(30.221% 0.00143 15.911 / 0.8);
+  --gray-dark: oklch(30.221% 0.00143 15.911 / 0.75);
+  /* --gray-dark: oklch(30.221% 0.00143 15.911 / 0.5); */
+  --black: oklch(16.842% 0.00002 271.152);
+
+  --green-base: #474e44;
+  --green-light: #b6c8ad;
+  --green-dark: #292d27;
+  --green-dark-2: #596255;
+  --green-light-2: #b6c8ad;
+
+  --translucent-green-base: oklch(41.43% 0.01861 136.295 / 0.65);
+  --translucent-green-light: oklch(81.165% 0.04197 135.181 / 0.65);
+  --translucent-green-dark: oklch(29.103% 0.01206 135.148 / 0.65);
+  --translucent-green-base: oklch(41.43% 0.01861 136.295 / 0.2);
+  --translucent-green-dark-2: oklch(48.424% 0.0232 136.041 / 0.4);
+  --translucent-green-light-2: oklch(81.165% 0.04197 135.181 / 0.4);
+  /*TODO:  this needs some proper structure */
+
+  /* --glass-white: oklch(97.015% 0.00011 271.152 / 0.702);
+  --glass-offwhite: oklch(89.104% 0.00961 93.611 / 0.8);
+  --glass-light-gray: oklch(57.268% 0.00007 271.152 / 0.2); */
+  /*could maybe remove this, its very similar to gray-undertone*/
+  /* --glass-gray-undertone: oklch(49.261% 0.00006 271.152 / 0.349);
+  --glass-gray: oklch(30.221% 0.00143 15.911 / 0.8);
+  --glass-gray-dark: oklch(30.221% 0.00143 15.911 / 0.8);
+  --glass-black: oklch(16.842% 0.00002 271.152); */
 }
 
 @theme inline {
+  --color-primary: var(--foreground);
+  --color-secondary: color-mix(in oklab, var(--foreground) 80%, white 20%);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -17,13 +68,83 @@
   --color-outline: var(--outline);
   --color-border: var(--border);
 
-  --color-green-base: #474e44;
-  --color-green-light: #b6c8ad;
-  --color-green-dark: #292d27;
-  --color-green-dark-2: #596255;
-  --color-green-light-2: #b6c8ad;
+  /* --color-green-base: var(--green-base);
+  --color-green-light: var(--green-light);
+  --color-green-dark: var(--green-dark);
+  --color-green-dark-2: var(--green-dark-2);
+  --color-green-light-2: var(--green-light-2); */
+
+  --color-glass-white: var(--white);
+  --color-glass-pure-white: var(--pure-white);
+  --color-glass-offwhite: var(--offwhite);
+  --color-glass-light-gray: var(--light-gray);
+  --color-glass-gray-undertone: var(--gray-undertone);
+  --color-glass-gray: var(--gray);
+  --color-glass-gray-dark: var(--gray-dark);
+  --color-glass-black: var(--black);
+
+  --color-green-base: var(--green-base);
+  --color-green-light: var(--green-light);
+  --color-green-dark: var(--green-dark);
+  --color-green-dark-2: var(--green-dark-2);
+  --color-green-light-2: var(--green-light-2);
+
+  /* --color-green-base: var(--green-base); */
+  --color-glass-green-base: color-mix(
+    in oklab,
+    var(--green-base) 60%,
+    transparent 40%
+  );
+  --color-glass-green-light: color-mix(
+    in oklab,
+    var(--color-green-lightse) 60%,
+    transparent 40%
+  );
+  --color-glass-green-dark: color-mix(
+    in oklab,
+    var(--color-green-darkase) 60%,
+    transparent 40%
+  );
+  --color-glass-green-dark-2: color-mix(
+    in oklab,
+    var(--color-green-dark-2e) 60%,
+    transparent 40%
+  );
+  --color-glass-green-light-2: color-mix(
+    in oklab,
+    var(--color-green-light-2) 60%,
+    transparent 40%
+  );
+  --color-glass-green-base: var(--translucent-green-base);
+  --color-glass-green-light: var(--translucent-green-light);
+  --color-glass-green-dark: var(--translucent-green-dark);
+  --color-glass-green-dark-2: var(--translucent-green-dark-2);
+  --color-glass-green-light-2: var(--translucent-green-light-2);
 }
 
+/* @theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --text-primary: var(--foreground);
+  --color-outline: var(--outline);
+  --color-border: var(--border);
+
+  --color-green-base: var(--green-base);
+  --color-green-light: var(--green-light);
+  --color-green-dark: var(--green-dark);
+  --color-green-dark-2: var(--green-dark-2);
+  --color-green-light-2: var(--green-light-2);
+
+  --color-glass-white: var(--white);
+  --color-glass-offwhite: var(--offwhite);
+  --color-glass-light-gray: var(--light-gray);
+  --color-glass-gray-undertone: var(--gray-undertone);
+  --color-glass-gray: var(--gray);
+  --color-glass-gray-dark: var(--gray-dark);
+  --color-glass-black: var(--black);
+} */
 /* @media (prefers-color-scheme: dark) { */
 @media (dark) {
   :root {
@@ -31,12 +152,20 @@
     --foreground: #ededed;
     --outline: oklch(51.379% 0.00006 271.152 / 0.15);
     --border: oklch(87.111% 0.00555 286.025 / 0.25);
+
+    --white: #f5f5f5b3;
+    --offwhite: #dddbd4cc;
+    --light-gray: #78787833; /*could maybe remove this, its very similar to gray-undertone*/
+    --gray-undertone: #61616159;
+    --gray: #2f2e2ecc;
+    --gray-dark: #2f2e2ecc;
+    --black: #0f0f0f;
   }
 }
 
 body {
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: "Inter", Arial, Helvetica, sans-serif; */
   background-image: url(@public/assets/images/background.jpg);
   background-size: cover;
   background-position: center;
@@ -55,12 +184,49 @@ body {
     @apply border-border/20;
     @apply border-t-border/40;
     @apply border-l-border/40;
-    /* @apply before:bg-white/10; */
-    @apply bg-background/10;
+    /* @apply bg-glass-gray-dark; */
+    @apply bg-transparent;
+
     @apply backdrop-saturate-150;
     @apply outline-1;
     @apply outline-outline/20;
     @apply -outline-offset-1;
     @apply border;
   }
+  /* color variants */
+  .glass.glass-white {
+    @apply bg-glass-white;
+  }
+  .glass.glass-offwhite {
+    @apply bg-glass-offwhite;
+  }
+  .glass.glass-pure-white {
+    @apply bg-glass-pure-white;
+  }
+  .glass.glass-gray {
+    @apply bg-glass-gray;
+  }
+  .glass.glass-black {
+    @apply bg-glass-black;
+  }
+  .glass.glass-green {
+    @apply bg-glass-green-base;
+  }
+
+  /* placement variants */
+  .glass.glass-upper {
+    /* @apply backdrop-blur-none; */
+    /* @apply bg-white/30; */
+    @apply bg-glass-pure-white;
+    @apply backdrop-blur-md;
+    /* @apply backdrop-saturate-200; */
+    @apply backdrop-saturate-100;
+    @apply backdrop-brightness-105;
+  }
 }
+/* 
+@layer components {
+  .button {
+    @apply font-thin!;
+  }
+} */
