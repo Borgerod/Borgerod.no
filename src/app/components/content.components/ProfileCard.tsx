@@ -2,29 +2,26 @@ import Image from "next/image";
 import { ComponentBaseProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Button, Card } from "@heroui/react";
-import { FaPhone, FaPhoneAlt } from "react-icons/fa";
-import { BsFillTelephoneFill } from "react-icons/bs";
+
 import { Handset } from "@gravity-ui/icons";
 
 export default function ProfileCard({ className }: ComponentBaseProps) {
+  /* used by: profile-image-masking */
+  const circleDiameter = 60;
+  const circleRadius = Math.round(circleDiameter / 2);
+  const rectangleHeight = Math.round((circleDiameter * 2) / 3);
+  const rectangleWidth = Math.round((((circleDiameter * 16) / 9) * 2) / 3);
+
   return (
     <>
       <Card
         id="profile-card"
         className={cn(
-          // "bg-amber-200",
-          // "h-",
           "glass",
-          "relative",
+          "gap-5",
+          ////* Placement
           "-left-10",
           "w-[calc(100%+2.5rem)]", //adjusting for the left-transform
-
-          "justify-center",
-          "content-center",
-          "items-stretch",
-
-          "",
-          "",
           className,
         )}
       >
@@ -37,113 +34,65 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "rounded-b-full",
             "overflow-hidden",
             "rounded-b-full",
-            /* * grid placement * */
+
+            ////*  grid placement
             "col-start-1",
             "col-span-1",
             "row-start-1",
             "row-span-1",
-            // "bg-amber-200",
-
-            // "rounded-full",
-
-            "w-[calc(100%-2.5rem)]",
-            "w-[calc(100%-2rem)]",
-            "w-[calc(100%-2rem)]",
-
-            "",
-            "",
-            "",
           )}
         >
-          {" "}
-          <Image
-            src="/assets/images/profilePictureSquare.png"
-            alt="profile picture avatar"
-            width={200}
-            height={200}
-            className={cn(
-              // "relatve",
-              // "z-1",
-              "h-full",
-              "w-full",
-              "col-start-1",
-              "col-span-1",
-              "row-start-1",
-              "row-span-1",
-              // "bg-amber-200",
-              // "bg-transparent",
-              // "translate-y-[1rem]",
-              "justify-self-center",
-              // "w-[calc(100%-2rem)]",
-              // "w-[calc(100%-1rem)]",
-              // "-translate-y-1",
-              // "w-fit",
-              "aspect-square",
-              // "size-[calc(99%)]",
-              "rounded-b-full",
-              // "overflow-visible",
-              // "bg-amber-50/50",
-              "",
-              "",
-            )}
-          />
-          <div
-            className={cn(
-              "aspect-square",
-              "w-full",
-              "max-w-xs",
-              "overflow-hidden",
-              "rounded-b-full",
-              "overflow-hidden",
-              "rounded-full",
-              "bg-neutral-300",
-              "relative",
-              "absolute",
-              // "-10",
-              // "top-10",
-              "top-0",
-              // "bottom-3rem",
-              "translate-y-8",
-              // "translate-y-[33px]",
-              "translate-y-6",
-              "left-5rem",
-              "justify-self-center",
-              "w-[calc(100%-5rem)]",
-              "w-[calc(100%-4.5rem)]",
-              "w-[calc(100%-70px)]",
-              "h-[calc(fit-content-70px)]",
+          <svg
+            id="profile-image"
+            viewBox={`0 0 ${rectangleWidth} ${rectangleWidth}`}
+          >
+            <defs>
+              <mask id="profile-image-mask-group" className="mask-type-alpha">
+                <rect
+                  // top-part: this is the exclution layer that keeps the head peaking out
+                  x={0}
+                  y={0}
+                  width={rectangleWidth}
+                  height={rectangleHeight}
+                  fill="white"
+                />
+                <circle
+                  // bottom-part: this is the actual masking layer that masks the circle shape of the image.
+                  cx={rectangleWidth / 2}
+                  cy={rectangleWidth - circleRadius}
+                  r={circleRadius}
+                  fill="white"
+                />
+              </mask>
+            </defs>
+            <circle
+              // background: this is the background and the "visual container" of the image, that the head is peaking out of.
+              cx={rectangleWidth / 2}
+              cy={rectangleWidth - circleRadius}
+              r={circleRadius}
+              className="fill-default"
+            />
 
-              "-z-1",
-              //* * grid placement *
-              "col-start-1",
-              "col-span-1",
-              "row-start-1",
-              "row-span-1",
-              // "mask-[url(/assets/images/profilePictureSquare.png)]",
-              "",
-              "",
-              "",
-            )}
-          />
+            <image
+              href="/assets/images/profilePictureSquare.png"
+              width={rectangleWidth}
+              height={rectangleWidth}
+              mask="url(#profile-image-mask-group)"
+            />
+          </svg>
         </div>
         <div
           id="bio"
           className={cn(
-            // "bg-amber-100",
-            /* * grid placement * */
+            ////*  grid placement
             "col-start-",
             "col-span-",
             "row-start-",
             "row-span-",
-
-            "",
-            "",
           )}
         >
-          <h1 className="text-">ALEKSANDER BORGERØD</h1>
-          <h2 className="text-lg text-secondary">
-            Fullstackutvikler og økonom
-          </h2>
+          <h1 className="text-lg">ALEKSANDER BORGERØD</h1>
+          <h2 className="text-lg font-light">Fullstackutvikler og økonom</h2>
           <p className="text-sm">
             With a broad knowledge within development and business, that
             stretches over statistics, marketing and design; makes me the
@@ -152,8 +101,8 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             <br />
             A diligent worker that strives for flourishing profit margins,
             ambitious to climb your corporate ladder. As an aspiring family man
-            i seek the stability of a long term employment.
-            <br />
+            i seek the stability of a long term employment. I seek the stability
+            of a long term employment.
             <br />
             So, with my vigor and good solutions, I am confident that I am the
             one you are looking for.
@@ -162,19 +111,17 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         <div
           id="contact"
           className={cn(
-            // "bg-amber-300",
             "flex",
             "items-center",
             "justify-center",
             "gap-2",
-            /* * grid placement * */
+
+            ////*  grid placement
             "col-start-",
             "col-span-",
             "row-start-",
             "row-span-",
             "h-auto",
-            "",
-            "",
           )}
         >
           <Button variant="tertiary" className="bg-foreground/50  text-white">
@@ -186,7 +133,9 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             variant="tertiary"
             className="bg-foreground/50  text-white"
           >
-            <Handset className="scale-x-[-1]" />
+            <Handset
+              className="scale-x-[-1]" //scale-x-[-1] to mirror icon
+            />
           </Button>
         </div>
       </Card>
