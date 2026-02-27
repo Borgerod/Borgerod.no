@@ -84,6 +84,7 @@ function getContent(): ReactNode {
       </h3>
 
       <div className="grid grid-cols-subgrid gap-0 ">
+        {/* TODO: Make api's for these stats */}
         <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
           944
         </span>
@@ -114,7 +115,7 @@ function getContent(): ReactNode {
       </div>
       <div className="grid grid-cols-subgrid gap-0 ">
         <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
-          50
+          52
         </span>
         <span className="text-xs leading-none">Leetcode submissions</span>
         {/* <span className="text-xs leading-3">Leetcode submissions</span> */}
@@ -122,7 +123,8 @@ function getContent(): ReactNode {
 
       <div className="grid grid-cols-subgrid gap-0 ">
         <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
-          Beats 61.7%
+          Beats 66.07% {/* (easy only) */}
+          {/* 59.88% (all difficulties) */}
         </span>
         <span className="text-xs leading-none">of other participants</span>
         {/* <span className="text-xs leading-3">of other participants</span> */}

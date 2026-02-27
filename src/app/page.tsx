@@ -19,11 +19,17 @@ export default function Home() {
         // "w-full h-screen content-center justify-items-center",
         "",
         "",
-        "max-w-4xl",
-        "min-h-fit",
         "w-full",
         "h-full",
+        // "max-w-4xl",
+        // "max-w-7xl",
+        // "min-h-fit",
+        // "max-h-50",
+        "max-w-4/5",
+        "h-200",
+        // "max-h-fit",
         "gap-5",
+
         /* * grid * */
         "grid",
         "grid-cols-5",
@@ -107,7 +113,9 @@ export default function Home() {
 
           /* * grid * */
           "grid",
+          "grid-cols-auto",
           "grid-cols-3",
+          "grid-cols-[auto_1fr_1fr]",
           "grid-rows-3",
           "gap-5",
           "",
@@ -165,7 +173,6 @@ export default function Home() {
               "col-span-",
               "row-start-1",
               "row-span-2",
-
               "",
               "",
             )}
@@ -178,7 +185,6 @@ export default function Home() {
               "col-span-",
               "row-start-3",
               "row-span-3",
-
               "",
               "",
             )}

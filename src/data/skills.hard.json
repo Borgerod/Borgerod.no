@@ -1,0 +1,32 @@
+[
+  { "id": "Front-end", "name": "Front-end", "url": "" },
+  { "id": "Back-end", "name": "Back-end", "url": "" },
+  { "id": "Full-stack", "name": "Full-stack", "url": "" },
+  { "id": "Mobile app", "name": "Mobile app", "url": "" },
+  { "id": "SQL", "name": "SQL", "url": "" },
+  { "id": "Data extraction", "name": "Data extraction", "url": "" },
+  { "id": "Algorithms", "name": "Algorithms", "url": "" },
+  { "id": "Two-factor Auth", "name": "Two-factor Auth", "url": "" },
+  { "id": "OAuth", "name": "OAuth", "url": "" },
+  { "id": "API development", "name": "API development", "url": "" },
+  { "id": "Cloud services", "name": "Cloud services", "url": "" },
+  { "id": "3D printing", "name": "3D printing", "url": "" },
+  { "id": "UX/UI design", "name": "UX/UI design", "url": "" },
+  { "id": "CAD design", "name": "CAD design", "url": "" },
+  { "id": "Data visualization", "name": "Data visualization", "url": "" },
+  { "id": "Data mining", "name": "Data mining", "url": "" },
+  { "id": "Statistics", "name": "Statistics", "url": "" },
+  { "id": "SEO / AEO", "name": "SEO / AEO", "url": "" },
+  { "id": "Market analysis", "name": "Market analysis", "url": "" },
+  { "id": "Digital marketing", "name": "Digital marketing", "url": "" },
+  { "id": "Business development", "name": "Business development", "url": "" },
+  { "id": "Accounting", "name": "Accounting", "url": "" },
+  { "id": "Strategy", "name": "Strategy", "url": "" },
+  { "id": "HR management", "name": "HR management", "url": "" },
+  { "id": "Business intelligence", "name": "Business intelligence", "url": "" },
+  {
+    "id": "Business document drafting",
+    "name": "Business document drafting",
+    "url": ""
+  }
+]

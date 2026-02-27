@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ProSpector",
+    "name": "ProSpector",
+    "icon": "",
+    "url": "https://github.com/Borgerod/ProSpector"
+  },
+  {
+    "id": "Oppdragsmarkedet",
+    "name": "Oppdragsmarkedet",
+    "icon": "",
+    "url": "https://github.com/Borgerod/Oppdragsmarkedet.no"
+  },
+  {
+    "id": "Barnibus",
+    "name": "Barnibus",
+    "icon": "",
+    "url": "https://github.com/Borgerod/Barnibus"
+  },
+  {
+    "id": "Telegram Survailence",
+    "name": "Telegram Survailence",
+    "icon": "",
+    "url": "https://github.com/Borgerod/Telegram_surveillance"
+  },
+  {
+    "id": "Leetcode Submissions",
+    "name": "Leetcode Submissions",
+    "icon": "",
+    "url": "https://github.com/Borgerod/leetcode_submissions"
+  },
+  {
+    "id": "Fieldwire Label Printer",
+    "name": "Fieldwire Label Printer",
+    "icon": "",
+    "url": "https://github.com/Borgerod/fieldwire_label_printer"
+  },
+  {
+    "id": "Investerings Kalkulator",
+    "name": "Investerings Kalkulator",
+    "icon": "",
+    "url": "https://github.com/Borgerod/Investerings-Kalkulator"
+  },
+  {
+    "id": "2Do (backend focus)",
+    "name": "2Do (backend focus)",
+    "icon": "",
+    "url": "https://github.com/Borgerod/module-4-bygg-et-api-med-express"
+  },
+  {
+    "id": "2Do (fornt end focus)",
+    "name": "2Do (fornt end focus)",
+    "icon": "",
+    "url": "https://github.com/Borgerod/react-oppgave-3"
+  },
+  {
+    "id": "GutenDex",
+    "name": "GutenDex",
+    "icon": "",
+    "url": "https://github.com/Borgerod/react-oppgave-4"
+  },
+  {
+    "id": "digital resume",
+    "name": "digital resume",
+    "icon": "",
+    "url": "https://github.com/Borgerod/digital-resume"
+  },
+  {
+    "id": "Demo business page",
+    "name": "Demo business page",
+    "icon": "",
+    "url": "https://github.com/Borgerod/Demo_Business_Page"
+  },
+  {
+    "id": "Cap’n",
+    "name": "Cap’n",
+    "icon": "",
+    "url": "https://github.com/Borgerod/business-valuation-model"
+  },
+  {
+    "id": "leetcode Tool",
+    "name": "leetcode Tool",
+    "icon": "",
+    "url": "https://github.com/Borgerod/leetcode_organizer_and_generator"
+  }
+]

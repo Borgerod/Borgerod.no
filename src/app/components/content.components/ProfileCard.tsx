@@ -120,10 +120,14 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             term employment.
             <br />
             <br />
-            <p className="italic font-light tracking-wide text-green-dark">
+            {/* <span className="italic font-light tracking-wide text-green-dark">
               So, with my vigor and good solutions, I am confident that I am the
               one you are looking for.
-            </p>
+            </span> */}
+          </p>
+          <p className="text-sm tracking-wide italic font-light text-green-dark">
+            So, with my vigor and good solutions, I am confident that I am the
+            one you are looking for.
           </p>
         </div>
         <div
