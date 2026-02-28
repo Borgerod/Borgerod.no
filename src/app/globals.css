@@ -229,9 +229,44 @@ body {
     @apply backdrop-brightness-105;
   }
 }
-/* 
-@layer components {
-  .button {
-    @apply font-thin!;
-  }
-} */
+
+/** SCROLLBAR RELATED CSS */
+:root {
+  /* background of the track */
+  --scrollbar-track: transparent;
+  /* the draggable part */
+  --scrollbar-thumb: var(--color-glass-gray-undertone);
+  /* thumb on hover */
+  --scrollbar-thumb-hover: var(--color-glass-gray-undertone);
+  /* bottom-right corner where scrollbars meet */
+  --scrollbar-corner: var(--color-glass-gray-undertone);
+}
+
+* {
+  scrollbar-width: thin; /* Firefox: auto | thin | none */
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 8px; /* vertical scrollbar width */
+  height: 8px; /* horizontal scrollbar height */
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px; /* rounded thumb */
+  border: 2px solid var(--scrollbar-track); /* gives a "floating" look */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--scrollbar-corner);
+}
