@@ -9,4 +9,5 @@ export type TagItem = {
 
 export type ProjectButton = TagItem & {
   icon: string;
+  alt: string;
 };
