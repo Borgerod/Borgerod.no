@@ -1,11 +1,7 @@
 import { ComponentBaseProps, TagItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Card, ScrollShadow, Tag, TagGroup } from "@heroui/react";
-// import hardTools from "@data/tools.hard.json";
+import { Card } from "@heroui/react";
 import tools from "@data/tools.json";
-import { Tabs } from "@heroui/react";
-// TODO: https://v3.heroui.com/docs/react/components/chip ??
-// TODO: https://v3.heroui.com/docs/react/components/tag ??
 import { Chip } from "@heroui/react";
 
 export default function ToolCard({ className }: ComponentBaseProps) {

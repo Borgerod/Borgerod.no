@@ -1,6 +1,6 @@
 import { ComponentBaseProps, TagItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Card, Chip, ScrollShadow, Tag, TagGroup } from "@heroui/react";
+import { Card, Chip } from "@heroui/react";
 import hardSkills from "@data/skills.hard.json";
 import softSkills from "@data/skills.soft.json";
 import { Tabs } from "@heroui/react";
