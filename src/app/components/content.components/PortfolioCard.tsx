@@ -1,7 +1,7 @@
 "use client";
 import { ComponentBaseProps, ProjectButton } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Button, Card } from "@heroui/react";
+import { Card } from "@heroui/react";
 import { Separator } from "@heroui/react";
 import projects from "@data/projects.json";
 import Image from "next/image";
