@@ -20,12 +20,14 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "glass",
           "glass-pure-white",
           "glass-upper",
-          // "bg-glass-black",
-          // "glass-green",
           "gap-5",
+
           ////* Placement
           "-left-10",
           "w-[calc(100%+2.5rem)]", //adjusting for the left-transform
+          "justify-between",
+          "",
+          "",
           className,
         )}
       >
@@ -97,7 +99,11 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         >
           <h1 className="text-lg">ALEKSANDER BORGERØD</h1>
           <h2 className="text-md font-light text-green-dark">
-            Fullstackutvikler og økonom
+            {/* Fullstackutvikler og økonom  */}
+            {/* Full-Stack Developer & Business Professional */}
+            Full-Stack Developer | Business Admin.
+            {/* Full-Stack Developer | Business pro. */}
+            {/* Full-Stack Developer | BBA */}
           </h2>
           <br />
           <p className="text-sm font-light">
@@ -120,13 +126,9 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             term employment.
             <br />
             <br />
-            {/* <span className="italic font-light tracking-wide text-green-dark">
-              So, with my vigor and good solutions, I am confident that I am the
-              one you are looking for.
-            </span> */}
           </p>
           <p className="text-sm tracking-wide italic font-light text-green-dark">
-            So, with my vigor and good solutions, I am confident that I am the
+            So, with my good solutions and vigor, I am confident that I am the
             one you are looking for.
           </p>
         </div>
@@ -147,17 +149,10 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           )}
         >
           <Button
-            // size="sm"
-            // size="md"
             size="lg"
-            // fullWidth
-            className={cn(
-              "bg-glass-gray-dark text-white text-sm font-light",
-              "px-8",
-              "",
-            )}
+            className="bg-glass-gray-dark text-white text-sm font-light px-8"
           >
-            Send me an Email{" "}
+            Send me an e-mail
           </Button>
 
           <Button
