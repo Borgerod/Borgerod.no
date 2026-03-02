@@ -26,7 +26,11 @@ export default function Home() {
         // "min-h-fit",
         // "max-h-50",
         "max-w-4/5",
-        "h-200",
+        "max-w-3/5",
+        // "h-200",
+        "h-150",
+        // "h-full",
+        // "max-h-2/5",
         // "max-h-fit",
         "gap-5",
 

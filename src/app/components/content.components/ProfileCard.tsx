@@ -21,11 +21,10 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "glass-pure-white",
           "glass-upper",
           "gap-5",
-
-          ////* Placement
           "-left-10",
-          "w-[calc(100%+2.5rem)]", //adjusting for the left-transform
-          "justify-between",
+          "w-[calc(100%+2.5rem)]",
+          "flex",
+          "flex-col",
           "items-center",
           "",
           "",
@@ -33,19 +32,32 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         )}
       >
         <div
+          id="profile-image-row"
           className={cn(
             "w-full",
-            "max-w-xs",
-
-            ////*  grid placement
-            "col-start-1",
-            "col-span-1",
-            "row-start-1",
-            "row-span-1",
+            "flex-1",
+            "min-h-0",
+            "flex",
+            "justify-center",
+            "items-center",
+            "overflow-hidden",
+            //> new
+            "min-h-40",
+            "",
+            "",
           )}
         >
           <svg
             id="profile-image"
+            className={cn(
+              "w-full",
+              "h-auto",
+              "max-w-full",
+              "max-h-full",
+              "aspect-square",
+              "",
+              "",
+            )}
             viewBox={`0 0 ${rectangleWidth} ${rectangleWidth}`}
           >
             <defs>
@@ -83,18 +95,21 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             />
           </svg>
         </div>
+
         <div
-          id="bio"
+          id="bio-row"
           className={cn(
-            ////*  grid placement
             "col-start-",
             "col-span-",
-            "row-start-",
-            "row-span-",
+            "row-start-2",
+            "row-span-1",
+            "h-fit",
+            "overflow-hidden",
+            "text-xs",
           )}
         >
           <h1 className="text-lg">ALEKSANDER BORGERØD</h1>
-          <h2 className="text-md font-light text-green-dark">
+          <h2 className="text-sm font-light text-green-dark">
             {/* Fullstackutvikler og økonom  */}
             {/* Full-Stack Developer & Business Professional */}
             Full-Stack Developer | Business Admin.
@@ -102,7 +117,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             {/* Full-Stack Developer | BBA */}
           </h2>
           <br />
-          <p className="text-sm font-light">
+          <p className="font-light">
             With a broad knowledge within
             <span className="font-medium text-green-dark">
               {" "}
@@ -117,29 +132,32 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             <span className="font-medium text-green-dark">diligent</span> worker
             that strives for flourishing profit margins,
             <span className="font-medium text-green-dark"> ambitious </span>
-            to climb your corporate ladder. As an aspiring family man i seek the
-            stability of a long term employment. I seek the stability of a long
-            term employment.
+            to climb your corporate ladder. As an aspiring family man, I seek
+            the stability of a long term employment.
             <br />
             <br />
           </p>
-          <p className="text-sm tracking-wide italic font-light text-green-dark">
-            So, with my good solutions and vigor, I am confident that I am the
-            one you are looking for.
+          {/* <p className="tracking-wide italic font-light text-green-dark"> */}
+          <p className="tracking-wide font-light text-green-dark">
+            So, with my{" "}
+            <span className="font-medium text-green-dark">good solutions</span>{" "}
+            and{" "}
+            <span className="font-medium text-green-dark">driven vigor</span>, I
+            am confident that I am the one you are looking for.
           </p>
         </div>
+
         <div
-          id="contact"
+          id="contact-buttons-row"
           className={cn(
             "flex",
             "gap-2",
-
-            ////*  grid placement
+            "h-fit",
+            "overflow-hidden",
             "col-start-",
             "col-span-",
-            "row-start-",
-            "row-span-",
-            "h-auto",
+            "row-start-3",
+            "row-span-1",
           )}
         >
           <Button
