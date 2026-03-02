@@ -1,21 +1,35 @@
+"use client";
 import { ComponentBaseProps, ProjectButton } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Card } from "@heroui/react";
+import { Button, Card } from "@heroui/react";
 import { Separator } from "@heroui/react";
 import projects from "@data/projects.json";
 import Image from "next/image";
 import Link from "next/link";
+import { IoIosMore } from "react-icons/io";
+import { useEffect, useState } from "react";
+
 export default function COMPONENTNAME({ className }: ComponentBaseProps) {
+  const [maxProjects, setMaxProjects] = useState<number>(7);
+
+  useEffect(() => {
+    /*limits the grid items based on screen size*/
+    const update = () => {
+      const w = window.innerWidth;
+      if (w >= 1024) setMaxProjects(4 * 2 - 1);
+      else if (w >= 768) setMaxProjects(3 * 2 - 1);
+      else setMaxProjects(2 * 2 - 1);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   return (
     <Card
       id="project-display"
       className={cn("glass", "glass-gray", "gap-1", className, "", "")}
     >
-      {/* <h2 className="text-accent-foreground/80">Project portfolio</h2> */}
-      {/* <h2 className="text-accent-foreground/80">My projects</h2> */}
-      {/* <h2 className="text-accent-foreground/80">MY PROJECTS</h2> */}
-      {/* <h2 className="text-accent-foreground/80">PROJECTS</h2> */}
-      {/* <h2 className="text-accent-foreground/80">PORTFOLIO</h2> */}
       <h2 className="text-accent-foreground/80">Portfolio</h2>
       <Separator variant="secondary" className="pb-0" />
 
@@ -31,13 +45,14 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           ////* grid
           "grid",
           "grid-rows-2",
-          "grid-cols-4",
-
+          "grid-cols-2",
+          "md:grid-cols-3",
+          "lg:grid-cols-4",
           "",
           "",
         )}
       >
-        {projects.slice(0, 7).map((project: ProjectButton) => (
+        {projects.slice(0, maxProjects).map((project: ProjectButton) => (
           <Link
             href={project.url}
             key={project.id}
@@ -65,35 +80,48 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "hover:shadow-md",
                 "shadow-sm",
                 "drop-shadow-sm",
-                "",
+
                 "",
               )}
             >
-              <Image
-                src={project.icon}
-                alt={project.alt}
-                width="64"
-                height="64"
-                className="h-full w-fit opacity-60 group-hover:opacity-100 group-hover:text-white p-1 self-end"
-              />
-              <span
+              <Card.Header>
+                <Image
+                  src={project.icon}
+                  alt={project.alt}
+                  width="64"
+                  height="64"
+                  className={cn(
+                    "w-fit",
+                    "h-full",
+                    "opacity-60",
+                    "group-hover:opacity-100",
+                    "group-hover:text-white",
+
+                    "",
+                    "",
+                  )}
+                />
+              </Card.Header>
+              <Card.Content
                 className={cn(
-                  "text-xs",
+                  "text-[9px]",
                   "wrap-anywhere",
                   "break-normal",
                   "text-center",
                   "text-accent-foreground/80",
                   "group-hover:text-accent-foreground",
                   "group-hover:opacity-110",
+
                   "",
                   "",
                 )}
               >
                 {project.name}
-              </span>
+              </Card.Content>
             </Card>
           </Link>
         ))}
+
         <Link href="./projects" className="contents">
           <Card
             className={cn(
@@ -119,12 +147,26 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
               "",
             )}
           >
-            <p className="text-xl font-semibold text-center text-nowrap text-accent-foreground/80 group-hover:text-white">
-              ...
-            </p>
-            <p
+            <Card.Header
               className={cn(
-                "text-xs",
+                "text-xl",
+                "font-semibold",
+                "text-accent-foreground/80",
+                "group-hover:text-white",
+                "w-fit",
+                "h-full",
+                "opacity-60",
+                "group-hover:opacity-100",
+                "group-hover:text-white",
+                "",
+                "",
+              )}
+            >
+              <IoIosMore />
+            </Card.Header>
+            <Card.Content
+              className={cn(
+                "text-[9px]",
                 "whitespace-normal",
                 "text-center",
                 "text-accent-foreground/80",
@@ -132,8 +174,8 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "",
               )}
             >
-              see more
-            </p>
+              See more
+            </Card.Content>
           </Card>
         </Link>
       </Card>
