@@ -3,7 +3,7 @@ import { Card } from "@heroui/react";
 import ProfileCard from "./components/content.components/ProfileCard";
 import StatCard from "./components/content.components/StatCard";
 import WorkHistoryCard from "./components/content.components/WorkHistoryCard";
-import ProjectDisplayCard from "./components/content.components/ProjectDisplayCard";
+import PortfolioCard from "./components/content.components/PortfolioCard";
 import SocialLinksCard from "./components/content.components/SocialLinksCard";
 import ToolCard from "./components/content.components/ListCard.tools";
 import SkillCard from "./components/content.components/ListCard.skills";
@@ -127,7 +127,7 @@ export default function Home() {
         )}
         // variant="transparent"
       >
-        <ProjectDisplayCard
+        <PortfolioCard
           className={cn(
             /* * grid placement * */
             "col-start-1",
