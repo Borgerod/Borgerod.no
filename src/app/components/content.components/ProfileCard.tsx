@@ -26,6 +26,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "-left-10",
           "w-[calc(100%+2.5rem)]", //adjusting for the left-transform
           "justify-between",
+          "items-center",
           "",
           "",
           className,
@@ -33,13 +34,8 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
       >
         <div
           className={cn(
-            "aspect-square",
             "w-full",
             "max-w-xs",
-            "overflow-hidden",
-            "rounded-b-full",
-            "overflow-hidden",
-            "rounded-b-full",
 
             ////*  grid placement
             "col-start-1",
@@ -136,8 +132,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           id="contact"
           className={cn(
             "flex",
-            "items-center",
-            "justify-center",
             "gap-2",
 
             ////*  grid placement
