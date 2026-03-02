@@ -6,37 +6,24 @@ export default function StylizedCircle({ className }: ComponentBaseProps) {
   return (
     <Card
       className={cn(
-        // "absolute",
-        // "relative",
-
         "aspect-square",
+
         "w-full",
         "h-full",
-        // "h-fit",
-        // "w-fit",
-
-        "max-w-fit",
-        "max-h-fit",
-        "max-w-80",
-        "max-h-80",
-
         "min-w-0",
         "min-h-0",
+        "max-w-80",
+        "max-h-80",
 
         "rounded-full",
         "justify-self-center",
         "self-center",
-        // "bg-linear-to-r",
-        // "bg-linear-to-br",
-        "bg-linear-to-b",
-        "from-green-light",
-        "to-green-dark",
 
+        "bg-linear-to-b",
         "from-glass-green-light",
         "to-glass-green-dark",
-        className,
 
-        "",
+        className,
       )}
     />
   );
