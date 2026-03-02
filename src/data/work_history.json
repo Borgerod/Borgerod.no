@@ -1,0 +1,29 @@
+[
+  {
+    "id": "job-fullstack-developer-ability-media-as",
+    "period": { "start": "Jul-22", "end": "Oct-22" },
+    "title": "Fullstack developer",
+    "employer": "Ability Media AS",
+    "location": "Bergen",
+    "isProject": false,
+    "description": "/job/id:job-fullstack-developer-ability-media-as"
+  },
+  {
+    "id": "job-freelance-developer-ability-media-as",
+    "period": { "start": "Mar-24", "end": "Jul-24" },
+    "title": "Freelance developer",
+    "employer": "Upwork",
+    "location": "Remote",
+    "isProject": false,
+    "description": "/job/id:job-fullstack-developer-ability-media-as"
+  },
+  {
+    "id": "job-software-developer-media-vest-as",
+    "period": { "start": "Jul-24", "end": "Jul-26" },
+    "title": "Software developer",
+    "employer": "Media Vest AS",
+    "location": "Bergen",
+    "isProject": true,
+    "description": "/job/id:job-fullstack-developer-ability-media-as"
+  }
+]

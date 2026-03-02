@@ -1,6 +1,17 @@
 import { ComponentBaseProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Card } from "@heroui/react";
+import { Card, Chip, Separator } from "@heroui/react";
+import workHistory from "@data/work_history.json";
+
+type jobItem = {
+  id: string;
+  period: { start: string; end: string };
+  title: string;
+  employer: string;
+  location: string;
+  isProject: boolean;
+  description: string; //? think about this
+};
 
 export default function WorkHistoryCard({ className }: ComponentBaseProps) {
   return (
@@ -24,8 +35,39 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
         "bg-radial-[at_30%_10%] from-glass-green-light-2 to-glass-green-dark-2 to-75%",
 
         "backdrop-saturate-80!",
+
+        "text-accent-foreground!",
         className,
       )}
-    ></Card>
+      variant="secondary"
+    >
+      <Card.Header>
+        <Card.Title className="text-accent-foreground font-light">
+          Work Experience
+        </Card.Title>
+        <Separator variant="secondary" className="pb-0" />
+
+        <Card.Description></Card.Description>
+      </Card.Header>
+      <Card.Content className="text-xs font-light">
+        {workHistory.map((job: jobItem) => (
+          <div key={job.id} id={job.id}>
+            <div>
+              {job.period.start} - {job.period.end}
+            </div>
+
+            <div>
+              <p>{job.title}</p>
+              <p>{job.employer}</p>
+              <Chip className={cn(job.isProject ? "block" : "hidden")}>
+                Project
+              </Chip>
+            </div>
+
+            <div>{job.description}</div>
+          </div>
+        ))}
+      </Card.Content>
+    </Card>
   );
 }
