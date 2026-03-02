@@ -2,98 +2,98 @@
   {
     "id": "ProSpector",
     "name": "ProSpector",
-    "icon": "/assets/images/project.logos/logo_prospector.png",
+    "icon": "/assets/images/project-logos/logo_prospector.png",
     "alt": "ProSpector logo icon",
     "url": "https://github.com/Borgerod/ProSpector"
   },
   {
-    "id": "Oppdragsmarkedet",
-    "name": "Oppdragsmarkedet",
-    "icon": "/assets/images/project.logos/logo_oppdragsmarkedet.png",
+    "id": "Oppdrags markedet",
+    "name": "Oppdrags markedet",
+    "icon": "/assets/images/project-logos/logo_oppdragsmarkedet.png",
     "alt": "Oppdragsmarkedet logo icon",
     "url": "https://github.com/Borgerod/Oppdragsmarkedet.no"
   },
   {
     "id": "Barnibus",
     "name": "Barnibus",
-    "icon": "/assets/images/project.logos/logo_barnibus.png",
+    "icon": "/assets/images/project-logos/logo_barnibus.png",
     "alt": "Barnibus logo icon",
     "url": "https://github.com/Borgerod/Barnibus"
   },
   {
     "id": "Telegram Survailence",
     "name": "Telegram Survailence",
-    "icon": "/assets/images/project.logos/logo_telegram-survailance.png",
+    "icon": "/assets/images/project-logos/logo_telegram-survailance.png",
     "alt": "Telegram Survailence logo icon",
     "url": "https://github.com/Borgerod/Telegram_surveillance"
   },
   {
     "id": "Leetcode Submissions",
     "name": "Leetcode Submissions",
-    "icon": "/assets/images/project.logos/logo_leetcode.png",
+    "icon": "/assets/images/project-logos/logo_leetcode.png",
     "alt": "Leetcode Submissions logo icon",
     "url": "https://github.com/Borgerod/leetcode_submissions"
   },
   {
     "id": "Fieldwire Label Printer",
     "name": "Fieldwire Label Printer",
-    "icon": "/assets/images/project.logos/logo_frieldwire-label-printer.png",
+    "icon": "/assets/images/project-logos/logo_frieldwire-label-printer.png",
     "alt": "Fieldwire Label Printer logo icon",
     "url": "https://github.com/Borgerod/fieldwire_label_printer"
   },
   {
     "id": "Investerings Kalkulator",
     "name": "Investerings Kalkulator",
-    "icon": "/assets/images/project.logos/logo_investerings_kalkulator.png",
+    "icon": "/assets/images/project-logos/logo_investerings_kalkulator.png",
     "alt": "Investerings Kalkulator logo icon",
     "url": "https://github.com/Borgerod/Investerings-Kalkulator"
   },
   {
     "id": "2Do (backend focus)",
     "name": "2Do (backend focus)",
-    "icon": "/assets/images/project.logos/logo_2do.png",
+    "icon": "/assets/images/project-logos/logo_2do.png",
     "alt": "2Do (backend focus) logo icon",
     "url": "https://github.com/Borgerod/module-4-bygg-et-api-med-express"
   },
   {
     "id": "2Do (fornt end focus)",
     "name": "2Do (fornt end focus)",
-    "icon": "/assets/images/project.logos/logo_2do.png",
+    "icon": "/assets/images/project-logos/logo_2do.png",
     "alt": "2Do (fornt end focus) logo icon",
     "url": "https://github.com/Borgerod/react-oppgave-3"
   },
   {
     "id": "GutenDex",
     "name": "GutenDex",
-    "icon": "/assets/images/project.logos/logo_gutendex.png",
+    "icon": "/assets/images/project-logos/logo_gutendex.png",
     "alt": "GutenDex logo icon",
     "url": "https://github.com/Borgerod/react-oppgave-4"
   },
   {
     "id": "digital resume",
     "name": "digital resume",
-    "icon": "/assets/images/project.logos/logo_digital_resume.svg",
+    "icon": "/assets/images/project-logos/logo_digital_resume.svg",
     "alt": "digital resume logo icon",
     "url": "https://github.com/Borgerod/digital-resume"
   },
   {
     "id": "Demo business page",
     "name": "Demo business page",
-    "icon": "/assets/images/project.logos/logo_demo_business_page.svg",
+    "icon": "/assets/images/project-logos/logo_demo_business_page.svg",
     "alt": "Demo business page logo icon",
     "url": "https://github.com/Borgerod/Demo_Business_Page"
   },
   {
     "id": "Cap’n",
     "name": "Cap’n",
-    "icon": "/assets/images/project.logos/logo_captn.png",
+    "icon": "/assets/images/project-logos/logo_captn.png",
     "alt": "Cap’n logo icon",
     "url": "https://github.com/Borgerod/business-valuation-model"
   },
   {
     "id": "leetcode Tool",
     "name": "leetcode Tool",
-    "icon": "/assets/images/project.logos/logo_leetcode_tool.png",
+    "icon": "/assets/images/project-logos/logo_leetcode_tool.png",
     "alt": "leetcode Tool logo icon",
     "url": "https://github.com/Borgerod/leetcode_organizer_and_generator"
   }
