@@ -24,7 +24,8 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
         //>NEW
         "text-accent-foreground",
         "glass",
-        "bg-glass-black",
+        // "bg-glass-black",
+        "glass-black",
         "h-full",
         "w-full",
         "sm:max-w-fit",

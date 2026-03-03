@@ -37,6 +37,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
       className={cn(
         "glass",
         "glass-gray",
+        // "borderless",
         "gap-1",
         "h-50",
         "md:h-full",
@@ -99,6 +100,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "hover:shadow-md",
                 "shadow-sm",
                 "drop-shadow-sm",
+                // "glass",
+                // "glass-upper",
+                // "bg-glass-gray-2",
 
                 "",
               )}

@@ -34,7 +34,8 @@
   /* --gray-dark: oklch(30.221% 0.00143 15.911 / 0.5); */
   /* --black: oklch(16.842% 0.00002 271.152); */
   --black: oklch(30.221% 0.00143 15.911 / 0.75);
-
+  --gray: oklch(49.261% 0.00006 271.152 / 0.35);
+  --gray-2: oklch(49.261% 0.00006 271.152 / 0.15);
   --green-base: #474e44;
   --green-light: #b6c8ad;
   --green-dark: #292d27;
@@ -82,6 +83,7 @@
   --color-glass-light-gray: var(--light-gray);
   --color-glass-gray-undertone: var(--gray-undertone);
   --color-glass-gray: var(--gray);
+  --color-glass-gray-2: var(--gray-2);
   --color-glass-gray-dark: var(--gray-dark);
   --color-glass-black: var(--black);
 
@@ -169,9 +171,27 @@
 body {
   color: var(--foreground);
   /* font-family: "Inter", Arial, Helvetica, sans-serif; */
-  background-image: url(@public/assets/images/background.jpg);
+  /* > BG alt 1 */
+  /* background-image: url(@public/assets/images/background.jpg);
   background-size: cover;
+  background-position: center; */
+
+  /* > BG alt 2 */
+  /* background-image: url(@public/assets/images/bg_resume.jpg);
+  background-size: cover;
+  background-size: auto;
   background-position: center;
+  background-position: top;
+  */
+
+  /*> BG alt 3 */
+  background-image: url(@public/assets/images/bg_resume.png);
+  background-size: cover;
+  /* background-size: contain; */
+  /* background-size: auto; */
+  background-position: center;
+  /* background-position: top; */
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -208,9 +228,47 @@ body {
   }
   .glass.glass-gray {
     @apply bg-glass-gray;
+
+    /* --gray-undertone: oklch(49.261% 0.00006 271.152 / 0.349);
+    --gray: oklch(56.241% 0.00006 271.152 / 0.575);
+    --gray: oklch(49.261% 0.00006 271.152 / 0.35);
+    --gray-2: oklch(49.261% 0.00006 271.152 / 0.35); */
+    @apply drop-shadow-md;
+    @apply backdrop-saturate-100;
+
+    @apply bg-glass-gray;
+
+    /* @apply bg-glass-gray-undertone; */
+    /* @apply bg-glass-light-gray1; */
+
+    /* @apply border-glass-offwhite;
+    @apply border-t-glass-offwhite;
+    @apply border-l-glass-offwhite;
+    @apply border-glass-white/20;
+    @apply border-t-glass-white/40;
+    @apply border-l-glass-white/40; */
+    @apply border-glass-light-gray/20;
+    @apply border-t-glass-light-gray/40;
+    @apply border-l-glass-light-gray/40;
+    @apply outline-glass-offwhite/40;
+    /* @apply outline-glass-offwhite; */
   }
   .glass.glass-black {
     @apply bg-glass-black;
+    /* @apply border-glass-gray/20;
+    @apply border-t-glass-gray/40;
+    @apply border-l-glass-gray/40; */
+
+    @apply border-glass-light-gray;
+    @apply border-t-glass-light-gray;
+    @apply border-l-glass-light-gray;
+
+    /* @apply outline-glass-light-gray; */
+    @apply outline-glass-offwhite/40;
+
+    /* @apply border-glass-offwhite/20;
+    @apply border-t-glass-offwhite/40;
+    @apply border-l-glass-offwhite/40; */
     /* @apply outline-glass-light-gray;
     @apply border-glass-gray; */
   }
@@ -222,11 +280,39 @@ body {
   .glass.glass-upper {
     /* @apply backdrop-blur-none; */
     /* @apply bg-white/30; */
-    @apply bg-glass-pure-white;
-    @apply backdrop-blur-md;
+    /* @apply bg-glass-pure-white; */
     /* @apply backdrop-saturate-200; */
+    /* @apply backdrop-blur-md;
     @apply backdrop-saturate-100;
+    @apply backdrop-brightness-105; */
+
+    /* @apply backdrop-saturate-200; */
+    /* @apply backdrop-brightness-110; */
+
+    /* @apply bg-white/20; */
+    /* @apply backdrop-blur-md; */
+    @apply backdrop-blur-md;
+    @apply backdrop-saturate-90;
+    @apply backdrop-saturate-100;
+    /* @apply backdrop-saturate-110; */
+    /* @apply backdrop-saturate-150; */
+    /* @apply backdrop-saturate-10; */
     @apply backdrop-brightness-105;
+    /* @apply bg-glass-pure-white/100; */
+    @apply bg-glass-offwhite;
+    /* @apply bg-glass-pure-white/80; */
+    @apply backdrop-contrast-125;
+    /* @apply backdrop-sepia-5; */
+    /* @apply backdrop-contrast-110; */
+    /* @apply backdrop-; */
+  }
+
+  .glass.borderless {
+    @apply border-0;
+    @apply border-transparent;
+    /* @apply border-border/20;
+    @apply border-t-border/40;
+    @apply border-l-border/40; */
   }
 }
 

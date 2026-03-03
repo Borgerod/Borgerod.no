@@ -16,7 +16,6 @@ import {
   Minus,
   Plus,
 } from "@gravity-ui/icons";
-// import {Accordion} from "@heroui/react";
 import React from "react";
 
 export default function ProfileCard({ className }: ComponentBaseProps) {
@@ -26,18 +25,17 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
   const rectangleHeight = Math.round((circleDiameter * 2) / 3);
   const rectangleWidth = Math.round((((circleDiameter * 16) / 9) * 2) / 3);
 
-  const [expandedKeys, setExpandedKeys] = React.useState<Set<Key>>(
-    new Set([""]),
-  );
-
   return (
     <>
       <Card
         id="profile-card"
         className={cn(
           "glass",
-          "glass-pure-white",
           "glass-upper",
+          // "glass-pure-white",
+          // "glass-white",
+          // "glass-offwhite",
+
           "-left-10",
           "w-[calc(100%+2.5rem)]",
           "w-[calc(100%+3rem)]",
