@@ -45,12 +45,15 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           // "items-center",
           // "justify-center",
           "justify-between",
+          "justify-start",
           // "justify-items-between",
           // "content-between",
           "gap-1",
           // "md:gap-5",
           // "2xl:gap-5",
           "2xl:gap-2",
+          // "lg:gap-5",
+          "gap-5",
           "",
           "",
           className,
@@ -135,6 +138,8 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "overflow-hidden",
             "text-xs",
             "h-fit",
+
+            "justify-self-start",
             // "h-full",
           )}
         >
@@ -142,7 +147,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           {/* <h1 className="text-[12px] xl:text-md 2xl:text-lg"> */}
           {/* <h1 className=" xl:text-md 2xl:text-lg">ALEKSANDER BORGERØD</h1> */}
           {/* <h1 className="text-md xl:text-[15px] 2xl:text-lg"> */}
-          <h1 className="text-md md:text-[14px] 2xl:text-lg">
+          <h1 className="text-md md:text-[14px] lg:text-lg">
             ALEKSANDER BORGERØD
           </h1>
           <h2 className="text-xs  font-light text-green-dark">
@@ -232,6 +237,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "w-full",
             "justify-end",
             "xl:justify-between",
+            "mt-auto",
           )}
         >
           {/* <Button size="sm"> Hello </Button>

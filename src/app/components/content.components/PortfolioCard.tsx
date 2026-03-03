@@ -116,6 +116,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                   className={cn(
                     "w-fit",
                     "h-full",
+                    "py-1",
                     "opacity-60",
                     "group-hover:opacity-100",
                     "group-hover:text-white",
@@ -171,16 +172,33 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             )}
           >
             <Card.Header
+              // className={cn(
+              //   "text-xl",
+              //   "font-semibold",
+              //   "text-accent-foreground/80",
+              //   "group-hover:text-white",
+              //   "w-fit",
+              //   "h-full",
+              //   "opacity-60",
+              //   "group-hover:opacity-100",
+              //   "group-hover:text-white",
+              //   "",
+              //   "",
+              // )}
               className={cn(
                 "text-xl",
                 "font-semibold",
                 "text-accent-foreground/80",
                 "group-hover:text-white",
                 "w-fit",
-                "h-full",
+                "h-fit",
+                // "place-self-end",
+                // "mt-auto",
+                "pt-3",
                 "opacity-60",
                 "group-hover:opacity-100",
                 "group-hover:text-white",
+
                 "",
                 "",
               )}
@@ -197,7 +215,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "",
               )}
             >
-              See more
+              See all
             </Card.Content>
           </Card>
         </Link>

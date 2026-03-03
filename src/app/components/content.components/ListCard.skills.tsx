@@ -54,14 +54,15 @@ export default function SkillCard({ className }: ComponentBaseProps) {
                   className="h-fit text-secondary/85 font-normal focus:text-primary"
                 >
                   Hard
-                  <Tabs.Indicator className="bg-glass-gray/50 border border-glass-light-gray" />
+                  <Tabs.Indicator className="bg-glass-gray/50 " />
+                  {/* <Tabs.Indicator className="bg-glass-gray/50 border border-glass-light-gray" /> */}
                 </Tabs.Tab>
                 <Tabs.Tab
                   id="soft-skills"
                   className="h-fit text-secondary/85 font-normal focus:text-primary"
                 >
                   Soft
-                  <Tabs.Indicator className="bg-glass-gray/50 border border-glass-light-gray" />
+                  <Tabs.Indicator className="bg-glass-gray/50 " />
                 </Tabs.Tab>
               </Tabs.List>
             </Tabs.ListContainer>

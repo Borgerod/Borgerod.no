@@ -43,6 +43,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
         "sm:justify-evenly",
         "sm:justify-around",
         "sm:gap-5",
+
         // "items-stretch",
         //*OLD
 
@@ -79,6 +80,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           "flex flex-row",
           "justify-around",
           "justify-between",
+
           "",
           // "gap-5",
 
