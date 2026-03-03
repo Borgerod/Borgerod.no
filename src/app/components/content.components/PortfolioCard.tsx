@@ -16,9 +16,15 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
     /*limits the grid items based on screen size*/
     const update = () => {
       const w = window.innerWidth;
-      if (w >= 1024) setMaxProjects(4 * 2 - 1);
-      else if (w >= 768) setMaxProjects(3 * 2 - 1);
-      else setMaxProjects(2 * 2 - 1);
+      // if (w >= 1024) setMaxProjects(4 * 2 - 1);
+      // else if (w >= 768) setMaxProjects(3 * 2 - 1);
+      if (w >= 1024) setMaxProjects(7);
+      else if (w >= 768) setMaxProjects(5);
+      // else if (w >= 480) setMaxProjects(3);
+      else if (w >= 640) setMaxProjects(7);
+      // else setMaxProjects(2 * 2 - 1);
+      // else setMaxProjects(4 * 2 - 1);
+      else setMaxProjects(5);
     };
     update();
     window.addEventListener("resize", update);
@@ -28,7 +34,16 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
   return (
     <Card
       id="project-display"
-      className={cn("glass", "glass-gray", "gap-1", className, "", "")}
+      className={cn(
+        "glass",
+        "glass-gray",
+        "gap-1",
+        "h-50",
+        "md:h-full",
+        className,
+        "",
+        "",
+      )}
     >
       <h2 className="text-accent-foreground/80">Portfolio</h2>
       <Separator variant="secondary" className="pb-0" />
@@ -44,8 +59,12 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           "shadow-none",
           ////* grid
           "grid",
-          "grid-rows-2",
-          "grid-cols-2",
+          "grid-cols-3",
+          "sm:grid-cols-4",
+          // "grid-rows-2",
+          // "grid-cols-3",
+          // "xs:grid-cols-4",
+          // "grid-cols-2",
           "md:grid-cols-3",
           "lg:grid-cols-4",
           "",

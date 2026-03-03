@@ -1,6 +1,6 @@
 import { ComponentBaseProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Button, Card } from "@heroui/react";
+import { Button, Card, Separator } from "@heroui/react";
 import { LogoGithub } from "@gravity-ui/icons";
 import { SiLeetcode } from "react-icons/si";
 
@@ -21,12 +21,14 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
     <Card
       id="social-links"
       className={cn(
+        //>NEW
+        "text-accent-foreground",
         "glass",
         "bg-glass-black",
         "h-full",
         "w-full",
-        "max-w-fit",
-        "text-accent-foreground",
+        "sm:max-w-fit",
+        // "max-w-fit",
 
         // ////* grid
         // // "grid",
@@ -34,74 +36,114 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
         // // "grid-cols-1",
         "flex",
         "flex-col",
-        "gap-5",
-        // "justify-evenly",
+        "sm:flex-col",
         "justify-between",
+
+        "sm:justify-evenly",
+        "sm:justify-around",
+        "sm:gap-5",
+        // "items-stretch",
+        //*OLD
+
+        // "glass",
+        // "bg-glass-black",
+        // "h-full",
+        // "w-full",
+        // "max-w-fit",
+        // "text-accent-foreground",
+
+        // // ////* grid
+        // // // "grid",
+        // // // "grid-rows-5",
+        // // // "grid-cols-1",
+        // "flex",
+        // "flex-col",
+        // "gap-5",
+        // // "justify-evenly",
+        // "justify-between",
         "",
         className,
       )}
     >
-      <h2> Links </h2>
+      <Card.Header>
+        <Card.Title className="text-accent-foreground/80 sm:self-center">
+          Links
+        </Card.Title>
+        <Separator variant="secondary" className="pb-0 sm:hidden" />
+      </Card.Header>
+      {/* <h2> Links </h2> */}
+      <Card.Content
+        className={cn(
+          "sm:contents",
+          "flex flex-row",
+          "justify-around",
+          "justify-between",
+          "",
+          // "gap-5",
 
-      <Button
-        isIconOnly
-        size="lg"
-        variant="primary"
-        className={"bg-glass-light-gray hover:bg-glass-gray-dark"}
+          "",
+          "",
+        )}
       >
-        <Link
-          href={"https://www.linkedin.com/in/borgerod/"}
-          className="h-full w-full content-center justify-items-center"
+        <Button
+          isIconOnly
+          size="lg"
+          variant="primary"
+          className={"bg-glass-light-gray hover:bg-glass-gray-dark"}
         >
-          {/* <LogoLinkedin /> */}
-          <FaLinkedinIn />
-          {/* <FiLinkedin /> */}
-        </Link>
-      </Button>
-      <Button
-        isIconOnly
-        size="lg"
-        variant="primary"
-        className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
-      >
-        <Link
-          href={"https://www.facebook.com/aleksander.borgerod/"}
-          className="h-full w-full content-center justify-items-center"
+          <Link
+            href={"https://www.linkedin.com/in/borgerod/"}
+            className="h-full w-full content-center justify-items-center"
+          >
+            {/* <LogoLinkedin /> */}
+            <FaLinkedinIn />
+            {/* <FiLinkedin /> */}
+          </Link>
+        </Button>
+        <Button
+          isIconOnly
+          size="lg"
+          variant="primary"
+          className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
         >
-          {/* <LogoFacebook className="size-5" /> */}
-          <FaFacebookF className="size-5" />
+          <Link
+            href={"https://www.facebook.com/aleksander.borgerod/"}
+            className="h-full w-full content-center justify-items-center"
+          >
+            {/* <LogoFacebook className="size-5" /> */}
+            <FaFacebookF className="size-5" />
 
-          {/* <FiFacebook className="size-5" /> */}
-        </Link>
-      </Button>
-      <Button
-        isIconOnly
-        size="lg"
-        variant="primary"
-        className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
-      >
-        <Link
-          href={"http://github.com/Borgerod"}
-          className="h-full w-full content-center justify-items-center"
+            {/* <FiFacebook className="size-5" /> */}
+          </Link>
+        </Button>
+        <Button
+          isIconOnly
+          size="lg"
+          variant="primary"
+          className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
         >
-          {/* <LogoGithub className="size-6" /> */}
-          {/* <LuGithub className="size-5" /> */}
-          <TbBrandGithubFilled className="size-5" />
-        </Link>
-      </Button>
-      <Button
-        isIconOnly
-        size="lg"
-        variant="primary"
-        className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
-      >
-        <Link
-          href={"https://leetcode.com/u/Borgerod/"}
-          className="h-full w-full content-center justify-items-center"
+          <Link
+            href={"http://github.com/Borgerod"}
+            className="h-full w-full content-center justify-items-center"
+          >
+            {/* <LogoGithub className="size-6" /> */}
+            {/* <LuGithub className="size-5" /> */}
+            <TbBrandGithubFilled className="size-5" />
+          </Link>
+        </Button>
+        <Button
+          isIconOnly
+          size="lg"
+          variant="primary"
+          className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
         >
-          <SiLeetcode className="size-5" />
+          <Link
+            href={"https://leetcode.com/u/Borgerod/"}
+            className="h-full w-full content-center justify-items-center"
+          >
+            <SiLeetcode className="size-5" />
 
-          {/* <svg
+            {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -115,8 +157,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             />
             <path d="M0 0 C2.79493404 1.53270577 3.02649134 3.06831977 4.1875 6.0625 C3.89581015 12.18798677 0.02913978 15.61820028 -4 20 C-3.39671875 20.28875 -2.7934375 20.5775 -2.171875 20.875 C4.57973493 24.3722368 10.09589169 30.56675211 14 37 C14.26394302 41.15710262 14.03177462 42.81536988 11.3125 45.9375 C8.07538005 47.42482538 6.54855304 47.68241405 3 47 C-0.6140628 44.43850539 -3.70817047 41.30291819 -6.8203125 38.1640625 C-7.39523438 37.61492188 -7.97015625 37.06578125 -8.5625 36.5 C-9.05878906 35.9946875 -9.55507813 35.489375 -10.06640625 34.96875 C-13.44534751 33.2758663 -15.42304265 33.9203024 -19 35 C-22.07903652 37.33952024 -24.67093412 40.05961467 -27.3125 42.875 C-28.02728516 43.60847656 -28.74207031 44.34195313 -29.47851562 45.09765625 C-35.00720437 50.28651569 -35.00720437 50.28651569 -37.0625 57.1875 C-35.59481798 62.45388843 -32.77857521 65.16686053 -29 69 C-27.77410156 70.33417969 -27.77410156 70.33417969 -26.5234375 71.6953125 C-25.67007813 72.60023437 -24.81671875 73.50515625 -23.9375 74.4375 C-23.14214844 75.28183594 -22.34679687 76.12617187 -21.52734375 76.99609375 C-18.52778525 79.37441448 -16.81771822 79.96524834 -13 80 C-7.73913012 77.72135575 -4.43584269 73.28561742 -0.6953125 69.08203125 C2.75685395 66.41535774 4.73600284 66.52455431 9 67 C11.375 68.125 11.375 68.125 13 70 C14.0912899 73.34662236 14.43407722 75.11388374 12.8671875 78.3125 C10.58931443 81.59111229 8.01284448 84.31716075 5.1875 87.125 C4.67896484 87.64964844 4.17042969 88.17429687 3.64648438 88.71484375 C-1.81162842 94.17987431 -6.49622812 96.42937755 -14.375 96.4375 C-23.90585374 96.28718931 -28.3091083 93.82141408 -35.0625 87.25 C-39.18239533 82.95290487 -43.16908941 78.55622966 -47 74 C-48.1446875 72.6696875 -48.1446875 72.6696875 -49.3125 71.3125 C-54.19730966 64.61850157 -53.77986225 56.91729719 -53 49 C-49.18161389 36.85428248 -33.04685449 24.70134742 -24.21948242 15.70458984 C-22.93477891 14.38781398 -21.65820612 13.06306203 -20.3894043 11.73095703 C-18.52463311 9.77512281 -16.63504644 7.84663411 -14.73828125 5.921875 C-14.17973953 5.32518005 -13.62119781 4.72848511 -13.04573059 4.1137085 C-8.73561427 -0.17564108 -6.04290685 -0.71294737 0 0 Z M-8.92578125 7.55859375 C-10.06922888 8.83872071 -11.19688036 10.1330498 -12.3125 11.4375 C-17.13409486 16.84962163 -22.05059932 22.11452336 -27.21484375 27.19921875 C-27.75277054 27.72976364 -28.29069733 28.26030853 -28.84492493 28.80693054 C-31.01497909 30.94383742 -33.18729055 33.07819761 -35.37149048 35.20065308 C-36.91576196 36.70267582 -38.45058947 38.21384428 -39.984375 39.7265625 C-40.87866211 40.59877441 -41.77294922 41.47098633 -42.69433594 42.36962891 C-46.65847395 46.89203709 -48.42961447 50.93660842 -48.4375 56.9375 C-48.45683594 57.91589844 -48.47617187 58.89429688 -48.49609375 59.90234375 C-47.11504696 68.5257304 -40.46042936 73.96444676 -34.5 79.8125 C-33.64535156 80.67037109 -32.79070313 81.52824219 -31.91015625 82.41210938 C-26.15758623 88.11532037 -22.38183741 91.58777849 -14 92 C-3.63463623 90.26622512 2.65553491 82.77196973 9 75 C8.34 74.01 7.68 73.02 7 72 C2.76347647 73.37239495 0.50064133 75.24578335 -2.5 78.5 C-6.07808553 82.38045895 -8.6222996 84.62265244 -13.96899414 85.2199707 C-19.29351544 85.18896997 -22.08863017 83.4728807 -25.96484375 79.88671875 C-27.64332206 78.17390493 -29.30052706 76.44002397 -30.9375 74.6875 C-31.78634766 73.81931641 -32.63519531 72.95113281 -33.50976562 72.05664062 C-41.75736592 63.50721884 -41.75736592 63.50721884 -42.375 57.125 C-42.13673527 49.95058422 -36.94307691 45.78838288 -32.0859375 41.09375 C-30.02656355 39.02666304 -28.17480019 36.86951901 -26.3125 34.625 C-22.62638969 30.38139671 -20.13377963 29.19051604 -14.5 28.6875 C-8.26979199 29.24376857 -4.64931928 33.04822187 -0.1875 37.1875 C0.56563477 37.88262695 0.56563477 37.88262695 1.33398438 38.59179688 C2.55956829 39.72400297 3.78029342 40.86146479 5 42 C6.32 41.34 7.64 40.68 9 40 C4.58956199 32.00966101 -2.12184006 24.70204868 -11 22 C-10.31687453 17.21812174 -7.22904749 15.12370056 -3.8125 12 C-1.93577964 9.92913615 -1.38949144 8.72644011 -1 6 C-4.88498452 4.33500663 -5.68580624 4.72523777 -8.92578125 7.55859375 Z" />
           </svg> */}
-        </Link>
-      </Button>
+          </Link>
+        </Button>
+      </Card.Content>
     </Card>
   );
 }

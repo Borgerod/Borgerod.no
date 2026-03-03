@@ -80,7 +80,8 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
       >
         {workHistory.map((job: jobItem) => (
           // <Card.Content key={job.id} id={job.id} className="text-xs font-light ">
-          <>
+          // <>
+          <div key={job.id} className="contents">
             <div
               id="date-col"
               // className="text-xs text-[8px] self-start font-thin text-nowrap"
@@ -160,17 +161,21 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                     "select-none",
                     "text-nowrap",
                     "font-thin!",
-                    "2xl:px-2 ",
-                    "2xl:py-0 ",
-                    "2xl:pr-1",
-                    "2xl:py-2.5",
+                    // "2xl:px-2 ",
+                    // "2xl:py-0 ",
+                    // "2xl:pr-1",
+                    // "2xl:py-2.5",
+                    "lg:px-2 ",
+                    "lg:py-0 ",
+                    "lg:pr-1",
+                    "lg:py-2.5",
                     // "lg:p-1",
                     "",
                     "",
                   )}
                 >
                   <Chip.Label className="flex items-center gap-1 p-0">
-                    <span className="hidden 2xl:block">Read more</span>
+                    <span className="hidden lg:block">Read more</span>
                     {/* <LinkIcon className="size-3 " /> */}
                     <LinkIcon className="size-2.5 " />
                   </Chip.Label>
@@ -214,7 +219,8 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                 </Chip>
               </Link>
             </div> */}
-          </>
+          </div>
+          // </>
         ))}
       </Card.Content>
     </Card>

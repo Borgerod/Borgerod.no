@@ -65,31 +65,77 @@ export default function GlassParentCardCard({
           "row-span-full",
 
           /* * grid  * */
+          // "grid",
+          // "grid-rows-subgrid",
+          // "grid-cols-subgrid",
+          // "grid-cols-2",
+          // "grid-rows-3",
+          // "grid-rows-[2fr_3fr_2fr]",
+          // "grid-rows-[auto_auto_auto]",
+
           "grid",
-          "grid-rows-subgrid",
+          // "grid-cols-2",
+          // "grid-cols-[2fr_3fr]",
+          // "2xl:grid-cols-[2fr_auto]",
+          // "gap-x-5",
+          // "grid-rows-3",
+          // "grid-rows-[auto_1fr_auto]",
           "grid-cols-subgrid",
-          "grid-cols-2",
-          "grid-rows-3",
+          "grid-rows-subgrid",
+          "gap-y-0",
 
           "",
           "",
         )}
       >
+        <div
+          id="invisible-spacers"
+          className={cn(
+            // "bg-amber-300 bg-cover",
+            "col-start-2",
+            "col-span-1",
+            "row-start-1",
+            "row-span-1",
+            "overflow-clip",
+            "h-45",
+
+            "",
+            "",
+          )}
+        ></div>
+        <div
+          id="invisible-spacers"
+          className={cn(
+            "",
+            // "bg-amber-300 bg-cover",
+            "self-end",
+            "col-start-2",
+            "col-span-1",
+            "row-start-3",
+            "row-span-1",
+            "h-45",
+            "",
+            "",
+          )}
+        ></div>
         <StylizedCircle
           className={cn(
             /* * grid placement * */
-            // "col-start-1",
-            // "col-span-2",
-
-            // "row-start-2",
-            // "row-span-1",
-
             "col-start-1",
+            // "col-span-2",
             "col-span-full",
 
             "row-start-2",
-            "row-start-1",
-            "row-span-full",
+            "row-span-1",
+
+            // "col-start-1",
+            "col-span-full",
+            "-translate-x-5",
+            "-translate-x-[20%]",
+            // "h-full",
+            // "row-start-2",
+            // "row-start-1",
+            // "row-span-full",
 
             "",
             "",

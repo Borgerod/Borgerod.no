@@ -10,35 +10,35 @@ import Image from "next/image";
 //       <h3 className="text-xm">MY NUMBERS</h3>
 
 //       <div className="flex flex-row justify-start gap-5">
-//         <div className="flex flex-col justify-start gap-0">
+//         <div className="flex flex-col justify-start gap-0 h-fit">
 //           <div className="flex flex-col">
 //             <p className="text-xl">944</p>
-//             <p className="text-xs">GitHub contributions</p>
+//             <p className="text-xs">GitHub sm:leading-2.5 contributions</p>
 //           </div>
 
 //           <div className="flex flex-col">
 //             <p className="text-xl">5+</p>
-//             <p className="text-xs">Years experience</p>
+//             <p className="text-xs">Years sm:leading-2.5 experience</p>
 //           </div>
 
 //           <div className="flex flex-col">
 //             <p className="text-xl">50</p>
-//             <p className="text-xs">Leetcode submissions</p>
+//             <p className="text-xs">Leetcode sm:leading-2.5 submissions</p>
 //           </div>
 //         </div>
 
-//         <div className="flex flex-col justify-start gap-0">
+//         <div className="flex flex-col justify-start gap-0 h-fit">
 //           <div className="flex flex-col">
 //             <p className="text-xl">39</p>
-//             <p className="text-xs">Repositories</p>
+//             <p className="text-xs">Repositories sm:leading-2.5</p>
 //           </div>
 //           <div className="flex flex-col">
 //             <p className="text-xl">3+</p>
-//             <p className="text-xs">Years as professional</p>
+//             <p className="text-xs">Years sm:leading-2.5 as professional</p>
 //           </div>
 //           <div className="flex flex-col">
 //             <p className="text-xl">Beats 61.7%</p>
-//             <p className="text-xs">of other participants</p>
+//             <p className="text-xs">of sm:leading-2.5 other participants</p>
 //           </div>
 //         </div>
 //       </div>
@@ -73,7 +73,7 @@ function getContent(): ReactNode {
         className={cn(
           //Style
           "text-xs",
-          "font-normal",
+          "font sm:leading-2.5-normal",
 
           //* Grid placement
           "col-start-1",
@@ -83,52 +83,73 @@ function getContent(): ReactNode {
         MY NUMBERS
       </h3>
 
-      <div className="grid grid-cols-subgrid gap-0 ">
+      <div className="grid grid-cols-subgrid gap-0 h-fit ">
         {/* TODO: Make api's for these stats */}
-        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
+        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
           944
         </span>
-        <span className="text-xs leading-none">GitHub contributions</span>
-        {/* <span className="text-xs leading-3">GitHub contributions</span> */}
+        <span className="text-xs leading-none sm:leading-2.5 ">
+          GitHub contributions
+        </span>
+        {/* <span className="text-xs leading-3 sm:leading-2.5">GitHub contributions</span> */}
       </div>
-      <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
+      <div className="grid grid-cols-subgrid gap-0 h-fit ">
+        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
           39
         </span>
-        <span className="text-xs leading-none">Repositories</span>
-        {/* <span className="text-xs leading-3">Repositories</span> */}
+        <span className="text-xs leading-none sm:leading-2.5 ">
+          Repositories
+        </span>
+        {/* <span className="text-xs leading-3 sm:leading-2.5">Repositories</span> */}
       </div>
 
-      <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
+      <div className="grid grid-cols-subgrid gap-0 h-fit ">
+        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
           5+
         </span>
-        <span className="text-xs leading-none">Years experience</span>
-        {/* <span className="text-xs leading-3">Years experience</span> */}
+        <span className="text-xs leading-none sm:leading-2.5 ">
+          Years experience
+        </span>
+        {/* <span className="text-xs leading-3 sm:leading-2.5">Years experience</span> */}
       </div>
-      <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
+      <div className="grid grid-cols-subgrid gap-0 h-fit ">
+        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
           3+
         </span>
-        <span className="text-xs leading-none">Years as professional</span>
-        {/* <span className="text-xs leading-3">Years as professional</span> */}
+        <span className="text-xs leading-none sm:leading-2.5 ">
+          Years as professional
+        </span>
+        {/* <span className="text-xs leading-3 sm:leading-2.5">Years as professional</span> */}
       </div>
-      <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
+      <div className="grid grid-cols-subgrid gap-0 h-fit ">
+        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
           52
         </span>
-        <span className="text-xs leading-none">Leetcode submissions</span>
-        {/* <span className="text-xs leading-3">Leetcode submissions</span> */}
+        <span className="text-xs leading-none sm:leading-2.5 ">
+          Leetcode submissions
+        </span>
+        {/* <span className="text-xs leading-3 sm:leading-2.5">Leetcode submissions</span> */}
       </div>
 
-      <div className="grid grid-cols-subgrid gap-0 ">
-        <span className="text-xl font-medium text-secondary/70 sm:leading-0 leading-none text-nowrap self-baseline">
-          Beats 66.07% {/* (easy only) */}
-          {/* 59.88% (all difficulties) */}
+      <div className="grid grid-cols-subgrid gap-0 h-fit ">
+        <span className="text-xs   leading-none sm:leading-2.5 text-nowrap self-baseline">
+          Beats{" "}
+          <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline">
+            66.07% {/* (easy only) */}
+            {/* 59.88% (all difficulties) */}
+          </span>
         </span>
-        <span className="text-xs leading-none">of other participants</span>
-        {/* <span className="text-xs leading-3">of other participants</span> */}
+        <span className="text-xs leading-none sm:leading-2.5 ">
+          of other participants
+        </span>
       </div>
+
+      {/* <div className="grid grid-cols-subgrid gap-0 h-fit ">
+        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline">
+          Beats 66.07%
+        </span>
+        <span className="text-xs leading-none sm:leading-2.5">of other participants</span>
+      </div> */}
     </div>
   );
 }
