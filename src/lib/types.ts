@@ -7,7 +7,10 @@ export type TagItem = {
   url: string;
 };
 
-export type ProjectButton = TagItem & {
+export type ProjectItem = TagItem & {
   icon: string;
   alt: string;
+  description: string;
+  coretool: string;
+  subtools: string[];
 };

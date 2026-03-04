@@ -1,5 +1,5 @@
 "use client";
-import { ComponentBaseProps, ProjectButton } from "@/lib/types";
+import { ComponentBaseProps, ProjectItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Card } from "@heroui/react";
 import { Separator } from "@heroui/react";
@@ -72,7 +72,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           "",
         )}
       >
-        {projects.slice(0, maxProjects).map((project: ProjectButton) => (
+        {projects.slice(0, maxProjects).map((project: ProjectItem) => (
           <Link
             href={project.url}
             key={project.id}

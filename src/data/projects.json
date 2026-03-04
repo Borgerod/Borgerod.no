@@ -4,97 +4,168 @@
     "name": "ProSpector",
     "icon": "/assets/images/project-logos/logo_prospector.png",
     "alt": "ProSpector logo icon",
-    "url": "https://github.com/Borgerod/ProSpector"
+    "url": "https://github.com/Borgerod/ProSpector",
+    "description": "Lead Generation GUI-Software, designed to extract business-prospects for Marketing purposes. Extraction targets are; brreg, gulesider, proff, 1881 & google. Demonstrates capabilities of: data extraction, cloud storage, authorization, dataset distrubution to users, reCAPTCHA bypass",
+    "coretool": "Python | Flutter (dart)",
+    "subtools": ["PostgreSQL", "selenium", "pandas", "fastAPI"]
   },
   {
-    "id": "Oppdrags markedet",
-    "name": "Oppdrags markedet",
+    "id": "Oppdragsmarkedet.no",
+    "name": "Oppdrags-markedet",
     "icon": "/assets/images/project-logos/logo_oppdragsmarkedet.png",
     "alt": "Oppdragsmarkedet logo icon",
-    "url": "https://github.com/Borgerod/Oppdragsmarkedet.no"
+    "url": "https://github.com/Borgerod/Oppdragsmarkedet.no",
+    "description": "Oppdragsmarkedet.no serves as a digital marketplace for freelance work and assignments in Norway. Demonstrates capabilities of: Auth, advanced search filter, responsive design, storybook",
+    "coretool": "Svelte (TS)",
+    "subtools": ["Storybook", "Drizzle"]
   },
   {
     "id": "Barnibus",
     "name": "Barnibus",
     "icon": "/assets/images/project-logos/logo_barnibus.png",
     "alt": "Barnibus logo icon",
-    "url": "https://github.com/Borgerod/Barnibus"
+    "url": "https://github.com/Borgerod/Barnibus",
+    "description": "Data extraction GUI-software for social media profiles (Youtube, TikTok, Instagram, SocialBlade), made for data mining. Extracts useful insights on creators such as, post rates, common color schemes, etc. Demonstrates capabilities of: Data extraction, basic API modeling, compiling .py -> .exe, python-frontend (tkinter)",
+    "coretool": "Python",
+    "subtools": [
+      "Pandas",
+      "numpy",
+      "cv2",
+      "BeautifulSoup",
+      "cfscrape",
+      "tkinter"
+    ]
   },
   {
     "id": "Telegram Survailence",
     "name": "Telegram Survailence",
     "icon": "/assets/images/project-logos/logo_telegram-survailance.png",
     "alt": "Telegram Survailence logo icon",
-    "url": "https://github.com/Borgerod/Telegram_surveillance"
+    "url": "https://github.com/Borgerod/Telegram_surveillance",
+    "description": "Monitoring CUI-software designed for Telegram, which activity monitors & extracts summary-data for +14k groups & channels. Which also had the option to extract the userbase and add them to your own channel. note: i have another similar app called 'Telegram_user_extraction_and_manipulation' though is only a shell, where the original was changed to private for security reasons. Demonstrates capabilities of: Data-extraction, Telethon, Multi-processing, multi-threading, PostgreSQL. ",
+    "coretool": "Python",
+    "subtools": ["Telethon", "PostgreSQL", "pandas", "beautifulsoup4", "numpy"]
   },
   {
     "id": "Leetcode Submissions",
     "name": "Leetcode Submissions",
     "icon": "/assets/images/project-logos/logo_leetcode.png",
     "alt": "Leetcode Submissions logo icon",
-    "url": "https://github.com/Borgerod/leetcode_submissions"
+    "url": "https://github.com/Borgerod/leetcode_submissions",
+    "description": "Library of all my personal leetcode submisstions.  Demonstrates capabilities of: code optimization, personal coding benchmarks, Dynamic Programming, Backtracking, Divide and Conquer, QuickSelect, Monotonic Stack, Math, Hash Table, Binary Search,Greedy, Bit Manipulation, Recursion, Tree, Binary tree, Array, Strng, Sorting, Two Pointers, Simulation, Stack, Linked List, Matrix",
+    "coretool": "Python",
+    "subtools": ["Typescript", "Javascript"]
   },
   {
     "id": "Fieldwire Label Printer",
     "name": "Fieldwire Label Printer",
     "icon": "/assets/images/project-logos/logo_frieldwire-label-printer.png",
     "alt": "Fieldwire Label Printer logo icon",
-    "url": "https://github.com/Borgerod/fieldwire_label_printer"
+    "url": "https://github.com/Borgerod/fieldwire_label_printer",
+    "description": "For Energy Controll AS - download selected fields for all components for a given project. note: This was a small task for a job interview. Demonstrates capabilities of: API-usage, multi-language app, CSV-download, sorting",
+    "coretool": "Python | Javascript ",
+    "subtools": [
+      "uvicorn",
+      "batch",
+      "fastapi",
+      "fieldwire-API",
+      "csvUtils",
+      "axios"
+    ]
   },
   {
     "id": "Investerings Kalkulator",
     "name": "Investerings Kalkulator",
     "icon": "/assets/images/project-logos/logo_investerings_kalkulator.png",
     "alt": "Investerings Kalkulator logo icon",
-    "url": "https://github.com/Borgerod/Investerings-Kalkulator"
+    "url": "https://github.com/Borgerod/Investerings_Kalkulator",
+    "description": " Compound interest calculator mobile app (iOS/Android) - Made for calculating and visualising the development of an investment based on compound interest. Demonstrates capabilities of: multi-platform dev, iOS/Android build and compilation, Apple/Android appstore publishing,mobile ad implementation, data visualization, cashflow, pie chart, line chart, compound-interest",
+    "coretool": "Flutter (Dart)",
+    "subtools": ["flutterflow", "googleAds", "cupertino", "fl_chart"]
   },
   {
     "id": "2Do (backend focus)",
     "name": "2Do (backend focus)",
     "icon": "/assets/images/project-logos/logo_2do.png",
     "alt": "2Do (backend focus) logo icon",
-    "url": "https://github.com/Borgerod/module-4-bygg-et-api-med-express"
+    "url": "https://github.com/Borgerod/module-4-bygg-et-api-med-express",
+    "description": "regular todo app - with two variants; one simpler Prisma/nextjs 16 version and one more hands-on express version. Demonstrates capabilities of: REST-ful API and API handling, Node + Express, Authentication, Database, filterlogic and similar.",
+    "coretool": "NEXTjs (React) (TS)",
+    "subtools": ["Node.js", "ShadUI", "Tailwind", "SQLite", "Prisma", "Express"]
   },
   {
-    "id": "2Do (fornt end focus)",
+    "id": "2Do (frontend focus)",
     "name": "2Do (fornt end focus)",
     "icon": "/assets/images/project-logos/logo_2do.png",
     "alt": "2Do (fornt end focus) logo icon",
-    "url": "https://github.com/Borgerod/react-oppgave-3"
+    "url": "https://github.com/Borgerod/react-oppgave-3",
+    "description": "UseContext() - use the useContext and Context API to share data between components in two parts: ToDoApp and ThemeSwitcher. Demonstrates capabilities of: localstorage, context, geo-location, filterlogic.",
+    "coretool": "NEXTjs (React) (TS)",
+    "subtools": ["Tailwind", "openstreetmap"]
   },
   {
     "id": "GutenDex",
     "name": "GutenDex",
     "icon": "/assets/images/project-logos/logo_gutendex.png",
     "alt": "GutenDex logo icon",
-    "url": "https://github.com/Borgerod/react-oppgave-4"
+    "url": "https://github.com/Borgerod/react-oppgave-4",
+    "description": "App based on GutenDex api, by manipulating the very limited API i managed to create; a content-rich store front, as well as the store page and profile pages, manual dataset filtering and query due to limited API, makes simple recommendations, remembers books you've red, gets dynamicly makes a profile for popular writers w/images and have dynamic popular category section and more. Demonstrates capabilities of: caching, minor algorithmic logic, dynamic data fetching, data-scraping",
+    "coretool": "NEXTjs (React) (TS)",
+    "subtools": [
+      "Python",
+      "Tailwind",
+      "Gutendex-API",
+      "Wikipedia-API",
+      "Lighthouse"
+    ]
   },
   {
     "id": "digital resume",
     "name": "digital resume",
     "icon": "/assets/images/project-logos/logo_digital_resume.svg",
     "alt": "digital resume logo icon",
-    "url": "https://github.com/Borgerod/digital-resume"
+    "url": "https://github.com/Borgerod/digital-resume",
+    "description": "An online resume for showing to employers which also works as a code demonstration. Demonstrates capabilities of: semi-complex fronend design, thirdparty-API-usage, construction of rest-API (maybe, written before finishing app)",
+    "coretool": "NEXTjs (React) (TS)",
+    "subtools": ["Tailwind", "rest-API", "HeroUI"]
   },
   {
     "id": "Demo business page",
     "name": "Demo business page",
     "icon": "/assets/images/project-logos/logo_demo_business_page.svg",
     "alt": "Demo business page logo icon",
-    "url": "https://github.com/Borgerod/Demo_Business_Page"
+    "url": "https://github.com/Borgerod/Demo_Business_Page",
+    "description": "Basic demo webpage for a random business - part of a javascript course. Notable parts; dynamic bg-gradiant based on bg-picture, some fun browser manipulation w/ darkmode button, glass component with blur, displacement and masking, dynamic font sizes. Demonstrates capabilities of: pure JS, js- semi-complex frontend-solutions. ",
+    "coretool": "Javascript",
+    "subtools": ["colorthief"]
   },
   {
     "id": "Cap’n",
     "name": "Cap’n",
     "icon": "/assets/images/project-logos/logo_captn.png",
     "alt": "Cap’n logo icon",
-    "url": "https://github.com/Borgerod/business-valuation-model"
+    "url": "https://github.com/Borgerod/business-valuation-model",
+    "description": "Evaluates marked capital of a business, based of different finance formulas (WACC) and then compares them to other competitors or similar businesses in the market. (Work in progress). Demonstrates capabilities of: more-complex math, finance knowledge,  implementation of both of my fields (finance and coding),data-extraction, third-party-api",
+    "coretool": "Python",
+    "subtools": [
+      "Pandas",
+      "Yfinance",
+      "skatteetaten.no",
+      "regjeringen.no",
+      "worldgovernmentbondscom",
+      "tradingeconomics.com",
+      "BeautifulSoup",
+      "re"
+    ]
   },
   {
     "id": "leetcode Tool",
     "name": "leetcode Tool",
     "icon": "/assets/images/project-logos/logo_leetcode_tool.png",
     "alt": "leetcode Tool logo icon",
-    "url": "https://github.com/Borgerod/leetcode_organizer_and_generator"
+    "url": "https://github.com/Borgerod/leetcode_organizer_and_generator",
+    "description": "Utility scripts for downloading LeetCode problem statements and scaffolding language-specific starter files. Generates boilerplates for: Python, JavaScript, Go, Java, and C++. Demonstrates capabilities of: dynamic logic, dataset-generators ",
+    "coretool": "Python",
+    "subtools": ["GraphQL", "Python", "JavaScript", "Go", "Java", "C++"]
   }
 ]
