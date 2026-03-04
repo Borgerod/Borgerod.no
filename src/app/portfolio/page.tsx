@@ -1,9 +1,6 @@
-// TODO: MAKE THIS
 import { cn } from "@/lib/utils";
-import { Card, Chip, Kbd, Separator } from "@heroui/react";
-// import { ListBox, Label, Description,  } from "@heroui/react";
+import { Chip, Separator } from "@heroui/react";
 import projects from "@data/projects.json";
-// import Link from "react";
 import { ProjectItem } from "@/lib/types";
 import {
   Avatar,
@@ -14,24 +11,6 @@ import {
   Header,
 } from "@heroui/react";
 import { TbBrandGithubFilled } from "react-icons/tb";
-import Link from "next/link";
-
-//> insert this
-{
-  /* 
-  <Link href={project.url} key={project.id} id={project.id} className="contents">
-    <Card id={project.id}></Card>
-  </Link>; 
-  */
-}
-//> dont forget this
-{
-  /* 
-  <ListBox.Section key={project.id}>
-    {children}
-  </ListBox.Section>; 
-  */
-}
 export default function Portfolio() {
   return (
     <main className={cn("p-10", "")}>
