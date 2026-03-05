@@ -137,7 +137,10 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
             </Card>
 
             <div id="description-url-col read-more">
-              <Link href={job.description}>
+              <Link
+                // href={job.description}
+                href={`work-experience/job/${job.id}`}
+              >
                 <Chip
                   size="sm"
                   variant="primary"
