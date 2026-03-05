@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Button, Card, Chip, Separator } from "@heroui/react";
+import { Breadcrumbs, Button, Card, Chip, Separator } from "@heroui/react";
 import projects from "@data/projects.json";
 import { ProjectItem } from "@/lib/types";
 import { Avatar, Description, Label, ListBox, Header } from "@heroui/react";
@@ -44,6 +44,10 @@ export default function Portfolio() {
           "sm:pt-4",
         )}
       >
+        <Breadcrumbs>
+          <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+          <Breadcrumbs.Item>portfolio</Breadcrumbs.Item>
+        </Breadcrumbs>
         <ListBox>
           <ListBox.Section id="portfolio-list-full" className="">
             <Header className="text-xl ">Portfolio</Header>

@@ -4,11 +4,14 @@
     "period": { "start": "Jul 22", "end": "Oct 22" },
     "title": "Fullstack developer",
     "employer": "Ability Media AS",
-    "employer-profile": {
+    "employer_profile": {
       "name": "Media Vest AS",
-      "avatar": "/public/assets/images/jobs/logo/ability-media/company-avatar.png",
+      "avatar": "/assets/images/jobs/ability-media/logo/company-avatar-2.png",
       "logo": "https://c7a433b527dc2ae3c95c08a175c4984f.cdn.bubble.io/cdn-cgi/image/w=256,h=20,f=auto,dpr=1.25,fit=contain/f1752837899508x756769218357267500/Oppdragstorget-logo-lys.png",
-      "company-page": "https://oppdragstorget.no/"
+      "logo": "https://reboot.no/wp-content/uploads/2023/11/Oppdragstorget-case.jpg",
+      "website": "https://oppdragstorget.no/",
+      "industry": "job-agency",
+      "description": "Employment services in the construction industry, including operation of digital job placement platforms."
     },
     "location": "Bergen",
     "isProject": false,
@@ -35,26 +38,26 @@
       "pandas"
     ],
     "achievements": [
-      "Maintaining and updating their current platform",
-      "Doing Income Statements",
-      "Resolving issues regarding prior inadequate statements",
+      "Maintaining and updating their current platform.",
+      "Doing Income Statements.",
+      "Resolving issues regarding prior inadequate statements.",
       "Building a template for their new platforms in svelte.",
-      "Rebuilding database",
+      "Rebuilding database.",
       "Building a new algorithm for the new platforms search filter, where the notable difference from other search engines is that my search-params contained 'include'- and 'exclude'-tags, giving the user the ability to customize their job-searches."
     ],
-    "description": "Due to Ability Media being a startup company, I had many roles and my responsibilies were plenty, here is a short description of my position:My main role was lead developer, but were also assigned as the financial lead, thus I was also shared the responsibility of developing the business, it's strategy as well as other administrative tasks. The main goal for the employment revolved around maintinging their platform, as well as leading a project in rebuilding their platform; Oppdragsmarkedet.no' was a new platform, that would be used as a template for buildng new websites later on.",
+    "description": "Due to Ability Media being a startup company, I had many roles and my responsibilies were plenty, here is a short description of my position:My main role was lead developer, but were also assigned as the financial lead, thus I was also shared the responsibility of developing the business, it's strategy as well as other administrative tasks. The main goal for the employment revolved around maintinging their platform, as well as leading a project in rebuilding their platform; 'oppdragsmarkedet.no' was the new platform, that would be used as a template for buildng new websites later on.",
     "assets": [
-      "/public/assets/images/jobs/ability-media/home_landing.png",
-      "/public/assets/images/jobs/ability-media/home_0.jpg",
-      "/public/assets/images/jobs/ability-media/home_1.png",
-      "/public/assets/images/jobs/ability-media/home_2.png",
-      "/public/assets/images/jobs/ability-media/home_3.png",
-      "/public/assets/images/jobs/ability-media/home_4.png",
-      "/public/assets/images/jobs/ability-media/product_page_light.png",
-      "/public/assets/images/jobs/ability-media/product_page_dark.png",
-      "/public/assets/images/jobs/ability-media/login.png",
-      "/public/assets/images/jobs/ability-media/registration.png",
-      "/public/assets/images/jobs/ability-media/forgotpassword.png"
+      "/assets/images/jobs/ability-media/home_landing.png",
+      "/assets/images/jobs/ability-media/home_0.jpg",
+      "/assets/images/jobs/ability-media/home_1.png",
+      "/assets/images/jobs/ability-media/home_2.png",
+      "/assets/images/jobs/ability-media/home_3.png",
+      "/assets/images/jobs/ability-media/home_4.png",
+      "/assets/images/jobs/ability-media/product_page_light.png",
+      "/assets/images/jobs/ability-media/product_page_dark.png",
+      "/assets/images/jobs/ability-media/login.png",
+      "/assets/images/jobs/ability-media/registration.png",
+      "/assets/images/jobs/ability-media/forgotpassword.png"
     ]
   },
 
@@ -63,6 +66,14 @@
     "period": { "start": "Mar 22", "end": "Jul 24" },
     "title": "Freelance developer",
     "employer": "Upwork",
+    "employer_profile": {
+      "name": "Upwork.com",
+      "avatar": "https://cdn.worldvectorlogo.com/logos/upwork-roundedsquare-1.svg",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Upwork-logo.svg/3840px-Upwork-logo.svg.png",
+      "website": "https://upwork.com/",
+      "industry": "job-agency",
+      "description": "The world's human and AI-powered work marketplace. For more than two decades, Upwork has been a pioneer of a better way to work. We've enabled businesses and professionals to thrive through major shifts – from migrating to the cloud, capturing the potential of mobile, to creating new value through social media."
+    },
     "location": "Remote",
     "isProject": false,
     "position": ["Fullstack Developer", "Accountant"],
@@ -104,30 +115,32 @@
     ],
     "description": "This is my fallback job inbetween employment, and also where i started off programming professionally as training. Here i took mostly small jobs but some bigger ones, the jobs revolved mostly around data mining using python.",
     "assets": [
-      "/public/assets/images/jobs/upwork/bar_1.jpg",
-      "/public/assets/images/jobs/upwork/bar_2.jpg",
-      "/public/assets/images/jobs/upwork/bar_3.jpg",
-      "/public/assets/images/jobs/upwork/bar_4.jpg",
-      "/public/assets/images/jobs/upwork/tele_1.jpg",
-      "/public/assets/images/jobs/upwork/tele_2.jpg",
-      "/public/assets/images/jobs/upwork/telegram_1.jpg",
-      "/public/assets/images/jobs/upwork/telegram_2.jpg",
-      "/public/assets/images/jobs/upwork/telegram_3.jpg",
-      "/public/assets/images/jobs/upwork/api_1.jpg",
-      "/public/assets/images/jobs/upwork/api_2.jpg"
+      "/assets/images/jobs/upwork/bar_1.jpg",
+      "/assets/images/jobs/upwork/bar_2.jpg",
+      "/assets/images/jobs/upwork/bar_3.jpg",
+      "/assets/images/jobs/upwork/bar_4.jpg",
+      "/assets/images/jobs/upwork/tele_1.jpg",
+      "/assets/images/jobs/upwork/tele_2.jpg",
+      "/assets/images/jobs/upwork/telegram_1.jpg",
+      "/assets/images/jobs/upwork/telegram_2.jpg",
+      "/assets/images/jobs/upwork/telegram_3.jpg",
+      "/assets/images/jobs/upwork/api_1.jpg",
+      "/assets/images/jobs/upwork/api_2.jpg"
     ]
   },
+
   {
     "id": "software-developer-media-vest-as",
     "period": { "start": "Jul 24", "end": "Jul 26" },
     "title": "Software developer",
     "employer": "Media Vest AS",
-    "employer-profile": {
+    "employer_profile": {
       "name": "Media Vest AS",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT01vjIEOn8OuA5spU0Cg5G2T0nXWixYqqu1A&s",
       "logo": "https://mediavest.no/wp-content/uploads/2021/04/mediavest_logo_liggende_pos.png",
-      "company-page": "https://mediavest.no/",
-      "": ""
+      "website": "https://mediavest.no/",
+      "industry": "marketing",
+      "description": ""
     },
     "location": "Bergen",
     "isProject": true,
@@ -142,8 +155,6 @@
     "languages": ["Python", "Flutter"],
     "tools": ["insomnia", "postgreSQL", "AWS", "fastAPI", "selenium", "pandas"],
     "achievements": [
-      { "title": "lead-generation", "description": "", "result": "" },
-      { "title": "", "description": "", "result": "" },
       "Increased efficiancy by automating manual lead generation.",
       "Implemented security measures to hinder unauthorised access, mobile and email verification.",
       "Assigned relation between user and call-list-section for preventing users being assigned the same call-list",
@@ -156,12 +167,12 @@
     ],
     "description": "The overall goal of the project was to automate the lead generation part of the salesmens job, which took a big portion out of their day, making them able to focus on making sales fully. How it achieved this: By extracting companies that was verified payed listing from three wedsites; Gulesider.no, 1881.no and proff.no. General compoany info was fetched from the Brønnøysund registry. Then each of these companies had their google progile valuated, then based on wether the google-profiles lacking, missing or neither, the company god added to the final dataset 'Call list'. In the frontend the call list was distrubuted on the users.",
     "assets": [
-      "/public/assets/images/jobs/media-vest/map.jpg",
-      "/public/assets/images/jobs/media-vest/loading.jpg",
-      "/public/assets/images/jobs/media-vest/login.jpg",
-      "/public/assets/images/jobs/media-vest/home_dark.jpg",
-      "/public/assets/images/jobs/media-vest/home_light.jpg",
-      "/public/assets/images/jobs/media-vest/list.jpg"
+      "/assets/images/jobs/media-vest/map.jpg",
+      "/assets/images/jobs/media-vest/loading.jpg",
+      "/assets/images/jobs/media-vest/login.jpg",
+      "/assets/images/jobs/media-vest/home_dark.jpg",
+      "/assets/images/jobs/media-vest/home_light.jpg",
+      "/assets/images/jobs/media-vest/list.jpg"
     ]
   }
 ]
