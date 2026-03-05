@@ -1,53 +1,96 @@
 import { cn } from "@/lib/utils";
-import { Chip, Separator } from "@heroui/react";
+import { Button, Card, Chip, Separator } from "@heroui/react";
 import projects from "@data/projects.json";
 import { ProjectItem } from "@/lib/types";
-import {
-  Avatar,
-  Description,
-  Label,
-  ListBox,
-  Surface,
-  Header,
-} from "@heroui/react";
+import { Avatar, Description, Label, ListBox, Header } from "@heroui/react";
 import { TbBrandGithubFilled } from "react-icons/tb";
+import Image from "next/image";
+import Link from "next/link";
 export default function Portfolio() {
   return (
-    <main className={cn("p-10", "")}>
-      <Surface className="w-fit rounded-3xl shadow-surface p-5">
+    <main className={cn("p-0", "sm:p-20", "sm:px-1")}>
+      <Link className="contents" href="/">
+        <Button
+          variant="ghost"
+          className={cn(
+            "absolute",
+            "top-5 left-5 z-10",
+            "h-12 w-12",
+            "hover:bg-glass-green-base",
+            "p-2",
+          )}
+        >
+          <Image
+            src="/assets/images/ab_logo_demo.png"
+            width={500}
+            height={500}
+            alt="Picture of the author"
+            className={cn("size-full")}
+          />
+        </Button>
+      </Link>
+      <Card
+        className={cn(
+          "glass",
+          "glass-white",
+          "w-fit",
+          "flex",
+          "flex-0",
+          "max-w-2xl",
+          "min-w-sm",
+          "rounded-none",
+          "sm:rounded-3xl",
+          "pt-24",
+          "sm:pt-4",
+        )}
+      >
         <ListBox>
           <ListBox.Section id="portfolio-list-full" className="">
-            <Header className="text-xl">Portfolio</Header>
+            <Header className="text-xl ">Portfolio</Header>
             {projects.map((project: ProjectItem) => (
-              <ListBox.Section key={project.id} className="w-full max-w-2xl">
-                <Separator />
+              <ListBox.Section key={project.id} className="w-full">
+                <Separator variant="secondary" className="pb-0 " />
                 <ListBox.Item
                   key={project.id}
                   id={project.id}
                   textValue={project.name}
-                  className="my-2 p-4"
+                  href={project.url}
+                  target="_blank"
+                  className="my-2 p-4 hover:bg-glass-green-base group w-full"
                 >
                   <Avatar
                     size="sm"
                     variant="soft"
-                    className="bg-glass-green-dark-2 place-self-start h-15 w-15"
+                    className={cn(
+                      "bg-glass-green-dark-2",
+                      "place-self-start",
+                      "h-15 w-15",
+                    )}
                   >
                     <Avatar.Image
                       alt={project.alt}
                       src={project.icon}
-                      className="h-fit w-full py-auto p-3 "
+                      width="64"
+                      height="64"
+                      className="object-contain px-2 py-2.5"
                     />
+
                     <Avatar.Fallback>{project.name.charAt(0)}</Avatar.Fallback>
                   </Avatar>
 
-                  <div className="flex flex-col w-full">
+                  <div className="w-full">
                     <Label className="flex w-full">
-                      {project.name}
-                      <span className={cn("ml-auto font-semibold text-xs")}>
+                      {project.name.replace(/-/g, "")}
+
+                      <span
+                        className={cn(
+                          "ml-auto font-semibold text-xs text-secondary",
+                        )}
+                      >
                         {project.coretool.split("(")[0]}
                       </span>
                     </Label>
-                    <Description>
+                    <Description className="text-secondary">
                       {project.description
                         .split("Demonstrates capabilities of:")[0]
                         ?.split(". ")
@@ -59,9 +102,7 @@ export default function Portfolio() {
                         ))}
                       <br />
                       <p>Demonstrates capabilities of:</p>
-                      <div
-                        className={cn("flex flex-row gap-1 flex-wrap", "", "")}
-                      >
+                      <div className={cn("flex flex-row gap-1 flex-wrap", "")}>
                         {project.description
                           .split("Demonstrates capabilities of:")[1]
                           ?.split(",")
@@ -73,10 +114,9 @@ export default function Portfolio() {
                               id={`capability-demo-list-${index}`}
                               className={cn(
                                 "font-light px-2 py-0 h-4 w-fit",
-                                "bg-glass-gray/50",
+                                "bg-glass-gray/50", //todo custom color!
                                 "select-none",
-                                "",
-                                "",
+                                "group-hover:bg-glass-green-base!",
                               )}
                             >
                               {capability.trim()}
@@ -92,7 +132,7 @@ export default function Portfolio() {
                       </p>
                       <p className="flex gap-1">
                         Tools used:
-                        <ul className="flex gap-1">
+                        <ul className="flex gap-1 flex-wrap">
                           {project.subtools.map((tool: string, i: number) => (
                             <Chip
                               size="sm"
@@ -103,7 +143,7 @@ export default function Portfolio() {
                                 "font-light px-2 py-0 h-4 w-fit",
                                 "bg-glass-gray/50", //todo custom color!
                                 "select-none",
-                                "",
+                                "group-hover:bg-glass-green-base!",
                               )}
                             >
                               {tool}
@@ -122,12 +162,13 @@ export default function Portfolio() {
 
           <ListBox.Section id="github-link-call-to-action">
             <Separator />
-            <Header>View more</Header>
+            <Header className="text-xl">View more</Header>
 
             <ListBox.Item
               id="github-redirect-button url-redirect"
               textValue="GitHub"
               href="http://github.com/Borgerod"
+              className="hover:bg-glass-green-base"
             >
               <Avatar size="sm">
                 <TbBrandGithubFilled className="size-5" />
@@ -140,7 +181,7 @@ export default function Portfolio() {
             </ListBox.Item>
           </ListBox.Section>
         </ListBox>
-      </Surface>
+      </Card>
     </main>
   );
 }

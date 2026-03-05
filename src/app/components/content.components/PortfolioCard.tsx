@@ -69,14 +69,13 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           "md:grid-cols-3",
           "lg:grid-cols-4",
           "",
-          "",
         )}
       >
         {projects.slice(0, maxProjects).map((project: ProjectItem) => (
           <Link
             href={project.url}
             key={project.id}
-            id={project.id}
+            id={`${project.id} url-redirect`}
             className="contents"
           >
             <Card
@@ -146,7 +145,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           </Link>
         ))}
 
-        <Link href="./projects" className="contents">
+        <Link id="github url-redirect" href="./portfolio" className="contents">
           <Card
             className={cn(
               "font-light",
