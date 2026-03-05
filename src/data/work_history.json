@@ -1,29 +1,167 @@
 [
   {
-    "id": "job-fullstack-developer-ability-media-as",
+    "id": "fullstack-developer-ability-media-as",
     "period": { "start": "Jul 22", "end": "Oct 22" },
     "title": "Fullstack developer",
     "employer": "Ability Media AS",
+    "employer-profile": {
+      "name": "Media Vest AS",
+      "avatar": "/public/assets/images/jobs/logo/ability-media/company-avatar.png",
+      "logo": "https://c7a433b527dc2ae3c95c08a175c4984f.cdn.bubble.io/cdn-cgi/image/w=256,h=20,f=auto,dpr=1.25,fit=contain/f1752837899508x756769218357267500/Oppdragstorget-logo-lys.png",
+      "company-page": "https://oppdragstorget.no/"
+    },
     "location": "Bergen",
     "isProject": false,
-    "description": "/job/id:job-fullstack-developer-ability-media-as"
+    "position": ["Fullstack Developer", "Accountant"],
+    "responsibilities": [
+      "Overall responsible for technology aspect",
+      "Overall responsible for overseeing finance and accounting aspect",
+      "Leading development",
+      "Plan development",
+      "Design platform",
+      "Design maintanance",
+      "Develop platform",
+      "Accounting",
+      "Participated in strategy and other administrative decisions"
+    ],
+    "languages": ["Svelte", "Python"],
+    "tools": [
+      "Aparebank1 Accounting",
+      "Monday",
+      "Drizzle",
+      "AiFlow (CRM)",
+      "Drizzle",
+      "Storybook",
+      "pandas"
+    ],
+    "achievements": [
+      "Maintaining and updating their current platform",
+      "Doing Income Statements",
+      "Resolving issues regarding prior inadequate statements",
+      "Building a template for their new platforms in svelte.",
+      "Rebuilding database",
+      "Building a new algorithm for the new platforms search filter, where the notable difference from other search engines is that my search-params contained 'include'- and 'exclude'-tags, giving the user the ability to customize their job-searches."
+    ],
+    "description": "Due to Ability Media being a startup company, I had many roles and my responsibilies were plenty, here is a short description of my position:My main role was lead developer, but were also assigned as the financial lead, thus I was also shared the responsibility of developing the business, it's strategy as well as other administrative tasks. The main goal for the employment revolved around maintinging their platform, as well as leading a project in rebuilding their platform; Oppdragsmarkedet.no' was a new platform, that would be used as a template for buildng new websites later on.",
+    "assets": [
+      "/public/assets/images/jobs/ability-media/home_landing.png",
+      "/public/assets/images/jobs/ability-media/home_0.jpg",
+      "/public/assets/images/jobs/ability-media/home_1.png",
+      "/public/assets/images/jobs/ability-media/home_2.png",
+      "/public/assets/images/jobs/ability-media/home_3.png",
+      "/public/assets/images/jobs/ability-media/home_4.png",
+      "/public/assets/images/jobs/ability-media/product_page_light.png",
+      "/public/assets/images/jobs/ability-media/product_page_dark.png",
+      "/public/assets/images/jobs/ability-media/login.png",
+      "/public/assets/images/jobs/ability-media/registration.png",
+      "/public/assets/images/jobs/ability-media/forgotpassword.png"
+    ]
   },
+
   {
-    "id": "job-freelance-developer-ability-media-as",
+    "id": "freelance-developer-ability-media-as",
     "period": { "start": "Mar 22", "end": "Jul 24" },
     "title": "Freelance developer",
     "employer": "Upwork",
     "location": "Remote",
     "isProject": false,
-    "description": "/job/id:job-fullstack-developer-ability-media-as"
+    "position": ["Fullstack Developer", "Accountant"],
+    "responsibilities": [
+      "Overall responsible for technology aspect",
+      "Overall responsible for overseeing finance and accounting aspect",
+      "Leading development",
+      "Plan development",
+      "Design platform",
+      "Design maintanance",
+      "Develop platform",
+      "Accounting",
+      "Participated in strategy and other administrative decisions"
+    ],
+    "languages": ["Python"],
+    "tools": [
+      "Insomnia",
+      "Charles",
+      "pandas",
+      "selenium",
+      "fastAPI",
+      "cfscrape",
+      "tkinter",
+      "numpy",
+      "numpy",
+      "cv2",
+      "Beautiful Soup",
+      "postgreSQL",
+      "CSV",
+      "Telethon",
+      "Binance API",
+      "Tradingview API"
+    ],
+    "achievements": [
+      "Managed to both scrape Telegram channels and groups, and add scraped users to owned channel (or extract them as a list).",
+      "Accessed these social media platforms with my scraper bot; Youtube, Instagram, Tiktok, Socialblade, Telegram.",
+      "Build small AI model though OpenCV (cv2) for picking top color-cluster (similar colors are counted together) used in social media posts.",
+      "Compared and analysed two API's (Binance & TradingView) in order to consult client on issues regarding data mismatch"
+    ],
+    "description": "This is my fallback job inbetween employment, and also where i started off programming professionally as training. Here i took mostly small jobs but some bigger ones, the jobs revolved mostly around data mining using python.",
+    "assets": [
+      "/public/assets/images/jobs/upwork/bar_1.jpg",
+      "/public/assets/images/jobs/upwork/bar_2.jpg",
+      "/public/assets/images/jobs/upwork/bar_3.jpg",
+      "/public/assets/images/jobs/upwork/bar_4.jpg",
+      "/public/assets/images/jobs/upwork/tele_1.jpg",
+      "/public/assets/images/jobs/upwork/tele_2.jpg",
+      "/public/assets/images/jobs/upwork/telegram_1.jpg",
+      "/public/assets/images/jobs/upwork/telegram_2.jpg",
+      "/public/assets/images/jobs/upwork/telegram_3.jpg",
+      "/public/assets/images/jobs/upwork/api_1.jpg",
+      "/public/assets/images/jobs/upwork/api_2.jpg"
+    ]
   },
   {
-    "id": "job-software-developer-media-vest-as",
+    "id": "software-developer-media-vest-as",
     "period": { "start": "Jul 24", "end": "Jul 26" },
     "title": "Software developer",
     "employer": "Media Vest AS",
+    "employer-profile": {
+      "name": "Media Vest AS",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT01vjIEOn8OuA5spU0Cg5G2T0nXWixYqqu1A&s",
+      "logo": "https://mediavest.no/wp-content/uploads/2021/04/mediavest_logo_liggende_pos.png",
+      "company-page": "https://mediavest.no/",
+      "": ""
+    },
     "location": "Bergen",
     "isProject": true,
-    "description": "/job/id:job-fullstack-developer-ability-media-as"
+    "position": ["Software Developer"],
+    "responsibilities": [
+      "Plan development",
+      "Design app",
+      "Develop app",
+      "Manage database and server",
+      "Board presentations"
+    ],
+    "languages": ["Python", "Flutter"],
+    "tools": ["insomnia", "postgreSQL", "AWS", "fastAPI", "selenium", "pandas"],
+    "achievements": [
+      { "title": "lead-generation", "description": "", "result": "" },
+      { "title": "", "description": "", "result": "" },
+      "Increased efficiancy by automating manual lead generation.",
+      "Implemented security measures to hinder unauthorised access, mobile and email verification.",
+      "Assigned relation between user and call-list-section for preventing users being assigned the same call-list",
+      "To prevent users from scraping the whole list at once, I implemented rules that required the user to confirm when client has been called, so when the user requested a new list any checked list items would be made inaccessable for the users, and the unchecked items would be re-shuffled back to the overall dataset with a no-response tag.",
+      "Bypassing google's reCATCHPA, letting me extract google profiles",
+      "Extracted and Built the whole dataset (ca 40.000 norwegian companies)",
+      "Extracted Every company from; brønnøysund registry, Gulesider.no, 1881.no and proff.no in 19.1 minutes, yielding dataset of ca 250.000 companies that have a confirmed payed listing.",
+      "Verified the google profiles of that dataset and made a final Dataset of 10.000-40.000 companies with lacking profiles in 64.6 minutes.",
+      "So in total: 10.000-40.000 leads was generated from a list of 1 million norwegian companies, extracted and verified on 5 platforms, all in: 83.2 minutes."
+    ],
+    "description": "The overall goal of the project was to automate the lead generation part of the salesmens job, which took a big portion out of their day, making them able to focus on making sales fully. How it achieved this: By extracting companies that was verified payed listing from three wedsites; Gulesider.no, 1881.no and proff.no. General compoany info was fetched from the Brønnøysund registry. Then each of these companies had their google progile valuated, then based on wether the google-profiles lacking, missing or neither, the company god added to the final dataset 'Call list'. In the frontend the call list was distrubuted on the users.",
+    "assets": [
+      "/public/assets/images/jobs/media-vest/map.jpg",
+      "/public/assets/images/jobs/media-vest/loading.jpg",
+      "/public/assets/images/jobs/media-vest/login.jpg",
+      "/public/assets/images/jobs/media-vest/home_dark.jpg",
+      "/public/assets/images/jobs/media-vest/home_light.jpg",
+      "/public/assets/images/jobs/media-vest/list.jpg"
+    ]
   }
 ]
