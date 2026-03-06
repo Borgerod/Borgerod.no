@@ -138,8 +138,8 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT01vjIEOn8OuA5spU0Cg5G2T0nXWixYqqu1A&s",
       "logo": "https://mediavest.no/wp-content/uploads/2021/04/mediavest_logo_liggende_pos.png",
       "website": "https://mediavest.no/",
-      "industry": "marketing",
-      "description": ""
+      "industry": "Marketing",
+      "description": "Mediebyrå med base i Bergen. Mediavest er mediebyrået som leverer digital markedsføring og løsninger tilpasset hver enkelt bedrift. Driftsfeltene er; Bedrift rådgiving, markedsføring, salg av medieprodukter, informasjons teknologi, investering i andre selskaper. \"Vi er mediebyrået som leverer tjenester tilpasset hver enkelt bedrift og gjør vårt ytterste for å bidra til økt digital vekst og gode resultater for våre kunder.Mediavest er et medie- og digitalbyrå med base i Bergen.\" "
     },
     "location": "Bergen",
     "isProject": true,
@@ -166,7 +166,7 @@
     ],
     "description": "The overall goal of the project was to automate the lead generation part of the salesmens job, which took a big portion out of their day, making them able to focus on making sales fully. How it achieved this: By extracting companies that was verified payed listing from three wedsites; Gulesider.no, 1881.no and proff.no. General compoany info was fetched from the Brønnøysund registry. Then each of these companies had their google progile valuated, then based on wether the google-profiles lacking, missing or neither, the company god added to the final dataset 'Call list'. In the frontend the call list was distrubuted on the users.",
     "assets": [
-      "/assets/images/jobs/media-vest/map.jpg",
+      "/assets/images/jobs/media-vest/map.png",
       "/assets/images/jobs/media-vest/loading.jpg",
       "/assets/images/jobs/media-vest/login.jpg",
       "/assets/images/jobs/media-vest/home_dark.jpg",
