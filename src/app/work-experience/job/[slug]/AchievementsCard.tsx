@@ -24,3 +24,28 @@ export default function AchievementsCard({ job }: { job: JobItem }) {
     </Card>
   );
 }
+
+/* * ORIGINAL BACKUP DO NOT DELETE*/
+// <Card
+//   id="achievements"
+//   className="bg-transparent md:bg-glass-white shadow-none md:shadow md:glass md:glass-white max-w-2xl md:col-start-2 md:row-start-3 col-start-1 row-start-4  col-span-2 md:col-span-1 w-full"
+// >
+//   <Card.Header>
+//     <Card.Title className="text-lg">Achievements</Card.Title>
+//   </Card.Header>
+
+//   <Card.Content id="achievements-list ul" className="p-2">
+//     {job.achievements.map((paragraph: string, i: number) => (
+//       <li
+//         key={i}
+//         id="achievement"
+//         className="p-1 grid grid-cols-[auto_1fr] gap-x-2"
+//       >
+//         <span className={cn("col-start-1", `row-start-${i}`)}>-</span>
+//         <span className={cn("col-start-2", `row-start-${i}`)}>
+//           {paragraph}
+//         </span>
+//       </li>
+//     ))}
+//   </Card.Content>
+// </Card>
