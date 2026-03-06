@@ -14,3 +14,27 @@ export type ProjectItem = TagItem & {
   coretool: string;
   subtools: string[];
 };
+
+export type JobItem = {
+  id: string;
+  period: { start: string; end: string };
+  title: string;
+  employer: string;
+  employer_profile: {
+    name: string;
+    avatar: string;
+    logo: string;
+    website: string;
+    industry: string;
+    description: string;
+  };
+  location: string;
+  isProject: boolean;
+  position: string[];
+  responsibilities: string[];
+  languages: string[];
+  tools: string[];
+  achievements: string[];
+  description: string;
+  assets: string[];
+};
