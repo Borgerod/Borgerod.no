@@ -31,8 +31,14 @@ export default async function Job({
   const jobRequest = workHistory.find((item) => item.id === slug);
   if (!jobRequest) notFound();
   const job = jobRequest as JobItem;
+
+  const totalAchievementsLength = job.achievements.reduce(
+    (acc, curr) => acc + curr.length,
+    0,
+  );
+  const isLongLayout = totalAchievementsLength > 300;
+
   return (
-    // <main className={cn("p-0", "md:p-20", "md:px-1")}>
     <main
       className={cn(
         "p-4",
@@ -76,10 +82,10 @@ export default async function Job({
         </Breadcrumbs>
       </div>
 
-      <AchievementsCard job={job} />
+      <AchievementsCard job={job} isLongLayout={isLongLayout} />
       <ResponsabilitiesCard job={job} />
       <EmployerCard job={job} />
-      <JobCard job={job} />
+      <JobCard job={job} isLongLayout={isLongLayout} />
 
       <Card className="bg-transparent md:bg-glass-white shadow-none md:shadow md:glass md:glass-upper col-start-1 col-span-full row-start-6 md:row-start-5">
         <ImageGallery assets={job.assets} />
