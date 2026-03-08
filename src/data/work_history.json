@@ -15,16 +15,28 @@
     "location": "Bergen",
     "isProject": false,
     "position": ["Fullstack Developer", "Accountant"],
+
+    "achievements": [
+      "Invoice management.",
+      "Overseeing income statements",
+      "Overseeing tax statements.",
+      "Resolving issues regarding prior inadequate statements.",
+      "Maintaining current platform.",
+      "Organizing board meetings.",
+      "Building a new algorithm for the new platform's search filter, where the notable difference from other search engines is that my search-params contained 'include'- and 'exclude'-tags, giving the user the ability to customize their job-searches.",
+      "Building a template for new platforms on the Svelte framework."
+    ],
     "responsibilities": [
-      "Overall responsible for technology aspect",
-      "Overall responsible for overseeing finance and accounting aspect",
-      "Leading development",
-      "Plan development",
-      "Design platform",
-      "Design maintanance",
-      "Develop platform",
-      "Accounting",
-      "Participated in strategy and other administrative decisions"
+      "Overall responsible for technology and development.",
+      "Overall responsible for finance and accounting.",
+      "Oversee finance and accounting.",
+      "Database architecture.",
+      "Participate in strategy and business development, and administrative decisions.",
+      "Partake in administrative tasks.",
+      "Contribute to strategy- and business development",
+      "Platform maintenance.",
+      "Design platforms.",
+      "Plan and lead the dvelopment of new platforms."
     ],
     "languages": ["Svelte", "Python"],
     "tools": [
@@ -36,14 +48,7 @@
       "Storybook",
       "pandas"
     ],
-    "achievements": [
-      "Maintaining and updating their current platform.",
-      "Doing Income Statements.",
-      "Resolving issues regarding prior inadequate statements.",
-      "Building a template for their new platforms in svelte.",
-      "Rebuilding database.",
-      "Building a new algorithm for the new platforms search filter, where the notable difference from other search engines is that my search-params contained 'include'- and 'exclude'-tags, giving the user the ability to customize their job-searches."
-    ],
+
     "description": "Due to Ability Media being a startup company, I had many roles and my responsibilies were plenty, here is a short description of my position:My main role was lead developer, but were also assigned as the financial lead, thus I was also shared the responsibility of developing the business, it's strategy as well as other administrative tasks. The main goal for the employment revolved around maintinging their platform, as well as leading a project in rebuilding their platform; 'oppdragsmarkedet.no' was the new platform, that would be used as a template for buildng new websites later on.",
     "assets": [
       "/assets/images/jobs/ability-media/home_landing.png",
@@ -61,7 +66,7 @@
   },
 
   {
-    "id": "freelance-developer-ability-media-as",
+    "id": "freelance-developer-upwork",
     "period": { "start": "Mar 22", "end": "Jul 24" },
     "title": "Freelance developer",
     "employer": "Upwork",
@@ -76,16 +81,23 @@
     "location": "Remote",
     "isProject": false,
     "position": ["Fullstack Developer", "Accountant"],
+    "achievements": [
+      "Managed to both scrape Telegram channels and groups, and add scraped users to owned channel (or extract them as a list).",
+      "Accessed these social media platforms with my scraper bot; Youtube, Instagram, Tiktok, Socialblade, Telegram.",
+      "Build small AI model though OpenCV (cv2) for picking top color-cluster (similar colors are counted together) used in social media posts.",
+      "Compared and analysed two API's (Binance & TradingView) in order to consult client on issues regarding data mismatch"
+    ],
     "responsibilities": [
-      "Overall responsible for technology aspect",
-      "Overall responsible for overseeing finance and accounting aspect",
-      "Leading development",
-      "Plan development",
-      "Design platform",
-      "Design maintanance",
-      "Develop platform",
-      "Accounting",
-      "Participated in strategy and other administrative decisions"
+      "Active client consultation & requirements gathering",
+      "Translating client feedback into actionable development tasks",
+      "Plan out project, Setting strategic and realistic milestones, while also respecting the limitations of the tools and the clients wishes",
+      "Full-stack architecture design",
+      "Structured development towards a successful launch",
+      "Managing project time allocation relative to operational revenue, to optimize and maintain a stable cost margin",
+      "Cost estimation & financial forecasting",
+      "ROI-focused feature prioritization",
+      "Contract scoping & proposal writing",
+      "Post-launch support & maintenance"
     ],
     "languages": ["Python"],
     "tools": [
@@ -106,12 +118,7 @@
       "Binance API",
       "Tradingview API"
     ],
-    "achievements": [
-      "Managed to both scrape Telegram channels and groups, and add scraped users to owned channel (or extract them as a list).",
-      "Accessed these social media platforms with my scraper bot; Youtube, Instagram, Tiktok, Socialblade, Telegram.",
-      "Build small AI model though OpenCV (cv2) for picking top color-cluster (similar colors are counted together) used in social media posts.",
-      "Compared and analysed two API's (Binance & TradingView) in order to consult client on issues regarding data mismatch"
-    ],
+
     "description": "This is my fallback job inbetween employment, and also where i started off programming professionally as training. Here i took mostly small jobs but some bigger ones, the jobs revolved mostly around data mining using python.",
     "assets": [
       "/assets/images/jobs/upwork/bar_1.jpg",
@@ -144,15 +151,6 @@
     "location": "Bergen",
     "isProject": true,
     "position": ["Software Developer"],
-    "responsibilities": [
-      "Plan development",
-      "Design app",
-      "Develop app",
-      "Manage database and server",
-      "Board presentations"
-    ],
-    "languages": ["Python", "Flutter"],
-    "tools": ["insomnia", "postgreSQL", "AWS", "fastAPI", "selenium", "pandas"],
     "achievements": [
       "Increased efficiancy by automating manual lead generation.",
       "Implemented security measures to hinder unauthorised access, mobile and email verification.",
@@ -164,6 +162,16 @@
       "Verified the google profiles of that dataset and made a final Dataset of 10.000-40.000 companies with lacking profiles in 64.6 minutes.",
       "So in total: 10.000-40.000 leads was generated from a list of 1 million norwegian companies, extracted and verified on 5 platforms, all in: 83.2 minutes."
     ],
+    "responsibilities": [
+      "Plan development",
+      "Design app",
+      "Develop app",
+      "Manage database and server",
+      "Board presentations"
+    ],
+    "languages": ["Python", "Flutter"],
+    "tools": ["insomnia", "postgreSQL", "AWS", "fastAPI", "selenium", "pandas"],
+
     "description": "The overall goal of the project was to automate the lead generation part of the salesmens job, which took a big portion out of their day, making them able to focus on making sales fully. How it achieved this: By extracting companies that was verified payed listing from three wedsites; Gulesider.no, 1881.no and proff.no. General compoany info was fetched from the Brønnøysund registry. Then each of these companies had their google progile valuated, then based on wether the google-profiles lacking, missing or neither, the company god added to the final dataset 'Call list'. In the frontend the call list was distrubuted on the users.",
     "assets": [
       "/assets/images/jobs/media-vest/map.png",

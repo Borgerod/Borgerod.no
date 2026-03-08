@@ -38,3 +38,10 @@ export type JobItem = {
   description: string;
   assets: string[];
 };
+
+export type LayoutType = {
+  mainLayout: string;
+  jobCardLayout: string;
+  achiCardLayout: string;
+  respCardLayout: string;
+};

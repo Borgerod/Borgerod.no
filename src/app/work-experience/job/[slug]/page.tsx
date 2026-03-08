@@ -2,6 +2,8 @@ import workHistory from "@/data/work_history.json";
 import { notFound } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { QuoteOpen } from "@gravity-ui/icons";
+
+import LayoutBuilder from "./LayoutBuilder";
 import {
   Avatar,
   Breadcrumbs,
@@ -16,7 +18,7 @@ import { Link as Redirect } from "@heroui/react";
 import ImageGallery from "./imageGallery";
 import Link from "next/link";
 import Image from "next/image";
-import { JobItem } from "@/lib/types";
+import { JobItem, LayoutType } from "@/lib/types";
 import AchievementsCard from "./AchievementsCard";
 import ResponsabilitiesCard from "./ResponsabilitiesCard";
 import EmployerCard from "./EmployerCard";
@@ -32,11 +34,16 @@ export default async function Job({
   if (!jobRequest) notFound();
   const job = jobRequest as JobItem;
 
+  /* this ('totalAchievementsLength' and 'isLongLayout') dictates wether achievements is too big (this ruins the layout composure and tell the page to restructure from grid to a simple flex-col) */
+  // TODO remove this old method
   const totalAchievementsLength = job.achievements.reduce(
     (acc, curr) => acc + curr.length,
     0,
   );
-  const isLongLayout = totalAchievementsLength > 300;
+  const isLongLayout = totalAchievementsLength > 600;
+  // const isLongLayout = totalAchievementsLength > 300;
+
+  const layout: LayoutType = LayoutBuilder(job);
 
   return (
     <main
@@ -50,6 +57,14 @@ export default async function Job({
         "gap-5 max-w-4xl",
         "md:bg-transparent",
         "bg-glass-white",
+        // isLongLayout ? "grid" : "flex flex-col",
+        // isLongLayout ? "flex flex-col" : "grid grid-cols-2",
+        layout.mainLayout,
+        // denseLayout
+        "",
+        "",
+        "",
+        "",
       )}
     >
       <Link className="contents" href="/">
@@ -81,15 +96,39 @@ export default async function Job({
           <Breadcrumbs.Item>{slug}</Breadcrumbs.Item>
         </Breadcrumbs>
       </div>
-
-      <AchievementsCard job={job} isLongLayout={isLongLayout} />
-      <ResponsabilitiesCard job={job} />
+      {/* <div
+        // TEMP component wrapper
+        className="contents invisible "
+      > */}
       <EmployerCard job={job} />
-      <JobCard job={job} isLongLayout={isLongLayout} />
+      {/* </div> */}
+      <JobCard job={job} JobCardLayout={layout.jobCardLayout} />
+      <AchievementsCard job={job} achiCardLayout={layout.achiCardLayout} />
+      <ResponsabilitiesCard job={job} respCardLayout={layout.respCardLayout} />
 
-      <Card className="bg-transparent md:bg-glass-white shadow-none md:shadow md:glass md:glass-upper col-start-1 col-span-full row-start-6 md:row-start-5">
+      {/* <div
+        // TEMP component wrapper
+        className="contents invisible"
+      > */}
+      <Card
+        className={cn(
+          "bg-transparent",
+          "md:bg-glass-white",
+          "shadow-none",
+          "md:shadow",
+          "md:glass",
+          "md:glass-upper",
+          "col-start-1",
+          "col-span-full",
+          // "row-start-6",
+          // "md:row-start-5",
+          "",
+          "",
+        )}
+      >
         <ImageGallery assets={job.assets} />
       </Card>
+      {/* </div> */}
     </main>
   );
 }

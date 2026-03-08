@@ -28,7 +28,7 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
   }, [prev, next]);
 
   return (
-    <Card variant="transparent">
+    <Card variant="transparent" className="">
       <Card.Header className="text-lg">Gallery</Card.Header>
       <Card.Description className="">
         Here are some screenshots from the work I have done:
