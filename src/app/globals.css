@@ -171,6 +171,17 @@
 body {
   color: var(--foreground);
   /* font-family: "Inter", Arial, Helvetica, sans-serif; */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: var(--foreground);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* remove all background-image lines */
   /* > BG alt 1 */
   /* background-image: url(@public/assets/images/background.jpg);
   background-size: cover;
@@ -185,17 +196,45 @@ body {
   */
 
   /*> BG alt 3 */
+
+  /* background-size: cover; */
+  /* background-size: cover; */
+  background-size: contain;
+  /* background-size: auto; */
+  /* background-position: center; */
+
+  background-position: top;
+}
+
+.bg-blur {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url(@public/assets/images/bg_upscaled.png);
   background-image: url(@public/assets/images/bg_resume.png);
+  /* background-image: url(@public/assets/images/bg_upscaled.png); */
+  /* background-image: url(@public/assets/images/bg_upscaled_2.png); */
+  /* background-image: url(@public/assets/images/bg_upscaled_3.png); */
+  /* background-image: url(@public/assets/images/bg_upscaled_4.png); */
+  /* background-image: url(@public/assets/images/bg_upscaled_5.png); */
   background-size: cover;
   /* background-size: contain; */
   /* background-size: auto; */
   background-position: center;
-  /* background-position: top; */
+  background-position: top;
+  /* top: -250; */
+  /* top: -300;
+  left: -100; */
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  /* filter: blur(4px); */
+  filter: blur(0px);
+  transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+main {
+  position: relative;
+  z-index: 1;
 }
 
 @layer components {

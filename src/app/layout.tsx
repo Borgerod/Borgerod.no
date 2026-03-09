@@ -30,6 +30,7 @@ export default function RootLayout({
           `@container/main ${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`,
         )}
       >
+        <div className="bg-blur" />
         {children}
       </body>
     </html>
