@@ -85,7 +85,26 @@ export default function ResponsibilitiesCard({
           3: "grid-cols-3",
           4: "grid-cols-4",
         };
-        const totalSpan = row.reduce((acc, item) => acc + item.span, 0);
+        const rowsClass: Record<number, string> = {
+          1: "grid-rows-1",
+          2: "grid-rows-2",
+          3: "grid-rows-3",
+          4: "grid-rows-4",
+          5: "grid-rows-5",
+          6: "grid-rows-6",
+        };
+        const rowSpanClass: Record<number, string> = {
+          1: "row-span-1",
+          2: "row-span-2",
+          3: "row-span-3",
+          4: "row-span-4",
+        };
+
+        const totalSpan = row.reduce(
+          (acc, item) =>
+            acc + (Array.isArray(item.span) ? 1 : (item.span as number)),
+          0,
+        );
 
         return (
           <div
@@ -94,20 +113,54 @@ export default function ResponsibilitiesCard({
               "grid grid-rows-1 gap-2 mb-2 items-start",
               colsClass[totalSpan],
               "",
+              "",
             )}
           >
-            {row.map((item, i) => (
-              <Card
-                key={i}
-                className={cn(
-                  "h-full rounded-xl flex justify-center items-center",
-                  spanClass[item.span],
-                  "",
-                )}
-              >
-                {item.text}
-              </Card>
-            ))}
+            {row.map((item, i) => {
+              if (Array.isArray(item.span)) {
+                return (
+                  <div
+                    key={i}
+                    className={cn(
+                      "col-span-1 grid grid-cols-1 gap-2",
+                      rowsClass[item.span.length] || "grid-rows-1",
+                      "",
+                      "",
+                    )}
+                  >
+                    {item.span.map((subSpan, subIdx) => (
+                      <Card
+                        key={subIdx}
+                        className={cn(
+                          "h-full rounded-xl flex justify-center items-center",
+                          rowSpanClass[subSpan] || "row-span-1",
+                          "",
+                          "",
+                        )}
+                      >
+                        {Array.isArray(item.text)
+                          ? item.text[subIdx]
+                          : item.text}
+                      </Card>
+                    ))}
+                  </div>
+                );
+              }
+
+              return (
+                <Card
+                  key={i}
+                  className={cn(
+                    "h-full rounded-xl flex justify-center items-center",
+                    spanClass[item.span as number] || "col-span-1",
+                    "",
+                    "",
+                  )}
+                >
+                  {Array.isArray(item.text) ? item.text[0] : item.text}
+                </Card>
+              );
+            })}
           </div>
         );
       })}
