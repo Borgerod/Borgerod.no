@@ -31,7 +31,10 @@ function DebuggerStringFitsRowLayout(params: {
   });
 }
 
-export function BentoBoxBuilder(items: BentoInput): BentoItemDef[][] {
+export function BentoBoxBuilder(
+  items: BentoInput,
+  isHalved = false,
+): BentoItemDef[][] {
   // export function BentoBoxBuilder(items: string[]): BentoItemDef[][] {
   const maxLen = Math.max(...items.map((i) => i.length));
 
@@ -43,12 +46,16 @@ export function BentoBoxBuilder(items: BentoInput): BentoItemDef[][] {
   }
 
   function getMinSpan(item: string): number {
+    if (isHalved) {
+      if (item.length >= 80) return 2;
+      return 1;
+    }
     if (item.length >= 200) return 4;
     if (item.length >= 80) return 2;
     return 1;
   }
 
-  const layouts: (number | number[])[][] = [
+  const allLayouts: (number | number[])[][] = [
     [4],
     [2, 2],
     [1, 2],
@@ -87,6 +94,33 @@ export function BentoBoxBuilder(items: BentoInput): BentoItemDef[][] {
     [2, [1, 1]],
     [[1, 1], 1],
   ];
+
+  const halvedLayouts: (number | number[])[][] = [
+    [2],
+    [1, 1],
+    [1, 2],
+    [1, 3],
+    [2, 1],
+    [3, 1],
+    [3, [1, 1]],
+    [[1, 1], 3],
+    [2, [1, 1]],
+    [[1, 1], 2],
+    [1, [1, 1]],
+    [[1, 1], 1],
+    [1, [3, 1]],
+    [[3, 1], 1],
+    [1, [1, 3]],
+    [[1, 3], 1],
+    [1, [1, 2]],
+    [[1, 2], 1],
+    [1, [2, 1]],
+    [[2, 1], 1],
+    [1, [1, 1]],
+    [[1, 1], 1],
+  ];
+
+  const layouts = isHalved ? halvedLayouts : allLayouts;
 
   // const shuffled = [...layouts];
   // for (let i = shuffled.length - 1; i > 0; i--) {
@@ -470,7 +504,7 @@ export function BentoBoxBuilder(items: BentoInput): BentoItemDef[][] {
     return a;
   }
 
-  let pool: (number | number[])[][] = reshuffle([...layouts]);
+  const pool: (number | number[])[][] = reshuffle([...layouts]);
 
   function solve(): boolean {
     if (queue.length === 0) return true;

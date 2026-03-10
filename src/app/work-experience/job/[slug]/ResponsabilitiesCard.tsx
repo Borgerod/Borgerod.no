@@ -12,7 +12,7 @@ export default function ResponsibilitiesCard({
 }: {
   job: JobItem;
   isLongLayout?: boolean;
-  respCardLayout: string;
+  respCardLayout?: string;
 }) {
   // const [tooBigForGrid, setTooBigForGrid] = useState<boolean>(() =>
   //   checkSizeOfArray(job.responsibilities),
@@ -28,7 +28,10 @@ export default function ResponsibilitiesCard({
   //   return totalArrayLength > lengthLimit;
   // }
 
-  const rows = BentoBoxBuilder(job.responsibilities);
+  const isHalved = respCardLayout
+    ? !respCardLayout.includes("col-span-2")
+    : true;
+  const rows = BentoBoxBuilder(job.responsibilities, isHalved);
 
   // checkSizeOfArray(job.responsibilities, setTooBigForGrid);
   // function checkSizeOfArray(  items: string[],

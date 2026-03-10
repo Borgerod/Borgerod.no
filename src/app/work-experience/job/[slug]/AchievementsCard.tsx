@@ -14,7 +14,10 @@ export default function AchievementsCard({
   isLongLayout?: boolean;
   achiCardLayout: string;
 }) {
-  const rows = BentoBoxBuilder(job.achievements);
+  const isHalved = achiCardLayout
+    ? !achiCardLayout.includes("col-span-2")
+    : true;
+  const rows = BentoBoxBuilder(job.achievements, isHalved);
 
   // const [tooBigForGrid, setTooBigForGrid] = useState<boolean>(() =>
   //   checkSizeOfArray(job.achievements),
