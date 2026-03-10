@@ -2,7 +2,7 @@
 import { JobItem } from "@/lib/types";
 import { Card, cn } from "@heroui/react";
 import Masonry from "react-masonry-css";
-import { BentoBoxBuilder } from "./BentoBoxBulder";
+import { BentoBoxBuilder } from "./BentoBoxBuilder";
 import { useState } from "react";
 
 export default function ResponsibilitiesCard({
