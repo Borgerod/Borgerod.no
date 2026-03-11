@@ -169,7 +169,7 @@
 }
 
 body {
-  color: var(--foreground);
+  /* color: var(--foreground); */
   /* font-family: "Inter", Arial, Helvetica, sans-serif; */
 
   display: flex;
@@ -192,8 +192,7 @@ body {
   background-size: cover;
   background-size: auto;
   background-position: center;
-  background-position: top;
-  */
+  background-position: top; */
 
   /*> BG alt 3 */
 
@@ -203,6 +202,14 @@ body {
   /* background-size: auto; */
   /* background-position: center; */
 
+  background-position: top;
+  background-image: url(@public/assets/images/bg_upscaled.png);
+  /* background-image: url(@public/assets/images/bg_resume.png); */
+  /* background-image: url(@public/assets/images/bg_upscaled_6.png); */
+  background-size: cover;
+  /* background-size: contain; */
+  /* background-size: auto; */
+  background-position: center;
   background-position: top;
 }
 
