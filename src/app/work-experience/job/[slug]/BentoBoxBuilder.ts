@@ -69,7 +69,6 @@ export function BentoBoxBuilder(
   }
 
   const allLayouts: (number | number[])[][] = [
-    // [4],
     [2, 2],
     [1, 2],
     [2, 1],
@@ -109,7 +108,6 @@ export function BentoBoxBuilder(
   ];
 
   const halvedLayouts: (number | number[])[][] = [
-    // [2],
     [1, 1],
     [1, 2],
     [1, 3],
@@ -134,13 +132,6 @@ export function BentoBoxBuilder(
   ];
 
   const layouts = isHalved ? halvedLayouts : allLayouts;
-
-  // const shuffled = [...layouts];
-  // for (let i = shuffled.length - 1; i > 0; i--) {
-  //   const j = Math.floor(rand() * (i + 1));
-  //   [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  // }
-
   function gcd(a: number, b: number): number {
     return b === 0 ? a : gcd(b, a % b);
   }
@@ -279,17 +270,6 @@ export function BentoBoxBuilder(
     );
     if (cellsCount > available.length) return null;
 
-    // function* permute(arr: number[]): Generator<number[]> {
-    //   if (arr.length <= 1) yield arr;
-    //   else {
-    //     for (let i = 0; i < arr.length; i++) {
-    //       for (const p of permute([...arr.slice(0, i), ...arr.slice(i + 1)])) {
-    //         yield [arr[i], ...p];
-    //       }
-    //     }
-    //   }
-    // }
-
     function* combinations(
       nTotal: number,
       k: number,
@@ -367,19 +347,18 @@ export function BentoBoxBuilder(
 
   const rows: BentoItemDef[][] = [];
   const queue = [...items];
-  function reshuffle<T>(arr: T[]): T[] {
+  function shuffle<T>(arr: T[]): T[] {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(rand() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
   }
-  // const pool = reshuffle([...layouts]);
   let previousRowLayout: (number | number[])[] = [];
 
   while (queue.length > 1) {
     let placed = false;
-    const currentPool = reshuffle([...layouts]);
+    const currentPool = shuffle([...layouts]);
     for (let i = 0; i < currentPool.length; i++) {
       const result = tryFill(currentPool[i], queue);
       if (result) {
@@ -398,7 +377,6 @@ export function BentoBoxBuilder(
     }
     if (!placed) {
       break;
-      // queue.splice(0, 1);
     }
   }
 
