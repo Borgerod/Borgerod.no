@@ -115,7 +115,7 @@ export default function ResponsibilitiesCard({
             className={cn(
               "grid grid-rows-1 gap-2 mb-2 items-start",
               colsClass[totalSpan],
-              "",
+              "h-full",
               "",
             )}
           >
@@ -123,16 +123,18 @@ export default function ResponsibilitiesCard({
               if (Array.isArray(item.span)) {
                 return (
                   <div
+                    id="row bento-box"
                     key={i}
                     className={cn(
                       "col-span-1 grid grid-cols-1 gap-2",
                       rowsClass[item.span.length] || "grid-rows-1",
-                      "",
+                      "h-full",
                       "",
                     )}
                   >
                     {item.span.map((subSpan, subIdx) => (
                       <Card
+                        id="row-item box bento-box"
                         key={subIdx}
                         className={cn(
                           "h-full rounded-xl flex justify-center items-center",
