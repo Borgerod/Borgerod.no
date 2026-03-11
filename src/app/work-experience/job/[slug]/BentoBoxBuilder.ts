@@ -151,7 +151,6 @@ export function BentoBoxBuilder(
     return flatL.map((v) => v / g).join("-");
   }
 
-  // function stringFitsRowLayout(row: BentoItemDef[], { threshold = 0.05 }: { threshold?: number } = {}): boolean {
   function stringFitsRowLayout({
     bentoItem,
     threshold = 0.05,
@@ -161,6 +160,25 @@ export function BentoBoxBuilder(
   }): boolean {
     const row = bentoItem;
     const strings: string[] = [];
+    // console.log("row: ", row);
+    // console.log("previousRowLayout: ", previousRowLayout);
+    // const rowLayout = row.map((item) => item.span);
+
+    /*
+      row:  [
+      { text: 'Develop app', span: 1 },
+      { text: 'Board presentations', span: 2 }
+      ]
+      previousRowLayout:  [ 2, 1 ]
+    */
+
+    //     export type BentoItemDef = {
+    //   text: string | string[];
+    //   span: number | number[];
+    // };
+
+    //previousRowLayout (number | number[])[]
+    // row: BentoItemDef[]
     row.forEach((item) => {
       if (Array.isArray(item.text)) {
         strings.push(...item.text);
@@ -192,48 +210,48 @@ export function BentoBoxBuilder(
       return [s / totalOuterSpan];
     });
 
-    let flatIdx = 0;
-    const structureNested = <T>(flat: T[]): (T | T[])[] => {
-      return spans.map((s) => {
-        if (Array.isArray(s)) {
-          const sub = flat.slice(flatIdx, flatIdx + s.length);
-          flatIdx += s.length;
-          return sub;
-        }
-        return flat[flatIdx++];
-      });
-    };
+    // let flatIdx = 0;
+    // const structureNested = <T>(flat: T[]): (T | T[])[] => {
+    //   return spans.map((s) => {
+    //     if (Array.isArray(s)) {
+    //       const sub = flat.slice(flatIdx, flatIdx + s.length);
+    //       flatIdx += s.length;
+    //       return sub;
+    //     }
+    //     return flat[flatIdx++];
+    //   });
+    // };
 
-    const flatDiffs = layoutWeights.map((lw, i) =>
-      Math.abs(lw - stringWeights[i]),
-    );
-    const flatResults = flatDiffs.map((diff) => diff <= threshold);
+    // const flatDiffs = layoutWeights.map((lw, i) =>
+    //   Math.abs(lw - stringWeights[i]),
+    // );
+    // const flatResults = flatDiffs.map((diff) => diff <= threshold);
 
-    flatIdx = 0;
-    const nestedStrings = structureNested(
-      strings.map((s) => (s.length > 20 ? s.substring(0, 20) + "..." : s)),
-    );
-    flatIdx = 0;
-    const nestedStringWeights = structureNested(stringWeights);
-    flatIdx = 0;
-    const nestedLayoutWeights = structureNested(layoutWeights);
-    flatIdx = 0;
-    const nestedWeightDiffs = structureNested(flatDiffs);
-    flatIdx = 0;
-    const nestedResults = structureNested(flatResults);
+    // flatIdx = 0;
+    // const nestedStrings = structureNested(
+    //   strings.map((s) => (s.length > 20 ? s.substring(0, 20) + "..." : s)),
+    // );
+    // flatIdx = 0;
+    // const nestedStringWeights = structureNested(stringWeights);
+    // flatIdx = 0;
+    // const nestedLayoutWeights = structureNested(layoutWeights);
+    // flatIdx = 0;
+    // const nestedWeightDiffs = structureNested(flatDiffs);
+    // flatIdx = 0;
+    // const nestedResults = structureNested(flatResults);
 
-    const isRowValid = flatResults.every((res) => res);
+    // const isRowValid = flatResults.every((res) => res);
 
-    DebuggerStringFitsRowLayout({
-      spans,
-      nestedStrings,
-      nestedStringWeights,
-      nestedLayoutWeights,
-      nestedWeightDiffs,
-      threshold,
-      nestedResults,
-      isRowValid,
-    });
+    // DebuggerStringFitsRowLayout({
+    //   spans,
+    //   nestedStrings,
+    //   nestedStringWeights,
+    //   nestedLayoutWeights,
+    //   nestedWeightDiffs,
+    //   threshold,
+    //   nestedResults,
+    //   isRowValid,
+    // });
 
     for (let i = 0; i < layoutWeights.length; i++) {
       const diff = Math.abs(layoutWeights[i] - stringWeights[i]);
@@ -401,6 +419,11 @@ export function BentoBoxBuilder(
 
     let placed = false;
     for (const [spanA, spanB] of isolatedLayouts) {
+      if (
+        previousRowLayout.length > 0 &&
+        layoutKey(previousRowLayout) === layoutKey([spanA, spanB])
+      )
+        continue;
       const permutations: [string, string][] = [
         [queue[0], queue[1]],
         [queue[1], queue[0]],
@@ -413,6 +436,7 @@ export function BentoBoxBuilder(
         ];
         if (stringFitsRowLayout({ bentoItem: candidate, threshold: 0.2 })) {
           rows.push(candidate);
+          previousRowLayout = [spanA, spanB];
           queue.splice(0, 2);
           placed = true;
           break;
