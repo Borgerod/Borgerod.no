@@ -6,26 +6,49 @@ import { Link as Redirect } from "@heroui/react";
 
 export default function EmployerCard({ job }: { job: JobItem }) {
   return (
-    <Card className="bg-transparent md:bg-glass-white shadow-none md:shadow md:glass md:glass-upper col-start-1 col-span-full row-start-2 ">
+    <Card
+      id="company-card"
+      className="bg-transparent md:bg-glass-white shadow-none md:shadow md:glass md:glass-upper col-start-1 col-span-full row-start-2 "
+    >
       <Separator variant="tertiary" className="md:hidden" />
       <Card.Header>
         <Card.Title className="text-lg">Company Profile</Card.Title>
         <Image
+          id="company-logo-large company-banner"
           width={500}
           height={500}
           src={job.employer_profile.logo}
           alt={""}
-          className="object-cover object-center rounded-2xl aspect-16/4 w-full h-fit"
+          className={cn(
+            "object-cover object-center rounded-2xl aspect-16/4 w-full h-fit ",
+            "bg-glass-green-dark",
+            "bg-neutral-500",
+            "bg-neutral-500",
+            // "bg-glass-black",
+            // "bg-gray-800",
+            // "p-10",
+            "p-5",
+            "h-full",
+            "object-contain",
+            // "text-white",
+            // "fill-white",
+            // "bg-glass-green-dark",
+
+            "",
+            "",
+          )}
         />
       </Card.Header>
       <div className="flex flex-row gap-5">
         <Avatar
+          id="avatar company-logo-small company-icon"
           size="sm"
           variant="soft"
           className={cn(
             "bg-glass-green-dark-2",
             "place-self-start",
             "h-15 w-15",
+
             "",
             "",
           )}
