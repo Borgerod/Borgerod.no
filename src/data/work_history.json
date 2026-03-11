@@ -17,6 +17,27 @@
     "position": ["Fullstack Developer", "Accountant"],
 
     "achievements": [
+      "Invoice",
+      "Overseeing",
+      "Overseeing tax",
+      "Resolving issues",
+      "Maintaining current",
+      "Organizing board",
+      "Building a new algorithm",
+      "Building a template for."
+    ],
+    "responsibilities": [
+      "technology & development.",
+      "finance & accounting.",
+      "Database architecture.",
+      "Business development",
+      "administrative decisions",
+      "Participate in strategy devlopment.",
+      "Platform maintenance.",
+      "Design platforms.",
+      "Develop new platforms."
+    ],
+    "achievements": [
       "Invoice management.",
       "Overseeing income statements",
       "Overseeing tax statements.",
@@ -38,6 +59,7 @@
       "Design platforms.",
       "Plan and lead the dvelopment of new platforms."
     ],
+
     "languages": ["Svelte", "Python"],
     "tools": [
       "Aparebank1 Accounting",
@@ -82,6 +104,26 @@
     "isProject": false,
     "position": ["Fullstack Developer", "Accountant"],
     "achievements": [
+      "Managed to both scrape Telegram ",
+      "Accessed these social media ",
+      "Build small AI model though",
+      "Compared and analysed two API's (Binance & TradingView)"
+    ],
+    "responsibilities": [
+      "Active client consultation",
+      "Translating client feedback",
+      "Plan out project, Setting strategic and realistic milestones",
+      "Full-stack architecture design",
+      "Structured development",
+      "Managing project time allocation",
+      "Cost estimation",
+      "financial forecasting",
+      "ROI-focused feature prioritization",
+      "Contract scoping",
+      "proposal writing",
+      "Post-launch support & maintenance"
+    ],
+    "achievements": [
       "Managed to both scrape Telegram channels and groups, and add scraped users to owned channel (or extract them as a list).",
       "Accessed these social media platforms with my scraper bot; Youtube, Instagram, Tiktok, Socialblade, Telegram.",
       "Build small AI model though OpenCV (cv2) for picking top color-cluster (similar colors are counted together) used in social media posts.",
@@ -99,6 +141,7 @@
       "Contract scoping & proposal writing",
       "Post-launch support & maintenance"
     ],
+
     "languages": ["Python"],
     "tools": [
       "Insomnia",
@@ -152,6 +195,24 @@
     "isProject": true,
     "position": ["Software Developer"],
     "achievements": [
+      "Increased efficiancy",
+      "Implemented security",
+      "Assigned relation between",
+      "To prevent users from",
+      "Bypassing google's reCATCHP",
+      "Extracted and Built",
+      "Extracted Every company",
+      "Verified the google profile",
+      "So in total: 10.000-40.000 leads was generated"
+    ],
+    "responsibilities": [
+      "Plan development",
+      "Design app",
+      "Develop app",
+      "Manage database and server",
+      "Board presentations"
+    ],
+    "achievements": [
       "Increased efficiancy by automating manual lead generation.",
       "Implemented security measures to hinder unauthorised access, mobile and email verification.",
       "Assigned relation between user and call-list-section for preventing users being assigned the same call-list",
@@ -169,6 +230,7 @@
       "Manage database and server",
       "Board presentations"
     ],
+
     "languages": ["Python", "Flutter"],
     "tools": ["insomnia", "postgreSQL", "AWS", "fastAPI", "selenium", "pandas"],
 
