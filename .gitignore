@@ -42,3 +42,5 @@ next-env.d.ts
 
 # test pages to ignore
 /src/app/test
+
+public/assets/images/debug-images

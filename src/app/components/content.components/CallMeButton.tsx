@@ -6,19 +6,20 @@ import { useDevice } from "@/lib/Providers";
 import { Modal } from "@heroui/react";
 export const phoneNumberAutoFormat = (phoneNumber: string): string => {
   const hasPlus = phoneNumber.startsWith("+");
-  const number = phoneNumber.trim().replace(/[^0-9]/g, "");
-  if (number.length < 4) return hasPlus ? "+" + number : number;
-  if (number.length < 5)
-    return (hasPlus ? "+" : "") + number.replace(/(\d{4})/, "$1");
-  if (number.length < 9)
-    return (hasPlus ? "+" : "") + number.replace(/(\d{4})(\d{1})/, "$1 $2");
-  return (
-    (hasPlus ? "+" : "") +
-    number.replace(/(\d{2})(\d{2})(\d{2})(\d{2})/, "$1 $2 $3 $4")
-  );
+  const number = phoneNumber.trim().replace(/[^\d]/g, "");
+  const formatted = number.replace(/(.{2})(?=.)/g, "$1 ");
+  return (hasPlus ? "+ " : "") + formatted;
+};
+
+export const phoneNumberBinToString = (binaryString: string): string => {
+  const bytes = binaryString.split(" ").filter((byte) => byte.length > 0);
+  return bytes.map((bin) => String.fromCharCode(parseInt(bin, 2))).join("");
 };
 export default function CallMeButton() {
-  const phoneNumber: string = "+4699337661"; //avoid phone number leakage. put in .env or use bits?
+  //   const phoneNumber: string = ; //avoid phone number leakage. put in .env or use bits?
+  const phoneNumberBin: string =
+    "00101011 00110100 00110111 00111001 00111001 00110011 00110011 00110111 00110110 00110110 00110001";
+  const phoneNumber: string = phoneNumberBinToString(phoneNumberBin);
 
   const device = useDevice();
   const handleClick = useCallback(() => {
