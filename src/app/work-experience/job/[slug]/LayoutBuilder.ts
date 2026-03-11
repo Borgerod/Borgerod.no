@@ -174,7 +174,7 @@ export default function LayoutBuilder(job: JobItem) {
           `2.1.0 (respCard fits jobCard):${isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> CASE 2.1.1: respCard to row-start-4, achiCard to row-span-2`,
         );
         // 2.1.1 CASE - ['achiCard', 'respCard'] fits, but ['both'] does not -> Can be either, prefer moving respCard, set respCard to "row-start-4", set achiCard to "row-span-2". (prefer moving respCard to change default layout as little as possible)lay
-        layout.mainLayout = "bg-blue-200!";
+        // layout.mainLayout = "bg-blue-200!";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "row-span-2";
         layout.respCardLayout = "row-start-4";
@@ -183,7 +183,7 @@ export default function LayoutBuilder(job: JobItem) {
           `2.1.2 (achiCard fits, respCard & both do NOT):${!isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> CASE 2.1.2: respCard to row-start-4, achiCard to row-span-2`,
         );
         // 2.1.2 CASE - ['achiCard'] fits, but ['respCard', 'both'] does not -> set respCard to "row-start-4", set achiCard to "row-span-2".
-        layout.mainLayout = "bg-blue-400!";
+        // layout.mainLayout = "bg-blue-400!";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "";
         layout.respCardLayout = "row-start-4 col-span-2";
@@ -201,7 +201,7 @@ export default function LayoutBuilder(job: JobItem) {
           `2.2.0 (respCard fits jobCard):${isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> CASE 2.2.1: achiCard to row-start-4, respCard to row-span-2`,
         );
         // 2.2.1 CASE - ['respCard'] fits, but ['achiCard', 'both'] does not -> set achiCard to "row-start-4", set respCard to "row-span-2".
-        layout.mainLayout = "bg-green-200!";
+        // layout.mainLayout = "bg-green-200!";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "row-start-4";
         layout.respCardLayout = "row-start-3 row-span-2";
@@ -218,13 +218,13 @@ export default function LayoutBuilder(job: JobItem) {
             `2.2.2.0 (respCard fits achiCard):${isWithinthreshold(threshold_RAcards, respCard, achiCard)} -> CASE 2.2.2.1: respCard === achiCard, both to row-start-4, jobCard to col-span-2`,
           );
           // 2.2.2.1 CASE - 'respCard' === 'achiCard' -> can be together, ['respCard', 'achiCard'] to "row-start-4", set 'jobCard' to "col-span-2".
-          layout.mainLayout = "bg-red-200!";
+          // layout.mainLayout = "bg-red-200!";
           layout.jobCardLayout = "col-span-2";
           layout.achiCardLayout = "row-start-4";
           layout.respCardLayout = "row-start-4";
         } else {
           // 2.2.2.2 CASE - 'respCard' =/= 'achiCard' -> cant be together, set parent to "flex flex-col".
-          layout.mainLayout = "bg-red-400! flex flex-col";
+          // layout.mainLayout = "bg-red-400! flex flex-col";
           layout.jobCardLayout = "";
           layout.achiCardLayout = "";
           layout.respCardLayout = "";
