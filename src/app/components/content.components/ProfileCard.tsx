@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { ComponentBaseProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Button, Card } from "@heroui/react";
@@ -17,13 +16,15 @@ import {
   Plus,
 } from "@gravity-ui/icons";
 import React from "react";
-
+import { useRouter } from "next/navigation";
+import CallMeButton from "./CallMeButton";
 export default function ProfileCard({ className }: ComponentBaseProps) {
   /* used by: profile-image-masking */
   const circleDiameter = 60;
   const circleRadius = Math.round(circleDiameter / 2);
   const rectangleHeight = Math.round((circleDiameter * 2) / 3);
   const rectangleWidth = Math.round((((circleDiameter * 16) / 9) * 2) / 3);
+  const router = useRouter();
 
   return (
     <>
@@ -248,6 +249,8 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             // size="lg"
             // size="md"
             // size="sm"
+            type="button"
+            onClick={() => router.push("mailto:a.borgerod@gmail.com")}
             isIconOnly
             className={cn(
               "",
@@ -305,7 +308,9 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             <span className="block 2xl:hidden">E-mail</span>
             {/* <Envelope className="block lg:hidden" /> */}
           </Button>
-          <Button
+
+          <CallMeButton />
+          {/* <Button
             // size="lg"
             size="sm"
             isIconOnly
@@ -339,7 +344,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             <Handset
               className="scale-x-[-1] text-accent-foreground/80" //scale-x-[-1] to mirror icon
             />
-          </Button>
+          </Button> */}
         </div>
       </Card>
     </>

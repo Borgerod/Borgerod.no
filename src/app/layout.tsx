@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/lib/Providers";
 import { cn } from "@/lib/utils";
 
 const geistSans = Geist({
@@ -30,8 +31,7 @@ export default function RootLayout({
           `@container/main ${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`,
         )}
       >
-        <div className="bg-blur" />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
