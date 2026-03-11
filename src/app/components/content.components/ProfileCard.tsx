@@ -1,23 +1,8 @@
 "use client";
-import { ComponentBaseProps } from "@/lib/types";
-import { cn } from "@/lib/utils";
-import { Button, Card } from "@heroui/react";
-import { ChevronDownWide } from "@gravity-ui/icons";
-
-import { ChevronDown } from "@gravity-ui/icons";
-import { Accordion } from "@heroui/react";
-
-import { Handset, Envelope } from "@gravity-ui/icons";
-import type { Key } from "@heroui/react";
-import {
-  ChevronsDown,
-  CircleChevronDown,
-  Minus,
-  Plus,
-} from "@gravity-ui/icons";
-import React from "react";
+import { Button, Card, cn } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import CallMeButton from "./CallMeButton";
+import { ComponentBaseProps } from "@/lib/types";
 export default function ProfileCard({ className }: ComponentBaseProps) {
   /* used by: profile-image-masking */
   const circleDiameter = 60;
@@ -33,27 +18,15 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         className={cn(
           "glass",
           "glass-upper",
-          // "glass-pure-white",
-          // "glass-white",
-          // "glass-offwhite",
-
           "-left-10",
           "w-[calc(100%+2.5rem)]",
           "w-[calc(100%+3rem)]",
-          // "w-[calc(100%+5rem)]",
           "flex",
           "flex-col",
-          // "items-center",
-          // "justify-center",
           "justify-between",
           "justify-start",
-          // "justify-items-between",
-          // "content-between",
           "gap-1",
-          // "md:gap-5",
-          // "2xl:gap-5",
           "2xl:gap-2",
-          // "lg:gap-5",
           "gap-5",
           "",
           "",
@@ -70,8 +43,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "justify-center",
             "items-center",
             "overflow-hidden",
-            //> new
-            // "min-h-40",
             "min-h-fit",
             "max-h-50",
             "",
@@ -86,7 +57,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
               "max-w-full",
               "max-h-full",
               "aspect-square",
-              // "max-h-60",
               "max-h-50",
               "",
               "",
@@ -139,25 +109,14 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "overflow-hidden",
             "text-xs",
             "h-fit",
-
             "justify-self-start",
-            // "h-full",
           )}
         >
-          {/* <h1 className="text-md 2xl:text-lg">ALEKSANDER BORGERØD</h1> */}
-          {/* <h1 className="text-[12px] xl:text-md 2xl:text-lg"> */}
-          {/* <h1 className=" xl:text-md 2xl:text-lg">ALEKSANDER BORGERØD</h1> */}
-          {/* <h1 className="text-md xl:text-[15px] 2xl:text-lg"> */}
           <h1 className="text-md md:text-[14px] lg:text-lg">
             ALEKSANDER BORGERØD
           </h1>
           <h2 className="text-xs  font-light text-green-dark">
-            {/* <h2 className="text-xs 2xl:text-sm font-light text-green-dark"> */}
-            {/* Fullstackutvikler og økonom  */}
-            {/* Full-Stack Developer & Business Professional */}
             Full-Stack Developer | Business Admin.
-            {/* Full-Stack Developer | Business pro. */}
-            {/* Full-Stack Developer | BBA */}
           </h2>
 
           <br />
@@ -181,7 +140,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             <br />
             <br />
           </p>
-          {/* <p className="tracking-wide italic font-light text-green-dark"> */}
           <p className="tracking-wide font-light text-green-dark">
             So, with{" "}
             <span className="font-medium text-green-dark">good solutions</span>{" "}
@@ -189,34 +147,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             <span className="font-medium text-green-dark">driven vigor</span>, I
             am confident that I am the one you are looking for.
           </p>
-
-          {/* <Accordion
-            className="w-full max-w-md hover:bg-transparent!"
-            expandedKeys={expandedKeys}
-            variant="default"
-            onExpandedChange={setExpandedKeys}
-          >
-            <Accordion.Item
-              id="bio"
-              key={1}
-              className=" hover:bg-transparent! bg:_"
-            >
-              <Accordion.Heading className=" hover:bg-transparent!">
-                <Accordion.Trigger className=" hover:bg-transparent!">
-                  Using Plus/Minus Icon
-                  <Accordion.Indicator className=" hover:bg-transparent!">
-                    {expandedKeys.has("bio") ? <Minus /> : <Plus />}
-                  </Accordion.Indicator>
-                </Accordion.Trigger>
-              </Accordion.Heading>
-              <Accordion.Panel className=" hover:bg-transparent!">
-                <Accordion.Body className=" hover:bg-transparent!">
-                  This accordion uses a plus icon that transforms when expanded.
-                  The icon automatically rotates 45 degrees to form an X.
-                </Accordion.Body>
-              </Accordion.Panel>
-            </Accordion.Item>
-          </Accordion> */}
         </div>
 
         <div
@@ -226,9 +156,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "gap-2",
             "h-full",
             "h-10",
-            // "h-fit0it",
             "h-fit",
-            // "overflow-hidden",
             "overflow-visible",
             "col-start-",
             "col-span-",
@@ -241,110 +169,40 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "mt-auto",
           )}
         >
-          {/* <Button size="sm"> Hello </Button>
-          <Button size="md"> Hello </Button>
-          <Button size="lg"> Hello </Button> */}
-
           <Button
-            // size="lg"
-            // size="md"
-            // size="sm"
             type="button"
             onClick={() => router.push("mailto:a.borgerod@gmail.com")}
             isIconOnly
             className={cn(
-              "",
               "bg-glass-gray-dark",
-              // "text-white",
               "text-accent-foreground", //*due to the thin weight, the color of "text-accent-foreground" visually looks identical to "text-accent-foreground/80"
               "text-sm!",
-              // "text-xs!",
               "font-light",
-              // "h-full!",
-
-              // "h-11 text-base md:h-10",
-              // // "h-9 px-3 md:h-8",
-              // "h-6 px-3",
-              // "md:h-9 p-0",
-              // "h-11 text-base md:h-10",
-
               "lg:text-base lg:w-full lg:h-full",
               "lg:min-w-none",
               "lg:min-h-none",
               "lg:aspect-auto",
-
-              // "xl:text-base xl:w-full xl:h-full",
-              // "xl:min-w-none",
-              // "xl:min-h-none",
-              // "xl:aspect-auto",
-
               "h-full",
               "w-fit",
               "min-w-7",
               "min-h-7",
               "aspect-square",
               "p-2",
-              // "lg:px-5",
               "xl:px-auto",
-              "xl:w-full! xl:min-w-0",
-              // "2xl:w-fit",
-              // "p-2",
               "text-base lg:w-full lg:h-full",
+              "xl:w-full! xl:min-w-0",
               "min-w-none",
               "min-h-none",
               "aspect-auto",
               "w-full",
               "",
               "",
-              "",
-              "",
             )}
           >
             <span className="hidden 2xl:block">Send me an e-mail</span>
-            {/* <span className="hidden xl:block 2xl:hidden">E-mail</span>
-            <Envelope className="block xl:hidden" /> */}
-
-            {/* <span className="hidden lg:block 2xl:hidden">E-mail</span> */}
             <span className="block 2xl:hidden">E-mail</span>
-            {/* <Envelope className="block lg:hidden" /> */}
           </Button>
-
           <CallMeButton />
-          {/* <Button
-            // size="lg"
-            size="sm"
-            isIconOnly
-            variant="tertiary"
-            // type="icon"
-            // className=""
-            className={cn(
-              "bg-glass-gray-dark",
-              "text-sm",
-              "font-thin",
-
-              "lg:min-w-10",
-              "lg:min-h-10",
-
-              "h-full",
-              "min-w-7",
-              "min-h-7",
-
-              "w-fit",
-              "p-3!",
-              "aspect-square",
-              "p-2",
-
-              // "w-fit",
-              // "aspect-square",
-              // "p-2!",
-              "",
-              "",
-            )}
-          >
-            <Handset
-              className="scale-x-[-1] text-accent-foreground/80" //scale-x-[-1] to mirror icon
-            />
-          </Button> */}
         </div>
       </Card>
     </>

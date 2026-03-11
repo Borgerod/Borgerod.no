@@ -45,3 +45,8 @@ export type LayoutType = {
   achiCardLayout: string;
   respCardLayout: string;
 };
+
+export type BentoItem = {
+  text: string | string[];
+  span: number | number[];
+};

@@ -1,4 +1,6 @@
-import { cn } from "@/lib/utils";
+"use client";
+
+import { cn } from "@heroui/react";
 import { Breadcrumbs, Button, Card, Chip, Separator } from "@heroui/react";
 import projects from "@data/projects.json";
 import { ProjectItem } from "@/lib/types";
@@ -6,6 +8,7 @@ import { Avatar, Description, Label, ListBox, Header } from "@heroui/react";
 import { TbBrandGithubFilled } from "react-icons/tb";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function Portfolio() {
   return (
     <main className={cn("p-0", "sm:p-20", "sm:px-1")}>
@@ -31,8 +34,6 @@ export default function Portfolio() {
       </Link>
       <Card
         className={cn(
-          "glass",
-          "glass-white",
           "w-fit",
           "flex",
           "flex-0",
@@ -99,10 +100,10 @@ export default function Portfolio() {
                         .split("Demonstrates capabilities of:")[0]
                         ?.split(". ")
                         .map((line: string, index: number, array: string[]) => (
-                          <p key={`desc-${index}`}>
+                          <div key={`desc-${index}`}>
                             {line}
                             {index < array.length - 1 && "."}
-                          </p>
+                          </div>
                         ))}
                       <br />
                       <p>Demonstrates capabilities of:</p>
@@ -117,8 +118,9 @@ export default function Portfolio() {
                               key={`capability-demo-list-${index}`}
                               id={`capability-demo-list-${index}`}
                               className={cn(
-                                "font-light px-2 py-0 h-4 w-fit",
-                                "bg-glass-gray/50", //todo custom color!
+                                "font-light",
+                                "px-2",
+                                "bg-glass-gray-2",
                                 "select-none",
                                 "group-hover:bg-glass-green-base!",
                               )}
@@ -134,9 +136,9 @@ export default function Portfolio() {
                           {project.coretool}
                         </span>
                       </p>
-                      <p className="flex gap-1">
+                      <div className="flex gap-1">
                         Tools used:
-                        <ul className="flex gap-1 flex-wrap">
+                        <ul className="flex gap-1 flex-wrap list-none p-0 m-0">
                           {project.subtools.map((tool: string, i: number) => (
                             <Chip
                               size="sm"
@@ -144,8 +146,9 @@ export default function Portfolio() {
                               key={i}
                               id={`chip-${i} ${project}`}
                               className={cn(
-                                "font-light px-2 py-0 h-4 w-fit",
-                                "bg-glass-gray/50", //todo custom color!
+                                "font-light",
+                                "px-2",
+                                "bg-glass-gray-2",
                                 "select-none",
                                 "group-hover:bg-glass-green-base!",
                               )}
@@ -154,7 +157,7 @@ export default function Portfolio() {
                             </Chip>
                           ))}
                         </ul>
-                      </p>
+                      </div>
                     </Description>
                   </div>
 

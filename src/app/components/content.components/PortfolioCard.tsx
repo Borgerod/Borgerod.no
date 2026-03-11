@@ -1,6 +1,6 @@
 "use client";
 import { ComponentBaseProps, ProjectItem } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn } from "@heroui/react";
 import { Card } from "@heroui/react";
 import { Separator } from "@heroui/react";
 import projects from "@data/projects.json";
@@ -16,14 +16,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
     /*limits the grid items based on screen size*/
     const update = () => {
       const w = window.innerWidth;
-      // if (w >= 1024) setMaxProjects(4 * 2 - 1);
-      // else if (w >= 768) setMaxProjects(3 * 2 - 1);
       if (w >= 1024) setMaxProjects(7);
       else if (w >= 768) setMaxProjects(5);
-      // else if (w >= 480) setMaxProjects(3);
       else if (w >= 640) setMaxProjects(7);
-      // else setMaxProjects(2 * 2 - 1);
-      // else setMaxProjects(4 * 2 - 1);
       else setMaxProjects(5);
     };
     update();
@@ -36,8 +31,8 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
       id="project-display"
       className={cn(
         "glass",
+        // "glass-gray",
         "glass-gray",
-        // "borderless",
         "gap-1",
         "h-50",
         "md:h-full",
@@ -58,16 +53,15 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           "rounded-xl",
           "overflow-hidden",
           "shadow-none",
+
           ////* grid
           "grid",
           "grid-cols-3",
           "sm:grid-cols-4",
-          // "grid-rows-2",
-          // "grid-cols-3",
-          // "xs:grid-cols-4",
-          // "grid-cols-2",
           "md:grid-cols-3",
           "lg:grid-cols-4",
+          "bg-glass-gray/10",
+          "shadow shadow-1",
           "",
         )}
       >
@@ -91,18 +85,20 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "justify-items-center",
                 "content-center",
                 "gap-0",
-                "",
                 "rounded-none",
                 "group",
-                "bg-glass-gray-undertone/50",
+                "bg-transparent",
                 "hover:bg-glass-gray-undertone",
                 "hover:shadow-md",
                 "shadow-sm",
                 "drop-shadow-sm",
                 // "glass",
-                // "glass-upper",
-                // "bg-glass-gray-2",
-
+                // "glass-borderless",
+                // "bg-glass-gray-undertone/50",
+                // "bg-glass-light-gray/70",
+                "bg-glass-light-gray/40",
+                // "bg-glass-gray-40",
+                "shadow shadow-1",
                 "",
               )}
             >
@@ -118,8 +114,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                     "py-1",
                     "opacity-60",
                     "group-hover:opacity-100",
-                    "group-hover:text-white",
-
+                    "group-hover:text-accent-foreground",
                     "",
                     "",
                   )}
@@ -134,7 +129,6 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                   "text-accent-foreground/80",
                   "group-hover:text-accent-foreground",
                   "group-hover:opacity-110",
-
                   "",
                   "",
                 )}
@@ -166,38 +160,23 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
               "hover:shadow-md",
               "shadow-sm",
               "drop-shadow-sm",
+              "bg-glass-light-gray/40",
               "",
               "",
             )}
           >
             <Card.Header
-              // className={cn(
-              //   "text-xl",
-              //   "font-semibold",
-              //   "text-accent-foreground/80",
-              //   "group-hover:text-white",
-              //   "w-fit",
-              //   "h-full",
-              //   "opacity-60",
-              //   "group-hover:opacity-100",
-              //   "group-hover:text-white",
-              //   "",
-              //   "",
-              // )}
               className={cn(
                 "text-xl",
                 "font-semibold",
                 "text-accent-foreground/80",
-                "group-hover:text-white",
+                "group-hover:text-accent-foreground",
                 "w-fit",
                 "h-fit",
-                // "place-self-end",
-                // "mt-auto",
                 "pt-3",
                 "opacity-60",
                 "group-hover:opacity-100",
-                "group-hover:text-white",
-
+                "group-hover:text-accent-foreground",
                 "",
                 "",
               )}
@@ -210,7 +189,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "whitespace-normal",
                 "text-center",
                 "text-accent-foreground/80",
-                "group-hover:text-white",
+                "group-hover:text-accent-foreground",
                 "",
               )}
             >

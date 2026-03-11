@@ -145,7 +145,7 @@
     "icon": "/assets/images/project-logos/logo_captn.png",
     "alt": "Cap’n logo icon",
     "url": "https://github.com/Borgerod/business-valuation-model",
-    "description": "Evaluates marked capital of a business, based of different finance formulas (WACC) and then compares them to other competitors or similar businesses in the market. (Work in progress). Demonstrates capabilities of: more-complex math, finance knowledge,  implementation of both of my fields (finance and coding),data-extraction, third-party-api",
+    "description": "Evaluates marked capital of a business, based of different finance formulas (WACC) and then compares them to other competitors or similar businesses in the market. (Work in progress). Demonstrates capabilities of: more-complex math, finance knowledge,  implementation of both finance and coding, data-extraction, third-party-api",
     "coretool": "Python",
     "subtools": [
       "Pandas",

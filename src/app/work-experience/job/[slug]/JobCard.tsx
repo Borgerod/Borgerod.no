@@ -7,22 +7,22 @@ type JobCardProps = {
   JobCardLayout: string;
 };
 
-export default function JobCard({
-  job,
-  isLongLayout,
-  JobCardLayout,
-}: JobCardProps) {
+export default function JobCard({ job, JobCardLayout }: JobCardProps) {
   return (
     <Card
       id="job-card"
       className={cn(
         "bg-transparent md:bg-glass-white shadow-none md:shadow md:glass md:glass-white w-full h-full p-4",
         JobCardLayout,
+        "glass",
+        "rounded-none md:rounded-3xl",
+        "border-none md:border",
+        "shadow-none md:shadow",
         "",
         "",
       )}
     >
-      <Card.Header className="w-full">
+      <Card.Header className="w-full gap-5">
         <Card.Title className="text-lg flex">
           {job.title}
           <Chip
@@ -30,14 +30,13 @@ export default function JobCard({
             variant="soft"
             id={`chip-project-tag ${(job.employer + "-" + job.title).replaceAll(" ", "-")}`}
             className={cn(
-              "",
-              "",
               job.isProject ? "visible" : "hidden",
               "ml-auto",
               "w-fit",
               "font-medium",
               "bg-glass-green-dark-2",
               "bg-glass-green-base",
+              "glass",
               "",
               "",
             )}
@@ -46,7 +45,7 @@ export default function JobCard({
           </Chip>
         </Card.Title>
         <div
-          className={cn("text-lg flex flex-col justify-evenly h-40", "", "")}
+          className={cn("text-lg flex flex-col justify-evenly h-fit ", "", "")}
         >
           <div className="italic">
             <span className={cn("text-secondary block", "", "")}>
@@ -59,7 +58,7 @@ export default function JobCard({
               Location: {job.location}
             </span>
           </div>
-          <div className="">
+          {/* <div className="">
             <div id="job-core-language-framework">
               <h3 className={cn("font-medium text-secondary", "", "")}>
                 Core language/framework:
@@ -93,15 +92,18 @@ export default function JobCard({
                 ))}
               </ul>
             </div>
-            <div
+            <Card
+              variant="transparent"
               className={cn(
                 "flex flex-col gap-1 text-nowrap text-start font-medium text-secondary",
                 "",
                 "",
               )}
             >
-              <h3>Tools used:</h3>
-              <ul className={cn("flex gap-1 flex-wrap pl-2", "", "")}>
+              <Card.Header>Tools used:</Card.Header>
+              <Card.Content
+                className={cn("flex flex-row gap-1 flex-wrap pl-2", "", "")}
+              >
                 {job.tools.map((tool: string, i: number) => (
                   <Chip
                     size="sm"
@@ -128,12 +130,82 @@ export default function JobCard({
                     {tool}
                   </Chip>
                 ))}
-              </ul>
-            </div>
-          </div>
+              </Card.Content>
+            </Card>
+          </div> */}
         </div>
       </Card.Header>
-      <Card.Content className={cn()}>
+      <Card.Content className={cn("h-full gap-5")}>
+        <div id="job-core-language-framework">
+          <h3 className={cn("font-medium text-secondary", "", "")}>
+            Core language/framework:
+          </h3>
+          <ul className={cn("flex gap-2", "", "")}>
+            {job.languages.map((language: string, i: number) => (
+              <li key={i}>
+                <Chip
+                  size="sm"
+                  variant="soft"
+                  id={`chip-core-language-framework-${i}`}
+                  className={cn(
+                    "font-light px-2 py-0 h-4 w-fit",
+                    "bg-glass-gray/50",
+                    "select-none",
+                    "group-hover:bg-glass-green-base!",
+                    "self-center",
+                    "",
+                    "",
+                    "font-normal",
+                    "font-medium",
+                    "bg-glass-green-dark-2",
+                    "bg-glass-green-base",
+                    "",
+                    "",
+                  )}
+                >
+                  {language}{" "}
+                </Chip>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div
+          className={cn(
+            "flex flex-col gap-1 text-nowrap text-start font-medium text-secondary",
+            "",
+            "",
+          )}
+        >
+          <h3>Tools used:</h3>
+          <div className={cn("flex flex-row gap-1 flex-wrap pl-2", "", "")}>
+            {job.tools.map((tool: string, i: number) => (
+              <Chip
+                size="sm"
+                variant="soft"
+                key={i}
+                id={`chip-tools-${i}`}
+                className={cn(
+                  "font-light px-2 py-0 h-4 w-fit",
+                  "bg-glass-gray/50",
+                  "select-none",
+                  "group-hover:bg-glass-green-base!",
+                  "self-center",
+                  "",
+                  "",
+                  "font-normal",
+                  "font-medium",
+                  "bg-glass-gray-2",
+                  "bg-glass-gray-undertone",
+                  "",
+                  "",
+                  "",
+                )}
+              >
+                {tool}
+              </Chip>
+            ))}
+          </div>
+        </div>
         <div
           id="job-description"
           className={cn("flex flex-col mt-auto", "", "")}

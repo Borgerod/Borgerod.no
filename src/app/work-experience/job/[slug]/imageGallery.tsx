@@ -1,189 +1,282 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { Modal, Button, Card } from "@heroui/react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
-import { Button, Card, cn } from "@heroui/react";
-import { ChevronLeft, ChevronRight, Xmark } from "@gravity-ui/icons";
-export default function ImageGallery({ assets }: { assets: string[] }) {
-  const [current, setCurrent] = useState(0);
-  const [lightbox, setLightbox] = useState(false);
+import { cn } from "@heroui/react";
+import { ChevronLeft, ChevronRight } from "@gravity-ui/icons";
 
-  const prev = useCallback(
-    () => setCurrent((i) => (i - 1 + assets.length) % assets.length),
-    [assets.length],
-  );
-  const next = useCallback(
-    () => setCurrent((i) => (i + 1) % assets.length),
-    [assets.length],
-  );
+export default function ImageGallery({ assets }: { assets: string[] }) {
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [_touchEnd, setTouchEnd] = useState<number | null>(null);
+  const isModalOpenRef = useRef(isModalOpen);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-      if (e.key === "Escape") setLightbox(false);
+    isModalOpenRef.current = isModalOpen;
+  }, [isModalOpen]);
+
+  const handlePrevious = useCallback((): void => {
+    setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
+  }, []);
+
+  const handleNext = useCallback((): void => {
+    setSelectedIndex((prev) => (prev < assets.length - 1 ? prev + 1 : prev));
+  }, [assets.length]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent): void => {
+      if (!isModalOpenRef.current) return;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setIsModalOpen(false);
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        handlePrevious();
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        handleNext();
+      }
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [prev, next]);
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handlePrevious, handleNext]);
+
+  const handleTouchStart = (e: React.TouchEvent): void => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent): void => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    if (touchStart === null) return;
+
+    const distance = touchStart - e.changedTouches[0].clientX;
+    const isLeftSwipe = distance > 75;
+    const isRightSwipe = distance < -75;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrevious();
+    }
+  };
+
+  if (!assets || assets.length === 0) {
+    return null;
+  }
 
   return (
-    <Card variant="transparent" className="">
-      <Card.Header className="text-lg">Gallery</Card.Header>
-      <Card.Description className="">
-        Here are some screenshots from the work I have done:
-      </Card.Description>
-
-      <div
-        className="relative w-full aspect-video bg-zinc-900 overflow-hidden rounded-xl group cursor-pointer"
-        onClick={() => setLightbox(true)}
+    <Card
+      id="image-gallery"
+      className={cn(
+        "space-y-4",
+        "col-span-full",
+        "h-fit",
+        "w-full",
+        "glass",
+        "glass-white",
+        "",
+        "",
+      )}
+    >
+      <Button
+        id="image-preview"
+        onClick={() => setIsModalOpen(true)}
+        className={cn(
+          "relative w-full overflow-hidden rounded-lg",
+          "transition-transform duration-200 hover:scale-[1.02]",
+          "cursor-pointer group",
+          "shadow-none! outline-none! ring-0! ring-offset-0! border-0! bg-transparent!",
+          "focus:ring-0! focus:shadow-none! focus:border-0! focus:bg-transparent! hover:ring-0! hover:shadow-none! hover:border-0! hover:bg-transparent!",
+          "active:ring-0! active:border-0! focus-visible:ring-0! focus-visible:border-0!",
+          "h-fit",
+          "aspect-video",
+          "",
+          "",
+        )}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         <Image
-          key={assets[current]}
-          src={assets[current]}
-          alt=""
+          src={assets[selectedIndex]}
+          alt={`Preview ${selectedIndex + 1}`}
           fill
-          className="object-cover transition-opacity duration-300 object-top"
-          sizes="100vw"
-          priority
+          className={cn(
+            "object-cover group-hover:brightness-90 hover:border-none active:border-none border-none outline-none hover:outline-none active:outline-none focus-visible:ring-0 transition-all",
+            "focus:ring-transparent",
+            "focus-within:ring-transparent",
+            "focus-visible:ring-transparent",
+            "ring-transparent! ring-0! shadow-none! border-none!",
+            "",
+            "",
+          )}
         />
-
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-glass-gray-dark text-accent-foreground text-sm px-3 py-1 rounded-full">
-          {current + 1}/{assets.length}
+        <div
+          id="image-counter"
+          className={cn(
+            "absolute bottom-3 right-3 rounded-full bg-glass-black-dark px-3 py-1",
+            "text-xs text-accent-foreground font-medium",
+            "",
+          )}
+        >
+          {selectedIndex + 1} / {assets.length}
         </div>
+      </Button>
 
-        <Button
-          className="absolute left-3 top-1/2 -translate-y-1/2 bg-glass-gray-dark hover:bg-black/70 text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
-          onClick={(e) => {
-            e.stopPropagation();
-            prev();
-          }}
-        >
-          <ChevronLeft />
-        </Button>
-        <Button
-          className="absolute right-3 top-1/2 -translate-y-1/2 bg-glass-gray-dark hover:bg-black/70 text-accent-foreground rounded-full w-10 h-10 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
-          onClick={(e) => {
-            e.stopPropagation();
-            next();
-          }}
-        >
-          <ChevronRight />
-        </Button>
-      </div>
-
-      <div className="flex gap-2 mt-2 overflow-x-auto pb-1">
-        {assets.map((imagePath, i) => (
+      <div
+        id="image-gallery-thumbnails"
+        className={cn(
+          "flex flex-row gap-4 justify-start overflow-x-auto overflow-y-hidden",
+          "h-full",
+          "h-fit",
+          "h-fit",
+          "p-2",
+        )}
+      >
+        {assets.map((asset: string, index: number) => (
           <Button
-            key={imagePath}
-            onClick={() => setCurrent(i)}
+            id={`thumbnail-${index}`}
+            key={index}
+            onClick={() => setSelectedIndex(index)}
             className={cn(
-              "relative",
               "shrink-0",
-              "w-16",
-              "h-16",
-              "rounded-lg",
-              "overflow-hidden",
-              "transition-all",
-              i === current
-                ? "border border-black opacity-100"
-                : // : "opacity-50 hover:opacity-100 brightness-70",
-                  "opacity-80 hover:opacity-100 brightness-70",
-              // ? "ring-2 ring-glass-green-light opacity-100"
+              "transition-transform duration-200 hover:scale-105",
+              "shadow-none! outline-none! ring-0! ring-offset-0! border-0! bg-transparent!",
+              "focus:ring-0! focus:shadow-none! focus:border-0! focus:bg-transparent! hover:ring-0! hover:shadow-none! hover:border-0! hover:bg-transparent!",
+              "active:ring-0! active:border-0! focus-visible:ring-0! focus-visible:border-0!",
+              "h-32 w-32 aspect-square  overflow-hidden rounded-lg",
+              "",
+              "",
             )}
           >
             <Image
-              src={imagePath}
-              alt=""
+              src={asset}
+              alt={`Gallery thumbnail ${index + 1}`}
               fill
-              className="object-cover"
-              sizes="64px"
+              className={cn("object-cover h-32 w-32", "", "")}
             />
           </Button>
         ))}
       </div>
 
-      {lightbox && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center"
-          onClick={() => setLightbox(false)}
+      <Modal.Backdrop
+        isOpen={isModalOpen}
+        onOpenChange={setIsModalOpen}
+        className={cn("bg-glass-black-dark backdrop-blur-md", "", "")}
+      >
+        <Modal.Container
+          size="lg"
+          className={cn("flex items-center justify-center", "", "")}
         >
-          <div
+          <Modal.Dialog
+            id="image-gallery-modal-content"
             className={cn(
-              "relative",
-              "w-full",
-              "max-w-5xl",
-              "max-h-[90vh]",
-              "aspect-video",
-              "h-full",
-              "mx-4",
-              "grid",
-              "place-items-center",
+              "relative w-full max-w-6xl h-fit overflow-hidden  aspect-auto",
+              "rounded-lg p-0",
+              "",
               "",
             )}
-            onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
-            <Image
-              key={assets[current]}
-              src={assets[current]}
-              alt=""
-              fill
-              className={cn("object-contain", "", "")}
-              sizes="100vw"
-            />
-
-            <div
-              id="counter"
+            <Button
+              id="image-gallery-modal-close"
+              isIconOnly
+              onClick={() => setIsModalOpen(false)}
               className={cn(
-                "bg-black/60 text-accent-foreground text-sm px-4 py-1.5 rounded-full gap-2 flex",
-                "w-fit z-10",
-                "self-end",
-                "mb-2",
+                "absolute right-4 top-4 z-10",
+                "bg-glass-black-dark",
+                "text-accent-foreground/70",
+                "hover:text-accent-foreground",
+                "hover:contrast-110",
+                "shadow-none! outline-none! ring-0! ring-offset-0! border-0! bg-glass-black-dark!",
+                "focus:ring-0! focus:shadow-none! focus:border-0! focus:bg-glass-black-dark! hover:ring-0! hover:shadow-none! hover:border-0!",
+                "active:ring-0! active:border-0! focus-visible:ring-0! focus-visible:border-0!",
                 "",
               )}
             >
-              <span>
-                {
-                  assets[current]
-                    .replace("/assets/images/jobs/", "")
-                    .split(".")[0]
-                }
-              </span>
-              <span>
-                ({current + 1}/{assets.length})
-              </span>
+              <span className="text-lg">×</span>
+            </Button>
+
+            <div
+              className={cn(
+                "relative w-full overflow-auto max-w-screen",
+                "",
+                "",
+              )}
+            >
+              <Image
+                id="modal-image-view"
+                src={assets[selectedIndex]}
+                alt={`Full view ${selectedIndex + 1}`}
+                width={1200}
+                height={800}
+                className={cn("w-full h-auto object-contain", "", "")}
+              />
             </div>
-          </div>
 
-          <Button
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-accent-foreground rounded-full w-12 h-12 flex items-center justify-center text-2xl transition-all"
-            onClick={(e) => {
-              e.stopPropagation();
-              prev();
-            }}
-          >
-            <ChevronLeft />
-          </Button>
-          <Button
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-accent-foreground rounded-full w-12 h-12 flex items-center justify-center text-2xl transition-all"
-            onClick={(e) => {
-              e.stopPropagation();
-              next();
-            }}
-          >
-            <ChevronRight />
-          </Button>
+            <div
+              id="modal-image-counter"
+              className={cn(
+                "absolute",
+                "bottom-4 left-1/2 -translate-x-1/2 z-10",
+                "rounded-full bg-glass-black-dark px-4 py-2 text-sm text-accent-foreground",
+                "",
+              )}
+            >
+              {selectedIndex + 1} / {assets.length}
+            </div>
 
-          <Button
-            variant="ghost"
-            isIconOnly
-            className="absolute top-4 right-4 text-accent-foreground/60 hover:text-accent-foreground text-2xl hover:bg-glass-light-gray"
-            onClick={() => setLightbox(false)}
-          >
-            <Xmark />
-          </Button>
-        </div>
-      )}
+            {assets.length > 1 && (
+              <>
+                <Button
+                  id="image-gallery-prev"
+                  type="button"
+                  isIconOnly
+                  onClick={handlePrevious}
+                  className={cn(
+                    "absolute left-4 top-1/2 -translate-y-1/2 z-20",
+                    "bg-glass-black-dark",
+                    "text-accent-foreground/70",
+                    "hover:text-accent-foreground",
+                    "hover:contrast-110",
+                    "shadow-none! outline-none! ring-0! ring-offset-0! border-0! bg-glass-black-dark!",
+                    "focus:ring-0! focus:shadow-none! focus:border-0! focus:bg-glass-black-dark! hover:ring-0! hover:shadow-none! hover:border-0!",
+                    "active:ring-0! active:border-0! focus-visible:ring-0! focus-visible:border-0!",
+                    "",
+                  )}
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="h-6 w-6 " />
+                </Button>
+
+                <Button
+                  id="image-gallery-next"
+                  isIconOnly
+                  onClick={handleNext}
+                  className={cn(
+                    "absolute right-4 top-1/2 -translate-y-1/2 z-20",
+                    "bg-glass-black-dark",
+                    "text-accent-foreground/70",
+                    "hover:text-accent-foreground",
+                    "hover:contrast-110",
+                    "shadow-none! outline-none! ring-0! ring-offset-0! border-0! bg-glass-black-dark!",
+                    "focus:ring-0! focus:shadow-none! focus:border-0! focus:bg-glass-black-dark! hover:ring-0! hover:shadow-none! hover:border-0!",
+                    "active:ring-0! active:border-0! focus-visible:ring-0! focus-visible:border-0!",
+                    "",
+                  )}
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </Button>
+              </>
+            )}
+          </Modal.Dialog>
+        </Modal.Container>
+      </Modal.Backdrop>
     </Card>
   );
 }

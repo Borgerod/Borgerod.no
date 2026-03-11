@@ -1,5 +1,5 @@
 import { ComponentBaseProps, TagItem } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn } from "@heroui/react";
 import { Card, Chip } from "@heroui/react";
 import hardSkills from "@data/skills.hard.json";
 import softSkills from "@data/skills.soft.json";
@@ -24,49 +24,48 @@ export default function SkillCard({ className }: ComponentBaseProps) {
           <Card.Title className="text-secondary/85 self-center">
             Skills
           </Card.Title>
-          <Card.Description>
-            <Tabs.ListContainer
+          <Tabs.ListContainer
+            className={cn("flex", "gap-2", "h-fit", "bg-transparent", "", "")}
+          >
+            <Tabs.List
+              aria-label="Options"
               className={cn(
-                "flex",
-                "gap-2",
                 "h-fit",
                 "bg-transparent",
-
-                "",
+                "bg-glass-white/50",
+                "mt-0.5",
+                "text-sm",
                 "",
               )}
             >
-              <Tabs.List
-                aria-label="Options"
+              <Tabs.Tab
+                id="hard-skills"
                 className={cn(
                   "h-fit",
-                  "bg-transparent",
-                  "bg-glass-offwhite",
-                  "mt-0.5",
-                  "text-sm",
-                  "text-secondary/85",
-
+                  "font-normal",
+                  "focus:text-primary",
+                  "text-secondary",
                   "",
                 )}
               >
-                <Tabs.Tab
-                  id="hard-skills"
-                  className="h-fit text-secondary/85 font-normal focus:text-primary"
-                >
-                  Hard
-                  <Tabs.Indicator className="bg-glass-gray/50 " />
-                  {/* <Tabs.Indicator className="bg-glass-gray/50 border border-glass-light-gray" /> */}
-                </Tabs.Tab>
-                <Tabs.Tab
-                  id="soft-skills"
-                  className="h-fit text-secondary/85 font-normal focus:text-primary"
-                >
-                  Soft
-                  <Tabs.Indicator className="bg-glass-gray/50 " />
-                </Tabs.Tab>
-              </Tabs.List>
-            </Tabs.ListContainer>
-          </Card.Description>
+                Hard
+                <Tabs.Indicator className="bg-glass-green-base" />
+              </Tabs.Tab>
+              <Tabs.Tab
+                id="soft-skills"
+                className={cn(
+                  "h-fit",
+                  "font-normal",
+                  "focus:text-primary",
+                  "text-secondary",
+                  "",
+                )}
+              >
+                Soft
+                <Tabs.Indicator className="bg-glass-green-base" />
+              </Tabs.Tab>
+            </Tabs.List>
+          </Tabs.ListContainer>
         </Card.Header>
 
         <Card.Content className="p-0 overflow-x-hidden ">

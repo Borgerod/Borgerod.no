@@ -1,28 +1,16 @@
 import workHistory from "@/data/work_history.json";
-import { notFound } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { QuoteOpen } from "@gravity-ui/icons";
-
 import LayoutBuilder from "./LayoutBuilder";
-import {
-  Avatar,
-  Breadcrumbs,
-  Button,
-  Card,
-  Chip,
-  Description,
-  Label,
-  Separator,
-} from "@heroui/react";
-import { Link as Redirect } from "@heroui/react";
 import ImageGallery from "./imageGallery";
 import Link from "next/link";
 import Image from "next/image";
-import { JobItem, LayoutType } from "@/lib/types";
 import AchievementsCard from "./AchievementsCard";
 import ResponsabilitiesCard from "./ResponsabilitiesCard";
 import EmployerCard from "./EmployerCard";
 import JobCard from "./JobCard";
+import { notFound } from "next/navigation";
+import { cn } from "@heroui/react";
+import { Breadcrumbs, Button } from "@heroui/react";
+import { JobItem, LayoutType } from "@/lib/types";
 
 export default async function Job({
   params,
@@ -30,39 +18,31 @@ export default async function Job({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const jobRequest = workHistory.find((item) => item.id === slug);
-  if (!jobRequest) notFound();
-  const job = jobRequest as JobItem;
-
-  /* this ('totalAchievementsLength' and 'isLongLayout') dictates wether achievements is too big (this ruins the layout composure and tell the page to restructure from grid to a simple flex-col) */
-  // TODO remove this old method
-  const totalAchievementsLength = job.achievements.reduce(
-    (acc, curr) => acc + curr.length,
-    0,
-  );
-  const isLongLayout = totalAchievementsLength > 600;
-  // const isLongLayout = totalAchievementsLength > 300;
-
+  const job = workHistory.find((item) => item.id === slug) as JobItem;
+  if (!job) notFound();
   const layout: LayoutType = LayoutBuilder(job);
 
   return (
     <main
       className={cn(
         "p-4",
+        "md:pb-0",
         "md:p-20",
         "py-20",
         "md:px-1",
         "px-0",
-        "grid grid-cols-2",
-        "gap-5 max-w-4xl",
+        "pb-40",
+        "md:gap-5 md:max-w-4xl",
+        // "md:gap-5 md:max-w-3xl",
+        "max-w-full",
         "md:bg-transparent",
         "bg-glass-white",
-        // isLongLayout ? "grid" : "flex flex-col",
-        // isLongLayout ? "flex flex-col" : "grid grid-cols-2",
+        "space-y-5",
+        "h-fit",
+        "max-h-fit",
+        "h-full",
+        "w-full max-w-full overflow-x-hidden",
         layout.mainLayout,
-        // denseLayout
-        "",
-        "",
         "",
         "",
       )}
@@ -96,39 +76,12 @@ export default async function Job({
           <Breadcrumbs.Item>{slug}</Breadcrumbs.Item>
         </Breadcrumbs>
       </div>
-      {/* <div
-        // TEMP component wrapper
-        className="contents invisible "
-      > */}
+
       <EmployerCard job={job} />
-      {/* </div> */}
       <JobCard job={job} JobCardLayout={layout.jobCardLayout} />
       <AchievementsCard job={job} achiCardLayout={layout.achiCardLayout} />
       <ResponsabilitiesCard job={job} respCardLayout={layout.respCardLayout} />
-
-      {/* <div
-        // TEMP component wrapper
-        className="contents invisible"
-      > */}
-      <Card
-        className={cn(
-          "bg-transparent",
-          "md:bg-glass-white",
-          "shadow-none",
-          "md:shadow",
-          "md:glass",
-          "md:glass-upper",
-          "col-start-1",
-          "col-span-full",
-          // "row-start-6",
-          // "md:row-start-5",
-          "",
-          "",
-        )}
-      >
-        <ImageGallery assets={job.assets} />
-      </Card>
-      {/* </div> */}
+      <ImageGallery assets={job.assets} />
     </main>
   );
 }

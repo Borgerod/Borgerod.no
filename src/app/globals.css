@@ -34,6 +34,7 @@
   /* --gray-dark: oklch(30.221% 0.00143 15.911 / 0.5); */
   /* --black: oklch(16.842% 0.00002 271.152); */
   --black: oklch(30.221% 0.00143 15.911 / 0.75);
+  --black-dark: oklch(0% 0 0 / 0.6);
   --gray: oklch(49.261% 0.00006 271.152 / 0.35);
   --gray-2: oklch(49.261% 0.00006 271.152 / 0.15);
   --green-base: #474e44;
@@ -86,6 +87,7 @@
   --color-glass-gray-2: var(--gray-2);
   --color-glass-gray-dark: var(--gray-dark);
   --color-glass-black: var(--black);
+  --color-glass-black-dark: var(--black-dark);
 
   --color-green-base: var(--green-base);
   --color-green-light: var(--green-light);
@@ -126,30 +128,6 @@
   --color-glass-green-light-2: var(--translucent-green-light-2);
 }
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --text-primary: var(--foreground);
-  --color-outline: var(--outline);
-  --color-border: var(--border);
-
-  --color-green-base: var(--green-base);
-  --color-green-light: var(--green-light);
-  --color-green-dark: var(--green-dark);
-  --color-green-dark-2: var(--green-dark-2);
-  --color-green-light-2: var(--green-light-2);
-
-  --color-glass-white: var(--white);
-  --color-glass-offwhite: var(--offwhite);
-  --color-glass-light-gray: var(--light-gray);
-  --color-glass-gray-undertone: var(--gray-undertone);
-  --color-glass-gray: var(--gray);
-  --color-glass-gray-dark: var(--gray-dark);
-  --color-glass-black: var(--black);
-} */
-/* @media (prefers-color-scheme: dark) { */
 @media (dark) {
   :root {
     --background: #0a0a0a;
@@ -159,7 +137,6 @@
 
     --white: #f5f5f5b3;
     --offwhite: #dddbd4cc;
-    /* --light-gray: #78787833; could maybe remove this, its very similar to gray-undertone */
     --light-gray: #98989880;
     --gray-undertone: #61616159;
     --gray: #2f2e2ecc;
@@ -169,9 +146,6 @@
 }
 
 body {
-  /* color: var(--foreground); */
-  /* font-family: "Inter", Arial, Helvetica, sans-serif; */
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -205,39 +179,12 @@ body {
   background-position: top;
   background-image: url(@public/assets/images/bg_upscaled.png);
   /* background-image: url(@public/assets/images/bg_resume.png); */
-  /* background-image: url(@public/assets/images/bg_upscaled_6.png); */
-  background-size: cover;
-  /* background-size: contain; */
-  /* background-size: auto; */
-  background-position: center;
-  background-position: top;
-}
-
-.bg-blur {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background-image: url(@public/assets/images/bg_upscaled.png);
-  background-image: url(@public/assets/images/bg_resume.png);
-  /* background-image: url(@public/assets/images/bg_upscaled.png); */
-  /* background-image: url(@public/assets/images/bg_upscaled_2.png); */
-  /* background-image: url(@public/assets/images/bg_upscaled_3.png); */
-  /* background-image: url(@public/assets/images/bg_upscaled_4.png); */
-  /* background-image: url(@public/assets/images/bg_upscaled_5.png); */
   background-image: url(@public/assets/images/bg_upscaled_6.png);
   background-size: cover;
   /* background-size: contain; */
   /* background-size: auto; */
   background-position: center;
   background-position: top;
-  /* top: -250; */
-  /* top: -300;
-  left: -100; */
-
-  filter: blur(4px);
-  /* filter: blur(2px); */
-  transform: scale(1.05);
-  transform: scale(1.05);
 }
 
 main {
@@ -298,7 +245,13 @@ main {
     @apply border-t-glass-light-gray/40;
     @apply border-l-glass-light-gray/40;
     @apply outline-glass-offwhite/40;
+    @apply bg-glass-gray-dark/50;
     /* @apply outline-glass-offwhite; */
+
+    /* @apply border-glass-light-gray/20; */
+    /* @apply border-t-glass-light-gray/40; */
+    /* @apply border-l-glass-light-gray/40; */
+    /* @apply outline-glass-offwhite/40; */
   }
   .glass.glass-black {
     @apply bg-glass-black;

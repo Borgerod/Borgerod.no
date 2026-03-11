@@ -151,25 +151,6 @@ export function BentoBoxBuilder(
   }): boolean {
     const row = bentoItem;
     const strings: string[] = [];
-    // console.log("row: ", row);
-    // console.log("previousRowLayout: ", previousRowLayout);
-    // const rowLayout = row.map((item) => item.span);
-
-    /*
-      row:  [
-      { text: 'Develop app', span: 1 },
-      { text: 'Board presentations', span: 2 }
-      ]
-      previousRowLayout:  [ 2, 1 ]
-    */
-
-    //     export type BentoItemDef = {
-    //   text: string | string[];
-    //   span: number | number[];
-    // };
-
-    //previousRowLayout (number | number[])[]
-    // row: BentoItemDef[]
     row.forEach((item) => {
       if (Array.isArray(item.text)) {
         strings.push(...item.text);
@@ -200,49 +181,6 @@ export function BentoBoxBuilder(
       }
       return [s / totalOuterSpan];
     });
-
-    // let flatIdx = 0;
-    // const structureNested = <T>(flat: T[]): (T | T[])[] => {
-    //   return spans.map((s) => {
-    //     if (Array.isArray(s)) {
-    //       const sub = flat.slice(flatIdx, flatIdx + s.length);
-    //       flatIdx += s.length;
-    //       return sub;
-    //     }
-    //     return flat[flatIdx++];
-    //   });
-    // };
-
-    // const flatDiffs = layoutWeights.map((lw, i) =>
-    //   Math.abs(lw - stringWeights[i]),
-    // );
-    // const flatResults = flatDiffs.map((diff) => diff <= threshold);
-
-    // flatIdx = 0;
-    // const nestedStrings = structureNested(
-    //   strings.map((s) => (s.length > 20 ? s.substring(0, 20) + "..." : s)),
-    // );
-    // flatIdx = 0;
-    // const nestedStringWeights = structureNested(stringWeights);
-    // flatIdx = 0;
-    // const nestedLayoutWeights = structureNested(layoutWeights);
-    // flatIdx = 0;
-    // const nestedWeightDiffs = structureNested(flatDiffs);
-    // flatIdx = 0;
-    // const nestedResults = structureNested(flatResults);
-
-    // const isRowValid = flatResults.every((res) => res);
-
-    // DebuggerStringFitsRowLayout({
-    //   spans,
-    //   nestedStrings,
-    //   nestedStringWeights,
-    //   nestedLayoutWeights,
-    //   nestedWeightDiffs,
-    //   threshold,
-    //   nestedResults,
-    //   isRowValid,
-    // });
 
     for (let i = 0; i < layoutWeights.length; i++) {
       const diff = Math.abs(layoutWeights[i] - stringWeights[i]);
@@ -436,28 +374,28 @@ export function BentoBoxBuilder(
   return rows;
 }
 
-function DebuggerStringFitsRowLayout(params: {
-  spans: (number | number[])[];
-  nestedStrings: (string | string[])[];
-  nestedStringWeights: (number | number[])[];
-  nestedLayoutWeights: (number | number[])[];
-  nestedWeightDiffs: (number | number[])[];
-  threshold: number;
-  nestedResults: (boolean | boolean[])[];
-  isRowValid: boolean;
-}): void {
-  console.log("[Bento Debugger]:", {
-    layout: params.spans,
-    strings: params.nestedStrings,
-    stringWeights: params.nestedStringWeights,
-    layoutWeights: params.nestedLayoutWeights,
-    weightDiffs: params.nestedWeightDiffs,
-    threshold: params.threshold,
-    layoutFitResults: params.nestedResults,
-    verdict: {
-      results: params.isRowValid
-        ? "VALID - ADDED TO BENTO"
-        : "INVALID - REJECTED",
-    },
-  });
-}
+// function DebuggerStringFitsRowLayout(params: {
+//   spans: (number | number[])[];
+//   nestedStrings: (string | string[])[];
+//   nestedStringWeights: (number | number[])[];
+//   nestedLayoutWeights: (number | number[])[];
+//   nestedWeightDiffs: (number | number[])[];
+//   threshold: number;
+//   nestedResults: (boolean | boolean[])[];
+//   isRowValid: boolean;
+// }): void {
+//   console.log("[Bento Debugger]:", {
+//     layout: params.spans,
+//     strings: params.nestedStrings,
+//     stringWeights: params.nestedStringWeights,
+//     layoutWeights: params.nestedLayoutWeights,
+//     weightDiffs: params.nestedWeightDiffs,
+//     threshold: params.threshold,
+//     layoutFitResults: params.nestedResults,
+//     verdict: {
+//       results: params.isRowValid
+//         ? "VALID - ADDED TO BENTO"
+//         : "INVALID - REJECTED",
+//     },
+//   });
+// }

@@ -1,5 +1,5 @@
 import { ComponentBaseProps, TagItem } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn } from "@heroui/react";
 import { Card } from "@heroui/react";
 import tools from "@data/tools.json";
 import { Chip } from "@heroui/react";

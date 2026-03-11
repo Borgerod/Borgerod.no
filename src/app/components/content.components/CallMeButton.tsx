@@ -65,16 +65,15 @@ export default function CallMeButton() {
         </Button>
         <Modal.Backdrop>
           <Modal.Container>
-            <Modal.Dialog className={cn("glass", "glass-white", "h-fit", "")}>
+            <Modal.Dialog
+              className={cn(
+                "glass",
+                "glass-white",
+                "h-20 flex content-center justify-self-center",
+              )}
+            >
               <Modal.CloseTrigger className="bg-transparent text-secondary hover:text-primary" />{" "}
-              <Modal.Header>
-                <Modal.Icon />
-                <Modal.Heading />
-              </Modal.Header>
-              <Modal.Body className={cn("text-primary", "", "")}>
-                Call me on: {phoneNumberAutoFormat(phoneNumber)}
-              </Modal.Body>
-              <Modal.Footer />
+              Call me on: {phoneNumberAutoFormat(phoneNumber)}
             </Modal.Dialog>
           </Modal.Container>
         </Modal.Backdrop>

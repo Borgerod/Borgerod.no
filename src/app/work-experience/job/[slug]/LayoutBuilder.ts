@@ -6,10 +6,6 @@ function totalArrayLength(jobArray: string[]): number {
     Math.round(jobArray.reduce((acc, curr) => acc + curr.length, 0) / 100) * 100
   );
 }
-// function totalArrayLength(jobArray: string[]): number {
-//   return jobArray.reduce((acc, curr) => acc + curr.length, 0);
-//   // No rounding here — let getLengthLimit be the single source of rounding
-// }
 
 function isWithinthreshold(
   threshold: number,
@@ -20,44 +16,9 @@ function isWithinthreshold(
   return Math.abs(checkVal - limit) / Math.max(checkVal, limit) < threshold;
 }
 
-// function isWithinthreshold2(
-//   threshold: number,
-//   checkVal: number,
-//   limit: number,
-// ): boolean {
-//   console.log("threshold: ", threshold);
-//   // console.log(
-//   //   `${checkVal} < ${limit * (1 + threshold)} || ${checkVal} < ${limit * (1 - threshold)} => ${checkVal < limit * (1 + threshold) || checkVal < limit * (1 - threshold)}  ${checkVal < limit * (1 + threshold)} || ${checkVal < limit * (1 - threshold)}`,
-//   // );
-//   // return (
-//   //   checkVal < limit * (1 + threshold) || checkVal < limit * (1 - threshold)
-//   // );
-//   /* Gets the difference between two arrays (%), then compares the difference to a provided threshold (%) => boolean*/
-//   console.log(
-//     `
-//     ${checkVal * (1 + threshold)} < ${limit} = ${checkVal * (1 + threshold) < limit}
-//     ${checkVal * (1 - threshold)} < ${limit} = ${checkVal * (1 - threshold) < limit}
-//     ${checkVal * (1 + threshold)} < ${limit} || ${checkVal * (1 - threshold)} < ${limit} => ${checkVal * (1 + threshold) < limit || checkVal * (1 - threshold) < limit}
-//     `,
-//   );
-//   // console.log(
-//   //   `
-//   //   ${checkVal * (1 + threshold)} < ${limit}
-//   //   ||
-//   //   ${checkVal * (1 - threshold)} < ${limit}
-
-//   //   => ${checkVal * (1 + threshold) < limit || checkVal * (1 - threshold) < limit} :
-//   //   : ${checkVal * (1 + threshold) < limit}
-//   //   || ${checkVal * (1 - threshold) < limit}`,
-//   // );
-//   return (
-//     checkVal * (1 + threshold) < limit || checkVal * (1 - threshold) < limit
-//   );
-// }
-
 function getLengthLimit(job: JobItem) {
   /* 
-    thresholdS-LIMITS
+    thresholds-LIMITS
     - based on the total textcontent of jobCard as a baseline, (optional: add a more-leg-room-extention), then rounds it to closest hundred.
     - this will dictate wether the components being measured exceeds the jobCard size or not.
     - A layout is choosen where the components fit.    
@@ -74,14 +35,9 @@ function getLengthLimit(job: JobItem) {
 
   const baseLimit: number = jobCardContent.join("").length;
   const extention: number = 200;
-  // const extention: number = 100;
-
-  // const lengthLimit: number = baseLimit; // SIMPLE
   const lengthLimit: number = Math.round(baseLimit / 100) * 100; // SIMPLE + ROUNDED
   // const lengthLimit: number = baseLimit + extention; //threshold-EXTENTION
   // const lengthLimit: number = Math.round((baseLimit + extention) / 100) * 100; // threshold-EXTENTION + ROUNDED
-  // const lengthLimit: number = 600; //temp
-  //   const lengthLimit: number = 300; //temp
 
   return lengthLimit;
 }
@@ -95,25 +51,17 @@ export default function LayoutBuilder(job: JobItem) {
   /* seperated just to simplyify LayoutBuilder function  */
   const lengthLimit = getLengthLimit(job);
   const defaultLayout: LayoutType = {
-    /* (DEFAULT LAYOUT) fallback layout if everything fits */
-    mainLayout: "grid grid-cols-2 bg-amber-200!",
-    jobCardLayout: "col-span-1 row-span-1 row-span-2",
-    achiCardLayout: "col-start-2 row-start-3 col-span-1 row-span-1",
+    mainLayout: "flex flex-col md:grid md:grid-cols-2 grid-cols-2",
+    jobCardLayout: "col-span-1 row-span-1 row-span-2  ",
+    achiCardLayout: "col-start-2 row-start-3 col-span-1 row-span-1  ",
     respCardLayout:
-      "col-start-1 row-start-4 row-span-2 col-start-2 row-start-4 col-span-1 row-span-1",
+      "col-start-1 row-start-4 row-span-2 col-start-2 row-start-4 col-span-1 row-span-1  ",
   };
   const layout: LayoutType = {
-    /* (DEFAULT LAYOUT) fallback layout if everything fits */
     mainLayout: "",
     jobCardLayout: "",
     achiCardLayout: "",
     respCardLayout: "",
-    /* (DEFAULT LAYOUT) fallback layout if everything fits */
-    // mainLayout: "bg-amber-300! grid grid-cols-2 bg-amber-200!",
-    // jobCardLayout: "col-span-1 row-span-1 row-span-2",
-    // achiCardLayout: "col-start-2 row-start-3 col-span-1 row-span-1",
-    // respCardLayout:
-    //   "col-start-1 row-start-4 row-span-2 col-start-2 row-start-4 col-span-1 row-span-1",
   };
 
   /* This dictates which layout to use -> returns layout:{mainLayout, achiCardLayout, respCardLayout} */
@@ -121,27 +69,10 @@ export default function LayoutBuilder(job: JobItem) {
   const achiCard: number = totalArrayLength(job.achievements);
   const respCard: number = totalArrayLength(job.responsibilities);
   const both: number = achiCard + respCard;
-  // const threshold_RAcards: number = 0.3;
-  // // const threshold_jobcard: number = 0.35;
-  // // const threshold_jobcard: number = 0.9;
-  // const threshold_jobcard: number = 0.9;
-  // const threshold_both: number = 0.15;
-
-  // const threshold_RAcards: number = 0.3; // keep — seems right
-  // const threshold_jobcard: number = 0.35; // was 0.9 — too permissive
-  // const threshold_both: number = 0.25; // was 0.15 — a bit tight
 
   const threshold_RAcards: number = 0.3;
   const threshold_jobcard: number = 0.15;
   const threshold_both: number = 0.1;
-
-  /* * this works fine for current dataset, but not against shorter datasets
-  // const threshold: number = 0.2;
-
-  const threshold: number = 0.3;
-  const threshold_jobcard: number = 0.15;
-  const threshold_both: number = 0.1;
-  */
 
   console.log(`job.company: ${job.employer}: ${job.employer}`);
   console.log(`jobCard (limit): ${lengthLimit}`);
@@ -174,16 +105,16 @@ export default function LayoutBuilder(job: JobItem) {
           `2.1.0 (respCard fits jobCard):${isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> CASE 2.1.1: respCard to row-start-4, achiCard to row-span-2`,
         );
         // 2.1.1 CASE - ['achiCard', 'respCard'] fits, but ['both'] does not -> Can be either, prefer moving respCard, set respCard to "row-start-4", set achiCard to "row-span-2". (prefer moving respCard to change default layout as little as possible)lay
-        // layout.mainLayout = "bg-blue-200!";
+        layout.mainLayout = "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "row-span-2";
-        layout.respCardLayout = "row-start-4";
+        layout.respCardLayout = "row-start-4 col-span-2";
       } else {
         console.log(
           `2.1.2 (achiCard fits, respCard & both do NOT):${!isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> CASE 2.1.2: respCard to row-start-4, achiCard to row-span-2`,
         );
         // 2.1.2 CASE - ['achiCard'] fits, but ['respCard', 'both'] does not -> set respCard to "row-start-4", set achiCard to "row-span-2".
-        // layout.mainLayout = "bg-blue-400!";
+        layout.mainLayout = "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "";
         layout.respCardLayout = "row-start-4 col-span-2";
@@ -201,9 +132,9 @@ export default function LayoutBuilder(job: JobItem) {
           `2.2.0 (respCard fits jobCard):${isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> CASE 2.2.1: achiCard to row-start-4, respCard to row-span-2`,
         );
         // 2.2.1 CASE - ['respCard'] fits, but ['achiCard', 'both'] does not -> set achiCard to "row-start-4", set respCard to "row-span-2".
-        // layout.mainLayout = "bg-green-200!";
+        layout.mainLayout = "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
         layout.jobCardLayout = "";
-        layout.achiCardLayout = "row-start-4";
+        layout.achiCardLayout = "row-start-4 col-span-2";
         layout.respCardLayout = "row-start-3 row-span-2";
         console.log(
           `2.2.2 (respCard, achiCard, both do NOT fit):${!isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> Entering CASE 2.2.2`,
@@ -218,13 +149,14 @@ export default function LayoutBuilder(job: JobItem) {
             `2.2.2.0 (respCard fits achiCard):${isWithinthreshold(threshold_RAcards, respCard, achiCard)} -> CASE 2.2.2.1: respCard === achiCard, both to row-start-4, jobCard to col-span-2`,
           );
           // 2.2.2.1 CASE - 'respCard' === 'achiCard' -> can be together, ['respCard', 'achiCard'] to "row-start-4", set 'jobCard' to "col-span-2".
-          // layout.mainLayout = "bg-red-200!";
+          layout.mainLayout =
+            "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
           layout.jobCardLayout = "col-span-2";
           layout.achiCardLayout = "row-start-4";
           layout.respCardLayout = "row-start-4";
         } else {
           // 2.2.2.2 CASE - 'respCard' =/= 'achiCard' -> cant be together, set parent to "flex flex-col".
-          // layout.mainLayout = "bg-red-400! flex flex-col";
+          layout.mainLayout = "flex flex-col";
           layout.jobCardLayout = "";
           layout.achiCardLayout = "";
           layout.respCardLayout = "";
