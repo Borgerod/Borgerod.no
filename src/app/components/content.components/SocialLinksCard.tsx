@@ -11,9 +11,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
     <Card
       id="social-links"
       className={cn(
-        "text-accent-foreground",
         "glass",
         "glass-black",
+        "text-accent-foreground",
         "h-full",
         "w-full",
         "sm:max-w-fit",
