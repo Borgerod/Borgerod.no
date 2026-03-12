@@ -41,6 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 # test pages to ignore
-/src/app/test
+ /src/app/test
+/stats-test
 
 public/assets/images/debug-images
