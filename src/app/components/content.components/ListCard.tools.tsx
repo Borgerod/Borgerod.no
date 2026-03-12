@@ -24,7 +24,7 @@ import { Chip } from "@heroui/react";
         - hovering any email-buttons or call-me-button in ProfileCard (has NO hover-effect)
 
   NOTE: it is only visible for ToolCard, and not SkillCard, which is odd since they are basicly the same component and have the same sibling.
-  try: swapping the places of ToolCard and SkillCard, report any changes. 
+  test []: swapping the places of ToolCard and SkillCard, report any changes. 
 */
 export default function ToolCard({ className }: ComponentBaseProps) {
   return (
