@@ -34,10 +34,8 @@ function getLengthLimit(job: JobItem) {
   ];
 
   const baseLimit: number = jobCardContent.join("").length;
-  // const extention: number = 200;
-  const lengthLimit: number = Math.round(baseLimit / 100) * 100; // SIMPLE + ROUNDED
-  // const lengthLimit: number = baseLimit + extention; //threshold-EXTENTION
-  // const lengthLimit: number = Math.round((baseLimit + extention) / 100) * 100; // threshold-EXTENTION + ROUNDED
+
+  const lengthLimit: number = Math.round(baseLimit / 100) * 100;
 
   return lengthLimit;
 }
@@ -74,111 +72,51 @@ export default function LayoutBuilder(job: JobItem) {
   const threshold_jobcard: number = 0.15;
   const threshold_both: number = 0.1;
 
-  console.log(`job.company: ${job.employer}: ${job.employer}`);
-  console.log(`jobCard (limit): ${lengthLimit}`);
-  console.log(`achiCard: ${achiCard}`);
-  console.log(`respCard: ${respCard}`);
-  console.log(`both: ${both}`);
-  console.log(`_________________________________________________: ${"_"}`);
   /* We needs to go three statement-levels deep before we can start taking actions. we need a value for ['both', 'achiCard', 'respCard'] fitting jobCard for this to work. */
   if (
     //>0. (check 'both' DONT fits 'jobCard') NOT isWithinthreshold(threshold, [achiCard + respCard], lengthLimit)
     !isWithinthreshold(threshold_both, both, lengthLimit)
   ) {
-    console.log(
-      `0 (both DONT fit jobCard):${!isWithinthreshold(threshold_both, both, lengthLimit)} [${Math.abs(both - lengthLimit) / Math.max(both, lengthLimit)} < ${threshold_both}]-> Entering CASE 2`,
-    );
-    // 2. CASE - [] fits, but ['both'] does not -> Current layout DONT fit, replace Default/Fallback.
-    if (
-      // >2.0. (check 'achiCard' fits 'jobCard'): isWithinthreshold(threshold, achiCard, lengthLimit)
-      isWithinthreshold(threshold_jobcard, achiCard, lengthLimit)
-    ) {
-      console.log(
-        `2.0 (achiCard fits jobCard):${isWithinthreshold(threshold_jobcard, achiCard, lengthLimit)} -> Entering CASE 2.1`,
-      );
-      //     2.1 CASE - ['achiCard'] fits, but ['both'] does not.
-      if (
-        //  >2.1.0 (check 'respCard' fits 'jobCard'): isWithinthreshold(threshold, respCard, lengthLimit)
-        isWithinthreshold(threshold_jobcard, respCard, lengthLimit)
-      ) {
-        console.log(
-          `2.1.0 (respCard fits jobCard):${isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> CASE 2.1.1: respCard to row-start-4, achiCard to row-span-2`,
-        );
-        // 2.1.1 CASE - ['achiCard', 'respCard'] fits, but ['both'] does not -> Can be either, prefer moving respCard, set respCard to "row-start-4", set achiCard to "row-span-2". (prefer moving respCard to change default layout as little as possible)lay
+    if (isWithinthreshold(threshold_jobcard, achiCard, lengthLimit)) {
+      if (isWithinthreshold(threshold_jobcard, respCard, lengthLimit)) {
         layout.mainLayout = "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "row-span-2";
         layout.respCardLayout = "row-start-4 col-span-2";
-      } else {
-        console.log(
-          `2.1.2 (achiCard fits, respCard & both do NOT):${!isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> CASE 2.1.2: respCard to row-start-4, achiCard to row-span-2`,
-        );
-        // 2.1.2 CASE - ['achiCard'] fits, but ['respCard', 'both'] does not -> set respCard to "row-start-4", set achiCard to "row-span-2".
+
         layout.mainLayout = "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "";
         layout.respCardLayout = "row-start-4 col-span-2";
-        console.log(
-          `2.2 (achiCard & both do NOT fit):${!isWithinthreshold(threshold_jobcard, achiCard, lengthLimit)} -> Entering CASE 2.2`,
-        );
       }
     } else {
-      //     2.2 CASE - [] fits, but ['achiCard', 'both'] does not.
-      if (
-        // >2.2.0 (check 'respCard' fits 'jobCard'): isWithinthreshold(threshold, respCard, lengthLimit)
-        isWithinthreshold(threshold_jobcard, respCard, lengthLimit)
-      ) {
-        console.log(
-          `2.2.0 (respCard fits jobCard):${isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> CASE 2.2.1: achiCard to row-start-4, respCard to row-span-2`,
-        );
-        // 2.2.1 CASE - ['respCard'] fits, but ['achiCard', 'both'] does not -> set achiCard to "row-start-4", set respCard to "row-span-2".
+      if (isWithinthreshold(threshold_jobcard, respCard, lengthLimit)) {
         layout.mainLayout = "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "row-start-4 col-span-2";
         layout.respCardLayout = "row-start-3 row-span-2";
-        console.log(
-          `2.2.2 (respCard, achiCard, both do NOT fit):${!isWithinthreshold(threshold_jobcard, respCard, lengthLimit)} -> Entering CASE 2.2.2`,
-        );
       } else {
-        // 2.2.2 CASE - [] fits, but ['respCard', 'achiCard', 'both'] does not -> (choice: ['respCard', 'achiCard'] to "row-start-4" || "flex flex-col")
-        if (
-          // >2.2.2.0 (check 'respCard' fits 'achiCard' ) isWithinthreshold(threshold, respCard, achiCard)
-          isWithinthreshold(threshold_RAcards, respCard, achiCard)
-        ) {
-          console.log(
-            `2.2.2.0 (respCard fits achiCard):${isWithinthreshold(threshold_RAcards, respCard, achiCard)} -> CASE 2.2.2.1: respCard === achiCard, both to row-start-4, jobCard to col-span-2`,
-          );
-          // 2.2.2.1 CASE - 'respCard' === 'achiCard' -> can be together, ['respCard', 'achiCard'] to "row-start-4", set 'jobCard' to "col-span-2".
+        if (isWithinthreshold(threshold_RAcards, respCard, achiCard)) {
           layout.mainLayout =
             "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
           layout.jobCardLayout = "col-span-2";
           layout.achiCardLayout = "row-start-4";
           layout.respCardLayout = "row-start-4";
         } else {
-          // 2.2.2.2 CASE - 'respCard' =/= 'achiCard' -> cant be together, set parent to "flex flex-col".
           layout.mainLayout = "flex flex-col";
           layout.jobCardLayout = "";
           layout.achiCardLayout = "";
           layout.respCardLayout = "";
-          console.log(
-            `2.2.2.2 (respCard != achiCard):${!isWithinthreshold(threshold_RAcards, respCard, achiCard)} -> CASE 2.2.2.2: flex flex-col`,
-          );
         }
       }
     }
-  } else // if isWithinthreshold(threshold, both, lengthLimit)
-  {
-    console.log(
-      `1 (both fit jobCard):${isWithinthreshold(threshold_both, both, lengthLimit)} -> CASE 1: keep Default/Fallback`,
-    );
-
+  } else {
     layout.mainLayout = defaultLayout.mainLayout;
     layout.jobCardLayout = defaultLayout.jobCardLayout;
     layout.achiCardLayout = defaultLayout.achiCardLayout;
     layout.respCardLayout = defaultLayout.respCardLayout;
   }
-  console.log(`_________________________________________________`);
-  console.log(`layout: ${JSON.stringify(layout)}`);
+
   return layout;
 }
 
@@ -197,8 +135,8 @@ NOTE: for convenience, ["AchievementsCard", "ResponsibilitiesCard"]
   - None of the components are allowed to "stretch", they must allways be "fitting", (some stretching is allowed, dictated by threshold-%). 
   - The total string-length of 'items in col-1' and 'items in col-2' must be equal, within a certain threshold-%, [ref: isWithinthreshold].
   - When changing layout: prefer to minimize deviation from the default layoutm, and try to maintain the original composure. e.g.: prefer making one change instead of two. This is for seo puposes and visual harmony. 
-  // - Items that do not fit in those two cols, gets moved to a new row.
-  // - If (AchiCard + RespCard).length exceeds JobCard.length, within a certain threshold it means that stretching occours and new layout is needed. [ref: isWithinthreshold]
+
+
 
   NOTE: the 'x.0' is the if-statement, where 'x.1' is the 'true-case' and 'x.2' is the 'false-case'. 
   NOTE: When movinng card_A to "row-start-4", you have to set card_B to "row-span-2" to fill the gap that card_A left behind.
