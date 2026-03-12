@@ -32,8 +32,14 @@ import { Chip } from "@heroui/react";
                     > results: no changes, issue remains the same. 
   test [complete]: try removing "glass" feature for relevant components, report issue.
                     > results: found culprit, it is the @layer components "glass" (tailwind, css) [ref: globals.css]
-    test []: investigate further; try changing values like backdrop-blur, backdrop-saturate, and shadow. 
+    test [complete]: investigate further; try changing values like backdrop-blur, backdrop-saturate, and shadow. 
                     > results:
+                          ! remove - 'backdrop-saturate-150' (no effect)
+                          * remove - 'shadow-sm' (has effect)
+                          * remove - 'backdrop-blur-xl' (has effect)
+                    > test [] see if its the 'shadow' effect in "Card that scrolls" or in "Sibling Card" that is causing it 
+                    > test [] see if its the 'blur' effect in "Card that scrolls" or in "Sibling Card" that is causing it 
+                          
   */
 export default function ToolCard({ className }: ComponentBaseProps) {
   return (
