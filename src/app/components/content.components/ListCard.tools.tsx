@@ -47,6 +47,18 @@ import { Chip } from "@heroui/react";
                       >  - setting SocialLinksCard 'blur' to ['-none'] including focring "..!" removes the bug.
                       >  - setting SocialLinksCard 'blur' to ['2xl'] or larger - made no change.
                       >  - setting SocialLinksCard 'blur' to ['md'] or smaller - did not remove the bug, but made the shadow smaller.
+                   TESTING SCROLL-CARD
+                   > test [complete] see if its the 'shadow' effect in "Card that scrolls" or in "Sibling Card" that is causing it 
+                     > results:
+                     >  - setting ToolCard 'shadow' to ['-none','xl(or bigger)'] - removes the bug.
+                     >  - setting ToolCard 'shadow' to ['-transparent','-xs(or smaller)'] - made no change.
+                   > test [complete] see if its the 'blur' effect in "Card that scrolls" or in "Sibling Card" that is causing it 
+                     > results: 
+                     >  - setting ToolCard 'blur' to ['-transparent','-md(or smaller)','2xl(or bigger)'] - made no change.
+                     >  - setting ToolCard 'blur' to ['-none'] - removes the bug.
+  * SOLUTION: 
+  * [ ](1): easiest solution is to manually remove shadow from one of the components. (this does not however solve the root cause)          
+  * [ ](2): (NOTE: need further testing of HeroUI scrollbar) whrer a potential solution would be making your own scroll bar. 
 
   */
 export default function ToolCard({ className }: ComponentBaseProps) {
