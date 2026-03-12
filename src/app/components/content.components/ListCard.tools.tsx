@@ -27,9 +27,13 @@ import { Chip } from "@heroui/react";
   test [complete]: swapping the places of ToolCard and SkillCard, report any changes.
                     > results: swapping the places of ToolCard and SkillCard, made SkillCard create the Shadowbox, and not ToolCard.
                     > indicating that the issue might not be rooted in these two cards, but perhaps with SocialLinksCard.
-  test []: swapping the places of SocialLinksCard with another Component (or make a new one), report any changes.
-  test []: try removing "glass" feature for relevant components, report issue.
-*/
+  test [complete]: swapping the places of SocialLinksCard with another Component (or make a new one), report any changes.
+                    > results: no changes, issue remains the same. 
+  test [complete]: try removing "glass" feature for relevant components, report issue.
+                    > results: found culprit, it is the @layer components "glass" (tailwind, css) [ref: globals.css]
+    test []: investigate further; try changing values like backdrop-blur, backdrop-saturate, and shadow. 
+                    > results:
+  */
 export default function ToolCard({ className }: ComponentBaseProps) {
   return (
     <Card id="tools" className={cn("glass", "glass-white", className, "", "")}>
