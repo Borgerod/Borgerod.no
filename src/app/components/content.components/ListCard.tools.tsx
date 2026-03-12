@@ -3,6 +3,7 @@ import { cn } from "@heroui/react";
 import { Card } from "@heroui/react";
 import tools from "@data/tools.json";
 import { Chip } from "@heroui/react";
+//> NOTE: To furure self - next time you do a bug report / debugging, make a branch out of it.
 /* ! BUG: Mysterious shadowBox when scrolling 
   When scrolling, there is some sort of shadowbox visible outside of component, 
   it overflows and shows on a sibling component 'SocialLinks'.
