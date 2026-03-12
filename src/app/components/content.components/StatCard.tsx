@@ -161,12 +161,10 @@ export default function StatCard({ className }: ComponentBaseProps) {
 
   useEffect(() => {
     const fetchStats = async () => {
-      const baseUrl =
-        process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
       try {
         const [githubRes, leetCodeRes] = await Promise.all([
-          fetch(`${baseUrl}/api/github-stats`),
-          fetch(`${baseUrl}/api/leetcode-stats`),
+          fetch("/api/github-stats"),
+          fetch("/api/leetcode-stats"),
         ]);
 
         const github = await githubRes.json();
