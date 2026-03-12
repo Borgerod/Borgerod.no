@@ -1,11 +1,22 @@
 import { cn } from "@heroui/react";
 import { Card } from "@heroui/react";
-import { ComponentBaseProps } from "@/lib/types";
+import { ComponentBaseProps, GitHubStats, LeetCodeStats } from "@/lib/types";
 import StylizedCircle from "../design.components/StylizedCircle";
 import { ReactNode } from "react";
 import Image from "next/image";
 
-function getContent(): ReactNode {
+async function getContent(): Promise<ReactNode> {
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const githubData = await fetch(`${baseUrl}/api/github-stats`, {
+    cache: "force-cache",
+  });
+  const githubStats: GitHubStats = await githubData.json();
+
+  const leetCodeData = await fetch(`${baseUrl}/api/leetcode-stats`, {
+    cache: "force-cache",
+  });
+  const leetCodeStats: LeetCodeStats = await leetCodeData.json();
+
   return (
     <div
       className={cn(
@@ -40,7 +51,7 @@ function getContent(): ReactNode {
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
         {/* TODO: Make api's for these stats */}
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          944
+          {githubStats.totalContributions}
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           GitHub contributions
@@ -48,7 +59,7 @@ function getContent(): ReactNode {
       </div>
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          39
+          {githubStats.totalRepos}
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           Repositories
@@ -57,7 +68,7 @@ function getContent(): ReactNode {
 
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          5+
+          {githubStats.yearsExp}+
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           Years experience
@@ -65,7 +76,7 @@ function getContent(): ReactNode {
       </div>
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          3+
+          {githubStats.yearsExpProf}+
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           Years as professional
@@ -73,7 +84,7 @@ function getContent(): ReactNode {
       </div>
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          52
+          {leetCodeStats.allSubmissions}
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           Leetcode submissions
@@ -84,8 +95,9 @@ function getContent(): ReactNode {
         <span className="text-xs   leading-none sm:leading-2.5 text-nowrap self-baseline">
           Beats{" "}
           <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline">
-            66.07% {/* (easy only) */}
             {/* 59.88% (all difficulties) */}
+            {/* 66.07% (easy only) */}
+            {leetCodeStats.beatsPercentage}%
           </span>
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
@@ -95,7 +107,7 @@ function getContent(): ReactNode {
     </div>
   );
 }
-export default function StatCard({ className }: ComponentBaseProps) {
+export default async function StatCard({ className }: ComponentBaseProps) {
   return (
     <Card
       className={cn(
@@ -182,24 +194,18 @@ export default function StatCard({ className }: ComponentBaseProps) {
 
       <div
         className={cn(
-          /* * style */
           "w-full h-full p-0 m-0",
-
-          /* * grid placement */
           "col-start-1",
           "row-start-1",
-
-          // * grid position
           "col-start-1",
           "col-span-full",
           "row-start-1",
           "row-span-full",
-
-          /* * grid * */
           "grid",
+          "",
         )}
       >
-        {getContent()}
+        {await getContent()}
       </div>
     </Card>
   );

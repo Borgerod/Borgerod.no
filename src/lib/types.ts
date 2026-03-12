@@ -50,3 +50,32 @@ export type BentoItem = {
   text: string | string[];
   span: number | number[];
 };
+export type GitHubStats = {
+  yearsExp: number;
+  yearsExpProf: number;
+  totalRepos: number;
+  totalContributions: number;
+};
+
+export type LeetCodeStatList = {
+  beatsPercentage: LeetCodeBeats[];
+  submissions: LeetCodeSubmission[];
+};
+
+export type LeetCodeStats = {
+  beatsPercentage: number;
+  allSubmissions: number;
+};
+
+export type LeetCodeSubmission = {
+  // child type of LeetCodeStats
+  difficulty: "All" | "Easy" | "Medium" | "Hard";
+  count: number;
+  submissions: number;
+};
+
+export type LeetCodeBeats = {
+  // child type of LeetCodeStats
+  difficulty: "Easy" | "Medium" | "Hard";
+  percentage: number;
+};
