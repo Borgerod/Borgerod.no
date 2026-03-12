@@ -57,9 +57,10 @@ import { Chip } from "@heroui/react";
                      >  - setting ToolCard 'blur' to ['-transparent','-md(or smaller)','2xl(or bigger)'] - made no change.
                      >  - setting ToolCard 'blur' to ['-none'] - removes the bug.
   * SOLUTION: 
-  * [ ](1): easiest solution is to manually remove shadow from one of the components. (this does not however solve the root cause)          
-  * [ ](2): (NOTE: need further testing of HeroUI scrollbar) whrer a potential solution would be making your own scroll bar. 
-
+  * [X](1): easiest solution is to manually remove shadow from one of the components. (this does not however solve the root cause)
+          * since SocialLinksCard is the only one using 'glass-back' i decieded to add the change there: @apply shadow-xl; 
+          * picked "shadow-xl" because the is the least visually disturbing.
+  * [ ](2): (NOTE: need further testing of HeroUI scrollbar) whrer a potential solution would be making your own scroll bar.
   */
 export default function ToolCard({ className }: ComponentBaseProps) {
   return (
