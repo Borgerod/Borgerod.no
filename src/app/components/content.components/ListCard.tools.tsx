@@ -14,7 +14,7 @@ import { Chip } from "@heroui/react";
       ** this does not apply for all hover-effects however. here is a list of those i have noticed.
       o DOES make shadowBox dissapear:
         - hovering scroll-bar in ToolCard (has hover-effect)
-        - hovering any social-button in SocialCard (has hover-effect)
+        - hovering any social-button in SocialLinksCard (has hover-effect)
         - hovering any portfolio-button in PortfolioCard (has hover-effect)
         
       o DONT make shadowBox dissapear:
@@ -24,7 +24,11 @@ import { Chip } from "@heroui/react";
         - hovering any email-buttons or call-me-button in ProfileCard (has NO hover-effect)
 
   NOTE: it is only visible for ToolCard, and not SkillCard, which is odd since they are basicly the same component and have the same sibling.
-  test []: swapping the places of ToolCard and SkillCard, report any changes. 
+  test [complete]: swapping the places of ToolCard and SkillCard, report any changes.
+                    > results: swapping the places of ToolCard and SkillCard, made SkillCard create the Shadowbox, and not ToolCard.
+                    > indicating that the issue might not be rooted in these two cards, but perhaps with SocialLinksCard.
+  test []: swapping the places of SocialLinksCard with another Component (or make a new one), report any changes.
+  test []: try removing "glass" feature for relevant components, report issue.
 */
 export default function ToolCard({ className }: ComponentBaseProps) {
   return (
