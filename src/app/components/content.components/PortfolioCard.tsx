@@ -31,7 +31,6 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
       id="project-display"
       className={cn(
         "glass",
-        // "glass-gray",
         "glass-gray",
         "gap-1",
         "h-50",
@@ -71,6 +70,8 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             key={project.id}
             id={`${project.id} url-redirect`}
             className="contents"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Card
               key={project.id}
@@ -92,12 +93,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "hover:shadow-md",
                 "shadow-sm",
                 "drop-shadow-sm",
-                // "glass",
-                // "glass-borderless",
-                // "bg-glass-gray-undertone/50",
-                // "bg-glass-light-gray/70",
                 "bg-glass-light-gray/40",
-                // "bg-glass-gray-40",
                 "shadow shadow-1",
                 "",
               )}
@@ -139,7 +135,11 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           </Link>
         ))}
 
-        <Link id="github url-redirect" href="./portfolio" className="contents">
+        <Link
+          id="url-route see-all-button portfolio-page-route"
+          href="./portfolio"
+          className="contents"
+        >
           <Card
             className={cn(
               "font-light",
@@ -152,7 +152,6 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
               "justify-items-center",
               "content-center",
               "gap-0",
-              "",
               "rounded-none",
               "group",
               "bg-glass-gray-undertone/50",
