@@ -1,5 +1,3 @@
-// app/api/leetcode-stats/route.ts
-
 import {
   LeetCodeStatList,
   LeetCodeStats,

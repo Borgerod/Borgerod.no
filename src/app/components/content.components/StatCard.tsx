@@ -1,31 +1,81 @@
+"use client";
 import { cn } from "@heroui/react";
 import { Card } from "@heroui/react";
 import { ComponentBaseProps, GitHubStats, LeetCodeStats } from "@/lib/types";
 import StylizedCircle from "../design.components/StylizedCircle";
-import { ReactNode } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
-async function getContent(): Promise<ReactNode> {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  const githubData = await fetch(`${baseUrl}/api/github-stats`, {
-    cache: "force-cache",
-  });
-  const githubStats: GitHubStats = await githubData.json();
+interface Stats {
+  github: GitHubStats | null;
+  leetCode: LeetCodeStats | null;
+  loading: boolean;
+}
 
-  const leetCodeData = await fetch(`${baseUrl}/api/leetcode-stats`, {
-    cache: "force-cache",
-  });
-  const leetCodeStats: LeetCodeStats = await leetCodeData.json();
+function StatContent({ stats }: { stats: Stats }) {
+  if (stats.loading) {
+    return (
+      <div
+        className={cn(
+          "w-full",
+          "gap-x-1",
+          "gap-y-3",
+          "grid",
+          "grid-rows-auto",
+          "grid-cols-2",
+          "",
+          "",
+        )}
+      >
+        <h3
+          className={cn(
+            "text-xs",
+            "font sm:leading-2.5-normal",
+            "col-start-1",
+            "col-span-full",
+          )}
+        >
+          MY NUMBERS
+        </h3>
+        <div className="text-xs leading-none sm:leading-2.5">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!stats.github || !stats.leetCode) {
+    return (
+      <div
+        className={cn(
+          "w-full",
+          "gap-x-1",
+          "gap-y-3",
+          "grid",
+          "grid-rows-auto",
+          "grid-cols-2",
+          "",
+          "",
+        )}
+      >
+        <h3
+          className={cn(
+            "text-xs",
+            "font sm:leading-2.5-normal",
+            "col-start-1",
+            "col-span-full",
+          )}
+        >
+          MY NUMBERS
+        </h3>
+      </div>
+    );
+  }
 
   return (
     <div
       className={cn(
-        /* * placement */
         "w-full",
         "gap-x-1",
         "gap-y-3",
-
-        /* * grid */
         "grid",
         "grid-rows-auto",
         "grid-cols-2",
@@ -36,11 +86,8 @@ async function getContent(): Promise<ReactNode> {
     >
       <h3
         className={cn(
-          /* * style */
           "text-xs",
           "font sm:leading-2.5-normal",
-
-          /* * grid placement */
           "col-start-1",
           "col-span-full",
         )}
@@ -49,9 +96,8 @@ async function getContent(): Promise<ReactNode> {
       </h3>
 
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
-        {/* TODO: Make api's for these stats */}
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          {githubStats.totalContributions}
+          {stats.github.totalContributions}
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           GitHub contributions
@@ -59,7 +105,7 @@ async function getContent(): Promise<ReactNode> {
       </div>
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          {githubStats.totalRepos}
+          {stats.github.totalRepos}
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           Repositories
@@ -68,7 +114,7 @@ async function getContent(): Promise<ReactNode> {
 
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          {githubStats.yearsExp}+
+          {stats.github.yearsExp}+
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           Years experience
@@ -76,7 +122,7 @@ async function getContent(): Promise<ReactNode> {
       </div>
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          {githubStats.yearsExpProf}+
+          {stats.github.yearsExpProf}+
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           Years as professional
@@ -84,7 +130,7 @@ async function getContent(): Promise<ReactNode> {
       </div>
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
         <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
-          {leetCodeStats.allSubmissions}
+          {stats.leetCode.allSubmissions}
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           Leetcode submissions
@@ -95,9 +141,7 @@ async function getContent(): Promise<ReactNode> {
         <span className="text-xs   leading-none sm:leading-2.5 text-nowrap self-baseline">
           Beats{" "}
           <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline">
-            {/* 59.88% (all difficulties) */}
-            {/* 66.07% (easy only) */}
-            {leetCodeStats.beatsPercentage}%
+            {stats.leetCode.beatsPercentage}%
           </span>
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
@@ -107,7 +151,43 @@ async function getContent(): Promise<ReactNode> {
     </div>
   );
 }
-export default async function StatCard({ className }: ComponentBaseProps) {
+
+export default function StatCard({ className }: ComponentBaseProps) {
+  const [stats, setStats] = useState<Stats>({
+    github: null,
+    leetCode: null,
+    loading: true,
+  });
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+      try {
+        const [githubRes, leetCodeRes] = await Promise.all([
+          fetch(`${baseUrl}/api/github-stats`),
+          fetch(`${baseUrl}/api/leetcode-stats`),
+        ]);
+
+        const github = await githubRes.json();
+        const leetCode = await leetCodeRes.json();
+
+        setStats({
+          github,
+          leetCode,
+          loading: false,
+        });
+      } catch {
+        setStats({
+          github: null,
+          leetCode: null,
+          loading: false,
+        });
+      }
+    };
+
+    fetchStats();
+  }, []);
   return (
     <Card
       className={cn(
@@ -205,7 +285,7 @@ export default async function StatCard({ className }: ComponentBaseProps) {
           "",
         )}
       >
-        {await getContent()}
+        <StatContent stats={stats} />
       </div>
     </Card>
   );
