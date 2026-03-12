@@ -10,7 +10,6 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [_touchEnd, setTouchEnd] = useState<number | null>(null);
   const isModalOpenRef = useRef(isModalOpen);
 
   useEffect(() => {
@@ -50,7 +49,6 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
   };
 
   const handleTouchEnd = (e: React.TouchEvent): void => {
-    setTouchEnd(e.changedTouches[0].clientX);
     if (touchStart === null) return;
 
     const distance = touchStart - e.changedTouches[0].clientX;

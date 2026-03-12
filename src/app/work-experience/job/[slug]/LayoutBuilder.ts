@@ -34,7 +34,7 @@ function getLengthLimit(job: JobItem) {
   ];
 
   const baseLimit: number = jobCardContent.join("").length;
-  const extention: number = 200;
+  // const extention: number = 200;
   const lengthLimit: number = Math.round(baseLimit / 100) * 100; // SIMPLE + ROUNDED
   // const lengthLimit: number = baseLimit + extention; //threshold-EXTENTION
   // const lengthLimit: number = Math.round((baseLimit + extention) / 100) * 100; // threshold-EXTENTION + ROUNDED
