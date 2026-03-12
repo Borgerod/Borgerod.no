@@ -37,9 +37,17 @@ import { Chip } from "@heroui/react";
                           ! remove - 'backdrop-saturate-150' (no effect)
                           * remove - 'shadow-sm' (has effect)
                           * remove - 'backdrop-blur-xl' (has effect)
-                    > test [] see if its the 'shadow' effect in "Card that scrolls" or in "Sibling Card" that is causing it 
-                    > test [] see if its the 'blur' effect in "Card that scrolls" or in "Sibling Card" that is causing it 
-                          
+                    TESTING SIBLLING-CARD
+                    > test [complete] see if its the 'shadow' effect in "Card that scrolls" or in "Sibling Card" that is causing it 
+                      > results: 
+                      >  - setting SocialLinksCard shadow to ['-none', '-0', '-transparent'] including focring "..!" made no changes.
+                      >  - funny enough, forcing SocialLinksCard to "shadow-xl" or larger, removes the bug..
+                    > test [complete] see if its the 'blur' effect in "Card that scrolls" or in "Sibling Card" that is causing it 
+                      > results: 
+                      >  - setting SocialLinksCard 'blur' to ['-none'] including focring "..!" removes the bug.
+                      >  - setting SocialLinksCard 'blur' to ['2xl'] or larger - made no change.
+                      >  - setting SocialLinksCard 'blur' to ['md'] or smaller - did not remove the bug, but made the shadow smaller.
+
   */
 export default function ToolCard({ className }: ComponentBaseProps) {
   return (
