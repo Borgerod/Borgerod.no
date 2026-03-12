@@ -185,7 +185,7 @@ body {
   /* background-position: center; */
 
   background-position: top;
-  background-image: url(@public/assets/images/bg_upscaled.png);
+  /* background-image: url(@public/assets/images/bg_upscaled.png); */
   /* background-image: url(@public/assets/images/bg_resume.png); */
   background-image: url(@public/assets/images/bg_upscaled_6.png);
   background-size: cover;
