@@ -40,10 +40,14 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
         "",
       )}
     >
-      <h2 className="text-accent-foreground/80">Portfolio</h2>
+      <Card.Header>
+        <Card.Title className="text-accent-foreground-muted text-[16px] font-normal">
+          Portfolio
+        </Card.Title>
+      </Card.Header>
       <Separator variant="secondary" className="pb-0" />
 
-      <Card
+      <Card.Content
         id="project container grid"
         className={cn(
           "bg-transparent",
@@ -122,7 +126,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                   "wrap-anywhere",
                   "break-normal",
                   "text-center",
-                  "text-accent-foreground/80",
+                  "text-accent-foreground-muted",
                   "group-hover:text-accent-foreground",
                   "group-hover:opacity-110",
                   "",
@@ -168,7 +172,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
               className={cn(
                 "text-xl",
                 "font-semibold",
-                "text-accent-foreground/80",
+                "text-accent-foreground-muted",
                 "group-hover:text-accent-foreground",
                 "w-fit",
                 "h-fit",
@@ -187,7 +191,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "text-[9px]",
                 "whitespace-normal",
                 "text-center",
-                "text-accent-foreground/80",
+                "text-accent-foreground-muted",
                 "group-hover:text-accent-foreground",
                 "",
               )}
@@ -196,7 +200,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             </Card.Content>
           </Card>
         </Link>
-      </Card>
+      </Card.Content>
     </Card>
   );
 }

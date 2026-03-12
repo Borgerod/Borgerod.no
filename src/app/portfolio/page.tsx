@@ -120,7 +120,7 @@ export default function Portfolio() {
                               className={cn(
                                 "font-light",
                                 "px-2",
-                                "bg-glass-gray-2",
+                                "bg-glass-light-gray",
                                 "select-none",
                                 "group-hover:bg-glass-green-base!",
                               )}
@@ -148,7 +148,7 @@ export default function Portfolio() {
                               className={cn(
                                 "font-light",
                                 "px-2",
-                                "bg-glass-gray-2",
+                                "bg-glass-light-gray",
                                 "select-none",
                                 "group-hover:bg-glass-green-base!",
                               )}

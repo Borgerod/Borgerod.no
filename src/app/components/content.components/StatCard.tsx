@@ -99,17 +99,22 @@ export default function StatCard({ className }: ComponentBaseProps) {
   return (
     <Card
       className={cn(
+        /* * style */
+        "bg-transparent",
+        "text-secondary",
+        "font-light",
         "p-0",
         "pt-2",
         "shadow-none",
         "rounded-none",
-        "text-black/10",
         "font-light",
         "overflow-clip",
         "h-fit",
         "w-full",
         "h-full",
         "min-h-0",
+
+        /* * grid */
         "grid",
         "grid-rows-auto",
         "grid-rows-1",
@@ -118,11 +123,6 @@ export default function StatCard({ className }: ComponentBaseProps) {
         "h-45",
         "w-full",
 
-        /* * placement */
-        "bg-white/50",
-        "bg-transparent",
-        "text-secondary",
-        "font-light",
         className,
       )}
     >

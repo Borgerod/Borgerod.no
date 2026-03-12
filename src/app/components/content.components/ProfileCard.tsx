@@ -170,12 +170,13 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           )}
         >
           <Button
+            id="email-button"
             type="button"
             onClick={() => router.push("mailto:a.borgerod@gmail.com")}
             isIconOnly
             className={cn(
-              "bg-glass-gray-dark",
-              "text-accent-foreground", //*due to the thin weight, the color of "text-accent-foreground" visually looks identical to "text-accent-foreground/80"
+              "bg-glass-gray-dark hover:bg-glass-gray-dark-hover",
+              "text-accent-foreground", //*due to the thin weight, the color of "text-accent-foreground" visually looks identical to "text-accent-foreground-muted"
               "text-sm!",
               "font-light",
               "lg:text-base lg:w-full lg:h-full",

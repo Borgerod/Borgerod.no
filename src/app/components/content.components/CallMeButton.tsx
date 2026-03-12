@@ -30,10 +30,11 @@ export default function CallMeButton() {
     window.open(url, "_blank", "noopener,noreferrer");
   }, [phoneNumber, device]);
   /*
-    BUG: when it is open and you click out of the windows, then back in again. it becomes unclosable. 
+    !BUG: when it is open and you click out of the windows, then back in again. it becomes unclosable. 
+    todo: move to bug-report
   */
   return (
-    <div className="group relative inline-flex">
+    <div id="call-me-button" className="group relative inline-flex">
       <Modal>
         <Button
           onPress={handleClick}
@@ -41,27 +42,23 @@ export default function CallMeButton() {
           isIconOnly
           variant="tertiary"
           className={cn(
-            "bg-glass-gray-dark",
+            "bg-glass-gray-dark hover:bg-glass-gray-dark-hover",
             "text-sm",
             "font-thin",
-
             "lg:min-w-10",
             "lg:min-h-10",
-
             "h-full",
             "min-w-7",
             "min-h-7",
-
             "w-fit",
             "p-3!",
             "aspect-square",
             "p-2",
-
             "",
             "",
           )}
         >
-          <Handset className="scale-x-[-1] text-accent-foreground/80" />
+          <Handset className="scale-x-[-1] text-accent-foreground-muted hover:text-accent-foreground" />
         </Button>
         <Modal.Backdrop>
           <Modal.Container>

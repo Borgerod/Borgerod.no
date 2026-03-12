@@ -81,7 +81,7 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                     {job.title}
                   </Card.Title>
 
-                  <Card.Description className="text-accent-foreground/80 text-xs text-nowrap flex items-start text-[11px] flex-wrap">
+                  <Card.Description className="text-accent-foreground-muted text-xs text-nowrap flex items-start text-[11px] flex-wrap">
                     {job.employer}
                     <span className={cn(job.isProject ? "block" : "hidden")}>
                       ,{" "}
@@ -90,10 +90,10 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                         variant="soft"
                         className={cn(
                           "font-light  w-fit",
-                          "bg-glass-gray/50", //todo custom color!
+                          "bg-glass-green-base",
                           "select-none",
                           "font-thin",
-                          "text-accent-foreground/80",
+                          "text-accent-foreground-muted",
                           "px-1 py-0 h-4",
                           "px-1 py-0 h-5 leading-none ",
                           "text-[11px]",
@@ -122,10 +122,15 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                     "md:px-2 md:py-2.5",
                     "p-2",
                     "py-3",
-                    "bg-glass-gray/50",
-                    "text-accent-foreground/70",
                     "select-none",
                     "font-light",
+                    "bg-glass-green-base hover:bg-glass-green-base-hover",
+                    // "bg-glass-light-gray hover:bg-glass-gray",
+                    "text-accent-foreground-muted hover:text-accent-foreground",
+                    // todo replace custom colors
+                    "text-accent-foreground",
+                    "text-shadow-accent-soft-hover",
+
                     "",
                     "",
                   )}

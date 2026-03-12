@@ -72,7 +72,7 @@ export default function JobCard({ job, JobCardLayout }: JobCardProps) {
                       id={`chip-core-language-framework-${i}`}
                       className={cn(
                         "font-light px-2 py-0 h-4 w-fit",
-                        "bg-glass-gray/50",
+                        "bg-glass-light-gray",
                         "select-none",
                         "group-hover:bg-glass-green-base!",
                         "self-center",
@@ -112,7 +112,7 @@ export default function JobCard({ job, JobCardLayout }: JobCardProps) {
                     id={`chip-tools-${i}`}
                     className={cn(
                       "font-light px-2 py-0 h-4 w-fit",
-                      "bg-glass-gray/50",
+                      "bg-glass-light-gray",
                       "select-none",
                       "group-hover:bg-glass-green-base!",
                       "self-center",
@@ -149,7 +149,7 @@ export default function JobCard({ job, JobCardLayout }: JobCardProps) {
                   id={`chip-core-language-framework-${i}`}
                   className={cn(
                     "font-light px-2 py-0 h-4 w-fit",
-                    "bg-glass-gray/50",
+                    "bg-glass-light-gray",
                     "select-none",
                     "group-hover:bg-glass-green-base!",
                     "self-center",
@@ -186,7 +186,7 @@ export default function JobCard({ job, JobCardLayout }: JobCardProps) {
                 id={`chip-tools-${i}`}
                 className={cn(
                   "font-light px-2 py-0 h-4 w-fit",
-                  "bg-glass-gray/50",
+                  "bg-glass-light-gray",
                   "select-none",
                   "group-hover:bg-glass-green-base!",
                   "self-center",

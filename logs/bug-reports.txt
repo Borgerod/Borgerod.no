@@ -69,3 +69,17 @@
                 * picked "shadow-xl" because the is the least visually disturbing.
         * [ ](2): (NOTE: need further testing of HeroUI scrollbar) whrer a potential solution would be making your own scroll bar.
 
+! BUG (1.1): profile Card blur effect sometimes dissapears
+    INFO: 
+        project version - 0.4.0
+        date, discovered: 12.03.2026
+        date, solved: 
+        related files: ProfileCard, (relevant to; ListCard.tools.tsx, SocialLinksCard.tsx)
+
+
+! BUG (2.0): Chips in the ListCards wraps poorly
+    INFO: 
+        project version - 0.4.0
+        date, discovered: 12.03.2026
+        date, solved: 
+        related files: ListCard.tools.tsx, ListCard.skills.tsx, HeroUi.Chip, globals.css

@@ -13,12 +13,14 @@
   --gray-undertone: #61616159;
   --gray: #2f2e2ecc;
   --gray-dark: #2f2e2ecc;
+  --gray-dark-hover: oklch(0% 0 0 / 0.75);
   --black: #0f0f0f;
-
+  --accent-foreground-muted: oklch(99.107% 0.00011 271.152 / 0.8);
   --pure-white: oklch(100% 0.00011 271.152 / 0.3);
   --white: oklch(97.015% 0.00011 271.152 / 0.702);
   --white: oklch(97.015% 0.00011 271.152 / 0.6);
   --white: oklch(97.015% 0.00011 271.152 / 0.55);
+  --white-muted: oklch(97.015% 0.00011 271.152 / 0.35);
   /* --offwhite: oklch(89.104% 0.00961 93.611 / 0.8); */
   /* --offwhite: oklch(89.104% 0.00961 93.611 / 0.5); */
   --offwhite: oklch(89.104% 0.00961 93.611 / 0.3);
@@ -49,6 +51,8 @@
   --translucent-green-base: oklch(41.43% 0.01861 136.295 / 0.2);
   --translucent-green-dark-2: oklch(48.424% 0.0232 136.041 / 0.4);
   --translucent-green-light-2: oklch(81.165% 0.04197 135.181 / 0.4);
+  --translucent-green-base-hover: oklch(29.103% 0.01206 135.148 / 0.45);
+
   /*TODO:  this needs some proper structure */
 
   /* --glass-white: oklch(97.015% 0.00011 271.152 / 0.702);
@@ -71,6 +75,7 @@
   --text-primary: var(--foreground);
   --color-outline: var(--outline);
   --color-border: var(--border);
+  --color-accent-foreground-muted: var(--accent-foreground-muted);
 
   /* --color-green-base: var(--green-base);
   --color-green-light: var(--green-light);
@@ -79,6 +84,7 @@
   --color-green-light-2: var(--green-light-2); */
 
   --color-glass-white: var(--white);
+  --color-glass-white-muted: var(--white-muted);
   --color-glass-pure-white: var(--pure-white);
   --color-glass-offwhite: var(--offwhite);
   --color-glass-light-gray: var(--light-gray);
@@ -86,6 +92,7 @@
   --color-glass-gray: var(--gray);
   --color-glass-gray-2: var(--gray-2);
   --color-glass-gray-dark: var(--gray-dark);
+  --color-glass-gray-dark-hover: var(--gray-dark-hover);
   --color-glass-black: var(--black);
   --color-glass-black-dark: var(--black-dark);
 
@@ -126,6 +133,7 @@
   --color-glass-green-dark: var(--translucent-green-dark);
   --color-glass-green-dark-2: var(--translucent-green-dark-2);
   --color-glass-green-light-2: var(--translucent-green-light-2);
+  --color-glass-green-base-hover: var(--translucent-green-base-hover);
 }
 
 @media (dark) {
@@ -356,4 +364,16 @@ main {
 
 *::-webkit-scrollbar-corner {
   background: var(--scrollbar-corner);
+}
+
+@layer utilities {
+  .bg-stack {
+    background-image: linear-gradient(
+      to bottom,
+      var(--tw-gradient-from, #222) 50%,
+      var(--tw-gradient-to, #eee) 50%
+    );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
 }

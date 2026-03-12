@@ -9,19 +9,11 @@ export default function SkillCard({ className }: ComponentBaseProps) {
   return (
     <Card
       id="skills"
-      className={cn(
-        "glass",
-        "glass-white",
-        "w-full",
-        "",
-        "",
-
-        className,
-      )}
+      className={cn("glass", "glass-white", "w-full", className, "", "")}
     >
       <Tabs className="w-full gap-0 h-full">
-        <Card.Header>
-          <Card.Title className="text-secondary/85 self-center">
+        <Card.Header className="text-glass-black">
+          <Card.Title className="text-glass-black self-center text-[16px] font-normal">
             Skills
           </Card.Title>
           <Tabs.ListContainer
@@ -32,7 +24,7 @@ export default function SkillCard({ className }: ComponentBaseProps) {
               className={cn(
                 "h-fit",
                 "bg-transparent",
-                "bg-glass-white/50",
+                "bg-glass-white-muted",
                 "mt-0.5",
                 "text-sm",
                 "",
@@ -80,10 +72,11 @@ export default function SkillCard({ className }: ComponentBaseProps) {
                 key={skill.id}
                 id={skill.id}
                 className={cn(
-                  "font-light px-2 py-0 h-4 w-fit",
-                  "bg-glass-gray/50", //todo custom color!
+                  "font-light",
+                  "px-2",
+                  "bg-glass-light-gray",
                   "select-none",
-                  "",
+                  "group-hover:bg-glass-green-base!",
                 )}
               >
                 <Chip.Label>{skill.name}</Chip.Label>
@@ -102,10 +95,11 @@ export default function SkillCard({ className }: ComponentBaseProps) {
                 key={skill.id}
                 id={skill.id}
                 className={cn(
-                  "font-light px-2 py-0 h-4 w-fit",
-                  "bg-glass-gray/50", //todo custom color!
+                  "font-light",
+                  "px-2",
+                  "bg-glass-light-gray",
                   "select-none",
-                  "",
+                  "group-hover:bg-glass-green-base!",
                 )}
               >
                 <Chip.Label>{skill.name}</Chip.Label>

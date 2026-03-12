@@ -29,7 +29,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
       )}
     >
       <Card.Header>
-        <Card.Title className="text-accent-foreground/80 sm:self-center">
+        <Card.Title className="text-accent-foreground-muted sm:self-center">
           Links
         </Card.Title>
         <Separator variant="secondary" className="pb-0 sm:hidden" />
