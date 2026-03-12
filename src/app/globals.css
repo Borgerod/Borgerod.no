@@ -254,7 +254,7 @@ main {
     /* @apply outline-glass-offwhite/40; */
   }
   .glass.glass-black {
-    @apply shadow-xl; /* * solution for bug-report: ListCard.tools */
+    @apply shadow-xl; /* * solution for bug-report: BUG 1.0 [ref:./logs/bug-reports ] */
     @apply bg-glass-black;
     /* @apply border-glass-gray/20;
     @apply border-t-glass-gray/40;
