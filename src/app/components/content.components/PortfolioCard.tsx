@@ -9,6 +9,8 @@ import Link from "next/link";
 import { IoIosMore } from "react-icons/io";
 import { useEffect, useState } from "react";
 
+// TODO: change color of portfolio-grid-button - on I don't like the hover colors on the Buttons
+
 export default function COMPONENTNAME({ className }: ComponentBaseProps) {
   const [maxProjects, setMaxProjects] = useState<number>(7);
 
@@ -70,9 +72,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
       >
         {projects.slice(0, maxProjects).map((project: ProjectItem) => (
           <Link
+            id={`${project.id} portfolio-grid-button url-redirect portfolio-page-route`}
             href={project.url}
             key={project.id}
-            id={`${project.id} url-redirect`}
             className="contents"
             target="_blank"
             rel="noopener noreferrer"
@@ -140,7 +142,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
         ))}
 
         <Link
-          id="url-route see-all-button portfolio-page-route"
+          id="see-all-button portfolio-grid-button url-route portfolio-page-route"
           href="./portfolio"
           className="contents"
         >
