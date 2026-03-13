@@ -69,7 +69,7 @@
                 * picked "shadow-xl" because the is the least visually disturbing.
         * [ ](2): (NOTE: need further testing of HeroUI scrollbar) whrer a potential solution would be making your own scroll bar.
 
-! BUG (1.1): profile Card blur effect sometimes dissapears
+! BUG (1.1): profileCard blur effect sometimes dissapears
     INFO: 
         project version - 0.4.0
         date, discovered: 12.03.2026
