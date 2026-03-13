@@ -1,7 +1,7 @@
 [
   {
     "id": "fullstack-developer-ability-media-as",
-    "period": { "start": "Jul 22", "end": "Oct 22" },
+    "period": { "start": "Jul 24", "end": "Jul 26" },
     "title": "Fullstack developer",
     "employer": "Ability Media AS",
     "employer_profile": {
@@ -90,7 +90,7 @@
 
   {
     "id": "freelance-developer-upwork",
-    "period": { "start": "Mar 22", "end": "Jul 24" },
+    "period": { "start": "Mar 22", "end": "DD" },
     "title": "Freelance developer",
     "employer": "Upwork",
     "employer_profile": {
@@ -183,7 +183,7 @@
 
   {
     "id": "software-developer-media-vest-as",
-    "period": { "start": "Jul 24", "end": "Jul 26" },
+    "period": { "start": "Jul 22", "end": "Oct 22" },
     "title": "Software developer",
     "employer": "Media Vest AS",
     "employer_profile": {

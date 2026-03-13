@@ -24,20 +24,27 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
     <Card
       id="profile-card"
       className={cn(
-        "glass",
-        "glass-upper",
-        "-left-10",
-        "w-[calc(100%+2.5rem)]",
-        "w-[calc(100%+3rem)]",
-        "flex",
-        "flex-col",
-        "justify-between",
-        "justify-start",
         "gap-1",
         "2xl:gap-2",
         "gap-5",
-        "",
-        "",
+
+        "left-0",
+        "w-full",
+        "unset-glass",
+        "unset-card",
+
+        "md:w-[calc(100%+3rem)]",
+        "md:-left-10",
+        "md:card",
+        "md:flex",
+        "md:flex-col",
+        "md:h-full",
+        "md:glass",
+        "md:glass-upper",
+
+        "grid",
+        "grid-cols-subgrid",
+        "grid-rows-subgrid",
         className,
       )}
     >
@@ -54,6 +61,17 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "min-h-fit",
           "max-h-50",
           "gap-4",
+          "col-start-1",
+          "col-span-2",
+          "row-start-",
+          "row-span-",
+          "sm:col-start-1",
+          "sm:col-span-1",
+          "sm:row-start-",
+          "sm:row-span-",
+          "text-center",
+          "sm:text-start",
+          "",
           "",
         )}
       >
@@ -107,8 +125,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             />
           </svg>
         </Avatar>
-        {/* <Card.Description className="self-start"> */}
-        <div id="header-content header-text-wrapper" className="self-start ">
+        <div id="header-content header-text-wrapper" className="">
           <Card.Title className="self-start font-normal text-md md:text-[14px] lg:text-lg">
             ALEKSANDER BORGERØD
           </Card.Title>
@@ -121,24 +138,23 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
       <Card.Content
         id="bio-row"
         className={cn(
-          "col-start-",
-          "col-span-",
-          "row-start-2",
           "row-span-1",
           "overflow-hidden",
           "text-xs",
           "h-fit",
           "justify-self-start",
+
+          //> NEW CHANGES
+          "col-start-",
+          "col-span-full",
+          "row-start-2",
+          "row-span-1",
+          "md:col-span-",
+          "md:row-span-2",
+          "",
+          "",
         )}
       >
-        {/* <h1 className="text-md md:text-[14px] lg:text-lg">
-            ALEKSANDER BORGERØD
-          </h1>
-          <h2 className="text-xs  font-light text-green-dark">
-            Full-Stack Developer | Business Admin.
-          </h2> */}
-
-        {/* <br /> */}
         <p className="font-light">
           With a broad knowledge within
           <span className="font-medium text-green-dark"> development</span> and
@@ -150,9 +166,10 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             diligent
           </span>{" "}
           worker that strives for flourishing profit margins,
-          <span className="font-medium text-green-dark"> ambitious </span>
-          to climb your corporate ladder. As an aspiring family man, I seek the
-          stability of a long term employment.
+          {/* <span className="font-medium text-green-dark"> committed </span> */}
+          <span className="font-medium text-green-dark"> eager </span>
+          to make a meaningful impact and grow alongside your team. As an
+          aspiring family man, I seek the stability of a long term employment.
           <br />
           <br />
         </p>
@@ -169,19 +186,17 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         className={cn(
           "flex",
           "gap-2",
-          "h-full",
-          "h-10",
-          "h-fit",
           "overflow-visible",
-          "col-start-",
-          "col-span-",
-          "row-start-3",
-          "row-span-1",
           "xl:w-full",
           "w-full",
           "justify-end",
           "xl:justify-between",
-          "mt-auto",
+          "h-fit",
+          "col-span-full",
+          "md:col-span-",
+          "row-start-3",
+          "",
+          "",
         )}
       >
         <Button

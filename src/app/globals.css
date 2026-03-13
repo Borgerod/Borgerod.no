@@ -6,10 +6,9 @@
   --foreground: #171717;
   --outline: #dcdcdc;
   --border: #ffffff;
-
   --white: #f5f5f5b3;
   --offwhite: #dddbd4cc;
-  --light-gray: #78787833; /*could maybe remove this, its very similar to gray-undertone*/
+  --light-gray: #78787833;
   --gray-undertone: #61616159;
   --gray: #2f2e2ecc;
   --gray-dark: #2f2e2ecc;
@@ -21,20 +20,13 @@
   --white: oklch(97.015% 0.00011 271.152 / 0.6);
   --white: oklch(97.015% 0.00011 271.152 / 0.55);
   --white-muted: oklch(97.015% 0.00011 271.152 / 0.35);
-  /* --offwhite: oklch(89.104% 0.00961 93.611 / 0.8); */
-  /* --offwhite: oklch(89.104% 0.00961 93.611 / 0.5); */
   --offwhite: oklch(89.104% 0.00961 93.611 / 0.3);
   --light-gray: oklch(57.268% 0.00007 271.152 / 0.2);
   --light-gray: oklch(67.968% 0.00008 271.152 / 0.3);
-  /*could maybe remove this, its very similar to gray-undertone */
   --gray-undertone: oklch(49.261% 0.00006 271.152 / 0.349);
-  /* --gray: oklch(30.221% 0.00143 15.911 / 0.8); */
-  /* --gray: oklch(30.221% 0.00143 15.911 / 0.5); */
   --gray: oklch(30.221% 0.00143 15.911 / 0.3);
   --gray-dark: oklch(30.221% 0.00143 15.911 / 0.8);
   --gray-dark: oklch(30.221% 0.00143 15.911 / 0.75);
-  /* --gray-dark: oklch(30.221% 0.00143 15.911 / 0.5); */
-  /* --black: oklch(16.842% 0.00002 271.152); */
   --black: oklch(30.221% 0.00143 15.911 / 0.75);
   --black-dark: oklch(0% 0 0 / 0.6);
   --gray: oklch(49.261% 0.00006 271.152 / 0.35);
@@ -52,17 +44,7 @@
   --translucent-green-dark-2: oklch(48.424% 0.0232 136.041 / 0.4);
   --translucent-green-light-2: oklch(81.165% 0.04197 135.181 / 0.4);
   --translucent-green-base-hover: oklch(29.103% 0.01206 135.148 / 0.45);
-
-  /*TODO:  this needs some proper structure */
-
-  /* --glass-white: oklch(97.015% 0.00011 271.152 / 0.702);
-  --glass-offwhite: oklch(89.104% 0.00961 93.611 / 0.8);
-  --glass-light-gray: oklch(57.268% 0.00007 271.152 / 0.2); */
-  /*could maybe remove this, its very similar to gray-undertone*/
-  /* --glass-gray-undertone: oklch(49.261% 0.00006 271.152 / 0.349);
-  --glass-gray: oklch(30.221% 0.00143 15.911 / 0.8);
-  --glass-gray-dark: oklch(30.221% 0.00143 15.911 / 0.8);
-  --glass-black: oklch(16.842% 0.00002 271.152); */
+  /* TODO: this needs some proper structure */
 }
 
 @theme inline {
@@ -76,12 +58,6 @@
   --color-outline: var(--outline);
   --color-border: var(--border);
   --color-accent-foreground-muted: var(--accent-foreground-muted);
-
-  /* --color-green-base: var(--green-base);
-  --color-green-light: var(--green-light);
-  --color-green-dark: var(--green-dark);
-  --color-green-dark-2: var(--green-dark-2);
-  --color-green-light-2: var(--green-light-2); */
 
   --color-glass-white: var(--white);
   --color-glass-white-muted: var(--white-muted);
@@ -102,7 +78,6 @@
   --color-green-dark-2: var(--green-dark-2);
   --color-green-light-2: var(--green-light-2);
 
-  /* --color-green-base: var(--green-base); */
   --color-glass-green-base: color-mix(
     in oklab,
     var(--green-base) 60%,
@@ -163,34 +138,11 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* remove all background-image lines */
-  /* > BG alt 1 */
-  /* background-image: url(@public/assets/images/background.jpg);
-  background-size: cover;
-  background-position: center; */
-
-  /* > BG alt 2 */
-  /* background-image: url(@public/assets/images/bg_resume.jpg);
-  background-size: cover;
-  background-size: auto;
-  background-position: center;
-  background-position: top; */
-
-  /*> BG alt 3 */
-
-  /* background-size: cover; */
-  /* background-size: cover; */
   background-size: contain;
-  /* background-size: auto; */
-  /* background-position: center; */
-
   background-position: top;
-  /* background-image: url(@public/assets/images/bg_upscaled.png); */
-  /* background-image: url(@public/assets/images/bg_resume.png); */
+  background-color: #f2f2ec;
   background-image: url(@public/assets/images/bg_upscaled_6.png);
   background-size: cover;
-  /* background-size: contain; */
-  /* background-size: auto; */
   background-position: center;
   background-position: top;
 }
@@ -200,131 +152,115 @@ main {
   z-index: 1;
 }
 
-@layer components {
-  .glass {
-    @apply shadow-sm;
-    @apply backdrop-blur-xl;
-    @apply border-0;
-    @apply border;
-    @apply border-border/20;
-    @apply border-t-border/40;
-    @apply border-l-border/40;
-    /* @apply bg-glass-gray-dark; */
-    @apply bg-transparent;
-
-    @apply backdrop-saturate-150;
-    @apply outline-1;
-    @apply outline-outline/20;
-    @apply -outline-offset-1;
-    @apply border;
-  }
-  /* color variants */
-  .glass.glass-white {
-    @apply bg-glass-white;
-  }
-  .glass.glass-offwhite {
-    @apply bg-glass-offwhite;
-  }
-  .glass.glass-pure-white {
-    @apply bg-glass-pure-white;
-  }
-  .glass.glass-gray {
-    @apply bg-glass-gray;
-
-    /* --gray-undertone: oklch(49.261% 0.00006 271.152 / 0.349);
-    --gray: oklch(56.241% 0.00006 271.152 / 0.575);
-    --gray: oklch(49.261% 0.00006 271.152 / 0.35);
-    --gray-2: oklch(49.261% 0.00006 271.152 / 0.35); */
-    @apply drop-shadow-md;
-    @apply backdrop-saturate-100;
-
-    @apply bg-glass-gray;
-
-    /* @apply bg-glass-gray-undertone; */
-    /* @apply bg-glass-light-gray1; */
-
-    /* @apply border-glass-offwhite;
-    @apply border-t-glass-offwhite;
-    @apply border-l-glass-offwhite;
-    @apply border-glass-white/20;
-    @apply border-t-glass-white/40;
-    @apply border-l-glass-white/40; */
-    @apply border-glass-light-gray/20;
-    @apply border-t-glass-light-gray/40;
-    @apply border-l-glass-light-gray/40;
-    @apply outline-glass-offwhite/40;
-    @apply bg-glass-gray-dark/50;
-    /* @apply outline-glass-offwhite; */
-
-    /* @apply border-glass-light-gray/20; */
-    /* @apply border-t-glass-light-gray/40; */
-    /* @apply border-l-glass-light-gray/40; */
-    /* @apply outline-glass-offwhite/40; */
-  }
-  .glass.glass-black {
-    @apply shadow-xl; /* * solution for bug-report: BUG 1.0 [ref:./logs/bug-reports ] */
-    @apply bg-glass-black;
-    /* @apply border-glass-gray/20;
-    @apply border-t-glass-gray/40;
-    @apply border-l-glass-gray/40; */
-
-    @apply border-glass-light-gray;
-    @apply border-t-glass-light-gray;
-    @apply border-l-glass-light-gray;
-
-    /* @apply outline-glass-light-gray; */
-    @apply outline-glass-offwhite/40;
-
-    /* @apply border-glass-offwhite/20;
-    @apply border-t-glass-offwhite/40;
-    @apply border-l-glass-offwhite/40; */
-    /* @apply outline-glass-light-gray;
-    @apply border-glass-gray; */
-  }
-  .glass.glass-green {
-    @apply bg-glass-green-base;
-  }
-
-  /* placement variants */
-  .glass.glass-upper {
-    /* @apply backdrop-blur-none; */
-    /* @apply bg-white/30; */
-    /* @apply bg-glass-pure-white; */
-    /* @apply backdrop-saturate-200; */
-    /* @apply backdrop-blur-md;
-    @apply backdrop-saturate-100;
-    @apply backdrop-brightness-105; */
-
-    /* @apply backdrop-saturate-200; */
-    /* @apply backdrop-brightness-110; */
-
-    /* @apply bg-white/20; */
-    /* @apply backdrop-blur-md; */
-    @apply backdrop-blur-md;
-    @apply backdrop-saturate-90;
-    @apply backdrop-saturate-100;
-    /* @apply backdrop-saturate-110; */
-    /* @apply backdrop-saturate-150; */
-    /* @apply backdrop-saturate-10; */
-    @apply backdrop-brightness-105;
-    /* @apply bg-glass-pure-white/100; */
-    @apply bg-glass-offwhite;
-    /* @apply bg-glass-pure-white/80; */
-    @apply backdrop-contrast-125;
-    /* @apply backdrop-sepia-5; */
-    /* @apply backdrop-contrast-110; */
-    /* @apply backdrop-; */
-  }
-
-  .glass.borderless {
-    @apply border-0;
-    @apply border-transparent;
-    /* @apply border-border/20;
-    @apply border-t-border/40;
-    @apply border-l-border/40; */
-  }
+@utility card {
+  @apply rounded-3xl;
+  @apply p-5;
 }
 
+@utility unset-card {
+  @apply rounded-none;
+  @apply p-0;
+}
+
+@utility glass {
+  @apply shadow-sm;
+  @apply backdrop-blur-xl;
+  @apply border;
+  @apply border-t;
+  @apply border-l;
+  @apply bg-transparent;
+  @apply backdrop-saturate-150;
+  @apply outline-1;
+  @apply -outline-offset-1;
+  border-color: color-mix(in oklab, var(--color-border) 20%, transparent);
+  border-top-color: color-mix(in oklab, var(--color-border) 40%, transparent);
+  border-left-color: color-mix(in oklab, var(--color-border) 40%, transparent);
+  outline-color: color-mix(in oklab, var(--color-outline) 20%, transparent);
+}
+
+@utility unset-glass {
+  @apply shadow-none;
+  @apply bg-transparent;
+}
+
+@utility glass-white {
+  @apply bg-glass-white;
+}
+
+@utility glass-offwhite {
+  @apply bg-glass-offwhite;
+}
+
+@utility glass-pure-white {
+  @apply bg-glass-pure-white;
+}
+
+@utility glass-gray {
+  @apply drop-shadow-md;
+  @apply backdrop-saturate-100;
+  background-color: color-mix(
+    in oklab,
+    var(--color-glass-gray-dark) 50%,
+    transparent
+  );
+  border-color: color-mix(
+    in oklab,
+    var(--color-glass-light-gray) 20%,
+    transparent
+  );
+  border-top-color: color-mix(
+    in oklab,
+    var(--color-glass-light-gray) 40%,
+    transparent
+  );
+  border-left-color: color-mix(
+    in oklab,
+    var(--color-glass-light-gray) 40%,
+    transparent
+  );
+  outline-color: color-mix(
+    in oklab,
+    var(--color-glass-offwhite) 40%,
+    transparent
+  );
+}
+
+@utility glass-black {
+  @apply shadow-xl;
+  background-color: var(--color-glass-black);
+  border-color: var(--color-glass-light-gray);
+  border-top-color: var(--color-glass-light-gray);
+  border-left-color: var(--color-glass-light-gray);
+  outline-color: color-mix(
+    in oklab,
+    var(--color-glass-offwhite) 40%,
+    transparent
+  );
+}
+
+@utility glass-green {
+  @apply bg-glass-green-base;
+}
+@utility glass-upper {
+  @apply backdrop-blur-md;
+  @apply backdrop-blur-md;
+  @apply backdrop-saturate-100;
+  @apply backdrop-saturate-90;
+  @apply backdrop-saturate-80;
+  @apply backdrop-brightness-100;
+  @apply backdrop-brightness-105;
+  @apply backdrop-contrast-100;
+  @apply backdrop-contrast-105;
+  @apply bg-glass-offwhite;
+}
+
+@utility borderless {
+  @apply border-0;
+  @apply shadow-none;
+  @apply outline-none;
+  border-color: transparent;
+  outline-color: transparent;
+}
 /** SCROLLBAR RELATED CSS */
 :root {
   /* background of the track */

@@ -19,8 +19,9 @@ export default function StylizedCircle({ className }: ComponentBaseProps) {
         "bg-linear-to-b",
         "from-glass-green-light",
         "to-glass-green-dark",
-
         className,
+        "",
+        "",
       )}
     />
   );

@@ -48,11 +48,15 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           isIconOnly
           size="lg"
           variant="primary"
-          className={"bg-glass-light-gray hover:bg-glass-gray-dark"}
+          className={
+            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+          }
         >
           <Link
             href={"https://www.linkedin.com/in/borgerod/"}
             className="h-full w-full content-center justify-items-center"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaLinkedinIn />
           </Link>
@@ -61,11 +65,15 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           isIconOnly
           size="lg"
           variant="primary"
-          className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
+          className={
+            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+          }
         >
           <Link
             href={"https://www.facebook.com/aleksander.borgerod/"}
             className="h-full w-full content-center justify-items-center"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaFacebookF className="size-5" />
           </Link>
@@ -74,11 +82,15 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           isIconOnly
           size="lg"
           variant="primary"
-          className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
+          className={
+            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+          }
         >
           <Link
             href={"http://github.com/Borgerod"}
             className="h-full w-full content-center justify-items-center"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <TbBrandGithubFilled className="size-5" />
           </Link>
@@ -87,11 +99,15 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           isIconOnly
           size="lg"
           variant="primary"
-          className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
+          className={
+            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+          }
         >
           <Link
             href={"https://leetcode.com/u/Borgerod/"}
             className="h-full w-full content-center justify-items-center"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <SiLeetcode className="size-5" />
           </Link>

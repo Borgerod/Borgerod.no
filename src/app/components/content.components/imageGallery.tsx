@@ -6,6 +6,9 @@ import Image from "next/image";
 import { cn } from "@heroui/react";
 import { ChevronLeft, ChevronRight } from "@gravity-ui/icons";
 
+//> ISSUE: opening images does not work on mobile
+// TODO: make opening images on mobile work
+
 export default function ImageGallery({ assets }: { assets: string[] }) {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);

@@ -1,6 +1,6 @@
 import workHistory from "@/data/work_history.json";
 import LayoutBuilder from "./LayoutBuilder";
-import ImageGallery from "./imageGallery";
+import ImageGallery from "../../../components/content.components/imageGallery";
 import Link from "next/link";
 import Image from "next/image";
 import AchievementsCard from "./AchievementsCard";
@@ -33,7 +33,6 @@ export default async function Job({
         "px-0",
         "pb-40",
         "md:gap-5 md:max-w-4xl",
-        // "md:gap-5 md:max-w-3xl",
         "max-w-full",
         "md:bg-transparent",
         "bg-glass-white",
