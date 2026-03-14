@@ -22,9 +22,9 @@ Built with Next.js, it features interactive components, structured work history,
 
 ## Table of contents:
 
-- [DigitalResume - borgerod.no / borgerod.github.io](#digitalresume----borgerodno--borgerodgithubio)
-  - [Description](#description)
-  - [Technology Overview](#technology-overview)
+- [DigitalResume  - borgerod.no / borgerod.github.io](#digitalresume----borgerodno--borgerodgithubio)
+    - [Description](#description)
+    - [Technology Overview](#technology-overview)
   - [Table of contents:](#table-of-contents)
   - [TODO:](#todo)
     - [Necessary](#necessary)
@@ -36,7 +36,8 @@ Built with Next.js, it features interactive components, structured work history,
       - [external](#external)
     - [Static Datasets](#static-datasets)
   - [Previews](#previews)
-  - [Usage - how to install and run project](#usage----how-to-install-and-run-project)
+  - [Previews](#previews-1)
+  - [Usage  - how to install and run project](#usage----how-to-install-and-run-project)
     - [Getting Started](#getting-started)
     - [Learn More](#learn-more)
     - [Deploy on Vercel](#deploy-on-vercel)
@@ -55,6 +56,7 @@ _all of the todos found in the project files **should** be referenced here_
   - [ ] add description of ['layoutBuilder' ,'BentoBoxBuilder']
   - [x] add table of contents
   - [ ] add hyperlink to bug-report
+- [ ] BUG (2.0) fix bug in ImageGallery where image view sometimes refuses to close.
 - [ ] implement SEO/AEO
 - [ ] add button redirecting to 'Github-repo' and 'Figma-project' in home
 - [ ] add analytics
@@ -72,6 +74,7 @@ _all of the todos found in the project files **should** be referenced here_
 - [ ] Maybe turn DigitalResume (this app) into a dynamic repo so other people can use it.
   - [ ] make the input of data simpler
   - [ ] make more robust stringhandler
+- [ ] update job banners (logo long)
 
 ## Page Map
 
@@ -91,7 +94,57 @@ _all of the todos found in the project files **should** be referenced here_
 
 ## Previews
 
-<!-- TODO finish  -->
+Here are some previews of the Digital Resume platform in action:
+
+## Previews
+
+<details>
+<summary>🖥️ Home</summary>
+<br>
+
+![Home](public/assets/images/previews/preview-home.png)
+
+</details>
+
+<details>
+<summary>📱 Mobile</summary>
+<br>
+
+| Mobile 1                                                             | Mobile 2                                                             |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| ![Mobile 1](public/assets/images/previews/preview-home-mobile-1.png) | ![Mobile 2](public/assets/images/previews/preview-home-mobile-2.png) |
+
+</details>
+
+<details>
+<summary>📟 iPad</summary>
+<br>
+
+| iPad 1                                                           | iPad 2                                                           |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| ![iPad 1](public/assets/images/previews/preview-home-ipad-1.png) | ![iPad 2](public/assets/images/previews/preview-home-ipad-2.png) |
+
+</details>
+
+<details>
+<summary>💼 Jobs</summary>
+<br>
+
+| Job 1                                                     | Job 2                                                     | Full View                                                   |
+| --------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------- |
+| ![Job 1](public/assets/images/previews/preview-job-1.png) | ![Job 2](public/assets/images/previews/preview-job-2.png) | ![Full](public/assets/images/previews/preview-job-full.png) |
+
+</details>
+
+<details>
+<summary>🖼️ Portfolio & Gallery</summary>
+<br>
+
+| Portfolio                                                         | Image Gallery                                                       |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------- |
+| ![Portfolio](public/assets/images/previews/preview-portfolio.png) | ![Gallery](public/assets/images/previews/preview-image-gallery.png) |
+
+</details>
 
 ## Usage <span style="font-size:0.5em;"><em> - how to install and run project</em></span>
 
