@@ -43,7 +43,6 @@ export default function Home() {
         // "h-150", //! dont delete
         // "h-175", //! dont delete
         // "h-165", //! dont delete
-
         "gap-5",
 
         /* * grid * */
@@ -86,7 +85,6 @@ export default function Home() {
             "col-span-1",
             "row-start-",
             "row-span-full",
-
             "",
             "",
           )}
@@ -99,7 +97,6 @@ export default function Home() {
             "col-span-1",
             "row-start-1",
             "row-span-1",
-            //
             "",
             "",
           )}
@@ -116,7 +113,6 @@ export default function Home() {
             "",
           )}
         />
-        {/* </Card> */}
       </GlassParentCard>
 
       <div
@@ -124,21 +120,63 @@ export default function Home() {
         className={cn(
           "col-start-2",
           "col-span-1",
+          "col-span-2!",
           "min-h-100",
           "h-full",
           "w-full",
 
-          "col-span-2!",
-
           /* * grid * */
           "grid",
-
           "grid-cols-1",
           "grid-cols-3",
           "grid-cols-[auto_1fr]",
           "md:grid-rows-3",
           "grid-rows-[auto_auto_auto_auto]",
           "gap-5",
+
+          // TEST BUG-[1.1]
+          // "-translate-x-26", //> These fixes the bug
+          "translate-x-5", //> These fixes the bug
+          "-z-1", //> These fixes the bug
+
+          /*
+          NOTE:
+              I think its because visually right-side-container look like its in the left side of GlassParentCard, but they start off as stacked on top of eachother, then assigned to possitions. 
+              so: thenever the animation effect happens in right-side-container (aka button hover effects etc...), then it in some way resets the calculation, leading it to momentarily go back to its start position, by that i mean the element itself, and not its styling, so visually it looks like it is remaining in its itended position, but in reality the element is back to start (phantom element).
+              and the phantom-element's position is: (X,Y position) exactly where GlassParentCard is placed, (Z position) ontop of GlassParentCard(visual-overlay) but underneath ProfileCard.
+              that is why the bug only stops blurring the GlassParentCards edge, and nothing else. because it is not, it is in fact not blurring THIS elements edge.
+              and that is also why it is fixable by either changing the z-position to behind the GlassParentCard, or by moving it slightly to the left. 
+              to be exact and to prove my theory: 
+              you can solve the issue by doing this; "-translate-x-26" (shift to the right) -> which i bet is the exact width of the element
+              you can solve the issue by doing this; "translate-x-5    (shift to the left)-> which i bet is the exact width of the element
+              so this means that the bug happens between this area: (translate-x-4 to -translate-x-25) leads to this element to overlap.
+              this makes perfect scense when you assume that this elements starts at the same position as the GlassParentCard. 
+              ( 
+                in other words; 
+                  the edge of SocialLinksCard is perfectly positioned on top of the edge of ProfileCards edge, making it overlap GlassParentsCard edge at translate-x-0
+                  at this point and beyond "translate-x-5" this element "right-side-container" is no longer overlapping the edge of GlassParentsCard (the edge that is supposed to be blurred) , and is now within GlassParentsCard's visual overlay.
+                  and going in the other direction "-translate-x-26" moves the while length of "right-side-container" outside of GlassParentsCard visual overlay.  
+
+                  Note: that its the invisible parent element (this element) that is doing this, and not the visible children, i am only using as an example to help visualize it
+              )  
+              so we have three options to solve this. 
+              "-translate-x-26", //! this one is creating too much disturbance. 
+              "translate-x-5", //* this one creates disturbance but less so.
+              "-z-1", //* this one creates no disturbance but introduced another bug BUG-[1.2]
+              > BUG-[1.2] : very similar to [1.0] hovering scrollbar gives a flickering white-box-effect on the leftside of GlassParentsCard visual-overlay.
+                note that translating "translate-x-[_some_number] moves the white-box-effect.
+                white-box-effect: similar [1.1] this could be some parent color showing through 
+                note: setting z-axis deeper than -1 does not help and setting it higher than -1 obviously breaks [1.1] solution.
+
+                test: adding 'transform-gpu,-border.. etc' to see if that helps. 
+                  >result: it had not effect on the bug
+
+                test: adding transform-x-5 in right-side-container, then adding -transform-x-5 for all of its children
+                  >result: this only reverted the solution (aka had no effect on the bug)
+
+                test: adding transform-x-5 in right-side-container, then removing 5 from the gap-5 for the parent. 
+                  >result: this only reverted the solution (aka had no effect on the bug)
+              */
 
           "",
           "",
