@@ -1,6 +1,62 @@
+# DigitalResume <span style="font-size:0.5em;"><em> - borgerod.no / borgerod.github.io</em></span>
+
+### <span style="font-size:0.8em;">Description</span>
+
+<!-- TODO finish  -->
+
+## Table of contents:
+
+<!-- TODO: finish  -->
+
+## TODO:
+
+_a compilation of all todos for the repo._ <br>
+_all of the todos found in the project files **should** be referenced here_
+
+### <span style="font-size:0.8em;">Necessary</span>
+
+- [ ] make readme look structured and nice
+  - [ ] add add page map
+  - [ ] add add previews
+  - [ ] add add description of purpose
+  - [ ] add description of ['layoutBuilder' ,'BentoBoxBuilder']
+  - [ ] add table of contents
+  - [ ] add hyperlink to bug-report
+- [ ] implement SEO/AEO
+- [ ] add button redirecting to 'Github-repo' and 'Figma-project' in home
+- [ ] add analytics
+- [ ] enable speed insight
+- [ ] inplement SEO/AEO analysis
+- [ ] add tracking of visitors? note: prob would break gdpr but its a private website and I am tracking information of legal entities (employees of a business) and not private individual's personal data, so whatever.
+
+### <span style="font-size:0.8em;">Optional</span>
+
+- [ ] make ['layoutBuilder' ,'BentoBoxBuilder'] - 2.0:
+  - [ ] make generator for 'layoutList'
+  - [ ] look into more efficiant alternative algorithms
+  - [ ] fine tune logic: something changed and the output is not optimal.
+- [ ] Maybe turn BentoBoxBuilder into a stand-alone package. it seems usefull maybe other ones might like it.
+- [ ] Maybe turn DigitalResume (this app) into a dynamic repo so other people can use it.
+  - [ ] make the input of data simpler
+  - [ ] make more robust stringhandler
+
+## Page Map
+
+<!-- TODO finish  -->
+
+## API Map + data map
+
+<!-- TODO finish  -->
+
+## Previews
+
+<!-- TODO finish  -->
+
+## General info <span style="font-size:0.5em;"><em> - how to install and run project</em></span>
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+### Getting Started
 
 First, run the development server:
 
@@ -20,7 +76,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+### Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -29,7 +85,7 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
