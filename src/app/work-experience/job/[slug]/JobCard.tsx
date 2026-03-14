@@ -18,6 +18,7 @@ export default function JobCard({ job, JobCardLayout }: JobCardProps) {
         "rounded-none md:rounded-3xl",
         "border-none md:border",
         "shadow-none md:shadow",
+        "m-0",
         "",
         "",
       )}
