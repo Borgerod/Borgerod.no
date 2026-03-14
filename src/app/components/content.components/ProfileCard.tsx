@@ -24,17 +24,10 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
     <Card
       id="profile-card"
       className={cn(
-        // "bg-glass-white",
-        // "glass-white",
-        // "hidden!",
-        // "invisible",
-        "shadow-md!",
-        // "shadow-1!",
-        // "shadow-black!",
-        // "drop-shadow-2xl!",
         "-left-10",
-        "w-[calc(100%+2.5rem)]",
+        "w-full",
         "w-[calc(100%+3rem)]",
+
         "flex",
         "flex-col",
         "justify-between",

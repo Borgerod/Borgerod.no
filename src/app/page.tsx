@@ -49,7 +49,6 @@ export default function Home() {
         "grid",
         "md:grid-cols-5",
         "grid-cols-1",
-
         "",
         "",
       )}
@@ -60,7 +59,8 @@ export default function Home() {
         id="left-side-container | mobile:top-side-container"
         className={cn(
           /* * grid placement * */
-          "col-start-1",
+          "md:grid",
+          "flex flex-col",
           "col-span-3",
 
           /* * grid * */
@@ -68,9 +68,6 @@ export default function Home() {
           "grid-cols-2",
           "grid-cols-[3fr_4fr]",
           "grid-cols-[3fr_5fr]",
-          // "sm:grid-cols-[2fr_3fr]",
-          // "sm:grid-cols-[auto_auto]",
-          // "md:grid-cols-[3fr_4fr]",
           "lg:grid-cols-[2fr_3fr]",
           "xl:grid-cols-[2fr_3fr]",
           "gap-x-5",
@@ -81,16 +78,11 @@ export default function Home() {
       >
         <ProfileCard
           className={cn(
-            // "hidden", //TEST
-            // "z-10",
             /* * grid placement * */
             "col-start-1",
             "col-span-1",
             "row-start-",
             "row-span-full",
-            "border-none",
-            "shadow-none",
-            "bg-transparent",
             "",
             "",
           )}
