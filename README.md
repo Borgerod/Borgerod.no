@@ -99,7 +99,7 @@ Here are some previews of the Digital Resume platform in action:
 ## Previews
 
 <details>
-<summary>🖥️ Home</summary>
+<summary>Home (Desktop)</summary>
 <br>
 
 ![Home](public/assets/images/previews/preview-home.png)
@@ -107,42 +107,46 @@ Here are some previews of the Digital Resume platform in action:
 </details>
 
 <details>
-<summary>📱 Mobile</summary>
+<summary>Home (Mobile)</summary>
 <br>
 
-| Mobile 1                                                             | Mobile 2                                                             |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| ![Mobile 1](public/assets/images/previews/preview-home-mobile-1.png) | ![Mobile 2](public/assets/images/previews/preview-home-mobile-2.png) |
+| Mobile 1  
+| --------------------------------------------------------------------
+| ![Mobile 1](public/assets/images/previews/preview-home-mobile-1.png)
+| ![Mobile 2](public/assets/images/previews/preview-home-mobile-2.png)
 
 </details>
 
 <details>
-<summary>📟 iPad</summary>
+<summary>Home (iPad)</summary>
 <br>
 
-| iPad 1                                                           | iPad 2                                                           |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| ![iPad 1](public/assets/images/previews/preview-home-ipad-1.png) | ![iPad 2](public/assets/images/previews/preview-home-ipad-2.png) |
+![iPad 1](public/assets/images/previews/preview-home-ipad-1.png)
+![iPad 2](public/assets/images/previews/preview-home-ipad-2.png)
 
 </details>
 
 <details>
-<summary>💼 Jobs</summary>
+<summary>Job-page</summary>
 <br>
 
-| Job 1                                                     | Job 2                                                     | Full View                                                   |
-| --------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------- |
-| ![Job 1](public/assets/images/previews/preview-job-1.png) | ![Job 2](public/assets/images/previews/preview-job-2.png) | ![Full](public/assets/images/previews/preview-job-full.png) |
+full view of all jobs
+![Full](public/assets/images/previews/preview-job-full.png)
+closer look
+![Job 1](public/assets/images/previews/preview-job-1.png)
+![Job 2](public/assets/images/previews/preview-job-2.png)
+Image gallery
+![Gallery](public/assets/images/previews/preview-image-gallery.png)
 
 </details>
 
 <details>
-<summary>🖼️ Portfolio & Gallery</summary>
+<summary>Portfolio-page</summary>
 <br>
 
-| Portfolio                                                         | Image Gallery                                                       |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------- |
-| ![Portfolio](public/assets/images/previews/preview-portfolio.png) | ![Gallery](public/assets/images/previews/preview-image-gallery.png) |
+| Portfolio  
+| -----------------------------------------------------------------
+| ![Portfolio](public/assets/images/previews/preview-portfolio.png)
 
 </details>
 
