@@ -74,20 +74,6 @@ function StatContent({ stats }: { stats: Stats }) {
   }
 
   return (
-    // <div
-    //   className={cn(
-    //     "w-full",
-    //     "h-full", //works on md, not mobile
-    //     "gap-x-1",
-    //     "gap-y-3",
-    //     "grid",
-    //     "grid-rows-auto",
-    //     "grid-cols-2",
-    //     "grid-rows-auto",
-    //     "",
-    //     "",
-    //   )}
-    // >
     <>
       <h3
         className={cn(
@@ -228,7 +214,7 @@ export default function StatCard({ className }: ComponentBaseProps) {
           "grid-cols-2",
           "grid-cols-[2fr_1fr]",
           "bg-cover",
-          "rounded-2xl",
+          "rounded-t-2xl",
           "text-primary",
           "sm:text-secondary",
           className,
