@@ -2,12 +2,29 @@
 
 ### <span style="font-size:0.8em;">Description</span>
 
+A digital resume and portfolio platform designed to showcase your professional experience, skills, and projects.
+
+Built with Next.js, it features interactive components, structured work history, and project galleries. The site serves as both a personal branding tool and a dynamic CV, providing visitors with an organized overview of your background, achievements, and contact options. It also includes integrations for analytics, SEO, and links to external resources like GitHub and Figma.
+
+### Technology Overview
+
+| Category        | Technology / Tool       | Version    |
+| --------------- | ----------------------- | ---------- |
+| Framework       | Next.js                 | 16.1.7     |
+| Language        | TypeScript              | 5.9        |
+| Styling         | Tailwind CSS            | 4.2        |
+| UI kit          | Hero UI                 | 3.0 (beta) |
+| Deployment      | Vercel                  | -          |
+| Package Manager | npm / yarn / pnpm / bun | latest     |
+| Data structure  | JSON                    | -          |
+
 <!-- TODO finish  -->
 
 ## Table of contents:
 
 - [DigitalResume - borgerod.no / borgerod.github.io](#digitalresume----borgerodno--borgerodgithubio)
   - [Description](#description)
+  - [Technology Overview](#technology-overview)
   - [Table of contents:](#table-of-contents)
   - [TODO:](#todo)
     - [Necessary](#necessary)
@@ -32,9 +49,9 @@ _all of the todos found in the project files **should** be referenced here_
 ### <span style="font-size:0.8em;">Necessary</span>
 
 - [ ] make readme look structured and nice
-  - [ ] add add page map
-  - [ ] add add previews
-  - [ ] add add description of purpose
+  - [ ] add page map
+  - [ ] add previews
+  - [x] add description
   - [ ] add description of ['layoutBuilder' ,'BentoBoxBuilder']
   - [x] add table of contents
   - [ ] add hyperlink to bug-report
