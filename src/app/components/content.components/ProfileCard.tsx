@@ -24,8 +24,14 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
     <Card
       id="profile-card"
       className={cn(
-        "glass",
-        "glass-upper",
+        // "bg-glass-white",
+        // "glass-white",
+        // "hidden!",
+        // "invisible",
+        "shadow-md!",
+        // "shadow-1!",
+        // "shadow-black!",
+        // "drop-shadow-2xl!",
         "-left-10",
         "w-[calc(100%+2.5rem)]",
         "w-[calc(100%+3rem)]",
@@ -36,6 +42,8 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         "gap-1",
         "2xl:gap-2",
         "gap-5",
+        "glass",
+        "glass-upper",
         "",
         "",
         className,

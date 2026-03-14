@@ -314,6 +314,16 @@ main {
     /* @apply backdrop-sepia-5; */
     /* @apply backdrop-contrast-110; */
     /* @apply backdrop-; */
+
+    /* TEST */
+    @apply backdrop-blur-md;
+    @apply backdrop-saturate-100;
+    @apply backdrop-saturate-90;
+    /* @apply backdrop-brightness-100; */
+    @apply backdrop-brightness-105;
+    @apply backdrop-contrast-100;
+    @apply backdrop-contrast-105;
+    @apply bg-glass-offwhite;
   }
 
   .glass.borderless {

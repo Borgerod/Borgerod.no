@@ -1,4 +1,4 @@
-import { cn } from "@heroui/react";
+import { Card, cn } from "@heroui/react";
 import ProfileCard from "./components/content.components/ProfileCard";
 import StatCard from "./components/content.components/StatCard";
 import WorkHistoryCard from "./components/content.components/WorkHistoryCard";
@@ -67,9 +67,10 @@ export default function Home() {
           "grid",
           "grid-cols-2",
           "grid-cols-[3fr_4fr]",
-          "sm:grid-cols-[2fr_3fr]",
-          "sm:grid-cols-[auto_auto]",
-          "md:grid-cols-[3fr_4fr]",
+          "grid-cols-[3fr_5fr]",
+          // "sm:grid-cols-[2fr_3fr]",
+          // "sm:grid-cols-[auto_auto]",
+          // "md:grid-cols-[3fr_4fr]",
           "lg:grid-cols-[2fr_3fr]",
           "xl:grid-cols-[2fr_3fr]",
           "gap-x-5",
@@ -80,11 +81,16 @@ export default function Home() {
       >
         <ProfileCard
           className={cn(
+            // "hidden", //TEST
+            // "z-10",
             /* * grid placement * */
             "col-start-1",
             "col-span-1",
             "row-start-",
             "row-span-full",
+            "border-none",
+            "shadow-none",
+            "bg-transparent",
             "",
             "",
           )}
@@ -136,8 +142,9 @@ export default function Home() {
 
           // TEST BUG-[1.1]
           // "-translate-x-26", //> These fixes the bug
-          "translate-x-5", //> These fixes the bug
-          "-z-1", //> These fixes the bug
+          // "translate-x-5", //> These fixes the bug
+          "-translate-x-5", //> These fixes the bug
+          // "-z-1", //> These fixes the bug
 
           /*
           NOTE:
