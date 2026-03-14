@@ -6,7 +6,23 @@
 
 ## Table of contents:
 
-<!-- TODO: finish  -->
+- [DigitalResume - borgerod.no / borgerod.github.io](#digitalresume----borgerodno--borgerodgithubio)
+  - [Description](#description)
+  - [Table of contents:](#table-of-contents)
+  - [TODO:](#todo)
+    - [Necessary](#necessary)
+    - [Optional](#optional)
+  - [Page Map](#page-map)
+  - [Data Map](#data-map)
+    - [API Map](#api-map)
+      - [local](#local)
+      - [external](#external)
+    - [Static Datasets](#static-datasets)
+  - [Previews](#previews)
+  - [Usage - how to install and run project](#usage----how-to-install-and-run-project)
+    - [Getting Started](#getting-started)
+    - [Learn More](#learn-more)
+    - [Deploy on Vercel](#deploy-on-vercel)
 
 ## TODO:
 
@@ -20,7 +36,7 @@ _all of the todos found in the project files **should** be referenced here_
   - [ ] add add previews
   - [ ] add add description of purpose
   - [ ] add description of ['layoutBuilder' ,'BentoBoxBuilder']
-  - [ ] add table of contents
+  - [x] add table of contents
   - [ ] add hyperlink to bug-report
 - [ ] implement SEO/AEO
 - [ ] add button redirecting to 'Github-repo' and 'Figma-project' in home
@@ -44,7 +60,15 @@ _all of the todos found in the project files **should** be referenced here_
 
 <!-- TODO finish  -->
 
-## API Map + data map
+## Data Map
+
+### API Map
+
+#### local
+
+#### external
+
+### Static Datasets
 
 <!-- TODO finish  -->
 
@@ -52,7 +76,7 @@ _all of the todos found in the project files **should** be referenced here_
 
 <!-- TODO finish  -->
 
-## General info <span style="font-size:0.5em;"><em> - how to install and run project</em></span>
+## Usage <span style="font-size:0.5em;"><em> - how to install and run project</em></span>
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
