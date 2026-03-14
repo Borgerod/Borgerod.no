@@ -1,4 +1,4 @@
-import { Card, cn } from "@heroui/react";
+import { Card, cn, Separator } from "@heroui/react";
 import ProfileCard from "./components/content.components/ProfileCard";
 import StatCard from "./components/content.components/StatCard";
 import WorkHistoryCard from "./components/content.components/WorkHistoryCard";
@@ -49,6 +49,39 @@ export default function Home() {
         "grid",
         "md:grid-cols-5",
         "grid-cols-1",
+
+        // TEST NEW
+        "grid",
+        "md:grid-cols-5",
+        "grid-cols-1",
+        "flex",
+        "flex-col",
+        // "p-5!",
+        // "px-0!",
+        "md:grid",
+        // "p-x-1!",
+        "md:pl-5",
+        "md:py-10",
+        "md:pt-5",
+        "md:pr-5",
+        "md:pl-10",
+
+        "pl-5",
+        "py-10",
+        "pt-5",
+        "pr-5",
+        "pl-5",
+        "p-0!",
+        // "contents",
+        // "h-fit",
+        // "w-full",
+        // "md:glass", // TEMP
+        // "md:bg-glass-white", // TEMP
+        // // "md:grid",
+        // "bg-transparent!",
+        // "border-none!",
+        // "shadow-none!",
+
         "",
         "",
       )}
@@ -73,37 +106,81 @@ export default function Home() {
           "gap-x-5",
           "grid-rows-3",
           "grid-rows-[auto_1fr_auto]",
+
+          // TEST NEW
+          // "flex",
+          "grid-cols-1",
+          "grid-rows-3",
+          // TEST NEW
+          "flex",
+          "md:grid",
+          // // "contents",
+          // // "h-fit",
+          // // "w-full",
+          "glass", // TEMP
+          "bg-glass-white", // TEMP
+          // // "md:grid",
+          // "bg-transparent!",
+          // "border-none!",
+          // "shadow-none!",
+
+          "gap-15",
+          "md:gap-5",
+          "",
           "",
         )}
       >
         <ProfileCard
           className={cn(
             /* * grid placement * */
+            // "md:col-start-1",
+            // "md:col-span-1",
+            // "md:row-start-1",
+            // "md:row-span-1",
+
+            // TEST NEW
             "col-start-1",
-            "col-span-1",
-            "row-start-",
-            "row-span-full",
+            "col-span-full",
+            "row-start-1",
+            "row-span-1",
+            "md:glass",
+            "md:glass-upper",
+
             "",
             "",
           )}
         />
+        <Separator variant="tertiary" className="pb-0 sm:hidden" />
 
         <StatCard
           className={cn(
             /* * grid placement * */
-            "col-start-2",
-            "col-span-1",
-            "row-start-1",
+            // "md:col-start-2",
+            // "md:col-span-full",
+            // "md:row-start-",
+            // "md:row-span-1",
+
+            // TEST NEW
+            "col-start-1",
+            "col-span-full",
+            "row-start-2",
             "row-span-1",
             "",
             "",
           )}
         />
+        <Separator variant="tertiary" className="pb-0 sm:hidden" />
 
         <WorkHistoryCard
           className={cn(
             /* * grid placement * */
-            "col-start-2",
+            // "md:col-start-2",
+            // "md:col-span-1",
+            // "md:row-start-3",
+            // "md:row-span-1",
+
+            // TEST NEW
+            "col-start-1",
             "col-span-1",
             "row-start-3",
             "row-span-1",
@@ -111,6 +188,7 @@ export default function Home() {
             "",
           )}
         />
+        <Separator variant="tertiary" className="pb-0 sm:hidden" />
       </GlassParentCard>
 
       <div
@@ -135,7 +213,8 @@ export default function Home() {
           // TEST BUG-[1.1]
           // "-translate-x-26", //> These fixes the bug
           // "translate-x-5", //> These fixes the bug
-          "-translate-x-5", //> These fixes the bug
+          // "-translate-x-5", //> These fixes the bug
+          "md:-translate-x-5", //> These fixes the bug
           // "-z-1", //> These fixes the bug
 
           /*

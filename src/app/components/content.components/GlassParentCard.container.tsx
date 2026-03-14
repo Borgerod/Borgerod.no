@@ -60,6 +60,7 @@ export default function GlassParentCardCard({
         */
         id="profile-card visual-underlay"
         className={cn(
+          // TEST NEW
           "hidden",
           "md:flex",
           "-left-10",
@@ -75,6 +76,9 @@ export default function GlassParentCardCard({
           "-z-10",
           "",
           "",
+          // TEST NEW
+          "hidden!",
+          "md:grid",
           className,
         )}
       />
@@ -108,8 +112,11 @@ export default function GlassParentCardCard({
           "border-transparent",
           "border-none",
           "shadow-none",
+          "hidden",
+          "md:grid",
           // "bg-transparent",
           // "hidden",
+
           "",
           "",
         )}
@@ -117,6 +124,9 @@ export default function GlassParentCardCard({
         <div
           id="invisible-spacers"
           className={cn(
+            // TEST NEW
+            "hidden",
+            "md:grid",
             "col-start-2",
             "col-span-1",
             "row-start-1",
@@ -131,6 +141,9 @@ export default function GlassParentCardCard({
         <div
           id="invisible-spacers"
           className={cn(
+            // TEST NEW
+            "hidden",
+            "md:grid",
             "",
             "self-end",
             "col-start-2",
@@ -145,14 +158,30 @@ export default function GlassParentCardCard({
         <StylizedCircle
           className={cn(
             /* * grid placement * */
-            "col-start-1",
-            "col-span-full",
-            "row-start-2",
-            "row-span-1",
-            "col-span-full",
+            // "col-start-1",
+            // "col-span-full",
+            // "row-start-2",
+            // "row-span-1",
+            // "col-span-full",
             "absolute",
             "left-[20%]",
             "right-[40%]",
+
+            // TEST NEW
+            "md:col-start-1",
+            "md:col-span-full",
+            "md:row-start-2",
+            "md:row-span-1",
+            "md:col-span-full",
+
+            "col-start-1",
+            "row-start-2",
+            "row-span-1",
+            "col-span-full",
+
+            // TEST NEW
+            "hidden",
+            "md:grid",
             "",
             "",
           )}
