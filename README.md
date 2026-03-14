@@ -78,7 +78,25 @@ _all of the todos found in the project files **should** be referenced here_
 
 ## Page Map
 
-<!-- TODO finish  -->
+```mermaid
+graph TD
+  A[app]
+  A1[page.tsx]
+  A2[layout.tsx]
+  A3[portfolio]
+  A4[work-experience]
+
+  A --> A1
+  A --> A2
+  A --> A3
+  A --> A4
+
+  A3 --> B1[page.tsx]
+
+  A4 --> C1[job]
+  C1 --> D1[slug]
+  D1 --> E1[page.tsx]
+```
 
 ## Data Map
 
