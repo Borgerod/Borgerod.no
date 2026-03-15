@@ -6,13 +6,22 @@ import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 import { TbBrandGithubFilled } from "react-icons/tb";
 
-export default function COMPONENTNAME({ className }: ComponentBaseProps) {
+export default function SocialLinksCard({ className }: ComponentBaseProps) {
   return (
     <Card
       id="social-links"
       className={cn(
-        "glass",
-        "glass-black",
+        // "glass",
+        // "glass-black",
+
+        "sm:glass",
+        "sm:glass-black",
+
+        "bg-glass-black",
+        "unset-glass",
+        "unset-card",
+        "p-5",
+        "w-screen",
         "text-accent-foreground",
         "h-full",
         "w-full",
@@ -24,6 +33,17 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
         "sm:justify-evenly",
         "sm:justify-around",
         "sm:gap-5",
+
+        "sm:glass",
+        "sm:glass-black",
+        "unset-glass",
+        "unset-card",
+        "sm:card",
+        "w-full",
+        "sm:h-full",
+        "h-fit",
+        "h-fit",
+
         "",
         className,
       )}

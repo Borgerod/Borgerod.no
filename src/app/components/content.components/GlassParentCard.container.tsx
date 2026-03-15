@@ -158,30 +158,30 @@ export default function GlassParentCardCard({
         <StylizedCircle
           className={cn(
             /* * grid placement * */
-            // "col-start-1",
-            // "col-span-full",
-            // "row-start-2",
-            // "row-span-1",
+            "col-start-1",
+            "col-span-full",
+            "row-start-2",
+            "row-span-1",
             // "col-span-full",
             "absolute",
             "left-[20%]",
             "right-[40%]",
 
-            // TEST NEW
-            "md:col-start-1",
-            "md:col-span-full",
-            "md:row-start-2",
-            "md:row-span-1",
-            "md:col-span-full",
+            // // TEST NEW
+            // "md:col-start-1",
+            // "md:col-span-full",
+            // "md:row-start-2",
+            // "md:row-span-1",
+            // "md:col-span-full",
 
-            "col-start-1",
-            "row-start-2",
-            "row-span-1",
-            "col-span-full",
+            // "col-start-1",
+            // "row-start-2",
+            // "row-span-1",
+            // "col-span-full",
 
-            // TEST NEW
-            "hidden",
-            "md:grid",
+            // // TEST NEW
+            // "hidden",
+            // "md:grid",
             "",
             "",
           )}

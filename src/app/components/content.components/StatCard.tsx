@@ -213,31 +213,66 @@ export default function StatCard({ className }: ComponentBaseProps) {
         "h-45",
         "w-full",
 
+        "rounded-3xl",
+        // "bg-amber-200",
+        "p-2",
+        // "unset-card",
+
         className,
       )}
     >
       <StylizedCircle
         className={cn(
           /* * placement */
+          // "blur-xs",
+          // "aspect-square",
+          // "rounded-full",
+          // "bg-linear-to-br",
+          // "",
+          // "opacity-90",
+
+          /* * size */
+          // "h-4/5",
+          // "h-2/3",
+          // "h-3/5",
+          // "w-fit",
+
+          /* * placement */
+          // "col-start-2",
+          // "row-start-1",
+          // "justify-self-start",
+          // "self-start",
+          // "translate-x-1/5",
+
           "blur-xs",
           "aspect-square",
           "rounded-full",
           "bg-linear-to-br",
           "",
-          "opacity-90",
+          "",
+          //
 
-          /* * size */
+          "opacity-90",
           "h-4/5",
           "h-2/3",
-          "h-3/5",
+          // "h-3/5",
           "w-fit",
+          "",
+          "",
+          //
 
-          /* * placement */
           "col-start-2",
           "row-start-1",
           "justify-self-start",
+          "justify-self-end",
           "self-start",
           "translate-x-1/5",
+          "translate-x-2/5",
+          // "translate-x-5/5",
+          // "translate-x-4/5",
+          "",
+          "",
+
           "",
           "",
         )}
@@ -263,8 +298,11 @@ export default function StatCard({ className }: ComponentBaseProps) {
           "row-start-1",
 
           "justify-self-center",
+          "justify-self-end",
           "self-start",
           "-translate-y-1/8",
+          "-translate-y-1/8",
+          "-translate-x-2/8",
           "",
           "",
         )}

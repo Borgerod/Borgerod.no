@@ -32,12 +32,52 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
     <Card
       id="project-display"
       className={cn(
+        // "unset-glass",
+        // "bg-transparent",
+
         "glass",
         "glass-gray",
         "gap-1",
         "h-50",
         "md:h-full",
         className,
+
+        // "border-none",
+        // "border-transparent",
+        // "bg-transparent",
+        // "outline-none",
+        // "outline-transparent",
+        // "outline-offset-0",
+        // "backdrop-filter-none",
+        // "shadow-none",
+        // "shadow-transparent",
+        // "md:glass",
+        // "md:glass-gray",
+        // "md:glass",
+        // "md:glass-gray",
+        // "unset-glass",
+        // "unset-glass",
+        // "bg-transparent",
+        // "unset-card",
+        // "md:card",
+        "glass-black",
+        "bg-glass-black",
+        "rounded-none",
+        "p-5",
+        "h-60",
+        "md:h-full",
+        // "rounded-none",
+        // "glass-black!",
+        "md:glass-gray",
+        "sm:card",
+        // "md:rounded-3xl",
+        // "md:h-50",
+        "md:p-5",
+        // "p-5",
+        // "h-fit",
+
+        // "md:bg-amber-300", //to test that it is working
+
         "",
         "",
       )}
@@ -95,12 +135,24 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "rounded-none",
                 "group",
                 "bg-transparent",
-                "hover:bg-glass-gray-undertone",
                 "hover:shadow-md",
                 "shadow-sm",
                 "drop-shadow-sm",
-                "bg-glass-light-gray/40",
-                "shadow shadow-1",
+                "hover:bg-glass-gray-undertone",
+                "bg-glass-light-gray/40", //todo custom color
+                // // "md:hover:bg-glass-gray-undertone",
+                // // "md:bg-glass-light-gray/40", //todo custom color
+
+                // "glass",
+                // "glass-gray",
+                // "bg-glass-gray/40",
+                // "outline outline-black/10 ",
+                // "border border-black/5",
+                "hover:bg-glass-black",
+                // // "glass-black!",
+                // "hover:glass-black",
+                // // "bg-glass-light-gray/40", //todo custom color
+                // "shadow shadow-1",
                 "",
               )}
             >

@@ -1,4 +1,4 @@
-import { Card, cn, Separator } from "@heroui/react";
+// import { Card, cn, Separator } from "@heroui/react";
 import ProfileCard from "./components/content.components/ProfileCard";
 import StatCard from "./components/content.components/StatCard";
 import WorkHistoryCard from "./components/content.components/WorkHistoryCard";
@@ -7,6 +7,7 @@ import SocialLinksCard from "./components/content.components/SocialLinksCard";
 import ToolCard from "./components/content.components/ListCard.tools";
 import SkillCard from "./components/content.components/ListCard.skills";
 import GlassParentCard from "./components/content.components/GlassParentCard.container";
+import { cn } from "@heroui/styles";
 
 export default function Home() {
   return (
@@ -82,6 +83,21 @@ export default function Home() {
         // "border-none!",
         // "shadow-none!",
 
+        // TEST
+        "glass",
+        "glass-white",
+
+        "md:border-none",
+        "md:border-transparent",
+        "md:bg-transparent",
+        "md:outline-none",
+        "md:outline-transparent",
+        "md:outline-offset-0",
+        "md:backdrop-filter-none!",
+        "md:shadow-none",
+        "md:shadow-transparent",
+        "",
+        "",
         "",
         "",
       )}
@@ -108,17 +124,17 @@ export default function Home() {
           "grid-rows-[auto_1fr_auto]",
 
           // TEST NEW
-          // "flex",
-          "grid-cols-1",
-          "grid-rows-3",
+          // // "flex",
+          // "sm:grid-cols-1",
+          "sm:grid-rows-3",
           // TEST NEW
           "flex",
           "md:grid",
           // // "contents",
           // // "h-fit",
           // // "w-full",
-          "glass", // TEMP
-          "bg-glass-white", // TEMP
+          // "glass", // TEMP
+          // "bg-glass-white", // TEMP
           // // "md:grid",
           // "bg-transparent!",
           // "border-none!",
@@ -126,6 +142,16 @@ export default function Home() {
 
           "gap-15",
           "md:gap-5",
+          "unset-glass",
+          "md:glass",
+
+          "flex",
+          "sm:grid",
+          "sm:grid-cols-2",
+          "sm:grid-rows-[auto_auto]",
+          "md:grid-cols-1",
+          "md:grid-rows-3",
+          // "unset-card",
           "",
           "",
         )}
@@ -133,24 +159,46 @@ export default function Home() {
         <ProfileCard
           className={cn(
             /* * grid placement * */
-            // "md:col-start-1",
-            // "md:col-span-1",
-            // "md:row-start-1",
-            // "md:row-span-1",
+            "md:col-start-1",
+            "md:col-span-1",
+            "md:row-start-1",
+            "md:row-start-1",
+            "md:row-span-full",
+
+            // "col-start-1",
+            // "col-span-full",
+            // "row-start-1",
+            // "row-span-1",
 
             // TEST NEW
             "col-start-1",
             "col-span-full",
             "row-start-1",
             "row-span-1",
+            // "md:col-start-1",
+            // "md:col-span-full",
+            // "md:row-start-1",
+            // "md:row-span-full",
+
+            "sm:col-start-1",
+            "sm:col-span-full",
+            "sm:row-start-1",
+            "sm:row-span-1",
+
+            "unset-glass",
+            "unset-card",
+
             "md:glass",
             "md:glass-upper",
+
+            "sm:glass",
+            "sm:card",
 
             "",
             "",
           )}
         />
-        <Separator variant="tertiary" className="pb-0 sm:hidden" />
+        {/* <Separator variant="tertiary" className="pb-0 sm:hidden" /> */}
 
         <StatCard
           className={cn(
@@ -161,34 +209,44 @@ export default function Home() {
             // "md:row-span-1",
 
             // TEST NEW
-            "col-start-1",
-            "col-span-full",
-            "row-start-2",
-            "row-span-1",
+            "md:col-start-2",
+            "md:col-span-full",
+            "md:row-start-1",
+            "md:row-span-1",
+
+            "sm:col-start-2",
+            "sm:col-span-1",
+            "sm:row-start-2",
+            "sm:row-span-full",
             "",
             "",
           )}
         />
-        <Separator variant="tertiary" className="pb-0 sm:hidden" />
+        {/* <Separator variant="tertiary" className="pb-0 sm:hidden" /> */}
 
         <WorkHistoryCard
           className={cn(
             /* * grid placement * */
-            // "md:col-start-2",
-            // "md:col-span-1",
-            // "md:row-start-3",
-            // "md:row-span-1",
+            "md:col-start-2",
+            "md:col-span-1",
+            "md:row-start-3",
+            "md:row-span-1",
 
             // TEST NEW
-            "col-start-1",
-            "col-span-1",
-            "row-start-3",
-            "row-span-1",
+            "md:col-start-2",
+            "md:col-span-1",
+            "md:row-start-3",
+            "md:row-span-1",
+
+            "sm:col-start-1",
+            "sm:col-span-1",
+            "sm:row-start-2",
+            "sm:row-span-full",
             "",
             "",
           )}
         />
-        <Separator variant="tertiary" className="pb-0 sm:hidden" />
+        {/* <Separator variant="tertiary" className="pb-0 sm:hidden" /> */}
       </GlassParentCard>
 
       <div
@@ -209,6 +267,10 @@ export default function Home() {
           "md:grid-rows-3",
           "grid-rows-[auto_auto_auto_auto]",
           "gap-5",
+          "px-0",
+          "sm:px-5",
+          "sm:pb-5",
+          "md:pb-0",
 
           // TEST BUG-[1.1]
           // "-translate-x-26", //> These fixes the bug
@@ -315,6 +377,17 @@ export default function Home() {
             "grid-cols-1",
             "grid-rows-5",
             "gap-5",
+
+            // "h-fit",
+            // "md:h-fit",
+            "flex flex-col",
+            "sm:grid",
+            "py-10",
+            "sm:px-0",
+            "px-5",
+            "gap-10",
+            "sm:py-0",
+            "sm:gap-5",
 
             "",
             "",

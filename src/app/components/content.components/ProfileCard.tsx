@@ -24,11 +24,11 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
     <Card
       id="profile-card"
       className={cn(
-        "md:-left-10",
-        "w-full",
-        "md:w-[calc(100%+3rem)]",
-        "p-0",
-        "md:p-5",
+        "glass",
+        "glass-upper",
+        "-left-10",
+        "w-[calc(100%+2.5rem)]",
+        "w-[calc(100%+3rem)]",
         "flex",
         "flex-col",
         "justify-between",
@@ -36,25 +36,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         "gap-1",
         "2xl:gap-2",
         "gap-5",
-        // "glass",
-        // "glass-upper",
-        // TEST NEW
-        // "col-start-1",
-        "flex",
-        "flex-col",
-        // "grid",
-        // // "grid-cols-2",
-        // "grid-rows-3",
-        // "grid-rows-[auto_auto_auto]",
-        "bg-transparent",
-        "border-none",
-        "shadow-none",
-        "h-fit",
-        "md:glass",
-        "md:glass-upper",
-
-        "",
-        "",
         "",
         "",
         className,
@@ -73,13 +54,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "min-h-fit",
           "max-h-50",
           "gap-4",
-          // TEST NEW
-
-          "row-start-1",
-          "row-span-1",
-
-          "",
-          "",
           "",
         )}
       >
@@ -155,15 +129,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "text-xs",
           "h-fit",
           "justify-self-start",
-
-          // TEST NEW
-          // "flex flex-row",
-
-          "col-span-full",
-          "row-start-2",
-          "row-span-1",
-          "",
-          "",
         )}
       >
         {/* <h1 className="text-md md:text-[14px] lg:text-lg">
@@ -217,11 +182,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "justify-end",
           "xl:justify-between",
           "mt-auto",
-
-          // TEST NEW
-          "col-span-full",
-          "",
-          "",
         )}
       >
         <Button

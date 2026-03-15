@@ -6,9 +6,27 @@ import { Chip } from "@heroui/react";
 
 export default function ToolCard({ className }: ComponentBaseProps) {
   return (
-    <Card id="tools" className={cn("glass", "glass-white", className, "", "")}>
+    <Card
+      id="tools"
+      className={cn(
+        // "glass",
+        // "glass-white",
+
+        "sm:glass",
+        "sm:glass-white",
+        "unset-glass",
+        "unset-card",
+        "sm:card",
+        "w-full",
+        "sm:h-full",
+        "h-fit",
+        className,
+        "",
+        "",
+      )}
+    >
       <Card.Header className="text-glass-black">
-        <Card.Title className="text-glass-black self-center text-[16px] font-normal">
+        <Card.Title className="text-glass-black self-start md:self-center text-[16px] font-normal">
           Tools
         </Card.Title>
       </Card.Header>
