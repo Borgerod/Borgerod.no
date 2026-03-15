@@ -111,15 +111,15 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                   width="64"
                   height="64"
                   className={cn(
-                    "w-fit",
+                    "w-full",
                     "h-full",
                     "py-1",
                     "opacity-60",
                     "group-hover:opacity-100",
                     "group-hover:text-accent-foreground",
-                    // "self-center",
-                    // "text-center",
-                    // "justify-self-center",
+                    "self-center",
+                    "text-center",
+                    "justify-self-center",
                     "",
                     "",
                   )}
