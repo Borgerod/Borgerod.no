@@ -200,131 +200,117 @@ main {
   z-index: 1;
 }
 
-@layer components {
-  .glass {
-    @apply shadow-sm;
-    @apply backdrop-blur-xl;
-    @apply border-0;
-    @apply border;
-    @apply border-border/20;
-    @apply border-t-border/40;
-    @apply border-l-border/40;
-    /* @apply bg-glass-gray-dark; */
-    @apply bg-transparent;
-
-    @apply backdrop-saturate-150;
-    @apply outline-1;
-    @apply outline-outline/20;
-    @apply -outline-offset-1;
-    @apply border;
-  }
-  /* color variants */
-  .glass.glass-white {
-    @apply bg-glass-white;
-  }
-  .glass.glass-offwhite {
-    @apply bg-glass-offwhite;
-  }
-  .glass.glass-pure-white {
-    @apply bg-glass-pure-white;
-  }
-  .glass.glass-gray {
-    @apply bg-glass-gray;
-
-    /* --gray-undertone: oklch(49.261% 0.00006 271.152 / 0.349);
-    --gray: oklch(56.241% 0.00006 271.152 / 0.575);
-    --gray: oklch(49.261% 0.00006 271.152 / 0.35);
-    --gray-2: oklch(49.261% 0.00006 271.152 / 0.35); */
-    @apply drop-shadow-md;
-    @apply backdrop-saturate-100;
-
-    @apply bg-glass-gray;
-
-    /* @apply bg-glass-gray-undertone; */
-    /* @apply bg-glass-light-gray1; */
-
-    /* @apply border-glass-offwhite;
-    @apply border-t-glass-offwhite;
-    @apply border-l-glass-offwhite;
-    @apply border-glass-white/20;
-    @apply border-t-glass-white/40;
-    @apply border-l-glass-white/40; */
-    @apply border-glass-light-gray/20;
-    @apply border-t-glass-light-gray/40;
-    @apply border-l-glass-light-gray/40;
-    @apply outline-glass-offwhite/40;
-    @apply bg-glass-gray-dark/50;
-    /* @apply outline-glass-offwhite; */
-
-    /* @apply border-glass-light-gray/20; */
-    /* @apply border-t-glass-light-gray/40; */
-    /* @apply border-l-glass-light-gray/40; */
-    /* @apply outline-glass-offwhite/40; */
-  }
-  .glass.glass-black {
-    @apply shadow-xl; /* * solution for bug-report: BUG 1.0 [ref:./logs/bug-reports ] */
-    @apply bg-glass-black;
-    /* @apply border-glass-gray/20;
-    @apply border-t-glass-gray/40;
-    @apply border-l-glass-gray/40; */
-
-    @apply border-glass-light-gray;
-    @apply border-t-glass-light-gray;
-    @apply border-l-glass-light-gray;
-
-    /* @apply outline-glass-light-gray; */
-    @apply outline-glass-offwhite/40;
-
-    /* @apply border-glass-offwhite/20;
-    @apply border-t-glass-offwhite/40;
-    @apply border-l-glass-offwhite/40; */
-    /* @apply outline-glass-light-gray;
-    @apply border-glass-gray; */
-  }
-  .glass.glass-green {
-    @apply bg-glass-green-base;
-  }
-
-  /* placement variants */
-  .glass.glass-upper {
-    /* @apply backdrop-blur-none; */
-    /* @apply bg-white/30; */
-    /* @apply bg-glass-pure-white; */
-    /* @apply backdrop-saturate-200; */
-    /* @apply backdrop-blur-md;
-    @apply backdrop-saturate-100;
-    @apply backdrop-brightness-105; */
-
-    /* @apply backdrop-saturate-200; */
-    /* @apply backdrop-brightness-110; */
-
-    /* @apply bg-white/20; */
-    /* @apply backdrop-blur-md; */
-    @apply backdrop-blur-md;
-    @apply backdrop-saturate-90;
-    @apply backdrop-saturate-100;
-    /* @apply backdrop-saturate-110; */
-    /* @apply backdrop-saturate-150; */
-    /* @apply backdrop-saturate-10; */
-    @apply backdrop-brightness-105;
-    /* @apply bg-glass-pure-white/100; */
-    @apply bg-glass-offwhite;
-    /* @apply bg-glass-pure-white/80; */
-    @apply backdrop-contrast-125;
-    /* @apply backdrop-sepia-5; */
-    /* @apply backdrop-contrast-110; */
-    /* @apply backdrop-; */
-  }
-
-  .glass.borderless {
-    @apply border-0;
-    @apply border-transparent;
-    /* @apply border-border/20;
-    @apply border-t-border/40;
-    @apply border-l-border/40; */
-  }
+@utility glass {
+  @apply shadow-sm;
+  @apply backdrop-blur-xl;
+  @apply border;
+  @apply border-t;
+  @apply border-l;
+  @apply bg-transparent;
+  @apply backdrop-saturate-150;
+  @apply outline-1;
+  @apply -outline-offset-1;
+  border-color: color-mix(in oklab, var(--color-border) 20%, transparent);
+  border-top-color: color-mix(in oklab, var(--color-border) 40%, transparent);
+  border-left-color: color-mix(in oklab, var(--color-border) 40%, transparent);
+  outline-color: color-mix(in oklab, var(--color-outline) 20%, transparent);
 }
 
+@utility glass-white {
+  @apply bg-glass-white;
+}
+
+@utility glass-offwhite {
+  @apply bg-glass-offwhite;
+}
+
+@utility glass-pure-white {
+  @apply bg-glass-pure-white;
+}
+
+@utility glass-gray {
+  @apply drop-shadow-md;
+  @apply backdrop-saturate-100;
+  /* @apply bg-amber-200; */
+  background-color: color-mix(
+    in oklab,
+    var(--color-glass-gray-dark) 50%,
+    transparent
+  );
+  border-color: color-mix(
+    in oklab,
+    var(--color-glass-light-gray) 20%,
+    transparent
+  );
+  border-top-color: color-mix(
+    in oklab,
+    var(--color-glass-light-gray) 40%,
+    transparent
+  );
+  border-left-color: color-mix(
+    in oklab,
+    var(--color-glass-light-gray) 40%,
+    transparent
+  );
+  outline-color: color-mix(
+    in oklab,
+    var(--color-glass-offwhite) 40%,
+    transparent
+  );
+}
+
+@utility glass-black {
+  @apply shadow-xl;
+  background-color: var(--color-glass-black);
+  border-color: var(--color-glass-light-gray);
+  border-top-color: var(--color-glass-light-gray);
+  border-left-color: var(--color-glass-light-gray);
+  outline-color: color-mix(
+    in oklab,
+    var(--color-glass-offwhite) 40%,
+    transparent
+  );
+}
+@utility unset-card {
+  @apply rounded-none;
+  @apply p-0;
+}
+
+@utility card {
+  @apply rounded-3xl;
+  @apply p-5;
+}
+
+@utility unset-glass {
+  @apply border-none;
+  @apply border-transparent;
+  @apply bg-transparent;
+  @apply outline-none;
+  @apply outline-transparent;
+  @apply outline-offset-0;
+  @apply backdrop-filter-none;
+  @apply shadow-none;
+  @apply shadow-transparent;
+}
+@utility glass-green {
+  @apply bg-glass-green-base;
+}
+
+@utility glass-upper {
+  @apply backdrop-blur-md;
+  @apply backdrop-saturate-90;
+  @apply backdrop-brightness-105;
+  @apply backdrop-contrast-105;
+  @apply bg-glass-offwhite;
+}
+
+@utility borderless {
+  @apply border-0;
+  @apply shadow-none;
+  @apply outline-none;
+  border-color: transparent;
+  outline-color: transparent;
+}
 /** SCROLLBAR RELATED CSS */
 :root {
   /* background of the track */
