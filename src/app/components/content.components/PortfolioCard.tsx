@@ -117,6 +117,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                     "opacity-60",
                     "group-hover:opacity-100",
                     "group-hover:text-accent-foreground",
+                    // "self-center",
+                    // "text-center",
+                    // "justify-self-center",
                     "",
                     "",
                   )}

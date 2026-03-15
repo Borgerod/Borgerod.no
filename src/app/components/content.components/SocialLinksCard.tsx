@@ -48,7 +48,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           isIconOnly
           size="lg"
           variant="primary"
-          className={"bg-glass-light-gray hover:bg-glass-gray-dark"}
+          className={
+            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+          }
         >
           <Link
             href={"https://www.linkedin.com/in/borgerod/"}
@@ -61,7 +63,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           isIconOnly
           size="lg"
           variant="primary"
-          className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
+          className={
+            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+          }
         >
           <Link
             href={"https://www.facebook.com/aleksander.borgerod/"}
@@ -74,7 +78,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           isIconOnly
           size="lg"
           variant="primary"
-          className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
+          className={
+            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+          }
         >
           <Link
             href={"http://github.com/Borgerod"}
@@ -87,7 +93,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           isIconOnly
           size="lg"
           variant="primary"
-          className={"bg-glass-light-gray hover:bg-glass-gray-dark "}
+          className={
+            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+          }
         >
           <Link
             href={"https://leetcode.com/u/Borgerod/"}
