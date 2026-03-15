@@ -112,7 +112,6 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                   height="64"
                   className={cn(
                     "w-fit",
-                    "w-full",
                     "h-full",
                     "py-1",
                     "opacity-60",
