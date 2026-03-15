@@ -111,6 +111,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                   width="64"
                   height="64"
                   className={cn(
+                    "w-fit",
                     "w-full",
                     "h-full",
                     "py-1",
