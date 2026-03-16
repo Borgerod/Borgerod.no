@@ -1,4 +1,4 @@
-import { Card, cn } from "@heroui/react";
+import { cn } from "@heroui/react";
 import ProfileCard from "./components/content.components/ProfileCard";
 import StatCard from "./components/content.components/StatCard";
 import WorkHistoryCard from "./components/content.components/WorkHistoryCard";
@@ -131,13 +131,7 @@ export default function Home() {
           "md:grid-rows-3",
           "grid-rows-[auto_auto_auto_auto]",
           "gap-5",
-
-          // TEST BUG-[1.1]
-          // "-translate-x-26", //> These fixes the bug
-          // "translate-x-5", //> These fixes the bug
           "-translate-x-5", //> These fixes the bug
-          // "-z-1", //> These fixes the bug
-
           /*
           NOTE:
               I think its because visually right-side-container look like its in the left side of GlassParentCard, but they start off as stacked on top of eachother, then assigned to possitions. 

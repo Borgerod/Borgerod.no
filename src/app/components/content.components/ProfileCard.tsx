@@ -132,14 +132,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "justify-self-start",
         )}
       >
-        {/* <h1 className="text-md md:text-[14px] lg:text-lg">
-            ALEKSANDER BORGERØD
-          </h1>
-          <h2 className="text-xs  font-light text-green-dark">
-            Full-Stack Developer | Business Admin.
-          </h2> */}
-
-        {/* <br /> */}
+       
         <p className="font-light">
           With a broad knowledge within
           <span className="font-medium text-green-dark"> development</span> and

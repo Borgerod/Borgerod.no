@@ -125,12 +125,9 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                     "select-none",
                     "font-light",
                     "bg-glass-green-base hover:bg-glass-green-base-hover",
-                    // "bg-glass-light-gray hover:bg-glass-gray",
                     "text-accent-foreground-muted hover:text-accent-foreground",
-                    // todo replace custom colors
                     "text-accent-foreground",
                     "text-shadow-accent-soft-hover",
-
                     "",
                     "",
                   )}
