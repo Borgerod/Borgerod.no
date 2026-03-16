@@ -46,7 +46,13 @@ export default function GlassParentCardCard({
         "col-span-1",
         "min-h-100",
         "min-h-130",
+        //  "-left-5",
         className,
+
+
+        // "h-full!",
+        // "max-h-full",
+        "py-5",
         "",
         "",
       )}
@@ -68,11 +74,19 @@ export default function GlassParentCardCard({
           "row-span-full",
           "z-1",
           "w-[calc(50%-1rem)]",
-          "glass",
           "bg-transparent",
           "border-none",
           "shadow-none",
           "-z-10",
+          "bg-cover",
+          "md:glass",
+          "card!",
+          // "md:glass-white",
+          "md:glass-upper",
+
+          
+
+          // "bg-amber-200!",
           "",
           "",
           className,
@@ -86,8 +100,8 @@ export default function GlassParentCardCard({
           purpose: prevents backdrop-blur issue where glass-children of glass-parents loose their glass-effects () 
         */
         className={cn(
-          "glass",
-          "glass-white",
+          // "glass",
+          // "glass-white",
           "-m-4",
 
           /* * grid placement * */
@@ -110,6 +124,21 @@ export default function GlassParentCardCard({
           "shadow-none",
           // "bg-transparent",
           // "hidden",
+
+          
+          //> NEW CHANGES
+          "unset-glass",
+          "unset-card",
+          "md:glass",
+          "md:glass-white",
+          "md:card",
+          "hidden",
+          "md:grid",
+          
+          
+          // "bg-red-200!",
+          
+          
           "",
           "",
         )}
@@ -155,6 +184,10 @@ export default function GlassParentCardCard({
             "right-[40%]",
             "",
             "",
+
+        //> NEW CHANGES
+        "hidden",
+        "md:block",
           )}
         />
       </Card>

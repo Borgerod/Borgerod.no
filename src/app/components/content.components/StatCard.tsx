@@ -23,6 +23,7 @@ function StatContent({ stats }: { stats: Stats }) {
           "grid",
           "grid-rows-auto",
           "grid-cols-2",
+
           "",
           "",
         )}
@@ -188,6 +189,7 @@ export default function StatCard({ className }: ComponentBaseProps) {
   }, []);
   return (
     <Card
+    id="stats-card"
       className={cn(
         /* * style */
         "bg-transparent",
@@ -210,9 +212,18 @@ export default function StatCard({ className }: ComponentBaseProps) {
         "grid-rows-1",
         "grid-cols-2",
         "grid-cols-[2fr_1fr]",
-        "h-45",
-        "w-full",
+        // "h-45",
+        // "w-full",
 
+
+        //> NEW CHANGES 
+        // "w-full",
+        "md:h-45",
+
+        "",
+        "",
+        "",
+        "",
         className,
       )}
     >
@@ -280,6 +291,7 @@ export default function StatCard({ className }: ComponentBaseProps) {
           "row-start-1",
           "row-span-full",
           "grid",
+          "h-full",
           "",
         )}
       >

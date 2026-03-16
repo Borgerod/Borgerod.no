@@ -44,6 +44,7 @@ export default function Home() {
         // "h-175", //! dont delete
         // "h-165", //! dont delete
         "gap-5",
+        // "gap-10",
 
         /* * grid * */
         "grid",
@@ -58,6 +59,26 @@ export default function Home() {
 
         id="left-side-container | mobile:top-side-container"
         className={cn(
+          // /* * grid placement * */
+          // "md:grid",
+          // "flex flex-col",
+          // "col-span-3",
+
+          // /* * grid * */
+          // "grid",
+          // "grid-cols-2",
+          // "grid-cols-[3fr_4fr]",
+          // "grid-cols-[3fr_5fr]",
+          // "lg:grid-cols-[2fr_3fr]",
+          // "xl:grid-cols-[2fr_3fr]",
+          // "gap-x-5",
+          // "grid-rows-3",
+          // "grid-rows-[auto_1fr_auto]",
+
+          //> NEW CHANGES
+          "unset-glass",
+          "unset-card",
+          
           /* * grid placement * */
           "md:grid",
           "flex flex-col",
@@ -73,6 +94,14 @@ export default function Home() {
           "gap-x-5",
           "grid-rows-3",
           "grid-rows-[auto_1fr_auto]",
+
+          //> NEW CHANGES
+          "grid-rows-[auto_auto_auto]",
+          "sm:grid-cols-[3fr_5fr]",
+          "sm:grid-rows-3",
+          // "grid-rows-3",
+
+
           "",
         )}
       >
@@ -83,6 +112,15 @@ export default function Home() {
             "col-span-1",
             "row-start-",
             "row-span-full",
+            //> NEW CHANGES
+            // "md:col-span-full",
+            // "md:row-span-",
+            // "md:col-span-",
+            "col-span-full",
+            // "md:col-span-1",
+            "md:col-start-1",
+            "md:col-span-1",
+            "md:row-span-full",
             "",
             "",
           )}
@@ -107,6 +145,13 @@ export default function Home() {
             "col-span-1",
             "row-start-3",
             "row-span-1",
+            //> NEW CHANGES
+            "row-start-4",
+            "md:row-start-3",
+            "col-start-1",
+            "md:col-start-2",
+            "col-span-full",
+            "md:col-span-1",
             "",
             "",
           )}
@@ -130,8 +175,10 @@ export default function Home() {
           "grid-cols-[auto_1fr]",
           "md:grid-rows-3",
           "grid-rows-[auto_auto_auto_auto]",
+          // "grid-rows-[auto]",
           "gap-5",
-          "-translate-x-5", //> These fixes the bug
+          "h-full!",
+          // "-translate-x-5", //> These fixes the bug
           /*
           NOTE:
               I think its because visually right-side-container look like its in the left side of GlassParentCard, but they start off as stacked on top of eachother, then assigned to possitions. 

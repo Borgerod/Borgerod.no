@@ -199,23 +199,51 @@ main {
   position: relative;
   z-index: 1;
 }
-
 @utility glass {
   @apply shadow-sm;
+
   @apply backdrop-blur-xl;
+  @apply backdrop-saturate-150;
+
+  /* fully restore border */
   @apply border;
+  /* @apply border-solid; */
+  /* @apply border-border; */
   @apply border-t;
   @apply border-l;
-  @apply bg-transparent;
-  @apply backdrop-saturate-150;
+
+  /* fully restore outline */
+  @apply outline;
+  @apply outline-solid;
   @apply outline-1;
+  @apply outline-outline;
   @apply -outline-offset-1;
-  border-color: color-mix(in oklab, var(--color-border) 20%, transparent);
-  border-top-color: color-mix(in oklab, var(--color-border) 40%, transparent);
-  border-left-color: color-mix(in oklab, var(--color-border) 40%, transparent);
-  outline-color: color-mix(in oklab, var(--color-outline) 20%, transparent);
+
+  @apply bg-transparent;
+  
 }
 
+@utility unset-glass {
+  @apply shadow-none;
+  @apply backdrop-filter-none;
+  @apply border-none;
+  @apply outline-none;
+  @apply outline-offset-0;
+
+  @apply bg-transparent;
+}
+@utility unset-glass {
+  @apply shadow-none;
+
+  @apply backdrop-filter-none;
+
+  @apply border-none;
+
+  @apply outline-none;
+  @apply outline-offset-0;
+
+  @apply bg-transparent;
+}
 @utility glass-white {
   @apply bg-glass-white;
 }
@@ -281,17 +309,7 @@ main {
   @apply p-5;
 }
 
-@utility unset-glass {
-  @apply border-none;
-  @apply border-transparent;
-  @apply bg-transparent;
-  @apply outline-none;
-  @apply outline-transparent;
-  @apply outline-offset-0;
-  @apply backdrop-filter-none;
-  @apply shadow-none;
-  @apply shadow-transparent;
-}
+
 @utility glass-green {
   @apply bg-glass-green-base;
 }

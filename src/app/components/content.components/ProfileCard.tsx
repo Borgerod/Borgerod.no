@@ -24,10 +24,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
     <Card
       id="profile-card"
       className={cn(
-        "-left-10",
-        "w-full",
-        "w-[calc(100%+3rem)]",
-
         "flex",
         "flex-col",
         "justify-between",
@@ -35,13 +31,50 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         "gap-1",
         "2xl:gap-2",
         "gap-5",
-        "glass",
-        "glass-upper",
         "",
         "",
+        //> NEW CHANGES
+        // "glass",
+        // "glass-upper",
+        // "w-[calc(100%+3rem)]",
+        // "-left-10",
+        "left-0",
+        "w-full",
+        "unset-glass",
+        "unset-card",
+        "grid",
+        "grid-cols-subgrid",
+        "grid-rows-[auto_auto]",
+        "justify-start",
+        "items-start",
+        "content-start",
+        "grid-rows-[auto_auto_auto]",
+        "h-fit",
+        
+        
+        "md:w-[calc(100%+3rem)]",
+        "md:-left-10",
+        "md:card",
+        "md:flex",
+        "md:flex-col",
+        "md:h-full",
+        "md:glass",
+        "md:glass-upper",
+        "md:glass-white",
+
+
+        // "bg-glass-offwhite!",
+        // "bg-glass-white-muted!",
+        // "grid-rows-[auto_auto]",
+        // "grid-rows-3",
         className,
+
+
+        // "hidden!",
       )}
     >
+
+
       <Card.Header
         id="profile-image-row"
         className={cn(
@@ -130,6 +163,21 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "text-xs",
           "h-fit",
           "justify-self-start",
+
+          //> NEW CHANGES
+          "md:col-span-",
+          "md:row-span-2",
+          "col-span-full",
+          "row-span-full",
+          
+          // "col-span-1",
+          // "col-start-2",
+          // "row-start-2",
+          // "w-full",
+          "",
+          "",
+          "",
+          "",
         )}
       >
        
@@ -163,19 +211,28 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         className={cn(
           "flex",
           "gap-2",
-          "h-full",
-          "h-10",
-          "h-fit",
+          // "h-full",
+          // "h-10",
+          // "h-fit",
           "overflow-visible",
-          "col-start-",
-          "col-span-",
-          "row-start-3",
-          "row-span-1",
+          // "col-start-",
+          // "col-span-",
+          // "row-start-3",
+          // "row-span-1",
           "xl:w-full",
           "w-full",
           "justify-end",
           "xl:justify-between",
-          "mt-auto",
+          //> NEW CHANGES
+          // "mt-auto",
+          "col-span-full",
+          "h-fit", 
+          // "row-span-full",
+          "row-start-",
+          "md:col-span-",
+          // "row-span-1",
+          // "h-fit",
+          // "h-full",
         )}
       >
         <Button
