@@ -105,7 +105,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           "sm:grid-cols-4",
           "md:grid-cols-3",
           "lg:grid-cols-4",
-          "bg-glass-gray/10",
+          "bg-glass-gray/10", //todo remove custom color
           "shadow shadow-1",
           "",
         )}
