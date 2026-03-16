@@ -24,11 +24,10 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
     <Card
       id="profile-card"
       className={cn(
-        "glass",
-        "glass-upper",
         "-left-10",
-        "w-[calc(100%+2.5rem)]",
+        "w-full",
         "w-[calc(100%+3rem)]",
+
         "flex",
         "flex-col",
         "justify-between",
@@ -36,6 +35,8 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         "gap-1",
         "2xl:gap-2",
         "gap-5",
+        "glass",
+        "glass-upper",
         "",
         "",
         className,
@@ -131,14 +132,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "justify-self-start",
         )}
       >
-        {/* <h1 className="text-md md:text-[14px] lg:text-lg">
-            ALEKSANDER BORGERØD
-          </h1>
-          <h2 className="text-xs  font-light text-green-dark">
-            Full-Stack Developer | Business Admin.
-          </h2> */}
-
-        {/* <br /> */}
+       
         <p className="font-light">
           With a broad knowledge within
           <span className="font-medium text-green-dark"> development</span> and

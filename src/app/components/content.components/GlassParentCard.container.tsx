@@ -1,8 +1,11 @@
+"use client";
 import { ComponentBaseProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Card } from "@heroui/react";
+import { Avatar, Button, Card } from "@heroui/react";
 import { ReactNode } from "react";
 import StylizedCircle from "../design.components/StylizedCircle";
+import CallMeButton from "./CallMeButton";
+import { useRouter } from "next/navigation";
 
 interface GlassParentCardProps extends ComponentBaseProps {
   children: ReactNode;
@@ -15,6 +18,12 @@ export default function GlassParentCardCard({
   id,
   ...props
 }: GlassParentCardProps) {
+  const circleDiameter = 60;
+  const circleRadius = Math.round(circleDiameter / 2);
+  const rectangleHeight = Math.round((circleDiameter * 2) / 3);
+  const rectangleWidth = Math.round((((circleDiameter * 16) / 9) * 2) / 3);
+  const router = useRouter();
+
   /*  
     This is a special parent-container that has a overlay on top of it. 
     The overlay is a an ideltical sized card that sits on top of parent, 
@@ -44,6 +53,33 @@ export default function GlassParentCardCard({
       {...props}
     >
       <Card
+        /*
+        SOLUTION TO BUG-[1.1]
+        created an empty copy of ProfilePage on undeaneath GlassParentCard
+
+        */
+        id="profile-card visual-underlay"
+        className={cn(
+          "hidden",
+          "md:flex",
+          "-left-10",
+          "col-start-1",
+          "col-span-1",
+          "row-span-full",
+          "z-1",
+          "w-[calc(50%-1rem)]",
+          "glass",
+          "bg-transparent",
+          "border-none",
+          "shadow-none",
+          "-z-10",
+          "",
+          "",
+          className,
+        )}
+      />
+
+      <Card
         id="left-side container visual-overlay"
         /*  
           This is a visual overlay, that will overlap parent.
@@ -60,11 +96,20 @@ export default function GlassParentCardCard({
           "row-start-1",
           "row-span-full",
 
-          /* * grid  * */
+          /* * grid * */
           "grid",
           "grid-cols-subgrid",
           "grid-rows-subgrid",
           "gap-y-0",
+          "",
+          "",
+          // TEST
+          "border-0",
+          "border-transparent",
+          "border-none",
+          "shadow-none",
+          // "bg-transparent",
+          // "hidden",
           "",
           "",
         )}
