@@ -110,10 +110,15 @@ export const metadata: Metadata = {
     follow: true,
     nocache: false,
   },
-  themeColor: "#596255",
   alternates: {
     canonical: "https://borgerod-github-io.vercel.app",
   },
+};
+
+export const viewport = {
+  themeColor: "#596255",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
