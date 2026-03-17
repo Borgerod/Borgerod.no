@@ -219,6 +219,7 @@ export default function StatCard({ className }: ComponentBaseProps) {
           "w-full",
           "h-full",
           "min-h-0",
+          "min-h-45",
 
           /* * grid */
           "grid",
