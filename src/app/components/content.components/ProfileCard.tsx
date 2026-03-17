@@ -40,18 +40,27 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         // "-left-10",
         "left-0",
         "w-full",
+        //> swapping out unset-glass for manual approach
         "unset-glass",
+        // // "shadow-none",
+        // // "backdrop-filter-none",
+        // // "border-none",
+        // // "outline-none",
+        // // "outline-offset-0",
+        // "bg-transparent",
+        // "shadow-none",
+        //>
+
         "unset-card",
         "grid",
         "grid-cols-subgrid",
         "grid-rows-[auto_auto]",
+        "grid-rows-[auto_auto_auto]",
         "justify-start",
         "items-start",
         "content-start",
-        "grid-rows-[auto_auto_auto]",
         "h-fit",
-        
-        
+
         "md:w-[calc(100%+3rem)]",
         "md:-left-10",
         "md:card",
@@ -60,21 +69,26 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         "md:h-full",
         "md:glass",
         "md:glass-upper",
-        "md:glass-white",
-
+        //> swapping out glass-white for manual approach
+        // "md:glass-white",
+        // "md:bg-glass-white/70",
+        //>
 
         // "bg-glass-offwhite!",
         // "bg-glass-white-muted!",
         // "grid-rows-[auto_auto]",
         // "grid-rows-3",
-        className,
 
+        // TEST
+        "grid",
+        "grid-cols-subgrid",
+        "grid-rows-subgrid",
+        // "grid-rows-[auto_auto_auto]",
+        className,
 
         // "hidden!",
       )}
     >
-
-
       <Card.Header
         id="profile-image-row"
         className={cn(
@@ -88,6 +102,22 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "min-h-fit",
           "max-h-50",
           "gap-4",
+
+          // TEST
+
+          "col-start-1",
+          "col-span-2",
+          "row-start-",
+          "row-span-",
+
+          "sm:col-start-1",
+          "sm:col-span-1",
+          "sm:row-start-",
+          "sm:row-span-",
+
+          "text-center",
+          "sm:text-start",
+
           "",
         )}
       >
@@ -142,7 +172,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           </svg>
         </Avatar>
         {/* <Card.Description className="self-start"> */}
-        <div id="header-content header-text-wrapper" className="self-start ">
+        <div id="header-content header-text-wrapper" className="">
           <Card.Title className="self-start font-normal text-md md:text-[14px] lg:text-lg">
             ALEKSANDER BORGERØD
           </Card.Title>
@@ -169,18 +199,19 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "md:row-span-2",
           "col-span-full",
           "row-span-full",
-          
+
           // "col-span-1",
           // "col-start-2",
           // "row-start-2",
           // "w-full",
-          "",
+          //TEST
+          "row-start-2",
+          "row-span-1",
           "",
           "",
           "",
         )}
       >
-       
         <p className="font-light">
           With a broad knowledge within
           <span className="font-medium text-green-dark"> development</span> and
@@ -226,13 +257,20 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           //> NEW CHANGES
           // "mt-auto",
           "col-span-full",
-          "h-fit", 
+          "h-fit",
           // "row-span-full",
           "row-start-",
           "md:col-span-",
           // "row-span-1",
           // "h-fit",
           // "h-full",
+
+          // TEST
+
+          "row-start-3",
+          "",
+          "",
+          "",
         )}
       >
         <Button

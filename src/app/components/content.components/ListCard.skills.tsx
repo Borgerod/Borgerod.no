@@ -1,5 +1,5 @@
 import { ComponentBaseProps, TagItem } from "@/lib/types";
-import { cn } from "@heroui/react";
+import { cn, Separator } from "@heroui/react";
 import { Card, Chip } from "@heroui/react";
 import hardSkills from "@data/skills.hard.json";
 import softSkills from "@data/skills.soft.json";
@@ -9,11 +9,23 @@ export default function SkillCard({ className }: ComponentBaseProps) {
   return (
     <Card
       id="skills"
-      className={cn("glass", "glass-white", "w-full", className, "", "")}
+      className={cn(
+        // "glass",
+        // "glass-white",
+        "bg-transparent",
+        "shadow-none",
+        "sm:glass",
+        "sm:glass-white",
+        "px-0",
+        "sm:px-5",
+        className,
+        "",
+        "",
+      )}
     >
       <Tabs className="w-full gap-0 h-full">
         <Card.Header className="text-glass-black">
-          <Card.Title className="text-glass-black self-center text-[16px] font-normal">
+          <Card.Title className="text-start sm:text-center text-glass-black  text-[16px] font-normal">
             Skills
           </Card.Title>
           <Tabs.ListContainer

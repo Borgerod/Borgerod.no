@@ -1,18 +1,20 @@
 "use client";
-import { cn } from "@heroui/react";
+import { cn, Separator } from "@heroui/react";
 import { Card } from "@heroui/react";
 import { ComponentBaseProps, GitHubStats, LeetCodeStats } from "@/lib/types";
 import StylizedCircle from "../design.components/StylizedCircle";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+// todo: switch to type + move to types
 interface Stats {
   github: GitHubStats | null;
   leetCode: LeetCodeStats | null;
   loading: boolean;
 }
-
+// TODO issue: statscard seems to be tripple wrapped in grid, which is prob why its so hard to adjust it
 function StatContent({ stats }: { stats: Stats }) {
+  //? this is wierd, why do i have two of these basicly? am i overlooking something?
   if (stats.loading) {
     return (
       <div
@@ -72,19 +74,21 @@ function StatContent({ stats }: { stats: Stats }) {
   }
 
   return (
-    <div
-      className={cn(
-        "w-full",
-        "gap-x-1",
-        "gap-y-3",
-        "grid",
-        "grid-rows-auto",
-        "grid-cols-2",
-        "grid-rows-auto",
-        "",
-        "",
-      )}
-    >
+    // <div
+    //   className={cn(
+    //     "w-full",
+    //     "h-full", //works on md, not mobile
+    //     "gap-x-1",
+    //     "gap-y-3",
+    //     "grid",
+    //     "grid-rows-auto",
+    //     "grid-cols-2",
+    //     "grid-rows-auto",
+    //     "",
+    //     "",
+    //   )}
+    // >
+    <>
       <h3
         className={cn(
           "text-xs",
@@ -97,7 +101,7 @@ function StatContent({ stats }: { stats: Stats }) {
       </h3>
 
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
-        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
+        <span className="text-xl font-light text-primary! sm:leading-none leading-none text-nowrap self-baseline ">
           {stats.github.totalContributions}
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
@@ -105,7 +109,7 @@ function StatContent({ stats }: { stats: Stats }) {
         </span>
       </div>
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
-        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
+        <span className="text-xl font-light text-primary! sm:leading-none leading-none text-nowrap self-baseline ">
           {stats.github.totalRepos}
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
@@ -114,7 +118,7 @@ function StatContent({ stats }: { stats: Stats }) {
       </div>
 
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
-        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
+        <span className="text-xl font-light text-primary! sm:leading-none leading-none text-nowrap self-baseline ">
           {stats.github.yearsExp}+
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
@@ -122,7 +126,7 @@ function StatContent({ stats }: { stats: Stats }) {
         </span>
       </div>
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
-        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
+        <span className="text-xl font-light text-primary! sm:leading-none leading-none text-nowrap self-baseline ">
           {stats.github.yearsExpProf}+
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
@@ -130,7 +134,7 @@ function StatContent({ stats }: { stats: Stats }) {
         </span>
       </div>
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
-        <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline ">
+        <span className="text-xl font-light text-primary! sm:leading-none leading-none text-nowrap self-baseline ">
           {stats.leetCode.allSubmissions}
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
@@ -139,17 +143,21 @@ function StatContent({ stats }: { stats: Stats }) {
       </div>
 
       <div className="grid grid-cols-subgrid gap-0 h-fit ">
-        <span className="text-xs   leading-none sm:leading-2.5 text-nowrap self-baseline">
+        <span className="text-xs items-baseline leading-none sm:leading-2.5 text-nowrap self-baseline">
           Beats{" "}
-          <span className="text-xl font-light text-primary sm:leading-none leading-none text-nowrap self-baseline">
-            {stats.leetCode.beatsPercentage}%
+          <span className="text-xl text-wrapfont-light text-primary! sm:leading-none leading-none text-nowrap self-baseline">
+            {/* dont like this but oh well */}
+            {window.innerWidth < 430
+              ? Math.round(stats.leetCode.beatsPercentage)
+              : stats.leetCode.beatsPercentage}
+            %
           </span>
         </span>
         <span className="text-xs leading-none sm:leading-2.5 ">
           of other participants
         </span>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -188,115 +196,197 @@ export default function StatCard({ className }: ComponentBaseProps) {
     fetchStats();
   }, []);
   return (
-    <Card
-    id="stats-card"
-      className={cn(
-        /* * style */
-        "bg-transparent",
-        "text-secondary",
-        "font-light",
-        "p-0",
-        "pt-2",
-        "shadow-none",
-        "rounded-none",
-        "font-light",
-        "overflow-clip",
-        "h-fit",
-        "w-full",
-        "h-full",
-        "min-h-0",
-
-        /* * grid */
-        "grid",
-        "grid-rows-auto",
-        "grid-rows-1",
-        "grid-cols-2",
-        "grid-cols-[2fr_1fr]",
-        // "h-45",
-        // "w-full",
-
-
-        //> NEW CHANGES 
-        // "w-full",
-        "md:h-45",
-
-        "",
-        "",
-        "",
-        "",
-        className,
-      )}
-    >
-      <StylizedCircle
-        className={cn(
-          /* * placement */
-          "blur-xs",
-          "aspect-square",
-          "rounded-full",
-          "bg-linear-to-br",
-          "",
-          "opacity-90",
-
-          /* * size */
-          "h-4/5",
-          "h-2/3",
-          "h-3/5",
-          "w-fit",
-
-          /* * placement */
-          "col-start-2",
-          "row-start-1",
-          "justify-self-start",
-          "self-start",
-          "translate-x-1/5",
-          "",
-          "",
-        )}
+    <>
+      <Separator
+        variant="secondary"
+        // className="mt-10 col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
+        className="col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
       />
 
-      <Image
-        src="/assets/images/ab_logo_demo.png"
-        width={500}
-        height={500}
-        alt="Picture of the author"
+      <Card
+        id="stats-card"
         className={cn(
           /* * style */
-          "aspect-square",
-          "bg-linear-to-br",
-          "opacity-90",
-
-          /* * size */
-          "h-2/6",
-          "w-fit",
-
-          /* * placement */
-          "col-start-2",
-          "row-start-1",
-
-          "justify-self-center",
-          "self-start",
-          "-translate-y-1/8",
-          "",
-          "",
-        )}
-      />
-
-      <div
-        className={cn(
-          "w-full h-full p-0 m-0",
-          "col-start-1",
-          "row-start-1",
-          "col-start-1",
-          "col-span-full",
-          "row-start-1",
-          "row-span-full",
-          "grid",
+          "bg-transparent",
+          "text-secondary",
+          "font-light",
+          "p-0",
+          "pt-2",
+          "shadow-none",
+          "rounded-none",
+          "font-light",
+          "overflow-clip",
+          "h-fit",
+          "w-full",
           "h-full",
+          "min-h-0",
+
+          /* * grid */
+          "grid",
+          "grid-rows-auto",
+          "grid-rows-1",
+          "grid-cols-2",
+          "grid-cols-[2fr_1fr]",
+          // "h-45",
+          // "w-full",
+
+          //> NEW CHANGES
+          // "w-full",
+          // "md:h-45",
+          // "h-50!",
+          "h-full!", //works on md, not mobile
+
+          "bg-cover",
+          "rounded-2xl",
           "",
+          "",
+          "text-primary",
+          "sm:text-secondary",
+          className,
         )}
       >
-        <StatContent stats={stats} />
-      </div>
-    </Card>
+        <StylizedCircle
+          className={cn(
+            /* * placement */
+            "blur-xs",
+            "aspect-square",
+            "rounded-full",
+            "bg-linear-to-br",
+            "",
+            "opacity-90",
+
+            /* * size */
+            "h-4/5",
+            "h-2/3",
+            "h-3/5",
+            "w-fit",
+
+            /* * placement */
+            "col-start-2",
+            "row-start-1",
+            // "justify-self-start",
+            "justify-self-end",
+            "self-start",
+            // "translate-x-1/5",
+            // "translate-x-2/5",
+
+            "absolute",
+            // "-left-10",
+            // "left-0",
+            // "md:left-10",
+
+            // TEST - set min sizes for mobile mode
+
+            // "max-h-13",
+            // "sm:max-h-20",
+            // "md:max-h-none",
+
+            // "left-0",
+            // "left-8",
+            // "left-3/5",
+            "right-0",
+            // "sm:right-none",
+            "-right-5",
+            "sm:-right-5",
+            "md:-right-5",
+            "-top-2",
+            // "sm:left-10",
+            // "md:left-10",
+
+            "max-h-20",
+            // "max-h-none",
+            "sm:max-h-18",
+            "lg:max-h-none",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+          )}
+        />
+
+        <Image
+          src="/assets/images/ab_logo_demo.png"
+          width={500}
+          height={500}
+          alt="Picture of the author"
+          className={cn(
+            /* * style */
+            "aspect-square",
+            "bg-linear-to-br",
+            "opacity-90",
+
+            /* * size */
+            "h-full",
+            "sm:h-full",
+            "max-h-10",
+            "max-w-10",
+            "sm:max-h-15",
+            "sm:max-w-15",
+
+            /* * placement */
+            "col-start-2",
+            "row-start-1",
+
+            "justify-self-center",
+            "self-start",
+            // TEST
+
+            "sm:h-full",
+            "max-h-15",
+            "max-w-15",
+            // "sm:max-h-10",
+            // "sm:max-w-10",
+            "md:max-h-15",
+            "md:max-w-15",
+
+            "absolute",
+            "right-0",
+            // "sm:right-none",
+            // "-right-5",
+            "right-2",
+            "sm:right-5",
+            "-top-2",
+            // "sm:-right-5",
+            // "md:-right-5",
+            // "-translate-y-1/8",
+            "",
+            "",
+          )}
+        />
+
+        <div
+          className={cn(
+            // "w-full h-full p-0 m-0",
+            // "col-start-1",
+            // "row-start-1",
+            // "col-start-1",
+            // "col-span-full",
+            // "row-start-1",
+            // "row-span-full",
+            // "grid",
+            // "h-full",
+            "",
+
+            //> NEW
+            "w-full",
+            "h-full", //works on md, not mobile
+            "gap-x-1",
+            "gap-y-3",
+            "grid",
+            "grid-rows-auto",
+            "grid-cols-2",
+            "grid-rows-auto",
+            "row-span-full",
+            "col-span-full",
+            "",
+            "",
+          )}
+        >
+          <StatContent stats={stats} />
+        </div>
+      </Card>
+    </>
   );
 }

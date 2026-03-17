@@ -1,11 +1,10 @@
 "use client";
 import { ComponentBaseProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Avatar, Button, Card } from "@heroui/react";
+import { Card } from "@heroui/react";
 import { ReactNode } from "react";
 import StylizedCircle from "../design.components/StylizedCircle";
-import CallMeButton from "./CallMeButton";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 interface GlassParentCardProps extends ComponentBaseProps {
   children: ReactNode;
@@ -18,11 +17,11 @@ export default function GlassParentCardCard({
   id,
   ...props
 }: GlassParentCardProps) {
-  const circleDiameter = 60;
-  const circleRadius = Math.round(circleDiameter / 2);
-  const rectangleHeight = Math.round((circleDiameter * 2) / 3);
-  const rectangleWidth = Math.round((((circleDiameter * 16) / 9) * 2) / 3);
-  const router = useRouter();
+  // const circleDiameter = 60;
+  // const circleRadius = Math.round(circleDiameter / 2);
+  // const rectangleHeight = Math.round((circleDiameter * 2) / 3);
+  // const rectangleWidth = Math.round((((circleDiameter * 16) / 9) * 2) / 3);
+  // const router = useRouter();
 
   /*  
     This is a special parent-container that has a overlay on top of it. 
@@ -49,10 +48,10 @@ export default function GlassParentCardCard({
         //  "-left-5",
         className,
 
-
         // "h-full!",
         // "max-h-full",
         "py-5",
+        // "w-140",
         "",
         "",
       )}
@@ -66,7 +65,6 @@ export default function GlassParentCardCard({
         */
         id="profile-card visual-underlay"
         className={cn(
-          "hidden",
           "md:flex",
           "-left-10",
           "col-start-1",
@@ -74,17 +72,19 @@ export default function GlassParentCardCard({
           "row-span-full",
           "z-1",
           "w-[calc(50%-1rem)]",
-          "bg-transparent",
           "border-none",
           "shadow-none",
           "-z-10",
           "bg-cover",
-          "md:glass",
-          "card!",
+          // "card!",
+          "hidden!",
+          "md:flex!",
           // "md:glass-white",
-          "md:glass-upper",
-
-          
+          "bg-transparent",
+          "md:glass",
+          // "md:glass-upper",
+          "md:w-[calc(50%-2rem)]",
+          // "md:hidden!",
 
           // "bg-amber-200!",
           "",
@@ -118,32 +118,31 @@ export default function GlassParentCardCard({
           "",
           "",
           // TEST
-          "border-0",
-          "border-transparent",
-          "border-none",
-          "shadow-none",
+          // "border-0",
+          // "border-transparent",
+          // "border-none",
+          // "shadow-none",
           // "bg-transparent",
           // "hidden",
 
-          
           //> NEW CHANGES
-          "unset-glass",
-          "unset-card",
+          // "unset-glass",
+          // "unset-card",
+
           "md:glass",
           "md:glass-white",
           "md:card",
           "hidden",
+          // "hidden!",
           "md:grid",
-          
-          
+
           // "bg-red-200!",
-          
-          
+
           "",
           "",
         )}
       >
-        <div
+        {/* <div
           id="invisible-spacers"
           className={cn(
             "col-start-2",
@@ -170,7 +169,7 @@ export default function GlassParentCardCard({
             "",
             "",
           )}
-        ></div>
+        ></div> */}
         <StylizedCircle
           className={cn(
             /* * grid placement * */
@@ -185,9 +184,11 @@ export default function GlassParentCardCard({
             "",
             "",
 
-        //> NEW CHANGES
-        "hidden",
-        "md:block",
+            //> NEW CHANGES
+            "hidden",
+            // "md:block",
+            "md:grid",
+            "md:absolute",
           )}
         />
       </Card>
