@@ -13,8 +13,6 @@ export default function Home() {
     <main
       id="main container grid"
       className={cn(
-        "",
-        "",
         "w-full",
         // "px-10",
         // "pr-5",
@@ -25,8 +23,8 @@ export default function Home() {
         // "pl-10",
         "py-10",
         // "xs:px-20",
-        // "sm:px-30",
-        // "sm:px-20",
+        "sm:px-30",
+        "sm:px-20",
         "md:px-5",
         // "lg:px-20",
         // "md:px-10",
@@ -214,7 +212,8 @@ export default function Home() {
           // "col-span-1",
           // "col-span-full!",
           "col-span-3!",
-          "sm:col-span-2!",
+          "sm:col-span-3!",
+          "md:col-span-2!",
           "min-h-100",
           "h-full",
           "w-full",
