@@ -1,6 +1,6 @@
 import workHistory from "@/data/work_history.json";
 import LayoutBuilder from "./LayoutBuilder";
-import ImageGallery from "./imageGallery";
+import ImageGallery from "../../../components/content.components/imageGallery";
 import Link from "next/link";
 import Image from "next/image";
 import AchievementsCard from "./AchievementsCard";

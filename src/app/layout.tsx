@@ -74,18 +74,6 @@ export const metadata: Metadata = {
     siteName: "Aleksander Borgerød Portfolio",
     images: [
       {
-        url: "https://borgerod-github-io.vercel.app/assets/images/ab_logo_demo.png",
-        width: 427,
-        height: 387,
-        alt: "Aleksander Borgerød Logo",
-      },
-      {
-        url: "https://borgerod-github-io.vercel.app/assets/images/site-preview-1.png",
-        width: 1662,
-        height: 877,
-        alt: "Aleksander Borgerød Preview-full",
-      },
-      {
         url: "https://borgerod-github-io.vercel.app/assets/images/site-preview-2.png",
         width: 781,
         height: 402,
