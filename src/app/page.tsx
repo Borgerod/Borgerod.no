@@ -14,43 +14,20 @@ export default function Home() {
       id="main container grid"
       className={cn(
         "w-full",
-        // "px-10",
-        // "pr-5",
-        // "px-0",
-        // "pl-5",
-        // "pt-5",
-        // "pr-5",
-        // "pl-10",
         "py-10",
-        // "xs:px-20",
+        "px-5",
         "sm:px-30",
         "sm:px-20",
         "md:px-5",
-        // "lg:px-20",
-        // "md:px-10",
-        "h-fit", //! dont delete
+        "md:py-0",
+        "h-fit",
         "md:h-165",
         "md:h-175",
-        "lg:p-0", //!
-        // "md:py-0", //!
-        "lg:px-5", //!
         "xl:max-w-4xl",
         "lg:max-w-4xl",
         "lg:max-w-5xl",
         "xl:max-w-5xl",
-        // "h-150", //! dont delete
-        // "h-175", //! dont delete
-        // "h-165", //! dont delete
         "gap-5",
-        // "gap-10",
-
-        /* * grid * */
-        "grid",
-        "md:grid-cols-5",
-        "grid-cols-1",
-        "",
-        "",
-        // TEST
         "md:unset-glass",
         // manual extention to unset glass (idk why)
         "md:border-none",
@@ -62,7 +39,11 @@ export default function Home() {
         "backdrop-blur-xl",
         "glass-upper",
 
-        "px-5",
+        /* * grid * */
+        "grid",
+        "md:grid-cols-5",
+        "grid-cols-1",
+
         "",
         "",
         "",
@@ -73,32 +54,7 @@ export default function Home() {
 
         id="left-side-container | mobile:top-side-container"
         className={cn(
-          // /* * grid placement * */
-          // "md:grid",
-          // "flex flex-col",
-          // "col-span-3",
-
-          // /* * grid * */
-          // "grid",
-          // "grid-cols-2",
-          // "grid-cols-[3fr_4fr]",
-          // "grid-cols-[3fr_5fr]",
-          // "lg:grid-cols-[2fr_3fr]",
-          // "xl:grid-cols-[2fr_3fr]",
-          // "gap-x-5",
-          // "grid-rows-3",
-          // "grid-rows-[auto_1fr_auto]",
-
-          //> NEW CHANGES
-          //> swapping out unset-glass for manual approach
           "unset-glass",
-          // "shadow-none",
-          // "backdrop-filter-none",
-          // "border-none",
-          // "outline-none",
-          // "outline-offset-0",
-          // "bg-transparent",
-          //>
           "unset-card",
 
           /* * grid placement * */
@@ -108,32 +64,21 @@ export default function Home() {
 
           /* * grid * */
           "grid",
-          // "grid-cols-2",
-          // "grid-cols-[3fr_4fr]",
-          // "grid-cols-[3fr_5fr]",
           "grid-cols-subgrid",
-          // "grid-cols-1",
           "lg:grid-cols-[2fr_3fr]",
           "xl:grid-cols-[2fr_3fr]",
           "gap-x-5",
-          "grid-rows-3",
-          "grid-rows-[auto_1fr_auto]",
 
-          //> NEW CHANGES
           "grid-rows-[auto_auto_auto]",
           "sm:grid-cols-[3fr_5fr]",
           "sm:grid-rows-[auto_1fr_auto]",
 
           "md:pl-10",
           "md:py-4",
-          // "ml-5!",
-          // "sm:grid-rows-3",
-          // "grid-rows-3",
-
           "gap-y-10",
           "sm:gap-y-5",
           "sm:gap-y-10",
-
+          "",
           "",
         )}
       >
@@ -144,12 +89,7 @@ export default function Home() {
             "col-span-1",
             "row-start-",
             "row-span-full",
-            //> NEW CHANGES
-            // "md:col-span-full",
-            // "md:row-span-",
-            // "md:col-span-",
             "col-span-full",
-            // "md:col-span-1",
             "md:col-start-1",
             "md:col-span-1",
             "md:row-span-full",
@@ -161,11 +101,6 @@ export default function Home() {
         <StatCard
           className={cn(
             /* * grid placement * */
-            // "col-start-2",
-            // "col-span-1",
-            // "row-start-1",
-            // "row-span-1",
-            // TEST
             "col-start-1",
             "col-span-full",
             "row-start-",
@@ -181,19 +116,12 @@ export default function Home() {
             "md:row-start-1",
             "md:row-span-1",
             "",
-            // "hidden",
           )}
         />
 
         <WorkHistoryCard
           className={cn(
             /* * grid placement * */
-            // "col-start-2",
-            // "col-span-1",
-            // "row-start-3",
-            // "row-span-1",
-            //> NEW CHANGES
-            // "row-start-4",
             "md:row-start-3",
             "col-start-1",
             "md:col-start-2",
@@ -209,8 +137,6 @@ export default function Home() {
         id="right-side-container |mobile:bottom-side-container"
         className={cn(
           "col-start-2",
-          // "col-span-1",
-          // "col-span-full!",
           "col-span-3!",
           "sm:col-span-3!",
           "md:col-span-2!",
@@ -226,12 +152,8 @@ export default function Home() {
           "grid-cols-subgrid",
           "md:grid-rows-3",
           "grid-rows-[auto_auto_auto_auto]",
-          // "grid-rows-[auto]",
           "gap-5",
           "h-full!",
-
-          // "justify-self-center",
-          // "-translate-x-5", //> These fixes the bug
           /*
             NOTE:
                 I think its because visually right-side-container look like its in the left side of GlassParentCard, but they start off as stacked on top of eachother, then assigned to possitions. 
@@ -349,7 +271,6 @@ export default function Home() {
           />
           <Separator
             variant="secondary"
-            // className="mt-10 col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
             className=" col-span-full row-start-3 w-full bg-glass-gray-dark flex sm:hidden"
           />
           <SkillCard

@@ -199,7 +199,6 @@ export default function StatCard({ className }: ComponentBaseProps) {
     <>
       <Separator
         variant="secondary"
-        // className="mt-10 col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
         className="col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
       />
 
@@ -227,22 +226,13 @@ export default function StatCard({ className }: ComponentBaseProps) {
           "grid-rows-1",
           "grid-cols-2",
           "grid-cols-[2fr_1fr]",
-          // "h-45",
-          // "w-full",
-
-          //> NEW CHANGES
-          // "w-full",
-          // "md:h-45",
-          // "h-50!",
-          "h-full!", //works on md, not mobile
-
           "bg-cover",
           "rounded-2xl",
-          "",
-          "",
           "text-primary",
           "sm:text-secondary",
           className,
+          "",
+          "",
         )}
       >
         <StylizedCircle
@@ -252,55 +242,26 @@ export default function StatCard({ className }: ComponentBaseProps) {
             "aspect-square",
             "rounded-full",
             "bg-linear-to-br",
-            "",
             "opacity-90",
 
             /* * size */
-            "h-4/5",
-            "h-2/3",
             "h-3/5",
             "w-fit",
 
             /* * placement */
             "col-start-2",
             "row-start-1",
-            // "justify-self-start",
             "justify-self-end",
             "self-start",
-            // "translate-x-1/5",
-            // "translate-x-2/5",
-
             "absolute",
-            // "-left-10",
-            // "left-0",
-            // "md:left-10",
-
-            // TEST - set min sizes for mobile mode
-
-            // "max-h-13",
-            // "sm:max-h-20",
-            // "md:max-h-none",
-
-            // "left-0",
-            // "left-8",
-            // "left-3/5",
             "right-0",
-            // "sm:right-none",
             "-right-5",
             "sm:-right-5",
             "md:-right-5",
             "-top-2",
-            // "sm:left-10",
-            // "md:left-10",
-
             "max-h-20",
-            // "max-h-none",
             "sm:max-h-18",
             "lg:max-h-none",
-            "",
-            "",
-            "",
-            "",
             "",
             "",
           )}
@@ -336,21 +297,14 @@ export default function StatCard({ className }: ComponentBaseProps) {
             "sm:h-full",
             "max-h-15",
             "max-w-15",
-            // "sm:max-h-10",
-            // "sm:max-w-10",
             "md:max-h-15",
             "md:max-w-15",
 
             "absolute",
             "right-0",
-            // "sm:right-none",
-            // "-right-5",
             "right-2",
             "sm:right-5",
             "-top-2",
-            // "sm:-right-5",
-            // "md:-right-5",
-            // "-translate-y-1/8",
             "",
             "",
           )}
@@ -358,20 +312,8 @@ export default function StatCard({ className }: ComponentBaseProps) {
 
         <div
           className={cn(
-            // "w-full h-full p-0 m-0",
-            // "col-start-1",
-            // "row-start-1",
-            // "col-start-1",
-            // "col-span-full",
-            // "row-start-1",
-            // "row-span-full",
-            // "grid",
-            // "h-full",
-            "",
-
-            //> NEW
             "w-full",
-            "h-full", //works on md, not mobile
+            "h-full",
             "gap-x-1",
             "gap-y-3",
             "grid",

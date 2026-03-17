@@ -19,25 +19,13 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
     <>
       <Separator
         variant="secondary"
-        // className="mt-10 col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
         className=" col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
       />
 
       <Card
         id="word-history"
         className={cn(
-          "self-end",
-          "bg-green-base/80",
           "h-45",
-          "w-full",
-          "bg-radial",
-          "bg-green-base/20",
-          "bg-radial-[at_30%_10%] from-green-light-2/50 to-green-dark-2/50 to-75%",
-          "bg-glass-green-base",
-          "bg-radial-[at_30%_10%] from-glass-green-light-2 to-glass-green-dark-2 to-75%",
-          "backdrop-saturate-80",
-          "text-accent-foreground!",
-          //> NEW CHANGES
           "unset-glass",
           "unset-card",
           "bg-none",
@@ -65,9 +53,6 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
           "md:card",
           "",
           "",
-          // "text-primary",
-          // "sm:text-secondary",
-
           className,
         )}
         variant="secondary"
@@ -77,15 +62,9 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
             Work Experience
           </Card.Title>
           <Separator
-            // TODO maybe hidde this in mobile
             variant="secondary"
             className="bg-glass-gray-dark md:bg-glass-white-muted hidden sm:flex"
           />
-          {/* <Separator className="pb-0 md:bg-accent-foreground" /> */}
-          {/* <Separator variant="tertiary" className="pb-0 " /> */}
-          {/* <Separator variant="default" className="pb-0 " /> */}
-          {/* <Separator variant="secondary" className="pb-0 " /> */}
-          {/* <Separator className="pb-0 sm:bg-accent-foreground " /> */}
 
           <Card.Description></Card.Description>
         </Card.Header>
@@ -108,7 +87,6 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
               <div
                 id="date-col"
                 className="text-normal md:text-[9px] md:text-accent-foreground/90 text-primary  self-start font-normal md:font-thin text-wrap xl:text-nowrap w-fit sm:mr-2"
-                // className="text-normal sm:text-xs md:text-accent-foreground/90 text-primary text-[9px] self-start font-normal md:font-thin text-wrap xl:text-nowrap w-fit sm:mr-2"
               >
                 <span className="text-nowrap">{job.period.start}</span>
                 <span className="text-nowrap"> -</span>
@@ -121,18 +99,11 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                 className="text-nowrap overflow-hidden contents gap-0  p-0 rounded-none"
               >
                 <Link
-                  className={cn(
-                    "contents",
-                    "sm:pointer-events-none",
-                    "",
-                    "",
-                    "",
-                  )}
+                  className={cn("contents", "sm:pointer-events-none", "", "")}
                   href={`work-experience/job/${job.id}`}
                 >
                   <Card.Header>
                     <Card.Title className="md:text-accent-foreground/90 text-primary font-normal text-xs leading-none sm:text-[13px]">
-                      {/* <Card.Title className="text-accent-foreground/90 font-normal text-xs leading-none sm:text-[13px]"> */}
                       {job.title}
                     </Card.Title>
 
@@ -148,38 +119,19 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                           size="sm"
                           variant="soft"
                           className={cn(
-                            // "font-light  w-fit",
-                            // // "bg-glass-light-gray",
-                            // "bg-glass-light-gray",
-                            // "bg-glass-offwhite",
-                            // // "bg-glass-green-light-2",
-                            // "select-none",
-                            // "font-normal",
-                            // // "text-accent-foreground",
-                            // "text-accent-foreground-muted",
-                            // "text-primary",
-                            // "text-secondary",
-                            // "px-1 py-0 h-4",
-                            // "px-1 py-0 h-5 leading-none ",
-                            // "text-[11px]",
-
                             "font-light px-2 py-0 h-4 w-fit",
                             "select-none",
                             "self-center",
                             "",
                             "",
-                            // "font-normal",
                             "font-medium",
                             "md:font-thin",
                             "md:font-thin",
                             "bg-glass-offwhite",
-                            // "sm:bg-glass-offwhite",
                             "md:bg-glass-green-base",
                             "text-secondary",
-                            // "md:text-accent-foreground-muted",
                             "md:text-accent-foreground-muted",
-                            // TEST
-
+                            "",
                             "",
                           )}
                         >
@@ -216,13 +168,10 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                       "items-center",
                       "justify-items-center",
                       "flex",
-                      // "md:hidden",
-                      // "lg:flex",
                       "",
                     )}
                   >
                     <Chip.Label className="flex items-center text-center gap-1 p-0">
-                      {/* <span className="hidden lg:block text-nowrap"> */}
                       <span className="block md:hidden lg:block text-nowrap">
                         Read more
                       </span>

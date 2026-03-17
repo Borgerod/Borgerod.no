@@ -33,7 +33,6 @@ export default async function Job({
         "px-0",
         "pb-40",
         "md:gap-5 md:max-w-4xl",
-        // "md:gap-5 md:max-w-3xl",
         "max-w-full",
         "md:bg-transparent",
         "bg-glass-white",

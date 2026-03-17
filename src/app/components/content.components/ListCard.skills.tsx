@@ -1,5 +1,5 @@
 import { ComponentBaseProps, TagItem } from "@/lib/types";
-import { cn, Separator } from "@heroui/react";
+import { cn } from "@heroui/react";
 import { Card, Chip } from "@heroui/react";
 import hardSkills from "@data/skills.hard.json";
 import softSkills from "@data/skills.soft.json";
@@ -10,8 +10,6 @@ export default function SkillCard({ className }: ComponentBaseProps) {
     <Card
       id="skills"
       className={cn(
-        // "glass",
-        // "glass-white",
         "bg-transparent",
         "shadow-none",
         "sm:glass",

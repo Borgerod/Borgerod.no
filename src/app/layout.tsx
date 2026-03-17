@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
 // TODO: add Links to; github repo and Figma project.
 export const metadata: Metadata = {
   title: "Digital Resume - Aleksander Borgerød",

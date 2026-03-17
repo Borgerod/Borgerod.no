@@ -24,42 +24,14 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
     <Card
       id="profile-card"
       className={cn(
-        "flex",
-        "flex-col",
-        "justify-between",
-        "justify-start",
         "gap-1",
         "2xl:gap-2",
         "gap-5",
-        "",
-        "",
-        //> NEW CHANGES
-        // "glass",
-        // "glass-upper",
-        // "w-[calc(100%+3rem)]",
-        // "-left-10",
+
         "left-0",
         "w-full",
-        //> swapping out unset-glass for manual approach
         "unset-glass",
-        // // "shadow-none",
-        // // "backdrop-filter-none",
-        // // "border-none",
-        // // "outline-none",
-        // // "outline-offset-0",
-        // "bg-transparent",
-        // "shadow-none",
-        //>
-
         "unset-card",
-        "grid",
-        "grid-cols-subgrid",
-        "grid-rows-[auto_auto]",
-        "grid-rows-[auto_auto_auto]",
-        "justify-start",
-        "items-start",
-        "content-start",
-        "h-fit",
 
         "md:w-[calc(100%+3rem)]",
         "md:-left-10",
@@ -69,24 +41,11 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         "md:h-full",
         "md:glass",
         "md:glass-upper",
-        //> swapping out glass-white for manual approach
-        // "md:glass-white",
-        // "md:bg-glass-white/70",
-        //>
 
-        // "bg-glass-offwhite!",
-        // "bg-glass-white-muted!",
-        // "grid-rows-[auto_auto]",
-        // "grid-rows-3",
-
-        // TEST
         "grid",
         "grid-cols-subgrid",
         "grid-rows-subgrid",
-        // "grid-rows-[auto_auto_auto]",
         className,
-
-        // "hidden!",
       )}
     >
       <Card.Header
@@ -102,22 +61,17 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "min-h-fit",
           "max-h-50",
           "gap-4",
-
-          // TEST
-
           "col-start-1",
           "col-span-2",
           "row-start-",
           "row-span-",
-
           "sm:col-start-1",
           "sm:col-span-1",
           "sm:row-start-",
           "sm:row-span-",
-
           "text-center",
           "sm:text-start",
-
+          "",
           "",
         )}
       >
@@ -171,7 +125,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             />
           </svg>
         </Avatar>
-        {/* <Card.Description className="self-start"> */}
         <div id="header-content header-text-wrapper" className="">
           <Card.Title className="self-start font-normal text-md md:text-[14px] lg:text-lg">
             ALEKSANDER BORGERØD
@@ -185,9 +138,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
       <Card.Content
         id="bio-row"
         className={cn(
-          "col-start-",
-          "col-span-",
-          "row-start-2",
           "row-span-1",
           "overflow-hidden",
           "text-xs",
@@ -195,19 +145,12 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "justify-self-start",
 
           //> NEW CHANGES
-          "md:col-span-",
-          "md:row-span-2",
+          "col-start-",
           "col-span-full",
-          "row-span-full",
-
-          // "col-span-1",
-          // "col-start-2",
-          // "row-start-2",
-          // "w-full",
-          //TEST
           "row-start-2",
           "row-span-1",
-          "",
+          "md:col-span-",
+          "md:row-span-2",
           "",
           "",
         )}
@@ -242,33 +185,15 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
         className={cn(
           "flex",
           "gap-2",
-          // "h-full",
-          // "h-10",
-          // "h-fit",
           "overflow-visible",
-          // "col-start-",
-          // "col-span-",
-          // "row-start-3",
-          // "row-span-1",
           "xl:w-full",
           "w-full",
           "justify-end",
           "xl:justify-between",
-          //> NEW CHANGES
-          // "mt-auto",
-          "col-span-full",
           "h-fit",
-          // "row-span-full",
-          "row-start-",
+          "col-span-full",
           "md:col-span-",
-          // "row-span-1",
-          // "h-fit",
-          // "h-full",
-
-          // TEST
-
           "row-start-3",
-          "",
           "",
           "",
         )}
