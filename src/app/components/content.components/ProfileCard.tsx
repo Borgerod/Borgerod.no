@@ -132,7 +132,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
           "justify-self-start",
         )}
       >
-       
         <p className="font-light">
           With a broad knowledge within
           <span className="font-medium text-green-dark"> development</span> and
@@ -144,9 +143,10 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             diligent
           </span>{" "}
           worker that strives for flourishing profit margins,
-          <span className="font-medium text-green-dark"> ambitious </span>
-          to climb your corporate ladder. As an aspiring family man, I seek the
-          stability of a long term employment.
+          {/* <span className="font-medium text-green-dark"> committed </span> */}
+          <span className="font-medium text-green-dark"> eager </span>
+          to make a meaningful impact and grow alongside your team. As an
+          aspiring family man, I seek the stability of a long term employment.
           <br />
           <br />
         </p>
