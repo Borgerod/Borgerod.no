@@ -73,6 +73,7 @@ _all of the todos found in the project files **should** be referenced here_
   - [ ] make the input of data simpler
   - [ ] make more robust stringhandler
 - [ ] update job banners (logo long)
+- [ ] make profile image maker that automatically removed background and crops accordingly. no manual laber.
 
 ## Page Map
 
