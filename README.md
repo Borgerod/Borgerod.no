@@ -36,8 +36,7 @@ Built with Next.js, it features interactive components, structured work history,
   - [Previews](#previews)
   - [Previews](#previews-1)
   - [Usage  - how to install and run project](#usage----how-to-install-and-run-project)
-    - [Getting Started](#getting-started)
-    - [Learn More](#learn-more)
+    - [Installation](#installation)
     - [Deploy on Vercel](#deploy-on-vercel)
 
 ## TODO:
@@ -61,6 +60,8 @@ _all of the todos found in the project files **should** be referenced here_
 - [ ] enable speed insight
 - [ ] inplement SEO/AEO analysis
 - [ ] add tracking of visitors? note: prob would break gdpr but its a private website and I am tracking information of legal entities (employees of a business) and not private individual's personal data, so whatever.
+  - [x] improve installation guide
+  - [ ] make usage guide; (what images the user needs to add, and what data user needs to add and how it needs to be structured. )
 
 ### <span style="font-size:0.8em;">Optional</span>
 
@@ -169,9 +170,30 @@ Image gallery
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-### Getting Started
+yarn dev
 
-First, run the development server:
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Borgerod/Borgerod.github.io.git
+cd Borgerod.github.io
+```
+
+2. Install dependencies (choose one):
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+3. Start the development server (choose one):
 
 ```bash
 npm run dev
@@ -183,22 +205,11 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-### Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Deploy on Vercel
+
+NOTE: this is not a static site and cannot be used as a github.io, you have to host it somewhere else like vercel. to host it on github you need to replace the API data with static data. (will come in a future update)
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
