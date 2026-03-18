@@ -106,9 +106,18 @@ graph TD
 
 #### external
 
+![API-map-external](public/assets/images/api-map.png)
+
 ### Static Datasets
 
-<!-- TODO finish  -->
+```mermaid
+graph TD
+  A[projects.json] -->|references| D[tools.json]
+  A -->|uses| B[skills.hard.json]
+  E[work_history.json] -->|mentions| D
+  E -->|mentions| B
+  E -->|mentions| C[skills.soft.json]
+```
 
 ## Previews
 
