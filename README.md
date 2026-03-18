@@ -30,11 +30,9 @@ Built with Next.js, it features interactive components, structured work history,
     - [Necessary](#necessary)
     - [Optional](#optional)
   - [Page Map](#page-map)
-  - [Data Map](#data-map)
+  - [Data Overview](#data-overview)
     - [API Map](#api-map)
-      - [local](#local)
-      - [external](#external)
-    - [Static Datasets](#static-datasets)
+    - [Data Map](#data-map)
   - [Previews](#previews)
   - [Previews](#previews-1)
   - [Usage  - how to install and run project](#usage----how-to-install-and-run-project)
@@ -98,26 +96,15 @@ graph TD
   D1 --> E1[page.tsx]
 ```
 
-## Data Map
+## Data Overview
 
 ### API Map
 
-#### local
-
-#### external
-
 ![API-map-external](public/assets/images/api-map.png)
 
-### Static Datasets
+### Data Map
 
-```mermaid
-graph TD
-  A[projects.json] -->|references| D[tools.json]
-  A -->|uses| B[skills.hard.json]
-  E[work_history.json] -->|mentions| D
-  E -->|mentions| B
-  E -->|mentions| C[skills.soft.json]
-```
+![Data Architecture](public/assets/images/data-architecture.svg)
 
 ## Previews
 
@@ -137,7 +124,7 @@ Here are some previews of the Digital Resume platform in action:
 <summary>Home (Mobile)</summary>
 <br>
 
-| Mobile 1  
+| Mobile 1
 | --------------------------------------------------------------------
 | ![Mobile 1](public/assets/images/previews/preview-home-mobile-1.png)
 | ![Mobile 2](public/assets/images/previews/preview-home-mobile-2.png)
@@ -171,7 +158,7 @@ Image gallery
 <summary>Portfolio-page</summary>
 <br>
 
-| Portfolio  
+| Portfolio
 | -----------------------------------------------------------------
 | ![Portfolio](public/assets/images/previews/preview-portfolio.png)
 

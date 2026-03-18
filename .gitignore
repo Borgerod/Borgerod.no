@@ -44,4 +44,7 @@ next-env.d.ts
 /src/app/test
 /src/app/stats-test
 
+# ignore api page
+/src/app/api/page.tsx
+
 public/assets/images/debug-images
