@@ -7,6 +7,7 @@ import SocialLinksCard from "./components/content.components/SocialLinksCard";
 import ToolCard from "./components/content.components/ListCard.tools";
 import SkillCard from "./components/content.components/ListCard.skills";
 import GlassParentCard from "./components/content.components/GlassParentCard.container";
+import RepoRef from "./components/content.components/RepoRef";
 
 export default function Home() {
   return (
@@ -287,6 +288,9 @@ export default function Home() {
           />
         </div>
       </div>
+      <RepoRef
+        className={cn("hidden", "sm:flex", "row-start-", "col-span-3")}
+      />
     </main>
   );
 }

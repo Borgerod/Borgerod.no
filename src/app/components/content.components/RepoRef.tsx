@@ -1,85 +1,112 @@
 "use client";
-import { Avatar, Button, Card, cn } from "@heroui/react";
-import { useRouter } from "next/navigation";
-import CallMeButton from "./CallMeButton";
+import { Card, Chip, cn, LinkIcon } from "@heroui/react";
 import { ComponentBaseProps } from "@/lib/types";
 import Link from "next/link";
 export default function RepoRef({ className }: ComponentBaseProps) {
   return (
-    <Card>
-      <Card.Header>Check out the project</Card.Header>
-      <Card.Content>
+    <Card
+      className={cn(
+        // position
+        "md:left-5",
+        "md:bottom-5",
+        "md:z-10",
+        "pointer-events-auto",
+
+        // MOBILE
+        "flex-row",
+        "w-full",
+        "items-center",
+        "unset-card",
+        "unset-glass",
+        "bg-transparent",
+        "border-none",
+        "shadow-none",
+        "backdrop-filter-none",
+        "outline-none",
+
+        // IPAD
+        "sm:glass",
+        "sm:glass-black",
+        "sm:card",
+
+        // DESKTOP
+        "md:w-fit",
+        "md:unset-card",
+        "md:unset-glass",
+        "md:bg-transparent",
+        "md:border-none",
+        "md:shadow-none",
+        "md:backdrop-filter-none",
+        "md:outline-none",
+        "md:flex",
+        "md:fixed",
+
+        "",
+        "",
+        className,
+      )}
+    >
+      <Card.Header className="text-accent-foreground-muted">
+        Check out the project
+      </Card.Header>
+      <Card.Content
+        className={cn(
+          "flex flex-row",
+          "gap-5",
+          "justify-end",
+          "sm:justify-end",
+          "md:justify-start",
+          "",
+          "",
+        )}
+      >
         <Link
           href={
             "https://www.figma.com/proto/dZKNNG3wQZE5HT7eX24oRU/Business-card?node-id=31-1813&t=krSgU4GTxJLkC5By-1"
           }
         >
-          <Button
-            id="email-button"
-            type="button"
-            isIconOnly
+          <Chip
+            size="lg"
+            id={`Figma redirect`}
             className={cn(
-              "bg-glass-gray-dark hover:bg-glass-gray-dark-hover",
-              "text-accent-foreground", //*due to the thin weight, the color of "text-accent-foreground" visually looks identical to "text-accent-foreground-muted"
-              "text-sm!",
+              "items-center",
+              "justify-center",
+              "select-none",
               "font-light",
-              "lg:text-base lg:w-full lg:h-full",
-              "lg:min-w-none",
-              "lg:min-h-none",
-              "lg:aspect-auto",
-              "h-full",
-              "w-fit",
-              "min-w-7",
-              "min-h-7",
-              "aspect-square",
-              "p-2",
-              "xl:px-auto",
-              "text-base lg:w-full lg:h-full",
-              "xl:w-full! xl:min-w-0",
-              "min-w-none",
-              "min-h-none",
-              "aspect-auto",
-              "w-full",
-              "",
+              "md:bg-glass-green-base md:hover:bg-glass-green-base-hover",
+              "bg-glass-light-gray hover:bg-glass-gray-dark",
+              "text-accent-foreground",
+              "text-shadow-accent-soft-hover",
               "",
             )}
           >
-            Figma
-          </Button>
+            <Chip.Label className="flex items-center text-center gap-1 p-0">
+              <span className="text-nowrap">Figma</span>
+              <LinkIcon className="size-2.5 " />
+            </Chip.Label>
+          </Chip>
         </Link>
         <Link href={"https://github.com/Borgerod/Borgerod.github.io"}>
-          <Button
-            id="email-button"
-            type="button"
-            isIconOnly
+          <Chip
+            size="lg"
+            id={`github redirect`}
             className={cn(
-              "bg-glass-gray-dark hover:bg-glass-gray-dark-hover",
-              "text-accent-foreground", //*due to the thin weight, the color of "text-accent-foreground" visually looks identical to "text-accent-foreground-muted"
-              "text-sm!",
+              "items-center",
+              "justify-center",
+              "select-none",
               "font-light",
-              "lg:text-base lg:w-full lg:h-full",
-              "lg:min-w-none",
-              "lg:min-h-none",
-              "lg:aspect-auto",
-              "h-full",
-              "w-fit",
-              "min-w-7",
-              "min-h-7",
-              "aspect-square",
-              "p-2",
-              "xl:px-auto",
-              "text-base lg:w-full lg:h-full",
-              "xl:w-full! xl:min-w-0",
-              "min-w-none",
-              "min-h-none",
-              "aspect-auto",
-              "w-full",
-              "",
+              "md:bg-glass-green-base md:hover:bg-glass-green-base-hover",
+              "bg-glass-light-gray hover:bg-glass-gray-dark",
+              "text-accent-foreground",
+              "text-shadow-accent-soft-hover",
               "",
             )}
           >
-            GitHub
-          </Button>
+            <Chip.Label className="flex items-center text-center gap-1 p-0">
+              <span className="text-nowrap">GitHub</span>
+              <LinkIcon className="size-2.5 " />
+            </Chip.Label>
+          </Chip>
         </Link>
       </Card.Content>
     </Card>

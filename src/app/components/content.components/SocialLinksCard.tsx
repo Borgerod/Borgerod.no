@@ -5,6 +5,7 @@ import { SiLeetcode } from "react-icons/si";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 import { TbBrandGithubFilled } from "react-icons/tb";
+import RepoRef from "./RepoRef";
 
 export default function COMPONENTNAME({ className }: ComponentBaseProps) {
   return (
@@ -113,6 +114,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           </Link>
         </Button>
       </Card.Content>
+      <RepoRef
+        className={cn("flex", "pt-5", "sm:hidden!", "row-start-", "col-span-3")}
+      />
     </Card>
   );
 }
