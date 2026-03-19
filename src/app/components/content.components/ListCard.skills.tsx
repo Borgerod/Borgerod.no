@@ -16,6 +16,8 @@ export default function SkillCard({ className }: ComponentBaseProps) {
         "sm:glass-white",
         "px-0",
         "sm:px-5",
+        "h-70",
+        "h-65", // not a fan of static values but switching between hard and soft skills made both ListCards expand which was annoying to look at.
         className,
         "",
         "",
@@ -86,7 +88,7 @@ export default function SkillCard({ className }: ComponentBaseProps) {
                   "px-2",
                   "bg-glass-gray-light",
                   "select-none",
-                  "group-hover:bg-glass-green-base!",
+                  "",
                 )}
               >
                 <Chip.Label>{skill.name}</Chip.Label>
@@ -109,7 +111,7 @@ export default function SkillCard({ className }: ComponentBaseProps) {
                   "px-2",
                   "bg-glass-gray-light",
                   "select-none",
-                  "group-hover:bg-glass-green-base!",
+                  "",
                 )}
               >
                 <Chip.Label>{skill.name}</Chip.Label>

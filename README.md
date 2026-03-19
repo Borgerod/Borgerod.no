@@ -22,9 +22,9 @@ Built with Next.js, it features interactive components, structured work history,
 
 ## Table of contents:
 
-- [DigitalResume  - borgerod.no / borgerod.github.io](#digitalresume----borgerodno--borgerodgithubio)
-    - [Description](#description)
-    - [Technology Overview](#technology-overview)
+- [DigitalResume - borgerod.no / borgerod.github.io](#digitalresume----borgerodno--borgerodgithubio)
+  - [Description](#description)
+  - [Technology Overview](#technology-overview)
   - [Table of contents:](#table-of-contents)
   - [TODO:](#todo)
     - [Necessary](#necessary)
@@ -35,7 +35,7 @@ Built with Next.js, it features interactive components, structured work history,
     - [Data Map](#data-map)
   - [Previews](#previews)
   - [Previews](#previews-1)
-  - [Usage  - how to install and run project](#usage----how-to-install-and-run-project)
+  - [Usage - how to install and run project](#usage----how-to-install-and-run-project)
     - [Installation](#installation)
     - [Deploy on Vercel](#deploy-on-vercel)
 
@@ -62,6 +62,7 @@ _all of the todos found in the project files **should** be referenced here_
 - [ ] add tracking of visitors? note: prob would break gdpr but its a private website and I am tracking information of legal entities (employees of a business) and not private individual's personal data, so whatever.
   - [x] improve installation guide
   - [ ] make usage guide; (what images the user needs to add, and what data user needs to add and how it needs to be structured. )
+  - [ ] WorkHistoryCard -> get feedback and pick color option 1 or 2 for chips
 
 ### <span style="font-size:0.8em;">Optional</span>
 
