@@ -76,9 +76,6 @@
     transparent
   );
 
-  /* --color-glass-gray-light-2: var(--gray-light/40);
-  --color-glass-gray-light-2-hover: var(--gray-dark/30); */
-
   --color-glass-gray-undertone: var(--gray-undertone);
   --color-glass-gray: var(--gray);
   --color-glass-gray-2: var(--gray-2);
