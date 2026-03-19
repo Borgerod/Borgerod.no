@@ -23,6 +23,7 @@
   --offwhite: oklch(89.104% 0.00961 93.611 / 0.3);
   --light-gray: oklch(57.268% 0.00007 271.152 / 0.2);
   --light-gray: oklch(67.968% 0.00008 271.152 / 0.3);
+
   --gray-undertone: oklch(49.261% 0.00006 271.152 / 0.349);
   --gray: oklch(30.221% 0.00143 15.911 / 0.3);
   --gray-dark: oklch(30.221% 0.00143 15.911 / 0.8);
@@ -64,6 +65,20 @@
   --color-glass-pure-white: var(--pure-white);
   --color-glass-offwhite: var(--offwhite);
   --color-glass-light-gray: var(--light-gray);
+  --color-glass-light-gray-2: color-mix(
+    in srgb,
+    var(--light-gray) 40%,
+    transparent
+  );
+  --color-glass-light-gray-2-hover: color-mix(
+    in srgb,
+    var(--gray-dark) 30%,
+    transparent
+  );
+
+  /* --color-glass-light-gray-2: var(--light-gray/40);
+  --color-glass-light-gray-2-hover: var(--gray-dark/30); */
+
   --color-glass-gray-undertone: var(--gray-undertone);
   --color-glass-gray: var(--gray);
   --color-glass-gray-2: var(--gray-2);
