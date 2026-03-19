@@ -17,11 +17,6 @@ type jobItem = {
 export default function WorkHistoryCard({ className }: ComponentBaseProps) {
   return (
     <>
-      <Separator
-        variant="secondary"
-        className=" col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
-      />
-
       <Card
         id="word-history"
         className={cn(
@@ -70,7 +65,6 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
         <Card.Content
           className={cn(
             "text-xs font-light",
-            // "grid md:grid-cols-[auto_1fr_auto]",
             "grid md:grid-cols-[auto_auto_auto]",
             "grid-cols-[auto_auto_auto]",
             "justify-items-start",
@@ -79,7 +73,6 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
             "items-start",
             "content-between",
             "justify-between",
-            "",
             "",
             "",
           )}

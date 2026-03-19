@@ -16,15 +16,16 @@ export default function SkillCard({ className }: ComponentBaseProps) {
         "sm:glass-white",
         "px-0",
         "sm:px-5",
-        "h-70",
-        "h-65", // not a fan of static values but switching between hard and soft skills made both ListCards expand which was annoying to look at.
+        // not a fan of static values but switching between hard and soft skills made both ListCards expand which was annoying to look at.
+        "sm:h-76",
+        "md:h-65",
         className,
         "",
         "",
       )}
     >
-      <Tabs className="w-full gap-0 h-full">
-        <Card.Header className="text-glass-black">
+      <Tabs className="contents">
+        <Card.Header className="text-glass-black pb-2 sm:pb-0 sm:mb-auto">
           <Card.Title className="text-start sm:text-center text-glass-black  text-[16px] font-normal">
             Skills
           </Card.Title>
@@ -98,7 +99,7 @@ export default function SkillCard({ className }: ComponentBaseProps) {
 
           <Tabs.Panel
             id="soft-skills"
-            className="px-0 gap-1 flex flex-wrap h-full items-start content-start"
+            className="px-0 gap-1 flex flex-wrap h-full items-start content-start md:max-h-[calc(6*(--spacing(4)+(--spacing(2.25))))] sm:max-h-[calc(6*(--spacing(4)+(--spacing(2.25))))]"
           >
             {softSkills.map((skill: TagItem) => (
               <Chip

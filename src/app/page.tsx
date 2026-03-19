@@ -29,6 +29,7 @@ export default function Home() {
         "lg:max-w-5xl",
         "xl:max-w-5xl",
         "gap-5",
+        "md:gap-10",
         "md:unset-glass",
         // manual extention to unset glass (idk why)
         "md:border-none",
@@ -42,7 +43,7 @@ export default function Home() {
 
         /* * grid * */
         "grid",
-        "md:grid-cols-5",
+        "md:grid-cols-[3fr_2fr]",
         "grid-cols-1",
 
         "",
@@ -57,28 +58,27 @@ export default function Home() {
         className={cn(
           "unset-glass",
           "unset-card",
+          "gap-y-10",
+          "sm:gap-y-5",
+          "sm:gap-y-10",
+          "md:pl-10",
+          "md:py-4",
+          "gap-x-5",
 
           /* * grid placement * */
           "md:grid",
           "flex flex-col",
-          "col-span-3",
 
           /* * grid * */
           "grid",
           "grid-cols-subgrid",
+          "sm:grid-cols-[3fr_5fr]",
           "lg:grid-cols-[2fr_3fr]",
           "xl:grid-cols-[2fr_3fr]",
-          "gap-x-5",
-
+          
           "grid-rows-[auto_auto_auto]",
-          "sm:grid-cols-[3fr_5fr]",
           "sm:grid-rows-[auto_1fr_auto]",
-
-          "md:pl-10",
-          "md:py-4",
-          "gap-y-10",
-          "sm:gap-y-5",
-          "sm:gap-y-10",
+          
           "",
           "",
         )}
@@ -86,11 +86,11 @@ export default function Home() {
         <ProfileCard
           className={cn(
             /* * grid placement * */
-            "col-start-1",
             "col-span-1",
             "row-start-",
             "row-span-full",
             "col-span-full",
+
             "md:col-start-1",
             "md:col-span-1",
             "md:row-span-full",
@@ -98,11 +98,13 @@ export default function Home() {
             "",
           )}
         />
-
+        <Separator
+          variant="secondary"
+          className=" w-full bg-glass-gray-dark flex sm:hidden"
+        />
         <StatCard
           className={cn(
             /* * grid placement * */
-            "col-start-1",
             "col-span-full",
             "row-start-",
             "row-span-1",
@@ -119,14 +121,17 @@ export default function Home() {
             "",
           )}
         />
-
+        <Separator
+          variant="secondary"
+          className=" w-full bg-glass-gray-dark flex sm:hidden"
+        />
         <WorkHistoryCard
           className={cn(
             /* * grid placement * */
-            "md:row-start-3",
-            "col-start-1",
-            "md:col-start-2",
             "col-span-full",
+
+            "md:row-start-3",
+            "md:col-start-2",
             "md:col-span-1",
             "",
             "",
@@ -137,18 +142,14 @@ export default function Home() {
       <div
         id="right-side-container |mobile:bottom-side-container"
         className={cn(
-          "col-start-2",
-          "col-span-3!",
-          "sm:col-span-3!",
-          "md:col-span-2!",
+          "md:col-start-2",
+          "col-start-1",
           "min-h-100",
           "h-full",
           "w-full",
 
           /* * grid * */
           "grid",
-          "grid-cols-1",
-          "grid-cols-3",
           "sm:grid-cols-[auto_1fr]",
           "grid-cols-subgrid",
           "md:grid-rows-3",
@@ -223,12 +224,10 @@ export default function Home() {
             "col-span-full",
             "row-start-4",
             "row-span-1",
-
             "sm:col-start-1",
             "sm:col-span-1",
             "sm:row-start-2",
             "sm:row-span-full",
-
             "",
             "",
           )}
@@ -251,7 +250,6 @@ export default function Home() {
             /* * grid * */
             "grid",
             "grid-cols-1",
-            "grid-rows-5",
             "grid-rows-[auto_auto_auto_auto_auto]",
             "gap-5",
 
@@ -289,7 +287,7 @@ export default function Home() {
         </div>
       </div>
       <RepoRef
-        className={cn("hidden", "sm:flex", "row-start-", "col-span-3")}
+        className={cn("hidden", "sm:flex", "row-start-", "col-span-full")}
       />
     </main>
   );
