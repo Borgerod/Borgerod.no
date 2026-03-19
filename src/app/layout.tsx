@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 
 // TODO: add Links to; github repo and Figma project.
 export const metadata: Metadata = {
+  generator: "Next.js",
+  applicationName: "Digital Resume - Aleksander Borgerød",
+  referrer: "origin",
   title: "Digital Resume - Aleksander Borgerød",
   description:
     "Digital resume and portfolio of Aleksander Borgerød—showcasing projects, work experience and skills in full stack web development, design, and technology.",
@@ -63,6 +66,8 @@ export const metadata: Metadata = {
     "Descriptive documentation and commits",
     "Safe branching",
   ],
+  creator: "Aleksander Borgerød",
+  publisher: "Aleksander Borgerød",
   authors: [
     { name: "Aleksander Borgerød", url: "https://github.com/Borgerod" },
   ],
@@ -98,6 +103,14 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
   alternates: {
     canonical: "https://borgerod-github-io.vercel.app",
