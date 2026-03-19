@@ -99,8 +99,8 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
                 "shadow-sm",
                 "drop-shadow-sm",
                 "shadow shadow-1",
-                "bg-glass-light-gray-2",
-                "hover:bg-glass-light-gray-2-hover",
+                "bg-glass-gray-light-2",
+                "hover:bg-glass-gray-light-2-hover",
                 "",
                 "",
               )}
@@ -167,8 +167,8 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
               "hover:shadow-md",
               "shadow-sm",
               "drop-shadow-sm",
-              "bg-glass-light-gray-2",
-              "hover:bg-glass-light-gray-2-hover",
+              "bg-glass-gray-light-2",
+              "hover:bg-glass-gray-light-2-hover",
               "",
               "",
             )}

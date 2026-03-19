@@ -50,7 +50,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           size="lg"
           variant="primary"
           className={
-            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+            "bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
           }
         >
           <Link
@@ -67,7 +67,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           size="lg"
           variant="primary"
           className={
-            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+            "bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
           }
         >
           <Link
@@ -84,7 +84,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           size="lg"
           variant="primary"
           className={
-            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+            "bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
           }
         >
           <Link
@@ -101,7 +101,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           size="lg"
           variant="primary"
           className={
-            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+            "bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
           }
         >
           <Link
