@@ -12,15 +12,23 @@ import { cn } from "@heroui/react";
 import { Breadcrumbs, Button } from "@heroui/react";
 import { JobItem, LayoutType } from "@/lib/types";
 
-export default async function Job({
+export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
-  const job = workHistory.find((item) => item.id === slug) as JobItem;
+  const job = workHistory.find((item) => item.id === params.slug) as JobItem;
+  return {
+    title: `Work experience - ${job.title}`,
+    description: "Showcase of previous work experience.",
+  };
+}
+
+export default async function Job({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const job = workHistory.find((item) => item.id === slug);
   if (!job) notFound();
-  const layout: LayoutType = LayoutBuilder(job);
+  const layout: LayoutType = LayoutBuilder(job as JobItem);
 
   return (
     <main
@@ -32,11 +40,10 @@ export default async function Job({
         "md:px-1",
         "px-0",
         "pb-40",
-        "md:gap-5 md:max-w-4xl",
+        "md:max-w-4xl",
         "max-w-full",
         "md:bg-transparent",
         "bg-glass-white",
-        "space-y-5",
         "h-fit",
         "max-h-fit",
         "h-full",

@@ -9,6 +9,10 @@ import { TbBrandGithubFilled } from "react-icons/tb";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Portfolio",
+  description: "List of previous projects with descriptions",
+};
 export default function Portfolio() {
   return (
     <main className={cn("p-0", "sm:p-20", "sm:px-1")}>
@@ -120,7 +124,7 @@ export default function Portfolio() {
                               className={cn(
                                 "font-light",
                                 "px-2",
-                                "bg-glass-light-gray",
+                                "bg-glass-gray-light",
                                 "select-none",
                                 "group-hover:bg-glass-green-base!",
                               )}
@@ -148,7 +152,7 @@ export default function Portfolio() {
                               className={cn(
                                 "font-light",
                                 "px-2",
-                                "bg-glass-light-gray",
+                                "bg-glass-gray-light",
                                 "select-none",
                                 "group-hover:bg-glass-green-base!",
                               )}

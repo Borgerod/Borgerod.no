@@ -26,6 +26,8 @@ export default function ResponsibilitiesCard({
         "border-none md:border",
         "shadow-none md:shadow",
         respCardLayout,
+        "m-0",
+        "",
         "",
       )}
     >

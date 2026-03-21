@@ -67,6 +67,7 @@ export default function GlassParentCardCard({
           "bg-transparent",
           "hidden",
           "md:glass",
+          "md:card",
           "",
           "",
           className,

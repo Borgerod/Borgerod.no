@@ -41,20 +41,15 @@ function getLengthLimit(job: JobItem) {
 }
 
 export default function LayoutBuilder(job: JobItem) {
-  /*
-  NOTE:  row-start-4 will be an empty row used for this purpose with out breaking the other components.
-  this row is designated for ResponsibilitiesCard or AchievementsCard for cases where one of them is too big
-  */
-
-  /* seperated just to simplyify LayoutBuilder function  */
   const lengthLimit = getLengthLimit(job);
   const defaultLayout: LayoutType = {
-    mainLayout: "flex flex-col md:grid md:grid-cols-2 grid-cols-2",
-    jobCardLayout: "col-span-1 row-span-1 row-span-2  ",
-    achiCardLayout: "col-start-2 row-start-3 col-span-1 row-span-1  ",
-    respCardLayout:
-      "col-start-1 row-start-4 row-span-2 col-start-2 row-start-4 col-span-1 row-span-1  ",
+    mainLayout:
+      "flex flex-col md:grid md:grid-cols-2 grid-cols-2 md:space-y-5 md:gap-5",
+    jobCardLayout: "col-span-1 row-span-1 row-span-2",
+    achiCardLayout: "col-start-2 row-start-3 col-span-1 row-span-1",
+    respCardLayout: "col-start-2 row-start-4 col-span-1 row-span-1",
   };
+
   const layout: LayoutType = {
     mainLayout: "",
     jobCardLayout: "",
@@ -62,48 +57,52 @@ export default function LayoutBuilder(job: JobItem) {
     respCardLayout: "",
   };
 
-  /* This dictates which layout to use -> returns layout:{mainLayout, achiCardLayout, respCardLayout} */
+  const achiCard = totalArrayLength(job.achievements);
+  const respCard = totalArrayLength(job.responsibilities);
+  const both = achiCard + respCard;
 
-  const achiCard: number = totalArrayLength(job.achievements);
-  const respCard: number = totalArrayLength(job.responsibilities);
-  const both: number = achiCard + respCard;
+  const threshold_RAcards = 0.3;
+  const threshold_jobcard = 0.15;
+  const threshold_both = 0.1;
 
-  const threshold_RAcards: number = 0.3;
-  const threshold_jobcard: number = 0.15;
-  const threshold_both: number = 0.1;
-
-  /* We needs to go three statement-levels deep before we can start taking actions. we need a value for ['both', 'achiCard', 'respCard'] fitting jobCard for this to work. */
-  if (
-    //>0. (check 'both' DONT fits 'jobCard') NOT isWithinthreshold(threshold, [achiCard + respCard], lengthLimit)
-    !isWithinthreshold(threshold_both, both, lengthLimit)
-  ) {
+  if (!isWithinthreshold(threshold_both, both, lengthLimit)) {
     if (isWithinthreshold(threshold_jobcard, achiCard, lengthLimit)) {
       if (isWithinthreshold(threshold_jobcard, respCard, lengthLimit)) {
-        layout.mainLayout = "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
+        // 2.1.1: both fit individually but not together → achi fills gap, resp goes full-width below
+        layout.mainLayout =
+          "flex flex-col md:grid md:grid-cols-2 grid-cols-2 md:space-y-5 md:gap-5";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "row-span-2";
         layout.respCardLayout = "row-start-4 col-span-2";
-
-        layout.mainLayout = "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
+      } else {
+        // 2.1.2 (UPWORK): achiCard fits, respCard is too big
+        // jobCard col-1 + achiCard col-2 on same row, respCard full-width below
+        layout.mainLayout =
+          "flex flex-col md:grid md:grid-cols-2 grid-cols-2 md:space-y-5 md:gap-5";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "";
         layout.respCardLayout = "row-start-4 col-span-2";
       }
     } else {
       if (isWithinthreshold(threshold_jobcard, respCard, lengthLimit)) {
-        layout.mainLayout = "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
+        // 2.2.1: respCard fits, achiCard is too big
+        // jobCard col-1 + respCard col-2 on same row, achiCard full-width below
+        layout.mainLayout =
+          "flex flex-col md:grid md:grid-cols-2 grid-cols-2 md:space-y-5 md:gap-5";
         layout.jobCardLayout = "";
         layout.achiCardLayout = "row-start-4 col-span-2";
-        layout.respCardLayout = "row-start-3 row-span-2";
+        layout.respCardLayout = "row-span-2";
       } else {
         if (isWithinthreshold(threshold_RAcards, respCard, achiCard)) {
+          // 2.2.2.1: resp ≈ achi in size → jobCard spans full width, both below side by side
           layout.mainLayout =
-            "flex flex-col md:grid md:grid-cols-2 grid-cols-2";
+            "flex flex-col md:grid md:grid-cols-2 grid-cols-2 md:space-y-5 md:gap-5";
           layout.jobCardLayout = "col-span-2";
           layout.achiCardLayout = "row-start-4";
           layout.respCardLayout = "row-start-4";
         } else {
-          layout.mainLayout = "flex flex-col";
+          // 2.2.2.2: nothing fits together → stack everything in one column
+          layout.mainLayout = "flex flex-col md:space-y-5 md:gap-5";
           layout.jobCardLayout = "";
           layout.achiCardLayout = "";
           layout.respCardLayout = "";
@@ -111,15 +110,13 @@ export default function LayoutBuilder(job: JobItem) {
       }
     }
   } else {
-    layout.mainLayout = defaultLayout.mainLayout;
-    layout.jobCardLayout = defaultLayout.jobCardLayout;
-    layout.achiCardLayout = defaultLayout.achiCardLayout;
-    layout.respCardLayout = defaultLayout.respCardLayout;
+    return defaultLayout;
   }
+
+  if (!layout.mainLayout) return defaultLayout;
 
   return layout;
 }
-
 /* >  ALGORITHM DESCRIBED IN WORDS: 
 There are 'three' components being moved around in layout: ['jobCardLayout', 'achiCardLayout', 'respCardLayout'].
 Where: 

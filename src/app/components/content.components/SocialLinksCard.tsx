@@ -5,6 +5,7 @@ import { SiLeetcode } from "react-icons/si";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 import { TbBrandGithubFilled } from "react-icons/tb";
+import RepoRef from "./RepoRef";
 
 export default function COMPONENTNAME({ className }: ComponentBaseProps) {
   return (
@@ -49,7 +50,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           size="lg"
           variant="primary"
           className={
-            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+            "group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
           }
         >
           <Link
@@ -58,7 +59,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedinIn />
+            <FaLinkedinIn className="size-4 text-accent-foreground-muted group-hover:text-accent-foreground" />
           </Link>
         </Button>
         <Button
@@ -66,7 +67,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           size="lg"
           variant="primary"
           className={
-            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+            "group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
           }
         >
           <Link
@@ -75,7 +76,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebookF className="size-5" />
+            <FaFacebookF className="size-5 text-accent-foreground-muted group-hover:text-accent-foreground" />
           </Link>
         </Button>
         <Button
@@ -83,7 +84,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           size="lg"
           variant="primary"
           className={
-            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+            "group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
           }
         >
           <Link
@@ -92,7 +93,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <TbBrandGithubFilled className="size-5" />
+            <TbBrandGithubFilled className="size-5 text-accent-foreground-muted group-hover:text-accent-foreground" />
           </Link>
         </Button>
         <Button
@@ -100,7 +101,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           size="lg"
           variant="primary"
           className={
-            "bg-glass-light-gray hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
+            "group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
           }
         >
           <Link
@@ -109,10 +110,13 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SiLeetcode className="size-5" />
+            <SiLeetcode className="size-5 text-accent-foreground-muted group-hover:text-accent-foreground" />
           </Link>
         </Button>
       </Card.Content>
+      <RepoRef
+        className={cn("flex", "pt-5", "sm:hidden!", "row-start-", "col-span-3")}
+      />
     </Card>
   );
 }

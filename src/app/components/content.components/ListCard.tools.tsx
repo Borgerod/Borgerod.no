@@ -20,13 +20,13 @@ export default function ToolCard({ className }: ComponentBaseProps) {
         "",
       )}
     >
-      <Card.Header className="text-glass-black">
+      <Card.Header className="text-glass-black pb-2 md:pb-1">
         <Card.Title className="text-start sm:text-center text-glass-black  text-[16px] font-normal">
           Tools
         </Card.Title>
       </Card.Header>
       <Card.Content className="p-0 overflow-x-hidden ">
-        <div className="flex pb-2 gap-1 flex-wrap h-full items-start content-start">
+        <div className="flex pb-2 gap-1 flex-wrap h-full items-start content-start md:max-h-[calc(4*(--spacing(3)+(--spacing(2.5))))]">
           {tools.map((tool: TagItem) => (
             <Chip
               size="sm"
@@ -36,9 +36,9 @@ export default function ToolCard({ className }: ComponentBaseProps) {
               className={cn(
                 "font-light",
                 "px-2",
-                "bg-glass-light-gray",
+                "bg-glass-gray-light",
                 "select-none",
-                "group-hover:bg-glass-green-base!",
+                "",
               )}
             >
               <Chip.Label>{tool.name}</Chip.Label>

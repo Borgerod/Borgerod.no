@@ -25,8 +25,9 @@ export default function AchievementsCard({
         "rounded-none md:rounded-3xl",
         "border-none md:border",
         "shadow-none md:shadow",
-        "",
         achiCardLayout,
+        "m-0",
+        "",
         "",
       )}
     >

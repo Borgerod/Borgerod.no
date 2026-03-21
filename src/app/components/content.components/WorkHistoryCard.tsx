@@ -17,11 +17,6 @@ type jobItem = {
 export default function WorkHistoryCard({ className }: ComponentBaseProps) {
   return (
     <>
-      <Separator
-        variant="secondary"
-        className=" col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
-      />
-
       <Card
         id="word-history"
         className={cn(
@@ -31,7 +26,6 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
           "bg-none",
           "bg-transparent",
           "backdrop-saturate-100",
-
           "md:backdrop-saturate-80",
           "md:bg-radial",
           "md:bg-green-base/20",
@@ -71,13 +65,14 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
         <Card.Content
           className={cn(
             "text-xs font-light",
-            "grid md:grid-cols-[auto_1fr_auto]",
+            "grid md:grid-cols-[auto_auto_auto]",
             "grid-cols-[auto_auto_auto]",
             "justify-items-start",
             "gap-x-0",
             "md:gap-0",
             "items-start",
             "content-between",
+            "justify-between",
             "",
             "",
           )}
@@ -96,7 +91,7 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
               <Card
                 id="job-info-col"
                 variant="transparent"
-                className="text-nowrap overflow-hidden contents gap-0  p-0 rounded-none"
+                className="text-nowrap overflow-hidden contents gap-0 unset-card w-fit"
               >
                 <Link
                   className={cn("contents", "sm:pointer-events-none", "", "")}
@@ -107,7 +102,7 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                       {job.title}
                     </Card.Title>
 
-                    <Card.Description className="md:text-accent-foreground-muted text-primary text-xs text-nowrap flex items-start text-[11px] flex-wrap">
+                    <Card.Description className="md:text-accent-foreground-muted text-primary text-xs text-nowrap flex items-start text-[11px]  ">
                       {job.employer}
                       <span
                         className={cn(
@@ -143,7 +138,10 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                 </Link>
               </Card>
 
-              <div id="description-url-col read-more" className="">
+              <div
+                id="description-url-col read-more"
+                className="justify-self-end"
+              >
                 <Link href={`work-experience/job/${job.id}`}>
                   <Chip
                     size="sm"
@@ -159,15 +157,29 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                       "py-3",
                       "select-none",
                       "font-light",
-                      "bg-glass-green-base hover:bg-glass-green-base-hover",
-                      "text-accent-foreground-muted hover:text-accent-foreground",
-                      "text-accent-foreground",
-                      "text-shadow-accent-soft-hover",
                       "md:text-[10px]",
                       "text-center",
                       "items-center",
                       "justify-items-center",
                       "flex",
+                      "text-shadow-accent-soft-hover",
+                      // dekstop
+                      "md:bg-glass-green-base md:hover:bg-glass-green-base-hover",
+                      "md:text-accent-foreground-muted md:hover:text-accent-foreground",
+
+                      /* 
+                      TODO: get feedback and pick option 1 or 2 
+                      */
+
+                      /* OPTION 1, bright text dark chips */
+                      // "bg-glass-green-base hover:bg-glass-green-base-hover",
+                      // "text-accent-foreground-muted hover:text-accent-foreground",
+
+                      /* OPTION 2, dark text bright chips */
+                      "bg-glass-offwhite hover:bg-glass-green-base",
+                      "text-secondary hover:text-secondary-hover",
+
+                      "",
                       "",
                     )}
                   >

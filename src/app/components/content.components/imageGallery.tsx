@@ -79,6 +79,7 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
         "w-full",
         "glass",
         "glass-white",
+        "m-0",
         "",
         "",
       )}

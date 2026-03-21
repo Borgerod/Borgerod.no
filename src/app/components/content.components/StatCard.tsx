@@ -1,5 +1,5 @@
 "use client";
-import { cn, Separator } from "@heroui/react";
+import { cn } from "@heroui/react";
 import { Card } from "@heroui/react";
 import { ComponentBaseProps, GitHubStats, LeetCodeStats } from "@/lib/types";
 import StylizedCircle from "../design.components/StylizedCircle";
@@ -74,20 +74,6 @@ function StatContent({ stats }: { stats: Stats }) {
   }
 
   return (
-    // <div
-    //   className={cn(
-    //     "w-full",
-    //     "h-full", //works on md, not mobile
-    //     "gap-x-1",
-    //     "gap-y-3",
-    //     "grid",
-    //     "grid-rows-auto",
-    //     "grid-cols-2",
-    //     "grid-rows-auto",
-    //     "",
-    //     "",
-    //   )}
-    // >
     <>
       <h3
         className={cn(
@@ -197,11 +183,6 @@ export default function StatCard({ className }: ComponentBaseProps) {
   }, []);
   return (
     <>
-      <Separator
-        variant="secondary"
-        className="col-span-2 w-full bg-glass-gray-dark flex sm:hidden"
-      />
-
       <Card
         id="stats-card"
         className={cn(
@@ -228,7 +209,7 @@ export default function StatCard({ className }: ComponentBaseProps) {
           "grid-cols-2",
           "grid-cols-[2fr_1fr]",
           "bg-cover",
-          "rounded-2xl",
+          "rounded-t-2xl",
           "text-primary",
           "sm:text-secondary",
           className,

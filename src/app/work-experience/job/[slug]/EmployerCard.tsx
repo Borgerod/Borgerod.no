@@ -10,6 +10,7 @@ export default function EmployerCard({ job }: { job: JobItem }) {
       id="company-card"
       className={cn(
         "bg-transparent md:bg-glass-white shadow-none md:shadow  col-start-1 col-span-full row-start-2 ",
+        "mb-0",
         "glass",
       )}
     >

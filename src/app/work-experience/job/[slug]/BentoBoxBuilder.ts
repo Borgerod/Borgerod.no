@@ -36,8 +36,7 @@ todo [ ]: Explore simplifying the algorithm by:
           this would also potentially relief the code from having to use the "last-two-items-handler". 
           since the last items in queue are hopefully only small and medium strings it should be alot easier to make them fit, 
           so cases where "last-two-items-handler" is needed should be significantly lower.
-          and if it ìs needed, then it should be a easy merge. 
-
+          and if it ìs needed, then it should be a easy merge.
 */
 
 export type BentoItemDef = {
