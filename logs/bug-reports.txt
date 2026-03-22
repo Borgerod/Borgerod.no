@@ -160,4 +160,16 @@
     - clicking on image will not open the image.
     - however its like it opens it invisibly, because clicking on it disables scrolling, 
       and you have to click out of the invisible box in order to exit this invisible image view.  
-    - (discovery) modal for callmeButton is working just fine on mobile. 
+    - (discovery) modal for callmeButton is working just fine on mobile.
+
+    update: even after changes it still does not work on mobile device. I dont know why.
+
+! BUIG (4.1): jittering swipe animation for mobile mode.
+     INFO: 
+        project version - 1.4.2
+        date, discovered: 22.03.2026
+        date, solved: 
+        related files: ImageGallery.tsx, /work-experience/job/[slug]/page.tsx
+
+        DESCRIPTION:
+        added swipe animation to make mobile mode smoother. but it ens up with flickering between images for a short moment during the transition. 
