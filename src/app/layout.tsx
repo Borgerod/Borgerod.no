@@ -79,9 +79,7 @@ export const metadata: Metadata = {
     siteName: "Aleksander Borgerød Portfolio",
     images: [
       {
-        // url: "https://borgerod-github-io.vercel.app/assets/images/site-preview-2.png",
-        url: "public/assets/images/site-preview-2.png",
-        // site-preview-2.png
+        url: "https://borgerod-github-io.vercel.app/assets/images/previews/site-preview-2.png",
         width: 781,
         height: 402,
         alt: "Aleksander Borgerød Preview-banner",
@@ -98,8 +96,7 @@ export const metadata: Metadata = {
     site: "@borgerod",
     creator: "@borgerod",
     images: [
-      // "https://borgerod-github-io.vercel.app/assets/images/project-logos/site-preview-2.png",
-      "https://borgerod-github-io.vercel.app/assets/images/site-preview-2.png",
+      "https://borgerod-github-io.vercel.app/assets/images/previews/site-preview-2.png",
     ],
   },
   robots: {
