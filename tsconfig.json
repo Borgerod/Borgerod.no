@@ -22,7 +22,7 @@
       "@/*": ["./src/*"],
       "@data*": ["./src/data*"],
       "@public/*": ["./public/*"],
-      "@content.components*": ["./src/app/components/content.components*"]
+      "@content.components/*": ["./src/app/components/content.components/*"]
     }
   },
   "include": [
