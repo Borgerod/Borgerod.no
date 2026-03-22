@@ -32,6 +32,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"],
-  "allowImportingTsExtensions": true
+  "exclude": ["node_modules"]
 }
