@@ -83,3 +83,24 @@ export default async function Job({
     </main>
   );
 }
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+  const job = workHistory.find((item) => item.id === slug);
+  if (!job) notFound();
+  const layout: LayoutType = LayoutBuilder(job as JobItem);
+
+  return {
+    title: job.title,
+    description: job.description,
+    openGraph: {
+      title: job.title,
+      description: job.description,
+      images: job.assets,
+    },
+  };
+}
