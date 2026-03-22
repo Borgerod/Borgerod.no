@@ -47,22 +47,23 @@ _all of the todos found in the project files **should** be referenced here_
 ### <span style="font-size:0.8em;">Necessary</span>
 
 - [ ] make readme look structured and nice
-  - [ ] add page map
-  - [ ] add previews
+  - [x] add page map
+  - [x] add previews
   - [x] add description
   - [ ] add description of ['layoutBuilder' ,'BentoBoxBuilder']
   - [x] add table of contents
   - [ ] add hyperlink to bug-report
-- [ ] BUG (2.0) fix bug in ImageGallery where image view sometimes refuses to close.
-- [ ] implement SEO/AEO
-- [ ] add button redirecting to 'Github-repo' and 'Figma-project' in home
-- [ ] add analytics
-- [ ] enable speed insight
-- [ ] inplement SEO/AEO analysis
-- [ ] add tracking of visitors? note: prob would break gdpr but its a private website and I am tracking information of legal entities (employees of a business) and not private individual's personal data, so whatever.
-  - [x] improve installation guide
   - [ ] make usage guide; (what images the user needs to add, and what data user needs to add and how it needs to be structured. )
-  - [ ] WorkHistoryCard -> get feedback and pick color option 1 or 2 for chips
+  - [x] improve installation guide
+- [ ] BUG (3.0) fix bug in ImageGallery where image view sometimes refuses to close.
+- [ ] Analytics / SEO / AEO
+  - [ ] add vercel analytics
+  - [ ] enable vercel speed insight
+  - [ ] implement SEO/AEO
+    - [x] add metadata
+    - [ ] inplement SEO/AEO analysis
+- [x] add button redirecting to 'Github-repo' and 'Figma-project' in home
+- [ ] WorkHistoryCard -> get feedback and pick color option 1 or 2 for chips
 
 ### <span style="font-size:0.8em;">Optional</span>
 
@@ -76,6 +77,7 @@ _all of the todos found in the project files **should** be referenced here_
   - [ ] make more robust stringhandler
 - [ ] update job banners (logo long)
 - [ ] make profile image maker that automatically removed background and crops accordingly. no manual laber.
+- [ ] add tracking of visitors? note: prob would break gdpr but its a private website and I am tracking information of legal entities (employees of a business) and not private individual's personal data, so whatever.
 
 ## Page Map
 

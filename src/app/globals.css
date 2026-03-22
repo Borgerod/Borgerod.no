@@ -153,10 +153,19 @@ body {
   background-size: contain;
   background-position: top;
   background-color: #f2f2ec;
-  background-image: url(@public/assets/images/bg_upscaled_6.png);
   background-size: cover;
   background-position: center;
   background-position: top;
+}
+
+body {
+  /* default background (long backgorund for long pages) */
+  background-image: url(@public/assets/images/bg_upscaled_4.png);
+}
+
+body[data-page="home"] {
+  /* background for home (wide backgorund for wide pages) */
+  background-image: url(@public/assets/images/bg_upscaled_6.png);
 }
 
 main {

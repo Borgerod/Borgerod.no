@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 type Device = "mobile" | "tablet" | "desktop";
 
@@ -24,7 +25,24 @@ function DeviceProvider({ children }: { children: React.ReactNode }) {
 }
 
 export const useDevice = () => useContext(DeviceContext);
+/* this is related to background restructuring, read note in Layout */
+function BackgroundProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    document.body.setAttribute(
+      "data-page",
+      pathname === "/" ? "home" : "other",
+    );
+  }, [pathname]);
+
+  return <>{children}</>;
+}
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <DeviceProvider>{children}</DeviceProvider>;
+  return (
+    <DeviceProvider>
+      <BackgroundProvider>{children}</BackgroundProvider>
+    </DeviceProvider>
+  );
 }

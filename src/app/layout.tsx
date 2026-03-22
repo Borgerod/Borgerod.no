@@ -135,6 +135,17 @@ export default function RootLayout({
           `@container/main ${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`,
         )}
       >
+        {/* 
+        NOTE: Due to my current app structure; 
+          background in body and body has a certain layout, and I cannot get path in layout, 
+          I have to seperate the background code for body as a provider here.
+
+          (ALT)
+          the alternative is to restructure how body and main is layed out so that each page dictates the background image, 
+          which would lead to less clutter. how ever it will require alot more work, 
+          and I think that makes my app deviate from the NEXTjs template, 
+          which i do not want to do for clarity. 
+        */}
         <Providers>{children}</Providers>
       </body>
     </html>

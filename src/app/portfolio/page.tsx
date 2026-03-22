@@ -9,10 +9,6 @@ import { TbBrandGithubFilled } from "react-icons/tb";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Portfolio",
-  description: "List of previous projects with descriptions",
-};
 export default function Portfolio() {
   return (
     <main className={cn("p-0", "sm:p-20", "sm:px-1")}>
@@ -47,6 +43,8 @@ export default function Portfolio() {
           "sm:rounded-3xl",
           "pt-24",
           "sm:pt-4",
+          "glass",
+          "glass-white",
         )}
       >
         <Breadcrumbs>

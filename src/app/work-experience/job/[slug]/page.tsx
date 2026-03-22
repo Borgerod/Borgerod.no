@@ -1,6 +1,6 @@
 import workHistory from "@/data/work_history.json";
 import LayoutBuilder from "./LayoutBuilder";
-import ImageGallery from "../../../components/content.components/imageGallery";
+import ImageGallery from "@content.components/ImageGallery";
 import Link from "next/link";
 import Image from "next/image";
 import AchievementsCard from "./AchievementsCard";
@@ -12,20 +12,12 @@ import { cn } from "@heroui/react";
 import { Breadcrumbs, Button } from "@heroui/react";
 import { JobItem, LayoutType } from "@/lib/types";
 
-export async function generateMetadata({
+export default async function Job({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const job = workHistory.find((item) => item.id === params.slug) as JobItem;
-  return {
-    title: `Work experience - ${job.title}`,
-    description: "Showcase of previous work experience.",
-  };
-}
-
-export default async function Job({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+  const { slug } = await params;
   const job = workHistory.find((item) => item.id === slug);
   if (!job) notFound();
   const layout: LayoutType = LayoutBuilder(job as JobItem);

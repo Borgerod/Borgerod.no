@@ -75,10 +75,10 @@ export default function Home() {
           "sm:grid-cols-[3fr_5fr]",
           "lg:grid-cols-[2fr_3fr]",
           "xl:grid-cols-[2fr_3fr]",
-          
+
           "grid-rows-[auto_auto_auto]",
           "sm:grid-rows-[auto_1fr_auto]",
-          
+
           "",
           "",
         )}

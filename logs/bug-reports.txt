@@ -134,5 +134,13 @@
     INFO: 
         project version - 0.4.0
         date, discovered: 12.03.2026
-        date, solved: 
+        date, solved: unknown / 22.03.2026
         related files: ListCard.tools.tsx, ListCard.skills.tsx, HeroUi.Chip, globals.css
+
+! BUG (3.0): ImageGallery and other popups sometimes becomes unclosable
+    INFO: 
+        project version - 1.4.0
+        date, discovered: unknown / 22.03.2026
+        date, solved: 
+        related files: callmeButton.tsx, ImageGallery.tsx, /work-experience/job/[slug]/page.tsx, ..globals.css?
+    

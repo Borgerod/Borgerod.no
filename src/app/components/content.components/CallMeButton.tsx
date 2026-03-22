@@ -29,7 +29,7 @@ export default function CallMeButton() {
     window.open(url, "_blank", "noopener,noreferrer");
   }, [phoneNumber, device]);
   /*
-    !BUG: when it is open and you click out of the windows, then back in again. it becomes unclosable. 
+    !BUG (3.0): when it is open and you click out of the windows, then back in again. it becomes unclosable. 
     todo: move to bug-report
   */
   return (
