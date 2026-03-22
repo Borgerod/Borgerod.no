@@ -56,6 +56,7 @@ _all of the todos found in the project files **should** be referenced here_
   - [ ] make usage guide; (what images the user needs to add, and what data user needs to add and how it needs to be structured. )
   - [x] improve installation guide
 - [ ] BUG (3.0) fix bug in ImageGallery where image view sometimes refuses to close.
+- [ ] BUG (4.0) fix Images wont open on mobile mode (maybe other popups?)
 - [ ] Analytics / SEO / AEO
   - [ ] add vercel analytics
   - [ ] enable vercel speed insight

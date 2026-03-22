@@ -143,4 +143,21 @@
         date, discovered: unknown / 22.03.2026
         date, solved: 
         related files: callmeButton.tsx, ImageGallery.tsx, /work-experience/job/[slug]/page.tsx, ..globals.css?
+
+    DESCRIPTION:
+    it seems like sometimes the close and navigation fucntions are not properly communicating for when using keyboard and buttons clicks.
+    It is hard to find a pattern to it and recreate. 
     
+! BUG (4.0): ImageGallery wont open on mobile mode
+    INFO: 
+        project version - 1.4.1
+        date, discovered: unknown / 22.03.2026
+        date, solved: 
+        related files: ImageGallery.tsx, /work-experience/job/[slug]/page.tsx, 
+        // ... and maybe callmeButton.tsx too?
+    
+    DESCRIPTION:
+    - clicking on image will not open the image.
+    - however its like it opens it invisibly, because clicking on it disables scrolling, 
+      and you have to click out of the invisible box in order to exit this invisible image view.  
+    - (discovery) modal for callmeButton is working just fine on mobile. 
