@@ -1,6 +1,7 @@
 import workHistory from "@/data/work_history.json";
 import LayoutBuilder from "./LayoutBuilder";
-import ImageGallery from "../../../components/content.components/ImageGallery";
+// import ImageGallery from "../../../components/content.components/ImageGallery";
+import ImageGallery from "@/app/components/content.components/imageGallery";
 import Link from "next/link";
 import Image from "next/image";
 import AchievementsCard from "./AchievementsCard";
@@ -12,7 +13,11 @@ import { cn } from "@heroui/react";
 import { Breadcrumbs, Button } from "@heroui/react";
 import { JobItem, LayoutType } from "@/lib/types";
 
-export default async function Job({ params }: { params: { slug: string } }) {
+export default async function Job({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const job = workHistory.find((item) => item.id === slug);
   if (!job) notFound();
