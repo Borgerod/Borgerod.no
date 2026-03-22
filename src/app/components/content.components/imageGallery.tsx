@@ -6,16 +6,14 @@ import Image from "next/image";
 import { cn } from "@heroui/react";
 import { ChevronLeft, ChevronRight, Xmark } from "@gravity-ui/icons";
 
-//! BUG (4.0): opening images does not work on mobile
-// TODO: (4.0) fix Images wont open on mobile mode (maybe other popups?)
-
-//! BUG (3.0): ImageGallery and other popups sometimes becomes unclosable
-// TODO: BUG (3.0) fix bug in ImageGallery where image view sometimes refuses to close.
-
 export default function ImageGallery({ assets }: { assets: string[] }) {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [swipeOffset, setSwipeOffset] = useState<number>(0);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const [pendingIndex, setPendingIndex] = useState<number | null>(null);
+  const [containerWidth, setContainerWidth] = useState<number>(0);
   const isModalOpenRef = useRef(isModalOpen);
 
   useEffect(() => {
@@ -51,7 +49,27 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
   }, [handlePrevious, handleNext]);
 
   const handleTouchStart = (e: React.TouchEvent): void => {
+    if (isAnimating) return;
+    setContainerWidth(
+      (e.currentTarget as HTMLElement).getBoundingClientRect().width,
+    );
     setTouchStart(e.targetTouches[0].clientX);
+    setSwipeOffset(0);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent): void => {
+    if (touchStart === null || isAnimating) return;
+    const delta = e.targetTouches[0].clientX - touchStart;
+    setSwipeOffset(delta);
+    const next =
+      delta < 0
+        ? selectedIndex < assets.length - 1
+          ? selectedIndex + 1
+          : 0
+        : selectedIndex > 0
+          ? selectedIndex - 1
+          : assets.length - 1;
+    setPendingIndex(next);
   };
 
   const handleTouchEnd = (e: React.TouchEvent): void => {
@@ -61,16 +79,30 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
     const isLeftSwipe = distance > 75;
     const isRightSwipe = distance < -75;
 
-    if (isLeftSwipe) {
-      handleNext();
-    } else if (isRightSwipe) {
-      handlePrevious();
+    if (isLeftSwipe || isRightSwipe) {
+      const exitTo = isLeftSwipe ? -containerWidth : containerWidth;
+      setIsAnimating(true);
+      setSwipeOffset(exitTo);
+      setTimeout(() => {
+        if (isLeftSwipe) handleNext();
+        else handlePrevious();
+        setSwipeOffset(0);
+        setPendingIndex(null);
+        setIsAnimating(false);
+      }, 300);
+    } else {
+      setSwipeOffset(0);
+      setPendingIndex(null);
     }
+
+    setTouchStart(null);
   };
 
   if (!assets || assets.length === 0) {
     return null;
   }
+
+  const neighborOffset = swipeOffset < 0 ? containerWidth : -containerWidth;
 
   return (
     <Card
@@ -87,7 +119,7 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
     >
       <Button
         id="image-preview"
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => !isAnimating && setIsModalOpen(true)}
         className={cn(
           "relative w-full overflow-hidden rounded-lg",
           "transition-transform duration-200 hover:scale-[1.02]",
@@ -99,20 +131,40 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
           "aspect-video",
         )}
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <Image
           src={assets[selectedIndex]}
           alt={`Preview ${selectedIndex + 1}`}
           fill
+          style={{
+            transform: `translateX(${swipeOffset}px)`,
+            transition: isAnimating ? "transform 0.3s ease-in-out" : "none",
+          }}
           className={cn(
-            "object-cover group-hover:brightness-90 hover:border-none active:border-none border-none outline-none hover:outline-none active:outline-none focus-visible:ring-0 transition-all",
+            "object-cover group-hover:brightness-90 hover:border-none active:border-none border-none outline-none hover:outline-none active:outline-none focus-visible:ring-0",
             "focus:ring-transparent",
             "focus-within:ring-transparent",
             "focus-visible:ring-transparent",
             "ring-transparent! ring-0! shadow-none! border-none!",
           )}
         />
+        {pendingIndex !== null && (
+          <Image
+            src={assets[pendingIndex]}
+            alt={`Preview ${pendingIndex + 1}`}
+            fill
+            style={{
+              transform: `translateX(${neighborOffset + swipeOffset}px)`,
+              transition: isAnimating ? "transform 0.3s ease-in-out" : "none",
+            }}
+            className={cn(
+              "object-cover border-none outline-none",
+              "ring-transparent! ring-0! shadow-none! border-none!",
+            )}
+          />
+        )}
         <div
           id="image-counter"
           className={cn(
@@ -168,10 +220,7 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
           <Modal.Dialog
             id="image-gallery-modal-content"
             className={cn(
-              // POSITION
               "absolute",
-
-              // STYLE
               "md:p-5",
               "px-0",
               "p-0",
@@ -181,15 +230,15 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
               "max-w-full",
               "bg-glass-black-dark/80",
               "rounded-none",
-
-              // GRID
               "grid",
               "grid-cols-[auto_1fr_auto]",
               "grid-rows-[auto_1fr_auto]",
               "items-center",
               "gap-5",
+              "overflow-hidden",
             )}
             onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
             {({ close }: { close: () => void }) => (
@@ -204,22 +253,19 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
                   isIconOnly
                   onClick={close}
                   className={cn(
-                    // POSITION
                     "col-start-3",
                     "row-start-1",
                     "justify-self-end",
                     "self-start",
-
-                    // STYLE
                     "bg-glass-black-dark",
                     "hover:bg-glass-gray",
                     "text-accent-foreground-muted",
                     "hover:text-accent-foreground",
                     "hover:contrast-110",
-
                     "md:m-0",
                     "mr-3",
                     "mt-3",
+                    "z-10",
                   )}
                 >
                   <Xmark />
@@ -231,17 +277,19 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
                   alt={`Full view ${selectedIndex + 1}`}
                   width={1920}
                   height={1080}
+                  style={{
+                    transform: `translateX(${swipeOffset}px)`,
+                    transition: isAnimating
+                      ? "transform 0.3s ease-in-out"
+                      : "none",
+                  }}
                   className={cn(
-                    //> NEW
-                    // POSITION
                     "md:col-start-2",
                     "md:row-start-1",
                     "md:row-span-3",
                     "md:col-span-1",
                     "justify-self-center",
                     "self-center",
-
-                    // STYLE
                     "max-h-full",
                     "max-w-full",
                     "w-auto",
@@ -249,8 +297,6 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
                     "object-contain",
                     "rounded-lg",
                     "pointer-events-none",
-
-                    // MOBILE
                     "col-start-1",
                     "col-span-3",
                     "row-start-1",
@@ -258,19 +304,44 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
                   )}
                 />
 
+                {pendingIndex !== null && (
+                  <Image
+                    src={assets[pendingIndex]}
+                    alt={`Full view ${pendingIndex + 1}`}
+                    width={1920}
+                    height={1080}
+                    style={{
+                      transform: `translateX(${neighborOffset + swipeOffset}px)`,
+                      transition: isAnimating
+                        ? "transform 0.3s ease-in-out"
+                        : "none",
+                    }}
+                    className={cn(
+                      "absolute",
+                      "justify-self-center",
+                      "self-center",
+                      "max-h-full",
+                      "max-w-full",
+                      "w-auto",
+                      "h-full",
+                      "object-contain",
+                      "rounded-lg",
+                      "pointer-events-none",
+                    )}
+                  />
+                )}
+
                 <div
                   id="modal-image-counter"
                   className={cn(
-                    // POSITION
                     "col-start-2",
                     "row-start-3",
                     "justify-self-center",
                     "self-end",
                     "mb-5",
-
-                    // STYLE
                     "rounded-full bg-glass-black-dark px-4 py-2 text-sm text-accent-foreground",
                     "pointer-events-none",
+                    "z-10",
                   )}
                 >
                   {selectedIndex + 1} / {assets.length}
@@ -284,19 +355,17 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
                       isIconOnly
                       onClick={handlePrevious}
                       className={cn(
-                        // POSITION
                         "col-start-1",
                         "row-start-2",
                         "justify-self-start",
                         "self-center",
                         "ml-2",
-
-                        // STYLE
                         "bg-glass-black-dark",
                         "hover:bg-glass-gray",
                         "text-accent-foreground-muted",
                         "hover:text-accent-foreground",
                         "hover:contrast-110",
+                        "z-10",
                       )}
                       aria-label="Previous image"
                     >
@@ -308,19 +377,17 @@ export default function ImageGallery({ assets }: { assets: string[] }) {
                       isIconOnly
                       onClick={handleNext}
                       className={cn(
-                        // POSITION
                         "col-start-3",
                         "row-start-2",
                         "justify-self-end",
                         "self-center",
                         "mr-2",
-
-                        // STYLE
                         "bg-glass-black-dark",
                         "hover:bg-glass-gray",
                         "text-accent-foreground-muted",
                         "hover:text-accent-foreground",
                         "hover:contrast-110",
+                        "z-10",
                       )}
                       aria-label="Next image"
                     >
