@@ -13,7 +13,6 @@ import { useSwipeable } from "react-swipeable";
 import { variants } from "@/lib/animationVariants.utils";
 import downloadPhoto from "@/lib/downloadPhoto.utils";
 import { cn } from "@heroui/styles";
-
 export default function SharedModal({
   src,
   assets,
@@ -35,6 +34,8 @@ export default function SharedModal({
     onSwipedLeft: () => goNext(),
     onSwipedRight: () => goPrev(),
     trackMouse: true,
+    preventScrollOnSwipe: true,
+    trackTouch: true,
   });
 
   return (
@@ -46,7 +47,7 @@ export default function SharedModal({
     >
       <div
         id="full screen container"
-        className="fixed inset-0 z-50"
+        className={cn("fixed", "inset-0", "z-50", "", "")}
         {...handlers}
       >
         <div
