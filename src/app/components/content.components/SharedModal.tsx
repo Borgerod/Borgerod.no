@@ -13,6 +13,7 @@ import { useSwipeable } from "react-swipeable";
 import { variants } from "@/lib/animationVariants.utils";
 import downloadPhoto from "@/lib/downloadPhoto.utils";
 import { cn } from "@heroui/styles";
+import { Button } from "@heroui/react";
 export default function SharedModal({
   src,
   assets,
@@ -76,32 +77,32 @@ export default function SharedModal({
           </AnimatePresence>
         </div>
 
-        <button
+        <Button
           id="left nav — screen edge"
           className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 rounded-full bg-glass-black-dark p-3 text-accent-foreground-muted backdrop-blur-lg transition hover:bg-glass-gray hover:text-accent-foreground hover:contrast-110"
           onClick={goPrev}
         >
           <ChevronLeft className="h-6 w-6" />
-        </button>
+        </Button>
 
-        <button
+        <Button
           id="right nav — screen edge"
           className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 rounded-full bg-glass-black-dark p-3 text-accent-foreground-muted backdrop-blur-lg transition hover:bg-glass-gray hover:text-accent-foreground hover:contrast-110"
           onClick={goNext}
         >
           <ChevronRight className="h-6 w-6" />
-        </button>
+        </Button>
 
         <div
           id="top right corner: close"
           className="absolute top-0 right-0 p-4"
         >
-          <button
+          <Button
             onClick={closeModal}
             className="rounded-full bg-glass-black-dark p-3 text-accent-foreground-muted backdrop-blur-lg transition hover:bg-glass-gray hover:text-accent-foreground hover:contrast-110"
           >
             <Xmark className="h-6 w-6" />
-          </button>
+          </Button>
         </div>
 
         <div
@@ -109,7 +110,7 @@ export default function SharedModal({
           className="absolute top-0 left-0 flex items-center gap-2 p-4"
         >
           <a
-            id="button route open-image-button"
+            id="Button route open-image-Button"
             href={src}
             className="rounded-full bg-glass-black-dark p-3 text-accent-foreground-muted backdrop-blur-lg transition hover:bg-glass-gray hover:text-accent-foreground hover:contrast-110"
             target="_blank"
@@ -118,16 +119,16 @@ export default function SharedModal({
           >
             <ArrowUpRightFromSquare className="h-6 w-6" />
           </a>
-          <button
-            id="download download-button"
+          <Button
+            id="download download-Button"
             onClick={() =>
               downloadPhoto(src, src.split("/").pop() ?? "photo.jpg")
             }
             className="rounded-full bg-glass-black-dark p-3 text-accent-foreground-muted backdrop-blur-lg transition hover:bg-glass-gray hover:text-accent-foreground hover:contrast-110"
-            title="Download"
+            aria-details="download"
           >
             <ArrowDownToLine className="h-6 w-6" />
-          </button>
+          </Button>
         </div>
 
         <div

@@ -19,15 +19,6 @@ export default function PhotoPreview({
   return (
     <Card
       className={cn(
-        // "space-y-4",
-        // "col-span-full",
-        // "h-fit",
-        // "w-full",
-        // "glass",
-        // "glass-white",
-        // "m-0",
-        // "rounded-xl",
-        // "p-2",
         "space-y-4",
         "col-span-full",
         "h-fit",
@@ -37,8 +28,8 @@ export default function PhotoPreview({
         "m-0",
       )}
     >
-      {/* Main preview — clicking opens carousel */}
       <Link
+        id="main-preview — clicking opens carousel"
         href={`/work-experience/job/${slug}/photo/${filename}`}
         className={cn(
           "relative w-full overflow-hidden rounded-lg block",
@@ -62,8 +53,8 @@ export default function PhotoPreview({
         </div>
       </Link>
 
-      {/* Thumbnail strip */}
       <div
+        id="thumbnail-strip"
         className={cn(
           "flex flex-row gap-4 justify-start overflow-x-auto overflow-y-hidden",
           "h-fit p-2",
