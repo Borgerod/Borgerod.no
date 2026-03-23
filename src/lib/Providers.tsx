@@ -3,8 +3,8 @@
 import { createContext, useContext, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+//? forgot where this is used again, is it still in use?
 type Device = "mobile" | "tablet" | "desktop";
-
 function getDevice(): Device {
   if (typeof window === "undefined") return "desktop";
   const ua = navigator.userAgent;

@@ -79,3 +79,11 @@ export type LeetCodeBeats = {
   difficulty: "Easy" | "Medium" | "Hard";
   percentage: number;
 };
+
+export type SharedModalProps = {
+  src: string;
+  assets: string[];
+  currentIndex: number;
+  closeModal: () => void;
+  navigate: (src: string) => void;
+};

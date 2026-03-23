@@ -1,7 +1,7 @@
 import workHistory from "@/data/work_history.json";
 import LayoutBuilder from "./LayoutBuilder";
-// import ImageGallery from "../../../components/content.components/ImageGallery";
-import ImageGallery from "@/app/components/content.components/imageGallery";
+// import ImageGallery from "@/app/components/content.components/imageGallery";
+import Carousel from "@/app/components/content.components/Carousel";
 import Link from "next/link";
 import Image from "next/image";
 import AchievementsCard from "./AchievementsCard";
@@ -12,6 +12,8 @@ import { notFound } from "next/navigation";
 import { cn } from "@heroui/react";
 import { Breadcrumbs, Button } from "@heroui/react";
 import { JobItem, LayoutType } from "@/lib/types";
+import PhotoPreview from "./PhotoPreview";
+import ImageGallery from "@/app/components/content.components/imageGallery";
 
 export default async function Job({
   params,
@@ -66,7 +68,6 @@ export default async function Job({
           />
         </Button>
       </Link>
-
       <div className="col-start-1 col-span-full row-start-1">
         <Breadcrumbs>
           <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
@@ -75,12 +76,24 @@ export default async function Job({
           <Breadcrumbs.Item>{slug}</Breadcrumbs.Item>
         </Breadcrumbs>
       </div>
-
       <EmployerCard job={job} />
       <JobCard job={job} JobCardLayout={layout.jobCardLayout} />
       <AchievementsCard job={job} achiCardLayout={layout.achiCardLayout} />
       <ResponsabilitiesCard job={job} respCardLayout={layout.respCardLayout} />
-      <ImageGallery assets={job.assets} />
+      {/* <ImageGallery assets={job.assets} /> */}
+      {/* {job.assets?.map((src) => {
+        const filename = src.split("/").pop();
+        return (
+          <Link
+            key={src}
+            href={`/work-experience/job/${slug}/photo/${filename}`}
+          >
+            <Image src={src} alt="Job photo" width={720} height={480} />
+          </Link>
+        );
+      })} */}
+
+      <PhotoPreview assets={job.assets} slug={slug} />
     </main>
   );
 }
