@@ -6,6 +6,7 @@ import { cn } from "@heroui/react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { headers } from "next/headers";
+import type { Person, WebSite, WithContext } from "schema-dts";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// TODO: add Links to; github repo and Figma project.
 export const metadata: Metadata = {
   generator: "Next.js",
   applicationName: "Digital Resume - Aleksander Borgerød",
@@ -78,11 +78,13 @@ export const metadata: Metadata = {
     title: "Digital Resume - Aleksander Borgerød",
     description:
       "Explore the digital resume and portfolio of Aleksander Borgerød, featuring projects, work experience, and skills in web development and design.",
-    url: "https://borgerod-github-io.vercel.app/",
+    // url: "https://borgerod-github-io.vercel.app/",
+    url: "https://borgerod.no",
     siteName: "Aleksander Borgerød Portfolio",
     images: [
       {
-        url: "https://borgerod-github-io.vercel.app/assets/images/previews/site-preview-2.png",
+        // url: "https://borgerod-github-io.vercel.app/assets/images/previews/site-preview-2.png",
+        url: "https://borgerod.no/assets/images/previews/site-preview-2.png",
         width: 781,
         height: 402,
         alt: "Aleksander Borgerød Preview-banner",
@@ -99,7 +101,8 @@ export const metadata: Metadata = {
     site: "@borgerod",
     creator: "@borgerod",
     images: [
-      "https://borgerod-github-io.vercel.app/assets/images/previews/site-preview-2.png",
+      // "https://borgerod-github-io.vercel.app/assets/images/previews/site-preview-2.png",
+      "https://borgerod.no/assets/images/previews/site-preview-2.png",
     ],
   },
   robots: {
@@ -116,7 +119,55 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://borgerod-github-io.vercel.app",
+    // canonical: "https://borgerod-github-io.vercel.app",
+    canonical: "https://borgerod.no",
+  },
+};
+
+// const structuredData = {
+const structuredData: WithContext<Person> = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Aleksander Borgerød",
+  url: "https://borgerod.no",
+  jobTitle: "Full Stack Developer",
+  description:
+    "Full stack developer specializing in web development, UI/UX design, and technology.",
+  image: "https://borgerod.no/assets/images/previews/site-preview-2.png",
+
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bergen",
+    addressRegion: "Vestland",
+    postalCode: "5161",
+    addressCountry: "NO",
+  },
+
+  sameAs: [
+    "https://github.com/Borgerod",
+    "https://www.linkedin.com/in/borgerod/",
+    "https://www.facebook.com/aleksander.borgerod/",
+  ],
+
+  knowsAbout: [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Full Stack Development",
+    "UI/UX Design",
+    "Figma",
+    "Python",
+    "SQL",
+    "AWS",
+    "Search Engine Optimization",
+    "Data Mining",
+    "Business Administration",
+  ],
+
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://borgerod.no",
   },
 };
 
@@ -131,10 +182,17 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const nonce = (await headers()).get("x-nonce"); //? idk what to do here, i dont need it anywhere, but i need nonce to pass the lighthouse security-review.
+  const nonce = (await headers()).get("x-nonce") ?? undefined; //? idk what to do here, i dont need it anywhere, but i need nonce to pass the lighthouse security-review.
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          nonce={nonce}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body
         className={cn(
           `@container/main ${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`,

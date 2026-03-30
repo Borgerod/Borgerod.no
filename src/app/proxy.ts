@@ -3,19 +3,33 @@ import { NextRequest, NextResponse } from "next/server";
 export function proxy(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const isDev = process.env.NODE_ENV === "development";
+  //   const cspHeader = `
+  //     default-src 'self';
+  //     script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ""};
+  //     style-src 'self' 'nonce-${nonce}';
+  //     img-src 'self' blob: data:;
+  //     font-src 'self' data:;
+  //     object-src 'none';
+  //     base-uri 'self';
+  //     form-action 'self';
+  //     frame-ancestors 'none';
+  //     upgrade-insecure-requests;
+  //     require-trusted-types-for 'script';
+  //   `;
+
   const cspHeader = `
-    default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ""};
-    style-src 'self' 'nonce-${nonce}';
-    img-src 'self' blob: data:;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;
-    require-trusted-types-for 'script';
-  `;
+  default-src 'self';
+  script-src 'self' 'nonce-${nonce}' ${isDev ? "'unsafe-eval'" : ""};
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' blob: data:;
+  font-src 'self' data:;
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+  frame-ancestors 'none';
+  upgrade-insecure-requests;
+  connect-src 'self' https://vitals.vercel-insights.com;
+`;
   const contentSecurityPolicyHeaderValue = cspHeader
     .replace(/\s{2,}/g, " ")
     .trim();
@@ -28,7 +42,7 @@ export function proxy(request: NextRequest) {
   );
   requestHeaders.set(
     "Strict-Transport-Security",
-    "max-age=300; includeSubDomains; preload",
+    "max-age=31536000; includeSubDomains; preload",
   );
   requestHeaders.set("Cross-Origin-Opener-Policy", "same-origin");
   requestHeaders.set("X-Frame-Options", "DENY");
@@ -44,7 +58,7 @@ export function proxy(request: NextRequest) {
   );
   response.headers.set(
     "Strict-Transport-Security",
-    "max-age=300; includeSubDomains; preload",
+    "max-age=31536000; includeSubDomains; preload",
   );
   response.headers.set("Cross-Origin-Opener-Policy", "same-origin");
   response.headers.set("X-Frame-Options", "DENY");
