@@ -124,7 +124,6 @@ export const metadata: Metadata = {
   },
 };
 
-// const structuredData = {
 const structuredData: WithContext<ProfilePage> = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
