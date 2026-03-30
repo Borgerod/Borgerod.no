@@ -28,7 +28,7 @@ export function proxy(request: NextRequest) {
   form-action 'self';
   frame-ancestors 'none';
   upgrade-insecure-requests;
-  connect-src 'self' https://vitals.vercel-insights.com;
+  connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com;
 `;
   const contentSecurityPolicyHeaderValue = cspHeader
     .replace(/\s{2,}/g, " ")
@@ -46,7 +46,6 @@ export function proxy(request: NextRequest) {
   );
   requestHeaders.set("Cross-Origin-Opener-Policy", "same-origin");
   requestHeaders.set("X-Frame-Options", "DENY");
-
   const response = NextResponse.next({
     request: {
       headers: requestHeaders,
@@ -62,6 +61,10 @@ export function proxy(request: NextRequest) {
   );
   response.headers.set("Cross-Origin-Opener-Policy", "same-origin");
   response.headers.set("X-Frame-Options", "DENY");
+  response.headers.set(
+    "Cache-Control",
+    "public, max-age=3600, stale-while-revalidate=86400",
+  );
 
   return response;
 }

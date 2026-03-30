@@ -189,7 +189,6 @@ export default async function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          nonce={nonce}
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
