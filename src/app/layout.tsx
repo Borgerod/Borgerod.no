@@ -6,8 +6,8 @@ import { cn } from "@heroui/react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { headers } from "next/headers";
-import type { Person, WebSite, WithContext } from "schema-dts";
-
+import type { ProfilePage, WebSite, WithContext } from "schema-dts";
+import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -125,52 +125,45 @@ export const metadata: Metadata = {
 };
 
 // const structuredData = {
-const structuredData: WithContext<Person> = {
+const structuredData: WithContext<ProfilePage> = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Aleksander Borgerød",
-  url: "https://borgerod.no",
-  jobTitle: "Full Stack Developer",
-  description:
-    "Full stack developer specializing in web development, UI/UX design, and technology.",
-  image: "https://borgerod.no/assets/images/previews/site-preview-2.png",
-
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Bergen",
-    addressRegion: "Vestland",
-    postalCode: "5161",
-    addressCountry: "NO",
-  },
-
-  sameAs: [
-    "https://github.com/Borgerod",
-    "https://www.linkedin.com/in/borgerod/",
-    "https://www.facebook.com/aleksander.borgerod/",
-  ],
-
-  knowsAbout: [
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Full Stack Development",
-    "UI/UX Design",
-    "Figma",
-    "Python",
-    "SQL",
-    "AWS",
-    "Search Engine Optimization",
-    "Data Mining",
-    "Business Administration",
-  ],
-
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": "https://borgerod.no",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: "Aleksander Borgerød",
+    description:
+      "Full stack developer specializing in web development, UI/UX design, and technology.",
+    image: "https://borgerod.no/assets/images/previews/site-preview-2.png",
+    jobTitle: "Full Stack Developer",
+    sameAs: [
+      "https://github.com/Borgerod",
+      "https://www.linkedin.com/in/borgerod/",
+      "https://www.facebook.com/aleksander.borgerod/",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bergen",
+      addressRegion: "Vestland",
+      postalCode: "5161",
+      addressCountry: "NO",
+    },
+    knowsAbout: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Full Stack Development",
+      "UI/UX Design",
+      "Figma",
+      "Python",
+      "SQL",
+      "AWS",
+      "Search Engine Optimization",
+      "Data Mining",
+      "Business Administration",
+    ],
   },
 };
-
 export const viewport = {
   themeColor: "#f2f2ec",
   width: "device-width",
@@ -187,9 +180,14 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="structured-data"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          strategy="beforeInteractive"
+          nonce={nonce}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
         />
       </head>
       <body
