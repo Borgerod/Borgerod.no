@@ -95,6 +95,11 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
               >
                 <Link
                   className={cn("contents", "sm:pointer-events-none", "", "")}
+                  id={`${job.id} url-route job-profile-route`}
+                  key={job.id}
+                  aria-labelledby={`${job.id}`}
+                  aria-label={`Job profile for ${job.title} at ${job.employer} (${job.period.start}-${job.period.end}) - Read about the job description and accomplishments`}
+                  tabIndex={-1}
                   href={`work-experience/job/${job.id}`}
                 >
                   <Card.Header>
@@ -138,61 +143,59 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                 </Link>
               </Card>
 
-              <div
-                id="description-url-col read-more"
+              <Link
+                id={`${job.id} url-route job-profile-route description-url-col read-more`}
+                key={job.id}
+                aria-labelledby={`${job.id}`}
+                aria-label={`Job profile for ${job.title} at ${job.employer} (${job.period.start}-${job.period.end}) - Read about the job description and accomplishments`}
+                href={`work-experience/job/${job.id}`}
                 className="justify-self-end"
               >
-                <Link href={`work-experience/job/${job.id}`}>
-                  <Chip
-                    size="sm"
-                    variant="primary"
-                    color="accent"
-                    key={job.id}
-                    id={`${job.id} read more`}
-                    className={cn(
-                      "hidden sm:flex items-center justify-center",
-                      "h-2 w-fit",
-                      "md:px-2 md:py-2.5",
-                      "p-2",
-                      "py-3",
-                      "select-none",
-                      "font-light",
-                      "md:text-[10px]",
-                      "text-center",
-                      "items-center",
-                      "justify-items-center",
-                      "flex",
-                      "text-shadow-accent-soft-hover",
-                      // dekstop
-                      "md:bg-glass-green-base md:hover:bg-glass-green-base-hover",
-                      "md:text-accent-foreground-muted md:hover:text-accent-foreground",
+                <Chip
+                  size="sm"
+                  variant="primary"
+                  color="accent"
+                  id={`${job.id} chip job-profile-route`}
+                  className={cn(
+                    "hidden sm:flex items-center justify-center",
+                    "h-2 w-fit",
+                    "md:px-2 md:py-2.5",
+                    "p-2",
+                    "py-3",
+                    "select-none",
+                    "font-light",
+                    "md:text-[10px]",
+                    "text-center",
+                    "items-center",
+                    "justify-items-center",
+                    "flex",
+                    "text-shadow-accent-soft-hover",
+                    // dekstop
+                    "md:bg-glass-green-base md:hover:bg-glass-green-base-hover",
+                    "md:text-accent-foreground-muted md:hover:text-accent-foreground",
 
-                      /* 
+                    /* 
                       TODO: get feedback and pick option 1 or 2 
                       */
 
-                      /* OPTION 1, bright text dark chips */
-                      // "bg-glass-green-base hover:bg-glass-green-base-hover",
-                      // "text-accent-foreground-muted hover:text-accent-foreground",
+                    /* OPTION 1, bright text dark chips */
+                    // "bg-glass-green-base hover:bg-glass-green-base-hover",
+                    // "text-accent-foreground-muted hover:text-accent-foreground",
 
-                      /* OPTION 2, dark text bright chips */
-                      "bg-glass-offwhite hover:bg-glass-green-base",
-                      "text-secondary hover:text-secondary-hover",
+                    /* OPTION 2, dark text bright chips */
+                    "bg-glass-offwhite hover:bg-glass-green-base",
+                    "text-secondary hover:text-secondary-hover",
 
-                      "",
-                      "",
-                    )}
-                  >
-                    <Chip.Label className="flex items-center text-center gap-1 p-0">
-                      <span className="block md:hidden lg:block text-nowrap">
-                        Read more
-                      </span>
-
-                      <LinkIcon className="size-2.5 " />
-                    </Chip.Label>
-                  </Chip>
-                </Link>
-              </div>
+                    "",
+                    "",
+                  )}
+                >
+                  <Chip.Label className="flex items-center text-center gap-1 p-0 lg:flex text-nowrap">
+                    Read more
+                    <LinkIcon className="size-2.5" aria-hidden="true" />
+                  </Chip.Label>
+                </Chip>
+              </Link>
             </div>
           ))}
         </Card.Content>
