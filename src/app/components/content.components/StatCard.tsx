@@ -251,44 +251,15 @@ export default function StatCard({ className }: ComponentBaseProps) {
 
         <Image
           src="/assets/images/ab_logo_demo.png"
-          width={500}
-          height={500}
-          alt="Picture of the author"
+          width={427}
+          height={387}
+          alt="Borgerod logo"
           className={cn(
-            /* * style */
-            "aspect-square",
-            "bg-linear-to-br",
-            "opacity-90",
-
-            /* * size */
-            "h-full",
-            "sm:h-full",
-            "max-h-10",
-            "max-w-10",
-            "sm:max-h-15",
-            "sm:max-w-15",
-
-            /* * placement */
-            "col-start-2",
-            "row-start-1",
-
-            "justify-self-center",
-            "self-start",
-            // TEST
-
-            "sm:h-full",
-            "max-h-15",
-            "max-w-15",
-            "md:max-h-15",
-            "md:max-w-15",
-
-            "absolute",
-            "right-0",
-            "right-2",
-            "sm:right-5",
-            "-top-2",
-            "",
-            "",
+            "bg-linear-to-br opacity-90",
+            "h-full max-h-15 max-w-15",
+            "col-start-2 row-start-1",
+            "justify-self-center self-start",
+            "absolute right-2 sm:right-5 -top-2",
           )}
         />
 
