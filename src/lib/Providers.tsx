@@ -3,8 +3,9 @@
 import { createContext, useContext, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-//? forgot where this is used again, is it still in use?
 type Device = "mobile" | "tablet" | "desktop";
+const DeviceContext = createContext<Device>("desktop");
+
 function getDevice(): Device {
   if (typeof window === "undefined") return "desktop";
   const ua = navigator.userAgent;
@@ -13,8 +14,6 @@ function getDevice(): Device {
     return "mobile";
   return "desktop";
 }
-
-const DeviceContext = createContext<Device>("desktop");
 
 function DeviceProvider({ children }: { children: React.ReactNode }) {
   return (
@@ -25,7 +24,7 @@ function DeviceProvider({ children }: { children: React.ReactNode }) {
 }
 
 export const useDevice = () => useContext(DeviceContext);
-/* this is related to background restructuring, read note in Layout */
+
 function BackgroundProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 

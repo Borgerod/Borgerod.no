@@ -5,6 +5,7 @@ import { Providers } from "@/lib/Providers";
 import { cn } from "@heroui/react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { headers } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -125,11 +126,13 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const nonce = (await headers()).get("x-nonce"); //? idk what to do here, i dont need it anywhere, but i need nonce to pass the lighthouse security-review.
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
