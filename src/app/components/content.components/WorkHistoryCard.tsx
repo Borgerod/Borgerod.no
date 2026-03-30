@@ -146,8 +146,7 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
               <Link
                 id={`${job.id} url-route job-profile-route description-url-col read-more`}
                 key={job.id}
-                aria-labelledby={`${job.id}`}
-                aria-label={`Job profile for ${job.title} at ${job.employer} (${job.period.start}-${job.period.end}) - Read about the job description and accomplishments`}
+                aria-label={`Read more about ${job.title} at ${job.employer} (${job.period.start}-${job.period.end})`}
                 href={`work-experience/job/${job.id}`}
                 className="justify-self-end"
               >
@@ -190,8 +189,15 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                     "",
                   )}
                 >
-                  <Chip.Label className="flex items-center text-center gap-1 p-0 lg:flex text-nowrap">
+                  <Chip.Label
+                    className="flex items-center text-center gap-1 p-0 lg:flex text-nowrap"
+                    aria-label={`Read more about ${job.title} at ${job.employer} (${job.period.start}-${job.period.end})`}
+                  >
+                    <span className="sr-only">
+                      Read more about {job.title} at {job.employer}.{" "}
+                    </span>
                     Read more
+                    {/* Project */}
                     <LinkIcon className="size-2.5" aria-hidden="true" />
                   </Chip.Label>
                 </Chip>

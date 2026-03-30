@@ -257,9 +257,12 @@ export default function StatCard({ className }: ComponentBaseProps) {
           className={cn(
             "bg-linear-to-br opacity-90",
             "h-full max-h-15 max-w-15",
+            "bg-linear-to-br opacity-90 object-contain aspect-427/387",
             "col-start-2 row-start-1",
             "justify-self-center self-start",
             "absolute right-2 sm:right-5 -top-2",
+            "",
+            "",
           )}
         />
 
