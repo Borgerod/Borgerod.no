@@ -29,6 +29,9 @@ Built with Next.js, it features interactive components, structured work history,
   - [TODO:](#todo)
     - [Necessary](#necessary)
     - [Optional](#optional)
+  - [Performance](#performance)
+    - [LightHouse (SEO)](#lighthouse-seo)
+    - [Vercel Speed Insights](#vercel-speed-insights)
   - [Page Map](#page-map)
   - [Data Overview](#data-overview)
     - [API Map](#api-map)
@@ -85,6 +88,14 @@ _all of the todos found in the project files **should** be referenced here_
 - [ ] update job banners (logo long)
 - [ ] make profile image maker that automatically removed background and crops accordingly. no manual laber.
 - [ ] add tracking of visitors? note: prob would break gdpr but its a private website and I am tracking information of legal entities (employees of a business) and not private individual's personal data, so whatever.
+
+## Performance
+
+### LightHouse (SEO)
+
+![Mobile 1](public/assets/images/lighthouse_review.png)
+
+### Vercel Speed Insights
 
 ## Page Map
 
