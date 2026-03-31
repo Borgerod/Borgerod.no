@@ -1,18 +1,10 @@
 "use client";
 import { cn } from "@heroui/react";
 import { Card } from "@heroui/react";
-import { ComponentBaseProps, GitHubStats, LeetCodeStats } from "@/lib/types";
+import { ComponentBaseProps, Stats } from "@/lib/types";
 import StylizedCircle from "../design.components/StylizedCircle";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
-// todo: switch to type + move to types
-interface Stats {
-  github: GitHubStats | null;
-  leetCode: LeetCodeStats | null;
-  loading: boolean;
-}
-// TODO issue: statscard seems to be tripple wrapped in grid, which is prob why its so hard to adjust it
 function StatContent({ stats }: { stats: Stats }) {
   //? this is wierd, why do i have two of these basicly? am i overlooking something?
   if (stats.loading) {

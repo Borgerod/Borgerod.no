@@ -46,6 +46,12 @@ export type LayoutType = {
   respCardLayout: string;
 };
 
+export type Stats = {
+  github: GitHubStats | null;
+  leetCode: LeetCodeStats | null;
+  loading: boolean;
+};
+
 export type BentoItem = {
   text: string | string[];
   span: number | number[];

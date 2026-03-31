@@ -34,7 +34,9 @@ Built with Next.js, it features interactive components, structured work history,
     - [API Map](#api-map)
     - [Data Map](#data-map)
   - [Previews](#previews)
-  - [Previews](#previews-1)
+  - [Descriptions](#descriptions)
+    - [BentoBoxBuilder](#bentoboxbuilder)
+    - [LayoutBuilder](#layoutbuilder)
   - [Usage - how to install and run project](#usage----how-to-install-and-run-project)
     - [Installation](#installation)
     - [Deploy on Vercel](#deploy-on-vercel)
@@ -54,7 +56,7 @@ _all of the todos found in the project files **should** be referenced here_
   - [x] add table of contents
   <!-- - [ ] add hyperlink to bug-report -->
   - [x] improve installation guide
-  - [ ] make usage guide; (what images the user needs to add, and what data user needs to add and how it needs to be structured. )
+  - [ ] make usage guide; (what images the user needs to add, and what data user needs to add and how it needs to be structured.)
 - [x] BUG (3.0) fix bug in ImageGallery where image view sometimes refuses to close.
 - [x] BUG (4.0) fix Images wont open on mobile mode (maybe other popups?)
 - [ ] Analytics / SEO / AEO
@@ -64,11 +66,11 @@ _all of the todos found in the project files **should** be referenced here_
     - [x] add metadata
     - [ ] implement SEO/AEO analysis
     - [x] implement lighthouse
-      - [ ] implement changes from analysis
+      - [x] implement changes from analysis
     - [x] add CSP / nunce
 - [x] add button redirecting to 'Github-repo' and 'Figma-project' in home
 - [ ] WorkHistoryCard -> get feedback and pick color option 1 or 2 for chips
-- [ ] change color of portfolio-grid-buttons - while in tablet/mobile mode. it blends too much into the background and needs to be darker perhaps
+- [x] change color of portfolio-grid-buttons - while in tablet/mobile mode. it blends too much into the background and needs to be darker perhaps
 
 ### <span style="font-size:0.8em;">Optional</span>
 
@@ -119,8 +121,6 @@ graph TD
 ## Previews
 
 Here are some previews of the Digital Resume platform in action:
-
-## Previews
 
 <details>
 <summary>Home (Desktop)</summary>
@@ -173,6 +173,40 @@ Image gallery
 | ![Portfolio](public/assets/images/previews/preview-portfolio.png)
 
 </details>
+
+## Descriptions
+
+_A quick overview of the core layout algorithms powering the platform._
+
+### BentoBoxBuilder
+
+A brute-force layout algorithm that organizes an array of strings into a dynamic bento grid — rows of cells where each cell has a text value and a col-span.
+
+**How it works:**
+
+- **Layout selection:** A predefined list of span combinations (e.g. `[2, 1]`, `[1, [1, 2]]`) is shuffled on each pass using a seeded PRNG, where the seed is derived from the total character count of the input. The algorithm then tries each layout until one fits the current queue of strings.
+- **Fit checking:** A layout "fits" when the proportional widths it assigns (based on col-spans) roughly match the proportional lengths of the strings being placed. Longer strings get wider cells. An `effectiveLength` heuristic is also applied, which accounts for long single words that would overflow a narrow cell.
+- **Nested cells:** Some layouts include stacked sub-cells (e.g. `[2, [1, 1]]`), where one column holds two vertically stacked items. These are handled as nested span arrays, and during assignment un-nested cells are prioritized and filled biggest-to-smallest before nested ones.
+- **Anti-repetition:** The same layout structure is never used in two consecutive rows (compared by their reduced span ratios).
+- **isHalved mode:** An optional flag that switches to a smaller layout pool and tighter minimum-span thresholds, intended for narrower/half-width containers.
+- **Fallback handler:** If no layout fits with more than 2 items remaining in the queue, the algorithm falls back to a simpler two-cell row pass (`isolatedLayouts`) with a relaxed fit threshold. If a single item remains it is given a full-width span.
+
+### LayoutBuilder
+
+A layout decision algorithm that dynamically assigns CSS grid classes to three job card components — `jobCard`, `achiCard`, and `respCard` — based on how much text content each holds.
+
+**How it works:**
+
+- **Length measurement:** Each card's "size" is the total character count of its string data, rounded to the nearest 100. The `jobCard` acts as the baseline: its full text content sets a `lengthLimit` that the other cards are measured against.
+- **Fit checking:** A card "fits" next to another when their lengths are within a configurable threshold percentage of each other. Three thresholds are used: a tight one for comparing individual cards against the job card, and a looser one for comparing `achiCard` directly against `respCard`.
+- **Decision tree:** The algorithm works outside-in: it first checks whether both `achiCard` and `respCard` together fit the limit. If they do, the default layout is returned unchanged. If not, it progressively checks each card individually and their relative sizes to pick the least-disruptive layout change:
+  - Both fit individually → move `respCard` to full-width below, let `achiCard` fill the gap
+  - Only `achiCard` fits → `respCard` goes full-width below
+  - Only `respCard` fits → `achiCard` goes full-width below
+  - Neither fits, but they're similar in size → `jobCard` spans full width, both cards sit side by side below
+  - Nothing fits → abandon grid entirely, fall back to `flex flex-col`
+
+- **Design principle:** When a layout change is needed, the algorithm prefers the smallest deviation from the default. Single-card moves are preferred over restructuring the whole grid, which keeps the visual composition stable and predictable.
 
 ## Usage <span style="font-size:0.5em;"><em> - how to install and run project</em></span>
 

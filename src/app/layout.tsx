@@ -6,7 +6,7 @@ import { cn } from "@heroui/react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { headers } from "next/headers";
-import type { ProfilePage, WebSite, WithContext } from "schema-dts";
+import type { ProfilePage, WithContext } from "schema-dts";
 import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,12 +78,10 @@ export const metadata: Metadata = {
     title: "Digital Resume - Aleksander Borgerød",
     description:
       "Explore the digital resume and portfolio of Aleksander Borgerød, featuring projects, work experience, and skills in web development and design.",
-    // url: "https://borgerod-github-io.vercel.app/",
     url: "https://borgerod.no",
     siteName: "Aleksander Borgerød Portfolio",
     images: [
       {
-        // url: "https://borgerod-github-io.vercel.app/assets/images/previews/site-preview-2.png",
         url: "https://borgerod.no/assets/images/previews/site-preview-2.png",
         width: 781,
         height: 402,
@@ -100,10 +98,7 @@ export const metadata: Metadata = {
       "Explore the digital resume and portfolio of Aleksander Borgerød, featuring projects, work experience, and skills in web development and design.",
     site: "@borgerod",
     creator: "@borgerod",
-    images: [
-      // "https://borgerod-github-io.vercel.app/assets/images/previews/site-preview-2.png",
-      "https://borgerod.no/assets/images/previews/site-preview-2.png",
-    ],
+    images: ["https://borgerod.no/assets/images/previews/site-preview-2.png"],
   },
   robots: {
     index: true,
@@ -119,7 +114,6 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    // canonical: "https://borgerod-github-io.vercel.app",
     canonical: "https://borgerod.no",
   },
 };

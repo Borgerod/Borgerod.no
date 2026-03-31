@@ -29,8 +29,7 @@ export default function CallMeButton() {
     window.open(url, "_blank", "noopener,noreferrer");
   }, [phoneNumber, device]);
   /*
-    !BUG (3.0): when it is open and you click out of the windows, then back in again. it becomes unclosable. 
-    todo: move to bug-report
+    !BUG (3.0): (which also applies here, unverified if it is still the case) when it is open and you click out of the windows, then back in again. it becomes unclosable. 
   */
   return (
     <div id="call-me-button" className="group relative inline-flex">

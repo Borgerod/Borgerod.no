@@ -11,7 +11,7 @@ type jobItem = {
   employer: string;
   location: string;
   isProject: boolean;
-  description: string; //? think about this
+  description: string;
 };
 
 export default function WorkHistoryCard({ className }: ComponentBaseProps) {
@@ -197,7 +197,6 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                       Read more about {job.title} at {job.employer}.{" "}
                     </span>
                     Read more
-                    {/* Project */}
                     <LinkIcon className="size-2.5" aria-hidden="true" />
                   </Chip.Label>
                 </Chip>

@@ -11,15 +11,6 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
   const rectangleWidth = Math.round((((circleDiameter * 16) / 9) * 2) / 3);
   const router = useRouter();
 
-  /*! BUG (1.1): profile Card blur effect sometimes dissapears
-  TODO: move to bug-report.txt 
-  INFO: 
-      project version - 0.4.0
-      date, discovered: 12.03.2026
-      date, solved: 
-      related files: ProfileCard, (relevant to; ListCard.tools.tsx, SocialLinksCard.tsx)
-*/
-
   return (
     <Card
       id="profile-card"
