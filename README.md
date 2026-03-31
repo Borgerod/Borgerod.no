@@ -52,19 +52,23 @@ _all of the todos found in the project files **should** be referenced here_
   - [x] add description
   - [ ] add description of ['layoutBuilder' ,'BentoBoxBuilder']
   - [x] add table of contents
-  - [ ] add hyperlink to bug-report
-  - [ ] make usage guide; (what images the user needs to add, and what data user needs to add and how it needs to be structured. )
+  <!-- - [ ] add hyperlink to bug-report -->
   - [x] improve installation guide
-- [ ] BUG (3.0) fix bug in ImageGallery where image view sometimes refuses to close.
-- [ ] BUG (4.0) fix Images wont open on mobile mode (maybe other popups?)
+  - [ ] make usage guide; (what images the user needs to add, and what data user needs to add and how it needs to be structured. )
+- [x] BUG (3.0) fix bug in ImageGallery where image view sometimes refuses to close.
+- [x] BUG (4.0) fix Images wont open on mobile mode (maybe other popups?)
 - [ ] Analytics / SEO / AEO
-  - [ ] add vercel analytics
-  - [ ] enable vercel speed insight
+  - [x] add vercel analytics
+  - [x] enable vercel speed insight
   - [ ] implement SEO/AEO
     - [x] add metadata
-    - [ ] inplement SEO/AEO analysis
+    - [ ] implement SEO/AEO analysis
+    - [x] implement lighthouse
+      - [ ] implement changes from analysis
+    - [x] add CSP / nunce
 - [x] add button redirecting to 'Github-repo' and 'Figma-project' in home
 - [ ] WorkHistoryCard -> get feedback and pick color option 1 or 2 for chips
+- [ ] change color of portfolio-grid-buttons - while in tablet/mobile mode. it blends too much into the background and needs to be darker perhaps
 
 ### <span style="font-size:0.8em;">Optional</span>
 

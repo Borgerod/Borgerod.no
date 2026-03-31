@@ -57,8 +57,6 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           "gap-1",
           "rounded-xl",
           "overflow-hidden",
-          "shadow-none",
-
           ////* grid
           "grid",
           "grid-cols-3",
@@ -66,8 +64,8 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           "md:grid-cols-3",
           "lg:grid-cols-4",
           "bg-glass-gray/10",
-          "shadow shadow-1",
-          "",
+          "drop-shadow-sm",
+          "shadow-md",
         )}
       >
         {projects.slice(0, maxProjects).map((project: ProjectItem) => (
@@ -75,52 +73,49 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             id={`${project.id} portfolio-grid-button url-redirect portfolio-page-route`}
             href={project.url}
             key={project.id}
-            className="contents focus-visible"
+            className={cn(
+              "h-full",
+              "w-full",
+              "font-light",
+              "p-2",
+              "gap-0",
+              "rounded-none",
+              "group",
+              "bg-transparent",
+              "hover:shadow-md",
+              "shadow-md",
+              "bg-glass-gray-light-2",
+              "hover:bg-glass-gray-light-2-hover",
+              "grid",
+              "grid-rows-2",
+              "",
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Card
-              key={project.id}
-              className={cn(
-                "font-light",
-                "p-2",
-                "h-full",
-                "w-full",
-                "grid",
-                "grid-rows-2",
-                "justify-center",
-                "justify-items-center",
-                "content-center",
-                "gap-0",
-                "rounded-none",
-                "group",
-                "bg-transparent",
-                "hover:shadow-md",
-                "shadow-sm",
-                "drop-shadow-sm",
-                "shadow shadow-1",
-                "bg-glass-gray-light-2",
-                "hover:bg-glass-gray-light-2-hover",
-                "",
-                "",
-              )}
-            >
-              <Card.Header>
+            <Card className="contents">
+              <Card.Header
+                className={cn(
+                  "max-w-7",
+                  "min-w-5",
+                  "relative",
+                  "h-5",
+                  "w-full",
+                  "place-self-center",
+                  "",
+                  "",
+                )}
+              >
                 <Image
                   src={project.icon}
                   alt={project.alt}
-                  width="64"
-                  height="64"
+                  sizes="64px"
+                  fill
                   className={cn(
-                    "w-fit",
-                    "h-full",
-                    "py-1",
+                    "object-contain",
                     "opacity-60",
                     "group-hover:opacity-100",
                     "group-hover:text-accent-foreground",
-                    "self-center",
-                    "text-center",
-                    "justify-self-center",
                     "",
                     "",
                   )}
@@ -144,49 +139,49 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             </Card>
           </Link>
         ))}
-
         <Link
           id="see-all-button portfolio-grid-button url-route portfolio-page-route"
           href="./portfolio"
-          className="contents"
+          className={cn(
+            "h-full",
+            "w-full",
+            "font-light",
+            "p-2",
+            "gap-0",
+            "rounded-none",
+            "group",
+            "bg-transparent",
+            "shadow-md",
+            "hover:shadow-md",
+            "shadow-sm",
+            "drop-shadow-sm",
+            "shadow shadow-1",
+            "bg-glass-gray-light-2",
+            "hover:bg-glass-gray-light-2-hover",
+            "grid",
+            "grid-rows-2",
+            "",
+          )}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Card
-            className={cn(
-              "font-light",
-              "p-2",
-              "h-full",
-              "w-full",
-              "grid",
-              "grid-rows-2",
-              "justify-center",
-              "justify-items-center",
-              "content-center",
-              "gap-0",
-              "rounded-none",
-              "group",
-              "hover:shadow-md",
-              "shadow-sm",
-              "drop-shadow-sm",
-              "bg-glass-gray-light-2",
-              "hover:bg-glass-gray-light-2-hover",
-              "",
-              "",
-            )}
-          >
+          <Card className="contents">
             <Card.Header
               className={cn(
+                "h-5",
+                "max-w-7",
+                "min-w-5",
+                "aspect-auto",
+                "place-self-center",
+                // deviates from sibling:
+                "self-end",
                 "text-xl",
                 "font-semibold",
                 "text-accent-foreground-muted",
                 "group-hover:text-accent-foreground",
-                "w-fit",
-                "h-fit",
-                "pt-3",
                 "opacity-60",
                 "group-hover:opacity-100",
                 "group-hover:text-accent-foreground",
-                "",
-                "",
               )}
             >
               <IoIosMore />
@@ -194,10 +189,13 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             <Card.Content
               className={cn(
                 "text-[9px]",
-                "whitespace-normal",
+                "wrap-anywhere",
+                "break-normal",
                 "text-center",
                 "text-accent-foreground-muted",
                 "group-hover:text-accent-foreground",
+                "group-hover:opacity-110",
+                "",
                 "",
               )}
             >
