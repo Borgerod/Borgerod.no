@@ -183,6 +183,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
 
       <Card.Footer
         id="contact-buttons-row"
+        aria-label="contact"
         className={cn(
           "flex",
           "gap-2",
@@ -201,6 +202,7 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
       >
         <Button
           id="email-button"
+          aria-label="opens users email provider"
           type="button"
           onClick={() => router.push("mailto:a.borgerod@gmail.com")}
           isIconOnly
@@ -230,8 +232,12 @@ export default function ProfileCard({ className }: ComponentBaseProps) {
             "",
           )}
         >
-          <span className="hidden 2xl:block">Send me an e-mail</span>
-          <span className="block 2xl:hidden">E-mail</span>
+          <span className="hidden sm:contents md:hidden lg:contents">
+            Send me an e-mail
+          </span>
+          <span className="contents sm:hidden md:contents lg:hidden">
+            E-mail
+          </span>
         </Button>
         <CallMeButton />
       </Card.Footer>

@@ -36,6 +36,7 @@ export default function CallMeButton() {
     <div id="call-me-button" className="group relative inline-flex">
       <Modal>
         <Button
+          aria-label="Open phone app and display phone number"
           onPress={handleClick}
           size="sm"
           isIconOnly

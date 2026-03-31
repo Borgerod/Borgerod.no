@@ -1,6 +1,6 @@
 import { ComponentBaseProps } from "@/lib/types";
 import { cn } from "@heroui/react";
-import { Button, Card, Separator } from "@heroui/react";
+import { Card, Separator } from "@heroui/react";
 import { SiLeetcode } from "react-icons/si";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
@@ -10,7 +10,7 @@ import RepoRef from "./RepoRef";
 export default function COMPONENTNAME({ className }: ComponentBaseProps) {
   return (
     <Card
-      id="social-links"
+      id="social-links social-buttons"
       className={cn(
         "glass",
         "glass-black",
@@ -30,7 +30,10 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
       )}
     >
       <Card.Header>
-        <Card.Title className="text-accent-foreground-muted sm:self-center">
+        <Card.Title
+          className="text-accent-foreground-muted sm:self-center"
+          aria-label="social media links"
+        >
           Links
         </Card.Title>
         <Separator variant="secondary" className="pb-0 sm:hidden" />
@@ -41,78 +44,63 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
           "flex flex-row",
           "justify-around",
           "justify-between",
-          "",
-          "",
         )}
       >
-        <Button
-          isIconOnly
-          size="lg"
-          variant="primary"
-          className={
-            "group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
-          }
+        <Link
+          id="linkedin-button url-redirect social-button"
+          href={"https://www.linkedin.com/in/borgerod/"}
+          aria-label="Redirect to LinkedIn profile"
+          className="group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center min-w-11 min-h-11 rounded-full"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Link
-            href={"https://www.linkedin.com/in/borgerod/"}
-            className="h-full w-full content-center justify-items-center"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedinIn className="size-4 text-accent-foreground-muted group-hover:text-accent-foreground" />
-          </Link>
-        </Button>
-        <Button
-          isIconOnly
-          size="lg"
-          variant="primary"
-          className={
-            "group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
-          }
+          <FaLinkedinIn
+            aria-hidden="true"
+            className="size-4 text-accent-foreground-muted group-hover:text-accent-foreground"
+          />
+        </Link>
+
+        <Link
+          id="facebook-button url-redirect social-button"
+          href={"https://www.facebook.com/aleksander.borgerod/"}
+          aria-label="Redirect to Facebook profile"
+          className="group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center min-w-11 min-h-11 rounded-full"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Link
-            href={"https://www.facebook.com/aleksander.borgerod/"}
-            className="h-full w-full content-center justify-items-center"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebookF className="size-5 text-accent-foreground-muted group-hover:text-accent-foreground" />
-          </Link>
-        </Button>
-        <Button
-          isIconOnly
-          size="lg"
-          variant="primary"
-          className={
-            "group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
-          }
+          <FaFacebookF
+            aria-hidden="true"
+            className="size-5 text-accent-foreground-muted group-hover:text-accent-foreground"
+          />
+        </Link>
+
+        <Link
+          id="github-button url-redirect social-button"
+          href={"http://github.com/Borgerod"}
+          aria-label="Redirect to GitHub profile"
+          className="group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center min-w-11 min-h-11 rounded-full"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Link
-            href={"http://github.com/Borgerod"}
-            className="h-full w-full content-center justify-items-center"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <TbBrandGithubFilled className="size-5 text-accent-foreground-muted group-hover:text-accent-foreground" />
-          </Link>
-        </Button>
-        <Button
-          isIconOnly
-          size="lg"
-          variant="primary"
-          className={
-            "group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center"
-          }
+          <TbBrandGithubFilled
+            aria-hidden="true"
+            className="size-5 text-accent-foreground-muted group-hover:text-accent-foreground"
+          />
+        </Link>
+
+        <Link
+          id="leetcode-button url-redirect social-button"
+          href={"https://leetcode.com/u/Borgerod/"}
+          aria-label="Redirect to Leetcode profile"
+          className="group bg-glass-gray-light hover:bg-glass-gray-dark grid justify-center items-center content-center justify-items-center text-center min-w-11 min-h-11 rounded-full"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Link
-            href={"https://leetcode.com/u/Borgerod/"}
-            className="h-full w-full content-center justify-items-center"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiLeetcode className="size-5 text-accent-foreground-muted group-hover:text-accent-foreground" />
-          </Link>
-        </Button>
+          <SiLeetcode
+            aria-hidden="true"
+            className="size-5 text-accent-foreground-muted group-hover:text-accent-foreground"
+          />
+        </Link>
       </Card.Content>
       <RepoRef
         className={cn("flex", "pt-5", "sm:hidden!", "row-start-", "col-span-3")}
