@@ -9,7 +9,7 @@ import Link from "next/link";
 import { IoIosMore } from "react-icons/io";
 import { useEffect, useState } from "react";
 
-// TODO: change color of portfolio-grid-button - on I don't like the hover colors on the Buttons
+// TODO: change color of portfolio-grid-buttons - while in tablet/mobile mode. it blends too much into the background and needs to be darker perhaps
 
 export default function COMPONENTNAME({ className }: ComponentBaseProps) {
   const [maxProjects, setMaxProjects] = useState<number>(7);
@@ -75,7 +75,7 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
             id={`${project.id} portfolio-grid-button url-redirect portfolio-page-route`}
             href={project.url}
             key={project.id}
-            className="contents"
+            className="contents focus-visible"
             target="_blank"
             rel="noopener noreferrer"
           >
