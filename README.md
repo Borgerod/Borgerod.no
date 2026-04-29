@@ -50,7 +50,7 @@ _a compilation of all todos for the repo._ <br>
 _all of the todos found in the project files **should** be referenced here_
 
 ### <span style="font-size:0.8em;">Necessary</span>
-
+- [ ] BUG FOUND - Opening images does not work -> 505 
 - [ ] make readme look structured and nice
   - [x] add page map
   - [x] add previews
