@@ -23,9 +23,16 @@ export default function PhotoPreview({
         "col-span-full",
         "h-fit",
         "w-full",
-        "glass",
-        "glass-white",
+        "md:glass",
+        "md:glass-white",
         "m-0",
+        "unset-glass",
+        "md:glass",
+        // "unset-card",
+        // "p-5",
+        // "border-none",
+        // "shadow-none",
+        // "bg-transparent",
       )}
     >
       <Link

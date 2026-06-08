@@ -51,7 +51,6 @@ export default function Carousel({
       <div className="absolute inset-0 cursor-default" onClick={closeModal} />
 
       <SharedModal
-        // src={assets[currentIndex]}
         src={src}
         assets={assets}
         currentIndex={currentIndex}

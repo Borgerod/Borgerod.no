@@ -1,5 +1,5 @@
 "use client";
-
+//> NOTE: commented out code is the animation. Will keep for now in case I want it back later.
 import {
   Xmark,
   ArrowUpRightFromSquare,

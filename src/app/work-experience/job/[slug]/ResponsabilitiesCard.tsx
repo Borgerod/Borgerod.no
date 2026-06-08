@@ -21,12 +21,15 @@ export default function ResponsibilitiesCard({
     <Card
       className={cn(
         "bg-transparent md:bg-glass-white shadow-none md:shadow w-full h-full p-4",
-        "glass",
         "rounded-none md:rounded-3xl",
         "border-none md:border",
         "shadow-none md:shadow",
-        respCardLayout,
+        "md:glass",
+        "md:glass-white",
         "m-0",
+        "unset-glass",
+        "md:glass",
+        respCardLayout,
         "",
         "",
       )}
@@ -72,7 +75,7 @@ export default function ResponsibilitiesCard({
           <div
             key={rowIdx}
             className={cn(
-              "grid grid-rows-1 gap-2 mb-2 items-stretch",
+              "grid grid-rows-1 gap-2 items-stretch",
               colsClass[totalSpan],
               "h-full",
               "",

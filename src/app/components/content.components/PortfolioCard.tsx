@@ -33,9 +33,9 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
         "glass",
         "glass-gray",
         "gap-1",
-        "h-50",
-        "md:h-full",
         className,
+        "h-fit",
+        "",
         "",
         "",
       )}
@@ -86,6 +86,8 @@ export default function COMPONENTNAME({ className }: ComponentBaseProps) {
               "hover:bg-glass-gray-light-2-hover",
               "grid",
               "grid-rows-2",
+              "aspect-square",
+              "md:aspect-auto",
               "",
             )}
             target="_blank"
