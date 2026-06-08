@@ -65,13 +65,35 @@ export default function SharedModal({
               exit="exit"
               className="absolute"
             >
-              <Image
+              {/* <Image
                 src={src}
                 width={1920}
                 height={1280}
                 priority
                 alt="Job image"
                 className="max-h-screen object-contain md:p-25 md:py-20 py-20"
+              /> */}
+              <div className="text-white">
+                <div className="w-full bg-amber-400 flex flex-row gap-15">
+                  <span>{src}</span>
+                  <span>{currentIndex}</span>
+                </div>
+                <br />
+                {/* {assets[currentIndex]} */}
+              </div>
+              <Image
+                src={src}
+                alt={"job image"}
+                // fill
+                width={1920}
+                height={1280}
+                className={cn(
+                  "object-contain",
+                  "max-h-screen object-contain md:p-25 md:py-20 py-20",
+
+                  "",
+                  "",
+                )}
               />
             </motion.div>
           </AnimatePresence>

@@ -49,8 +49,10 @@ export default function Carousel({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-lg">
       <div className="absolute inset-0 cursor-default" onClick={closeModal} />
+
       <SharedModal
-        src={assets[currentIndex]}
+        // src={assets[currentIndex]}
+        src={src}
         assets={assets}
         currentIndex={currentIndex}
         direction={direction}
