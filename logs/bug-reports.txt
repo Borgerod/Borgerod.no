@@ -164,7 +164,7 @@
 
     update: even after changes it still does not work on mobile device. I dont know why.
 
-! BUIG (4.1): jittering swipe animation for mobile mode.
+! BUG (4.1): jittering swipe animation for mobile mode.
      INFO: 
         project version - 1.4.2
         date, discovered: 22.03.2026
@@ -173,3 +173,13 @@
 
         DESCRIPTION:
         added swipe animation to make mobile mode smoother. but it ens up with flickering between images for a short moment during the transition. 
+
+! BUG (5.0): Lightbox - Opening/expanding images does not work -> 505
+     INFO: 
+        project version - 1.6.8
+        date, discovered: 29.04.2026
+        date, solved: --
+        related files: ImageGallery.tsx, /work-experience/job/[slug]/page.tsx
+
+        DESCRIPTION:
+        All images on the job profiles are there and visible, BUT when i click on them to expand them (lightbox) i get 505.   
