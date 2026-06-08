@@ -12,6 +12,10 @@ import { Breadcrumbs, Button } from "@heroui/react";
 import { JobItem, LayoutType } from "@/lib/types";
 import PhotoPreview from "./PhotoPreview";
 
+export function generateStaticParams() {
+  return (workHistory as JobItem[]).map((item) => ({ slug: item.id }));
+}
+
 export default async function Job({
   params,
 }: {

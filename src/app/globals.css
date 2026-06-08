@@ -24,6 +24,11 @@
   --gray-light: oklch(57.268% 0.00007 271.152 / 0.2);
   --gray-light: oklch(67.968% 0.00008 271.152 / 0.3);
 
+  --gray-undertone: #616161;
+  --translucent-green-base: oklch(41.43% 0.01861 136.295 / 0.65);
+  --translucent-green-light-2: oklch(81.165% 0.04197 135.181 / 0.4);
+  --translucent-green-dark-2: oklch(48.424% 0.0232 136.041 / 0.4);
+
   --gray-undertone: oklch(49.261% 0.00006 271.152 / 0.349);
   --gray: oklch(30.221% 0.00143 15.911 / 0.3);
   --gray-dark: oklch(30.221% 0.00143 15.911 / 0.8);
@@ -97,12 +102,12 @@
   );
   --color-glass-green-light: color-mix(
     in oklab,
-    var(--color-green-lightse) 60%,
+    var(--color-green-light) 60%,
     transparent 40%
   );
   --color-glass-green-dark: color-mix(
     in oklab,
-    var(--color-green-darkase) 60%,
+    var(--color-green-dark) 60%,
     transparent 40%
   );
   --color-glass-green-dark-2: color-mix(
