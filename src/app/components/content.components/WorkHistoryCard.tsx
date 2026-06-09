@@ -172,6 +172,10 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                     // dekstop
                     "md:bg-glass-green-base md:hover:bg-glass-green-base-hover",
                     "md:text-accent-foreground-muted md:hover:text-accent-foreground",
+                    "w-fit",
+                    // "md:px-1 md:py-2",
+                    "md:w-5",
+                    "lg:w-fit",
 
                     /* 
                       TODO: get feedback and pick option 1 or 2 
@@ -190,13 +194,13 @@ export default function WorkHistoryCard({ className }: ComponentBaseProps) {
                   )}
                 >
                   <Chip.Label
-                    className="flex items-center text-center gap-1 p-0 lg:flex text-nowrap"
+                    className="flex items-center text-center gap-1 p-0 text-nowrap "
                     aria-label={`Read more about ${job.title} at ${job.employer} (${job.period.start}-${job.period.end})`}
                   >
-                    <span className="sr-only">
+                    <span className="sr-only ">
                       Read more about {job.title} at {job.employer}.{" "}
                     </span>
-                    Read more
+                    <span className="flex md:hidden lg:flex">Read more</span>
                     <LinkIcon className="size-2.5" aria-hidden="true" />
                   </Chip.Label>
                 </Chip>

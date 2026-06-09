@@ -9,9 +9,16 @@ export default function EmployerCard({ job }: { job: JobItem }) {
     <Card
       id="company-card"
       className={cn(
-        "bg-transparent md:bg-glass-white shadow-none md:shadow  col-start-1 col-span-full row-start-2 ",
-        "mb-0",
-        "glass",
+        "col-start-1 col-span-full row-start-2 ",
+        "bg-transparent md:bg-glass-white shadow-none md:shadow w-full h-full p-4",
+        "rounded-none md:rounded-3xl",
+        "border-none md:border",
+        "shadow-none md:shadow",
+        "md:glass",
+        "md:glass-white",
+        "m-0",
+        "unset-glass",
+        "md:glass",
       )}
     >
       <Card.Header>
