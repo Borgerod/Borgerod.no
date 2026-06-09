@@ -44,12 +44,17 @@ export type BentoItemDef = {
   span: number | number[];
 };
 
+export type BentoRow = {
+  items: BentoItemDef[];
+  gridTemplateColumns: string; // e.g., "2fr 1fr"
+};
+
 export type BentoInput = string[];
 
 export function BentoBoxBuilder(
   items: BentoInput,
   isHalved = false,
-): BentoItemDef[][] {
+): BentoRow[] {
   const seed = items.reduce((acc, item) => acc + item.length, 0);
   let s = seed;
   function rand(): number {
@@ -57,15 +62,7 @@ export function BentoBoxBuilder(
     return (s - 1) / 2147483646;
   }
 
-  function getMinSpan(item: string): number {
-    if (isHalved) {
-      if (item.length >= 80) return 2;
-      return 1;
-    }
-    if (item.length >= 200) return 4;
-    if (item.length >= 80) return 2;
-    return 1;
-  }
+  const thresholdSteps = [0.05, 0.08, 0.12, 0.17, 0.22];
 
   const allLayouts: (number | number[])[][] = [
     [2, 2],
@@ -131,19 +128,59 @@ export function BentoBoxBuilder(
   ];
 
   const layouts = isHalved ? halvedLayouts : allLayouts;
+
+  function effectiveLength(str: string): number {
+    const words = str.split(/\s+/).filter((w) => w.length > 0);
+    if (words.length === 0) return 1;
+    const longestWord = Math.max(...words.map((w) => w.length));
+    let lines = 1;
+    let lineLen = 0;
+    for (const word of words) {
+      if (lineLen === 0) {
+        lineLen = word.length;
+      } else if (lineLen + 1 + word.length <= longestWord) {
+        lineLen += 1 + word.length;
+      } else {
+        lines++;
+        lineLen = word.length;
+      }
+    }
+    return longestWord * lines;
+  }
+
   function gcd(a: number, b: number): number {
     return b === 0 ? a : gcd(b, a % b);
   }
 
   function layoutKey(l: (number | number[])[]): string {
-    const flatL = l.map((v) => (Array.isArray(v) ? 1 : v));
-    const g = flatL.reduce((acc, v) => gcd(acc, v));
-    return flatL.map((v) => v / g).join("-");
+    const outerSpans = l.map((v) => (Array.isArray(v) ? 1 : v));
+    const outerG = outerSpans.reduce((acc, v) => gcd(acc, v));
+    const normalizedOuter = outerSpans.map((v) => v / outerG);
+    const parts = l.map((v, i) => {
+      if (Array.isArray(v)) {
+        const innerG = v.reduce((acc, x) => gcd(acc, x));
+        const normalizedInner = v.map((x) => x / innerG).join(",");
+        return `${normalizedOuter[i]}(${normalizedInner})`;
+      }
+      return `${normalizedOuter[i]}`;
+    });
+    return parts.join("|");
+  }
+
+  function getNestedSide(
+    layout: (number | number[])[],
+  ): "left" | "right" | null {
+    if (layout.length === 0) return null;
+    const firstIsNested = Array.isArray(layout[0]);
+    const lastIsNested = Array.isArray(layout[layout.length - 1]);
+    if (firstIsNested && !lastIsNested) return "left";
+    if (lastIsNested && !firstIsNested) return "right";
+    return null;
   }
 
   function stringFitsRowLayout({
     bentoItem,
-    threshold = 0.05,
+    threshold = 0.05, // doesnt seem to be doing anything. this will allways return negative
   }: {
     bentoItem: BentoItemDef[];
     threshold?: number;
@@ -157,12 +194,6 @@ export function BentoBoxBuilder(
         strings.push(item.text);
       }
     });
-
-    function effectiveLength(str: string): number {
-      const words = str.split(/\s+/).filter((w) => w.length > 0);
-      const longestWord = Math.max(...words.map((w) => w.length));
-      return Math.max(str.length, longestWord * 2.5);
-    }
 
     const totalStrLen = strings.reduce((acc, s) => acc + effectiveLength(s), 0);
     const stringWeights = strings.map((s) => effectiveLength(s) / totalStrLen);
@@ -181,10 +212,39 @@ export function BentoBoxBuilder(
       return [s / totalOuterSpan];
     });
 
+    // 1. Proportional difference check
     for (let i = 0; i < layoutWeights.length; i++) {
       const diff = Math.abs(layoutWeights[i] - stringWeights[i]);
       if (diff > threshold) {
         return false;
+      }
+    }
+
+    // 2. Bias against extreme span ratios
+    const spanValues = spans.flatMap((s) => (Array.isArray(s) ? s : [s]));
+    const maxSpan = Math.max(...spanValues);
+    const minSpan = Math.min(...spanValues);
+    const spanRatio = maxSpan / minSpan;
+
+    // if (spanRatio >= 2.5) {
+    if (spanRatio >= 2.5) {
+      const maxStringWeight = Math.max(...stringWeights);
+      const minStringWeight = Math.min(...stringWeights);
+      const stringRatio = maxStringWeight / minStringWeight;
+
+      // Special extra bias for rows with a nested group containing 2 or fewer items
+      const hasNestedGroup = spans.some((s) => Array.isArray(s));
+      if (hasNestedGroup && row.length === 2) {
+        // One cell is nested, the other is single. Nested group likely has ≤2 items.
+        // Require string ratio ≥4.0 to allow 3:1 layout (instead of 3.5)
+        if (stringRatio < 4.5) {
+          return false;
+        }
+      } else {
+        // Default bias: require string ratio ≥3.5 for any 3:1 layout
+        if (stringRatio < 3.5) {
+          return false;
+        }
       }
     }
 
@@ -194,6 +254,7 @@ export function BentoBoxBuilder(
   function tryFill(
     layout: (number | number[])[],
     available: string[],
+    threshold = 0.05,
   ): BentoItemDef[] | null {
     if (
       previousRowLayout.length > 0 &&
@@ -222,9 +283,24 @@ export function BentoBoxBuilder(
       }
     }
 
+    function* permutations<T>(arr: T[]): Generator<T[]> {
+      if (arr.length <= 1) {
+        yield [...arr];
+        return;
+      }
+      for (let i = 0; i < arr.length; i++) {
+        const rest = [...arr.slice(0, i), ...arr.slice(i + 1)];
+        for (const perm of permutations(rest)) {
+          yield [arr[i], ...perm];
+        }
+      }
+    }
+
     for (const combo of combinations(available.length, cellsCount)) {
       const selected = combo.map((idx) => available[idx]);
-      const sortedStrings = [...selected].sort((a, b) => b.length - a.length);
+      const sortedStrings = [...selected].sort(
+        (a, b) => effectiveLength(b) - effectiveLength(a),
+      );
 
       const flatLayout: {
         span: number;
@@ -252,32 +328,33 @@ export function BentoBoxBuilder(
         }
       });
 
-      // Priority: Un-nested first (biggest to smallest), then nested (biggest to smallest)
       flatLayout.sort((a, b) => {
         if (a.isNested !== b.isNested) return a.isNested ? 1 : -1;
         return b.span - a.span;
       });
 
-      const assigned: { [key: string]: string | string[] } = {};
-      flatLayout.forEach((cell, idx) => {
-        if (cell.nestedIdx !== null) {
-          const key = `${cell.parentIdx}`;
-          if (!assigned[key]) assigned[key] = [];
-          (assigned[key] as string[])[cell.nestedIdx] = sortedStrings[idx];
-        } else {
-          assigned[`${cell.parentIdx}`] = sortedStrings[idx];
-        }
-      });
+      for (const permutation of permutations(sortedStrings)) {
+        const assigned: { [key: string]: string | string[] } = {};
+        flatLayout.forEach((cell, idx) => {
+          if (cell.nestedIdx !== null) {
+            const key = `${cell.parentIdx}`;
+            if (!assigned[key]) assigned[key] = [];
+            (assigned[key] as string[])[cell.nestedIdx] = permutation[idx];
+          } else {
+            assigned[`${cell.parentIdx}`] = permutation[idx];
+          }
+        });
 
-      const row: BentoItemDef[] = layout.map((spanDef, i) => {
-        if (Array.isArray(spanDef)) {
-          return { text: assigned[`${i}`], span: spanDef };
-        } else {
-          return { text: assigned[`${i}`], span: spanDef };
-        }
-      });
+        const row: BentoItemDef[] = layout.map((spanDef, i) => {
+          if (Array.isArray(spanDef)) {
+            return { text: assigned[`${i}`], span: spanDef };
+          } else {
+            return { text: assigned[`${i}`], span: spanDef };
+          }
+        });
 
-      if (stringFitsRowLayout({ bentoItem: row })) return row;
+        if (stringFitsRowLayout({ bentoItem: row, threshold })) return row;
+      }
     }
     return null;
   }
@@ -292,109 +369,159 @@ export function BentoBoxBuilder(
     return arr;
   }
   let previousRowLayout: (number | number[])[] = [];
+  let previousNestedSide: "left" | "right" | null = null;
 
-  while (queue.length > 1) {
-    let placed = false;
-    const currentPool = shuffle([...layouts]);
-    for (let i = 0; i < currentPool.length; i++) {
-      const result = tryFill(currentPool[i], queue);
-      if (result) {
-        result.forEach((item) => {
+  function outerSpans(layout: (number | number[])[]): number[] {
+    return layout.map((v) => (Array.isArray(v) ? 1 : v));
+  }
+
+  function hasSameStartProfile(
+    prev: (number | number[])[],
+    curr: (number | number[])[],
+  ): boolean {
+    if (prev.length === 0) return false;
+    const ps = outerSpans(prev);
+    const cs = outerSpans(curr);
+    const prevSign = Math.sign(ps[0] - ps[ps.length - 1]);
+    const currSign = Math.sign(cs[0] - cs[cs.length - 1]);
+    return prevSign === currSign;
+  }
+
+  // Helper to attempt placing a row using a given list of layouts
+  function tryPlaceWithLayouts(
+    layoutsToTry: (number | number[])[][] | [number, number][],
+    queue: string[],
+    rows: BentoItemDef[][],
+    isFallback = false,
+  ): boolean {
+    for (const threshold of thresholdSteps) {
+      for (const layout of layoutsToTry) {
+        // Skip if layout repeats previous row layout
+        if (
+          previousRowLayout.length > 0 &&
+          layoutKey(previousRowLayout) ===
+            layoutKey(layout as (number | number[])[])
+        ) {
+          continue;
+        }
+
+        let result: BentoItemDef[] | null = null;
+        if (!isFallback) {
+          result = tryFill(layout as (number | number[])[], queue, threshold);
+        } else {
+          // Fallback: only 2‑cell layouts, we build candidate manually
+          const [spanA, spanB] = layout as [number, number];
+          for (const [textA, textB] of [
+            [queue[0], queue[1]],
+            [queue[1], queue[0]],
+          ]) {
+            const candidate: BentoItemDef[] = [
+              { text: textA, span: spanA },
+              { text: textB, span: spanB },
+            ];
+            if (stringFitsRowLayout({ bentoItem: candidate, threshold })) {
+              result = candidate;
+              break;
+            }
+          }
+        }
+        if (!result) continue;
+
+        // --- Layout accepted – apply mirror and nested‑side rules ---
+        let candidateLayout = layout as (number | number[])[];
+        let shouldMirror = hasSameStartProfile(
+          previousRowLayout,
+          candidateLayout,
+        );
+        const mirroredLayout = [...candidateLayout].reverse();
+
+        // Prevent repeating the same directional pattern
+        if (
+          shouldMirror &&
+          hasSameStartProfile(previousRowLayout, mirroredLayout)
+        ) {
+          continue;
+        }
+
+        const candidateNestedSide = getNestedSide(candidateLayout);
+        if (
+          previousNestedSide !== null &&
+          candidateNestedSide === previousNestedSide
+        ) {
+          const mirroredNestedSide = getNestedSide(mirroredLayout);
+          if (mirroredNestedSide === previousNestedSide) {
+            continue; // mirroring doesn't help, skip
+          } else {
+            shouldMirror = true;
+            candidateLayout = mirroredLayout;
+          }
+        }
+
+        const finalRow = shouldMirror ? [...result].reverse() : result;
+        const finalLayout = shouldMirror ? candidateLayout : candidateLayout;
+
+        // Remove used strings from queue
+        finalRow.forEach((item) => {
           const texts = Array.isArray(item.text) ? item.text : [item.text];
           texts.forEach((t) => {
             const idx = queue.indexOf(t);
             if (idx !== -1) queue.splice(idx, 1);
           });
         });
-        previousRowLayout = currentPool[i];
-        rows.push(result);
-        placed = true;
-        break;
+
+        previousRowLayout = finalLayout;
+        previousNestedSide = getNestedSide(finalLayout);
+        rows.push(finalRow);
+        return true; // row placed
       }
     }
-    if (!placed) {
-      break;
-    }
+    return false; // no layout worked
   }
 
-  const isolatedLayouts: [number, number][] = [
-    [3, 1],
-    [1, 3],
-    [1, 2],
-    [2, 1],
-    [1, 1],
-  ];
+  // Main loop
+  while (queue.length > 1) {
+    // First try the rich full layouts
+    const currentPool = shuffle([...layouts]);
+    if (tryPlaceWithLayouts(currentPool, queue, rows, false)) continue;
 
-  while (queue.length > 0) {
-    if (queue.length === 1) {
-      const forcedSpan = isHalved ? 2 : 4;
-      rows.push([{ text: queue.splice(0, 1)[0], span: forcedSpan }]);
-      break;
-    }
+    // Then try simple 2‑column fallback layouts
+    const isolatedLayouts: [number, number][] = [
+      [2, 1],
+      [1, 2],
+      [3, 1],
+      [1, 3],
+      [1, 1],
+    ];
+    if (tryPlaceWithLayouts(isolatedLayouts, queue, rows, true)) continue;
 
-    let placed = false;
-    for (const [spanA, spanB] of isolatedLayouts) {
-      if (
-        previousRowLayout.length > 0 &&
-        layoutKey(previousRowLayout) === layoutKey([spanA, spanB])
-      )
-        continue;
-      const permutations: [string, string][] = [
-        [queue[0], queue[1]],
-        [queue[1], queue[0]],
-      ];
-      for (const [textA, textB] of permutations) {
-        if (getMinSpan(textA) > spanA || getMinSpan(textB) > spanB) continue;
-        const candidate: BentoItemDef[] = [
-          { text: textA, span: spanA },
-          { text: textB, span: spanB },
-        ];
-        if (stringFitsRowLayout({ bentoItem: candidate, threshold: 0.2 })) {
-          rows.push(candidate);
-          previousRowLayout = [spanA, spanB];
-          queue.splice(0, 2);
-          placed = true;
-          break;
-        }
+    // If still nothing fits, force a row
+    const forcedSpan = isHalved ? 1 : 2;
+    rows.push([
+      { text: queue[0], span: forcedSpan },
+      { text: queue[1], span: forcedSpan },
+    ]);
+    queue.splice(0, 2);
+    previousRowLayout = [forcedSpan, forcedSpan];
+    previousNestedSide = null;
+  }
+
+  // Handle the last single item (if any)
+  if (queue.length === 1) {
+    const forcedSpan = isHalved ? 2 : 4;
+    rows.push([{ text: queue[0], span: forcedSpan }]);
+    previousNestedSide = null;
+  }
+  // Convert rows to BentoRow[] with gridTemplateColumns
+  const rowsWithFr: BentoRow[] = rows.map((row) => {
+    const frValues: number[] = row.map((item) => {
+      if (Array.isArray(item.span)) {
+        return 1;
       }
-      if (placed) break;
-    }
+      return item.span;
+    });
+    const gridTemplateColumns = frValues.map((v) => `${v}fr`).join(" ");
+    return { items: row, gridTemplateColumns };
+  });
 
-    if (!placed) {
-      const forcedSpan = isHalved ? 1 : 2;
-      rows.push([
-        { text: queue[0], span: forcedSpan },
-        { text: queue[1], span: forcedSpan },
-      ]);
-      queue.splice(0, 2);
-    }
-  }
-
-  return rows;
+  return rowsWithFr;
 }
-/*! DEBUGGER dont remove this */
-// function DebuggerStringFitsRowLayout(params: {
-//   spans: (number | number[])[];
-//   nestedStrings: (string | string[])[];
-//   nestedStringWeights: (number | number[])[];
-//   nestedLayoutWeights: (number | number[])[];
-//   nestedWeightDiffs: (number | number[])[];
-//   threshold: number;
-//   nestedResults: (boolean | boolean[])[];
-//   isRowValid: boolean;
-// }): void {
-//   console.log("[Bento Debugger]:", {
-//     layout: params.spans,
-//     strings: params.nestedStrings,
-//     stringWeights: params.nestedStringWeights,
-//     layoutWeights: params.nestedLayoutWeights,
-//     weightDiffs: params.nestedWeightDiffs,
-//     threshold: params.threshold,
-//     layoutFitResults: params.nestedResults,
-//     verdict: {
-//       results: params.isRowValid
-//         ? "VALID - ADDED TO BENTO"
-//         : "INVALID - REJECTED",
-//     },
-//   });
-// }

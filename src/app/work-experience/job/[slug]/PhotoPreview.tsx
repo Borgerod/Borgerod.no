@@ -28,11 +28,6 @@ export default function PhotoPreview({
         "m-0",
         "unset-glass",
         "md:glass",
-        // "unset-card",
-        // "p-5",
-        // "border-none",
-        // "shadow-none",
-        // "bg-transparent",
       )}
     >
       <Link
